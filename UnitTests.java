@@ -1,6 +1,7 @@
 // Unit testing class
 // Calls Different functions and expects certain result
 
+import java.util.ArrayList;
 import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,6 +33,7 @@ public class UnitTests
       testCount = 0;
       testsPassedCount = 0;
       
+      ////////// Information Tests //////////
       try
       {
          testCount++;
@@ -87,6 +89,63 @@ public class UnitTests
       catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
       catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
       
+      ////////// ArrayList setting Tests //////////
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setBookingList()";
+         setBookingListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setArchivedBookingList()";
+         setArchivedBookingListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setRoomList()";
+         setRoomListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setGuestList()";
+         setGuestListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setStaffgList()";
+         setStaffListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      ////////// Misc Tests //////////
       try
       {
          testCount++;
@@ -145,6 +204,8 @@ public class UnitTests
       // Assert
       as.assertEquals(null, null);
    }
+   
+   ////////// Information Tests //////////
    
    public void loadBookingListTest() throws TestException
    {
@@ -210,6 +271,85 @@ public class UnitTests
       // Assert
       as.assertEquals(Boolean.toString(info.staffList.isEmpty()), Boolean.toString(false));
    }
+   
+   ////////// Setting ArrayLists Tests //////////
+   
+   public void setBookingListTest() throws TestException
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      mf.setSaveToFile(false);
+      ArrayList<Booking> list = new ArrayList<Booking>();
+      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
+      // Act
+      mf.setBookingList(list);
+      // Assert
+      as.assertEquals(Boolean.toString(mf.getBookingList().isEmpty()), Boolean.toString(false));
+   }
+   
+   public void setArchivedBookingListTest() throws TestException
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      mf.setSaveToFile(false);
+      ArrayList<Booking> list = new ArrayList<Booking>();
+      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
+      // Act
+      mf.setArchivedBookingList(list);
+      // Assert
+      as.assertEquals(Boolean.toString(mf.getArchivedBookingList().isEmpty()), Boolean.toString(false));
+   }
+   
+   public void setRoomListTest() throws TestException
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      mf.setSaveToFile(false);
+      ArrayList<Room> list = new ArrayList<Room>();
+      list.add(new Room(0, 1));
+      // Act
+      mf.setRoomList(list);
+      // Assert
+      as.assertEquals(Boolean.toString(mf.getRoomList().isEmpty()), Boolean.toString(false));
+   }
+   
+   public void setGuestListTest() throws TestException
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      mf.setSaveToFile(false);
+      ArrayList<Guest> list = new ArrayList<Guest>();
+      
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
+      list.add(new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0));
+      // Act
+      mf.setGuestList(list);
+      // Assert
+      as.assertEquals(Boolean.toString(mf.getGuestList().isEmpty()), Boolean.toString(false));
+   }
+   
+   public void setStaffListTest() throws TestException
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      mf.setSaveToFile(false);
+      ArrayList<Staff> list = new ArrayList<Staff>();
+      
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
+      list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", 0, 0, 0.0, 0));
+      // Act
+      mf.setStaffList(list);
+      // Assert
+      as.assertEquals(Boolean.toString(mf.getStaffList().isEmpty()), Boolean.toString(false));
+   }
+   
+   ////////// Misc tests //////////
    
    public void validateLoginGuestTest() throws TestException
    {

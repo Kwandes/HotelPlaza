@@ -19,6 +19,7 @@ public class MainFrame // MF or motherFucker for short
    private Properties config;
    private boolean isInitiatedProperly;
    private String appTitle;
+   private boolean saveToFile = false;
 
    public MainFrame(boolean printLogs)
    {  
@@ -128,7 +129,7 @@ public class MainFrame // MF or motherFucker for short
          int bookingID = 1;
          bookingList.add(new Booking(bookingID, roomID, Integer.toString(userID), startDate, endDate, roomPrice, hasInternet));
          
-         file.saveData(new Information(bookingList, null, null, null, null));
+         if(this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null));
          createLog("New Booking created, id: " + bookingList.get(bookingList.size()-1).getBookingID() + " by " + userID, Log.Type.INFO);
       }
       catch (Exception e) {  createLog(e, Log.Type.ERROR); }
@@ -189,14 +190,66 @@ public class MainFrame // MF or motherFucker for short
       catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
    }
    
-   ////////// User management //////////
-   // contact interface : populate array
+   ////////// ArrayList Setters && Getters //////////
+   
+   public void setBookingList(ArrayList<Booking> bookingList)
+   {
+       this.bookingList = bookingList;
+       createLog("Booking List modified", Log.Type.INFO);
+       if (this.saveToFile)
+       {
+          file.saveData(new Information(this.bookingList, null, null, null, null));
+          createLog("Booking List saved", Log.Type.INFO);
+       }
+   }
+   
+   public ArrayList<Booking> getBookingList()
+   {
+      return this.bookingList;
+   }
+   
+   public void setArchivedBookingList(ArrayList<Booking> archivedBookingList)
+   {
+      this.archivedBookingList = archivedBookingList;
+       createLog("Archived Booking List modified", Log.Type.INFO);
+       if (this.saveToFile)
+       {
+          file.saveData(new Information(null, this.archivedBookingList, null, null, null));
+          createLog("Archived Booking List saved", Log.Type.INFO);
+       }
+   }
+   
+   public ArrayList<Booking> getArchivedBookingList()
+   {
+      return this.archivedBookingList;
+   }
+   
+   public void setRoomList(ArrayList<Room> roomList)
+   {
+       this.roomList = roomList;
+       createLog("Room List modified", Log.Type.INFO);
+       if (this.saveToFile)
+       {
+          file.saveData(new Information(null, null, this.roomList, null, null));
+          createLog("Room List saved", Log.Type.INFO);
+       }
+   }
+   
+   public ArrayList<Room> getRoomList()
+   {
+      return this.roomList;
+   }
+   
    public void setGuestList(ArrayList<Guest> guestList)
    {
        this.guestList = guestList;
-       file.saveData(new Information(null, null, null, guestList, null));
-       createLog("Guest List modified and saved", Log.Type.INFO);
-   }
+       createLog("Guest List modified", Log.Type.INFO);
+       if (this.saveToFile)
+       {
+          file.saveData(new Information(null, null, null, this.guestList, null));
+          createLog("Guest List saved", Log.Type.INFO);
+       }
+   }   
    
    public ArrayList<Guest> getGuestList()
    {
@@ -205,44 +258,20 @@ public class MainFrame // MF or motherFucker for short
    
    public void setStaffList(ArrayList<Staff> staffList)
    {
-       this.guestList = guestList;
-       file.saveData(new Information(null, null, null, null, staffList));
-       createLog("Staff List modified and saved", Log.Type.INFO);
-   }
+       this.staffList = staffList;
+       createLog("Staff List modified", Log.Type.INFO);
+       if (this.saveToFile)
+       {
+          file.saveData(new Information(null, null, null, null, this.staffList));
+          createLog("Staff List saved", Log.Type.INFO);
+       }
+   }   
    
    public ArrayList<Staff> getStaffList()
    {
-      return staffList;
+      return this.staffList;
    }
-   
-   ////////// Room management //////////
-   // contact interface : populate array
-   public void setRoomList(ArrayList<Room> roomList)
-   {
-       this.roomList = roomList;
-       file.saveData(new Information(null, null, roomList, null, null));
-       createLog("RoomList modified and saved", Log.Type.INFO);
-   }
-   
-   public ArrayList<Room> getRoomList()
-   {
-      return roomList;
-   }
-   
-   ////////// Booking management //////////
-   // contact interface : populate array
-   public void setBookingList(ArrayList<Booking> bookingList)
-   {
-      this.bookingList = bookingList;
-      bookingList = file.loadData(new Information(true, false, false, false, false)).bookingList;
-      createLog("Booking List modified and saved", Log.Type.INFO);
-   }
-   
-   public ArrayList<Booking> getBookingList()
-   {
-      return bookingList;
-   }
-   
+    
    ////////// Config //////////
    // read Config
    // assign config values to stuff
@@ -361,5 +390,10 @@ public class MainFrame // MF or motherFucker for short
    public boolean getInitStatus()
    {
       return this.isInitiatedProperly;
+   }
+   
+   public void setSaveToFile(Boolean state)
+   {
+      this.saveToFile = state;
    }
 }
