@@ -6,6 +6,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// Musik
+import javax.sound.sampled.LineUnavailableException; 
+import javax.sound.sampled.UnsupportedAudioFileException; 
+
 public class UnitTests
 {
    private Assert as;
@@ -54,8 +58,19 @@ public class UnitTests
       {
          testCount++;
          testName = "load Config";
+         playMusic();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage());}
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "play Music";
          loadConfig();
-         System.out.println(">>>" + testName + " | " + "Passed");
+         System.out.println(testName + " | " + "Passed");
          testsPassedCount++;
       }
       catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage());}
@@ -109,6 +124,17 @@ public class UnitTests
       config.load(new FileInputStream(configName));
       // Assert
       as.assertEquals(config.getProperty("testVar").toString(), "yeet");
+   }
+   
+   public void playMusic() throws TestException, UnsupportedAudioFileException, IOException, LineUnavailableException
+   {
+      // Arrange
+      String filePath = "musik/depression.wav";
+      Musik yes = new Musik(filePath);
+      // Act
+      yes.play();
+      // Assert
+      as.assertEquals(yes.getStatus(), "playing");
    }
    
    
