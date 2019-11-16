@@ -26,8 +26,19 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "validateLogin()";
-         validateLoginTest();
+         testName = "validateGuestLogin()";
+         validateLoginGuestTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "validateStaffLogin()";
+         validateLoginStaffTest();
          System.out.println(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -58,28 +69,39 @@ public class UnitTests
       as.assertEquals(null, null);
    }
    
-   public void validateLoginTest() throws TestException
+   public void validateLoginGuestTest() throws TestException
    {
       // Arrange
       MainFrame mf = new MainFrame(this.printDebugInfo);
       mf.init();
       String phoneNumber = "+69 420";
       String password = "yeet";
-      User testUser = new User();
-      mf.addUser(testUser);
       // Act
-      User user = mf.validateLogin(phoneNumber, password);
+      Guest guest = mf.validateLoginGuest(phoneNumber, password);
       //Assert
-//       as.assertEquals(user.getUserID(), testUser.getUserID());
+       as.assertEquals(guest.getPhoneNumber(), phoneNumber);
+   }
+   
+   public void validateLoginStaffTest() throws TestException
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      mf.init();
+      String phoneNumber = "+69 420";
+      String password = "yeet";
+      // Act
+      Staff staff = mf.validateLoginStaff(phoneNumber, password);
+      //Assert
+       as.assertEquals(staff.getPhoneNumber(), phoneNumber);
    }
    
    public void loadConfig() throws TestException
    {
       // Arrange
-      Config cfg = new Config();
+      //Config cfg = new Config();
       // Act
       // Assert
-      as.assertEquals(Boolean.toString(cfg.isLoaded()), "true");
+      //as.assertEquals(Boolean.toString(cfg.isLoaded()), "true");
    }
    
    

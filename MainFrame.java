@@ -84,7 +84,26 @@ public class MainFrame // MF or motherFucker for short
    ////////// UI API //////////
    
    // Returns a valid user for a given login. If none is found, returns null;
-   public User validateLogin(String phoneNumber, String password)
+   
+   public Guest validateLoginGuest(String phoneNumber, String password)
+   {  
+      try
+      {     
+         for(int i = 0; i < guestList.size(); i++)
+         {
+            if(guestList.get(i).getPhoneNumber().equals(phoneNumber) && guestList.get(i).getPassword().equals(password))
+            {
+               createLog("Guest " + guestList.get(i).getID() + " has logged in", Log.Type.INFO);
+               return guestList.get(i);
+            }
+         }
+      }
+      catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
+      createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.INFO);
+      return null;   // If the login info is invalid return null
+   }
+   
+   public Staff validateLoginStaff(String phoneNumber, String password)
    {  
       try
       {
@@ -94,15 +113,6 @@ public class MainFrame // MF or motherFucker for short
             {
                createLog("Staff Member " + staffList.get(i).getID() + " has logged in", Log.Type.INFO);
                return staffList.get(i);
-            }
-         }
-         
-         for(int i = 0; i < guestList.size(); i++)
-         {
-            if(guestList.get(i).getPhoneNumber().equals(phoneNumber) && guestList.get(i).getPassword().equals(password))
-            {
-               createLog("Guest " + guestList.get(i).getID() + " has logged in", Log.Type.INFO);
-               return guestList.get(i);
             }
          }
       }
