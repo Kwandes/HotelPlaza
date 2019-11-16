@@ -35,6 +35,61 @@ public class UnitTests
       try
       {
          testCount++;
+         testName = "Information-loadBookingList";
+         loadBookingListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "Information-loadArchivedBookingList";
+         loadArchivedBookingListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "Information-loadRoomList";
+         loadRoomListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "Information-loadGuestList";
+         loadGuestListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
+         testName = "Information-loadStaffList";
+         loadStaffListTest();
+         System.out.println(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      
+      try
+      {
+         testCount++;
          testName = "validateGuestLogin()";
          validateLoginGuestTest();
          System.out.println(testName + " | " + "Passed");
@@ -80,13 +135,80 @@ public class UnitTests
       System.out.println("Unit testing finished. Passed " + testsPassedCount + "/" + testCount + " tests\n\n");
    }
    
+   
+   
    ////////// unit tests //////////
-   public void templateTes() throws TestException
+   public void templateTest() throws TestException
    {
       // Arrange
       // Act
       // Assert
       as.assertEquals(null, null);
+   }
+   
+   public void loadBookingListTest() throws TestException
+   {
+      // Arrange
+      Information info = new Information(true, false, false, false, false);
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      FileManagement file = new FileManagement(mf);
+      file.setFilePath("logs");
+      // Act
+      info = file.loadData(info);
+      // Assert
+      as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
+   }
+   
+   public void loadArchivedBookingListTest() throws TestException
+   {
+      // Arrange
+      Information info = new Information(false, true, false, false, false);
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      FileManagement file = new FileManagement(mf);
+      file.setFilePath("logs");
+      // Act
+      info = file.loadData(info);
+      // Assert
+      as.assertEquals(Boolean.toString(info.archivedBookingList.isEmpty()), Boolean.toString(false));
+   }
+   
+   public void loadRoomListTest() throws TestException
+   {
+      // Arrange
+      Information info = new Information(false, false, true, false, false);
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      FileManagement file = new FileManagement(mf);
+      file.setFilePath("logs");
+      // Act
+      info = file.loadData(info);
+      // Assert
+      as.assertEquals(Boolean.toString(info.roomList.isEmpty()), Boolean.toString(false));
+   }
+   
+   public void loadGuestListTest() throws TestException
+   {
+      // Arrange
+      Information info = new Information(false, false, false, true, false);
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      FileManagement file = new FileManagement(mf);
+      file.setFilePath("logs");
+      // Act
+      info = file.loadData(info);
+      // Assert
+      as.assertEquals(Boolean.toString(info.guestList.isEmpty()), Boolean.toString(false));
+   }
+   
+   public void loadStaffListTest() throws TestException
+   {
+      // Arrange
+      Information info = new Information(false, false, false, false, true);
+      MainFrame mf = new MainFrame(this.printDebugInfo);
+      FileManagement file = new FileManagement(mf);
+      file.setFilePath("logs");
+      // Act
+      info = file.loadData(info);
+      // Assert
+      as.assertEquals(Boolean.toString(info.staffList.isEmpty()), Boolean.toString(false));
    }
    
    public void validateLoginGuestTest() throws TestException
