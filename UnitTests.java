@@ -1,6 +1,11 @@
 // Unit testing class
 // Calls Different functions and expects certain result
 
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class UnitTests
 {
    private Assert as;
@@ -31,7 +36,7 @@ public class UnitTests
          System.out.println(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | " + e.getMessage()); }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
       catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
       
       try
@@ -42,7 +47,7 @@ public class UnitTests
          System.out.println(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | " + e.getMessage()); }
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
       catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
       
       try
@@ -53,7 +58,7 @@ public class UnitTests
          System.out.println(">>>" + testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | " + e.getMessage());}
+      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage());}
       catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
       
       System.out.println("----------");
@@ -92,16 +97,18 @@ public class UnitTests
       // Act
       Staff staff = mf.validateLoginStaff(phoneNumber, password);
       //Assert
-       as.assertEquals(staff.getPhoneNumber(), phoneNumber);
+      as.assertEquals(staff.getPhoneNumber(), phoneNumber);
    }
    
-   public void loadConfig() throws TestException
+   public void loadConfig() throws TestException, FileNotFoundException, IOException
    {
       // Arrange
-      //Config cfg = new Config();
+      Properties config = new Properties();
+      String configName = "config.properties";
       // Act
+      config.load(new FileInputStream(configName));
       // Assert
-      //as.assertEquals(Boolean.toString(cfg.isLoaded()), "true");
+      as.assertEquals(config.getProperty("testVar").toString(), "yeet");
    }
    
    
