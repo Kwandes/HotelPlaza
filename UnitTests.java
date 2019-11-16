@@ -19,15 +19,22 @@ public class UnitTests
    private boolean printDebugInfo;
    private int testCount;
    private int testsPassedCount;
+   private FileManagement fileManager;
+   
+   public UnitTests()
+   {
+      this.fileManager = new FileManagement();
+   }
    
    public void runTests(boolean debug)
    {
       // Debugging means printing logs created in MainFrame etc to console
       // Enable to see what exactly is going on, Disable for simple Test Passed/Failed
+      log("New Unit test run");
       this.printDebugInfo = debug;
-      if(printDebugInfo) System.out.println("Debugging messages ON");
-      else System.out.println("Debugging messages OFF");
-      System.out.println("----------");
+      if(printDebugInfo) log("Debugging messages ON");
+      else log("Debugging messages OFF");
+      log("----------");
 
       as = new Assert();
       testCount = 0;
@@ -39,55 +46,55 @@ public class UnitTests
          testCount++;
          testName = "Information-loadBookingList";
          loadBookingListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "Information-loadArchivedBookingList";
          loadArchivedBookingListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "Information-loadRoomList";
          loadRoomListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "Information-loadGuestList";
          loadGuestListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "Information-loadStaffList";
          loadStaffListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       ////////// ArrayList setting Tests //////////
       try
@@ -95,55 +102,55 @@ public class UnitTests
          testCount++;
          testName = "MF-ArrayLists-setBookingList()";
          setBookingListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "MF-ArrayLists-setArchivedBookingList()";
          setArchivedBookingListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "MF-ArrayLists-setRoomList()";
          setRoomListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "MF-ArrayLists-setGuestList()";
          setGuestListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "MF-ArrayLists-setStaffgList()";
          setStaffListTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       ////////// Misc Tests //////////
       try
@@ -151,47 +158,47 @@ public class UnitTests
          testCount++;
          testName = "validateGuestLogin()";
          validateLoginGuestTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "validateStaffLogin()";
          validateLoginStaffTest();
-         System.out.println(testName + " | " + "Passed");
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "load Config";
-         playMusic();
-         System.out.println(testName + " | " + "Passed");
+         loadConfig();
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage());}
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage());}
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
       try
       {
          testCount++;
          testName = "play Music";
-         loadConfig();
-         System.out.println(testName + " | " + "Passed");
+         playMusic();
+         log(testName + " | " + "Passed");
          testsPassedCount++;
       }
-      catch (TestException e) { System.out.println(testName + " | Failed: " + e.getMessage());}
-      catch (Exception e) { System.out.println(testName + " | Failed: " + e); }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage());}
+      catch (Exception e) { log(testName + " | Failed: " + e); }
       
-      System.out.println("----------");
-      System.out.println("Unit testing finished. Passed " + testsPassedCount + "/" + testCount + " tests\n\n");
+      log("----------");
+      log("Unit testing finished. Passed " + testsPassedCount + "/" + testCount + " tests\n\n");
    }
    
    
@@ -395,8 +402,9 @@ public class UnitTests
       Musik yes = new Musik(filePath);
       // Act
       yes.play();
+      yes.stop();
       // Assert
-      as.assertEquals(yes.getStatus(), "playing");
+      as.assertEquals(yes.getStatus(), "stopped");
    }
    
    
@@ -420,5 +428,10 @@ public class UnitTests
       public TestException(String message) { super(message); }
       public TestException(String message, Throwable cause) { super(message, cause); }
       public TestException(Throwable cause) { super(cause); }
+   }
+   
+   public void log(String message)
+   {
+      fileManager.appendToFile(message, true);
    }
 }

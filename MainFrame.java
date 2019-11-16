@@ -67,10 +67,9 @@ public class MainFrame // MF or motherFucker for short
          staffList = info.staffList;
          
          createLog("ArrayList setup complete", Log.Type.INFO);
-         ////////// Run CLI/UI/whatever we called it //////////
-         // create UI object and run UI
+         
          createLog("MainFrame init has completed successfully", Log.Type.INFO);
-         playMusic();
+         
          this.isInitiatedProperly = true;
       }
       catch (Exception e)
@@ -381,6 +380,21 @@ public class MainFrame // MF or motherFucker for short
       catch (Exception e)
       {
          createLog("Unable to play Music", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public void stopMusic()
+   {
+      try
+      {
+         Musik yes = new Musik(config.getProperty("musicFile"));
+         yes.stop();
+         createLog("Stopping " + config.getProperty("musicFile"), Log.Type.INFO);
+      }
+      catch (Exception e)
+      {
+         createLog("Unable to stop Music. Og god what have we done", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
       }
    }

@@ -12,6 +12,10 @@ public class FileManagement
    private Information info;
       
       // Constructors
+   public FileManagement () 
+   {
+      this.filePath = "Logs";
+   }
       
    public FileManagement (MainFrame mfRef) 
    {

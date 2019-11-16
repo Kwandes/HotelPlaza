@@ -24,11 +24,11 @@ public class Musik
       
       clip = AudioSystem.getClip();
       clip.open(audio);
-      clip.loop(Clip.LOOP_CONTINUOUSLY);
    }
    
    public void play()
    {
+      clip.loop(Clip.LOOP_CONTINUOUSLY);
       clip.start();
       this.status = "playing";
    }
@@ -36,6 +36,7 @@ public class Musik
    public void stop()
    {
       clip.stop();
+      clip.close();
       this.status = "stopped";
    }
    
