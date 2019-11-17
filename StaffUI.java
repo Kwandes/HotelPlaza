@@ -204,7 +204,6 @@ public class StaffUI extends CLI
       
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, 0, hours, salary, vacation);
       //* send newly created Staff: "created" to staff array. mf.addStaff(created);
-      returnQuit();
    }
 
    public void createGuest() 
