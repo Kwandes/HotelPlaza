@@ -192,7 +192,7 @@ public class UnitTests
       {
          testCount++;
          testName = "load Config";
-         loadConfig();
+         loadConfigTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -204,7 +204,19 @@ public class UnitTests
       {
          testCount++;
          testName = "play Music";
-         playMusic();
+         playMusicTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage());}
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "Alex Brain Smoll";
+         alexBrainSmollTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -229,7 +241,7 @@ public class UnitTests
    
    ////////// Information Tests //////////
    
-   public void saveAndLoadBookingListTest() throws TestException, FileNotFoundException, NullPointerException
+   public void saveAndLoadBookingListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
    {
       // Arrange
       Information info;
@@ -244,7 +256,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadArchivedBookingListTest() throws TestException, FileNotFoundException, NullPointerException
+   public void saveAndLoadArchivedBookingListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
    {
       // Arrange
       Information info;
@@ -259,7 +271,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.archivedBookingList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadRoomListTest() throws TestException, FileNotFoundException, NullPointerException
+   public void saveAndLoadRoomListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
    {
       // Arrange
       Information info;
@@ -274,7 +286,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.roomList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadGuestListTest() throws TestException, FileNotFoundException, NullPointerException
+   public void saveAndLoadGuestListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
    {
       // Arrange
       Information info;
@@ -293,7 +305,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.guestList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadStaffListTest() throws TestException, FileNotFoundException, NullPointerException
+   public void saveAndLoadStaffListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
    {
       // Arrange
       Information info;
@@ -395,7 +407,7 @@ public class UnitTests
    //loadData(new Info());
    //removeData(newInfo());
    
-   public void saveDataBookingTest() throws TestException, FileNotFoundException
+   public void saveDataBookingTest() throws TestException, FileNotFoundException, Exception
    {
       // Arrange
       FileManagement file = new FileManagement(new MainFrame(this.printDebugInfo, this.logFilePath));
@@ -436,7 +448,7 @@ public class UnitTests
       as.assertEquals(staff.getPhoneNumber(), phoneNumber);
    }
    
-   public void loadConfig() throws TestException, FileNotFoundException, IOException
+   public void loadConfigTest() throws TestException, FileNotFoundException, IOException
    {
       // Arrange
       Properties config = new Properties();
@@ -447,7 +459,7 @@ public class UnitTests
       as.assertEquals(config.getProperty("testVar").toString(), "yeet");
    }
    
-   public void playMusic() throws TestException, UnsupportedAudioFileException, IOException, LineUnavailableException
+   public void playMusicTest() throws TestException, UnsupportedAudioFileException, IOException, LineUnavailableException
    {
       // Arrange
       String filePath = "musik/depression.wav";
@@ -457,6 +469,18 @@ public class UnitTests
       yes.stop();
       // Assert
       as.assertEquals(yes.getStatus(), "stopped");
+   }
+   public void alexBrainSmollTest() throws TestException, UnsupportedAudioFileException, IOException, LineUnavailableException
+   {
+      // Arrange
+      class Alex { public int brainSize; }
+      Alex alex = new Alex();
+      String result;
+      // Act
+      alex.brainSize = -10;
+      // Assert
+      result = alex.brainSize < 0 ? "true": "false";
+      as.assertEquals(result, "true");
    }
    
    
