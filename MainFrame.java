@@ -20,14 +20,6 @@ public class MainFrame // MF or motherFucker for short
    private boolean isInitiatedProperly;
    private String appTitle;
    private boolean saveToFile = false;
-
-   public MainFrame(boolean printLogs)
-   {  
-      this.printLogsToConsole = printLogs;
-   
-      file = new FileManagement(this, "Logs");
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   }    
    
    public MainFrame()
    {  
@@ -36,6 +28,22 @@ public class MainFrame // MF or motherFucker for short
       file = new FileManagement(this, "Logs");
       createLog("New MainFrame has been created", Log.Type.INFO);
    } 
+
+   public MainFrame(boolean printLogs)
+   {  
+      this.printLogsToConsole = printLogs;
+   
+      file = new FileManagement(this, "Logs");
+      createLog("New MainFrame has been created", Log.Type.INFO);
+   }    
+
+   public MainFrame(boolean printLogs, String filePath)
+   {  
+      this.printLogsToConsole = printLogs;
+   
+      file = new FileManagement(this, filePath);
+      createLog("New MainFrame has been created", Log.Type.INFO);
+   }    
    
    public void init()
    {

@@ -15,11 +15,20 @@ public class FileManagement
    public FileManagement () 
    {
       this.filePath = "Logs";
+      this.mf = new MainFrame(false);
    }
       
    public FileManagement (MainFrame mfRef) 
    {
       this.mf = mfRef;
+      this.filePath = "Logs";
+      this.mf = mfRef;
+   }
+   
+   public FileManagement (String filePath) 
+   {
+      this.filePath = filePath;
+      this.mf = null;
    }
    
    public FileManagement (MainFrame mfRef, String filePath) 
@@ -70,91 +79,76 @@ public class FileManagement
            method takes in a boolean parameter 'isArchived' to help decide where to load the array from.
    */
    
-   public Information loadData(Information info)
+   public Information loadData(Information info) throws FileNotFoundException, NullPointerException
    {
-      try
+      if(info.loadBookings)
       {
-         if(info.loadBookings)
-         {
-            mf.createLog("Loading BookingList", Log.Type.INFO);
-            info.bookingList = loadBookings(false);
-         }
-         else info.bookingList = null;
-         
-         if(info.loadArchive)
-         {
-            mf.createLog("Loading Archived Bookings", Log.Type.INFO);
-            info.archivedBookingList = loadBookings(true);
-         }
-         else info.archivedBookingList = null;
-         
-         if(info.loadRooms)
-         {
-            mf.createLog("Loading RoomList", Log.Type.INFO);
-            info.roomList = loadRooms();
-         }
-         else info.roomList = null;
-         
-         if(info.loadGuests)
-         {
-            mf.createLog("Loading GuestList", Log.Type.INFO);
-            info.guestList = loadGuests();
-         }
-         else info.guestList = null;
-         
-         if(info.loadStaff)
-         {
-            mf.createLog("Loading StaffList", Log.Type.INFO);
-            info.staffList = loadStaff();
-         }
-         else info.bookingList = null;
+         mf.createLog("Loading BookingList", Log.Type.INFO);
+         info.bookingList = loadBookings(false);
       }
-      catch (Exception e)
+      else info.bookingList = null;
+      
+      if(info.loadArchive)
       {
-         mf.createLog("Loading Data not finished", Log.Type.WARNING);
-         mf.createLog(e, Log.Type.ERROR);
+         mf.createLog("Loading Archived Bookings", Log.Type.INFO);
+         info.archivedBookingList = loadBookings(true);
       }
+      else info.archivedBookingList = null;
+      
+      if(info.loadRooms)
+      {
+         mf.createLog("Loading RoomList", Log.Type.INFO);
+         info.roomList = loadRooms();
+      }
+      else info.roomList = null;
+      
+      if(info.loadGuests)
+      {
+         mf.createLog("Loading GuestList", Log.Type.INFO);
+         info.guestList = loadGuests();
+      }
+      else info.guestList = null;
+      
+      if(info.loadStaff)
+      {
+         mf.createLog("Loading StaffList", Log.Type.INFO);
+         info.staffList = loadStaff();
+      }
+      else info.bookingList = null;
       
       return info;
    }
    
-   public void saveData(Information info)
+   public void saveData(Information info) throws FileNotFoundException, NullPointerException
    {
-      try
+      if(info.bookingList != null)
       {
-         if(info.bookingList != null)
-         {
-            mf.createLog("Saving BookingList", Log.Type.INFO);
-            saveBookings(info.bookingList, false);
-         }
-         
-         if(info.archivedBookingList != null)
-         {
-            mf.createLog("Saving archived BookingList", Log.Type.INFO);
-            saveBookings(info.archivedBookingList, true);
-         }
-         
-         if(info.roomList != null)
-         {
-            mf.createLog("Saving RoomList", Log.Type.INFO);
-            saveRooms(info.roomList);
-         }
-         
-         if(info.loadGuests)
-         {
-            mf.createLog("Saving GuestList", Log.Type.INFO);
-            saveGuests(info.guestList);
-         }
-         
-         if(info.loadStaff)
-         {
-            mf.createLog("Saving StaffList", Log.Type.INFO);
-            saveStaff(info.staffList);
-         }
+         mf.createLog("Saving BookingList", Log.Type.INFO);
+         saveBookings(info.bookingList, false);
       }
-      catch (Exception e)
+      
+      if(info.archivedBookingList != null)
       {
-         mf.createLog(e, Log.Type.ERROR);
+         mf.createLog("Saving archived BookingList", Log.Type.INFO);
+         saveBookings(info.archivedBookingList, true);
+      }
+      
+      if(info.roomList != null)
+      {
+         mf.createLog("Saving RoomList", Log.Type.INFO);
+         saveRooms(info.roomList);
+      }
+      
+      if(info.loadGuests)
+      {
+         mf.createLog("Saving GuestList", Log.Type.INFO);
+         saveGuests(info.guestList);
+      }
+      
+      if(info.loadStaff)
+      {
+         mf.createLog("Saving StaffList", Log.Type.INFO);
+         saveStaff(info.staffList);
       }
    }
    
