@@ -157,7 +157,7 @@ public class StaffUI extends CLI
       //* get 5 options of rooms that match the beds + isBookable for the duration of stay
       //* initialize each toom to room1-5 ints 
       header("Select a room");
-      print("available rooms in a numbered order PLACEHOLDER");
+      print2("available rooms in a numbered order PLACEHOLDER");
       selection = intCheck();
       
 //       switch (selection)
