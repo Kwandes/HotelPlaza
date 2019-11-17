@@ -42,12 +42,13 @@ public class UnitTests
       testCount = 0;
       testsPassedCount = 0;
       
-      ////////// Information Tests //////////
+      ////////// File saving & loading Tests //////////
+      log("# File saving && loading tests");
       try
       {
          testCount++;
-         testName = "Information-loadBookingList";
-         loadBookingListTest();
+         testName = "File-save and load BookingList";
+         saveAndLoadBookingListTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -57,8 +58,8 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "Information-loadArchivedBookingList";
-         loadArchivedBookingListTest();
+         testName = "File-save and load ArchivedBookingList";
+         saveAndLoadArchivedBookingListTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -68,8 +69,8 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "Information-loadRoomList";
-         loadRoomListTest();
+         testName = "File-save and load RoomList";
+         saveAndLoadRoomListTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -79,8 +80,8 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "Information-loadGuestList";
-         loadGuestListTest();
+         testName = "File-save and load GuestList";
+         saveAndLoadGuestListTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -90,15 +91,16 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "Information-loadStaffList";
-         loadStaffListTest();
+         testName = "File-save and load StaffList";
+         saveAndLoadStaffListTest();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
       catch (Exception e) { log(testName + " | Failed: " + e); }
       
-      ////////// ArrayList setting Tests //////////
+      ////////// MF ArrayList setting Tests //////////
+      log("# MainFrame arrays tests");
       try
       {
          testCount++;
@@ -154,20 +156,8 @@ public class UnitTests
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
       catch (Exception e) { log(testName + " | Failed: " + e); }
       
-      ////////// Saving ArrayLists //////////
-      
-      try
-      {
-         testCount++;
-         testName = "saving Arrays - Booking";
-         saveDataBookingTest();
-         log(testName + " | " + "Passed");
-         testsPassedCount++;
-      }
-      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
-      
       ////////// Misc Tests //////////
+      log("# Misc. tests");
       try
       {
          testCount++;
@@ -229,67 +219,85 @@ public class UnitTests
    
    ////////// Information Tests //////////
    
-   public void loadBookingListTest() throws TestException
+   public void saveAndLoadBookingListTest() throws TestException
    {
       // Arrange
-      Information info = new Information(true, false, false, false, false);
+      Information info;
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf);
-      file.setFilePath("logs");
+      FileManagement file = new FileManagement(mf, this.logFilePath);
+      ArrayList<Booking> list = new ArrayList<Booking>();
+      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      info = file.loadData(info);
+      file.saveData(new Information(list, null, null, null, null));
+      info = file.loadData(new Information(true, false, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
    }
    
-   public void loadArchivedBookingListTest() throws TestException
+   public void saveAndLoadArchivedBookingListTest() throws TestException
    {
       // Arrange
-      Information info = new Information(false, true, false, false, false);
+      Information info;
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf);
-      file.setFilePath("logs");
+      FileManagement file = new FileManagement(mf, this.logFilePath);
+      ArrayList<Booking> list = new ArrayList<Booking>();
+      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      info = file.loadData(info);
+      file.saveData(new Information(null, list, null, null, null));
+      info = file.loadData(new Information(false, true, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.archivedBookingList.isEmpty()), Boolean.toString(false));
    }
    
-   public void loadRoomListTest() throws TestException
+   public void saveAndLoadRoomListTest() throws TestException
    {
       // Arrange
-      Information info = new Information(false, false, true, false, false);
+      Information info;
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf);
-      file.setFilePath("logs");
+      FileManagement file = new FileManagement(mf, this.logFilePath);
+      ArrayList<Room> list = new ArrayList<Room>();
+      list.add(new Room(0, 1));
       // Act
-      info = file.loadData(info);
+      file.saveData(new Information(null, null, list, null, null));
+      info = file.loadData(new Information(false, false, true, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.roomList.isEmpty()), Boolean.toString(false));
    }
    
-   public void loadGuestListTest() throws TestException
+   public void saveAndLoadGuestListTest() throws TestException
    {
       // Arrange
-      Information info = new Information(false, false, false, true, false);
+      Information info;
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf);
-      file.setFilePath("logs");
+      FileManagement file = new FileManagement(mf, this.logFilePath);
+      ArrayList<Guest> list = new ArrayList<Guest>();
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
+      list.add(new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0));
       // Act
-      info = file.loadData(info);
+      file.saveData(new Information(null, null, null, list, null));
+      info = file.loadData(new Information(false, false, false, true, false));
       // Assert
       as.assertEquals(Boolean.toString(info.guestList.isEmpty()), Boolean.toString(false));
    }
    
-   public void loadStaffListTest() throws TestException
+   public void saveAndLoadStaffListTest() throws TestException
    {
       // Arrange
-      Information info = new Information(false, false, false, false, true);
+      Information info;
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf);
-      file.setFilePath("logs");
+      FileManagement file = new FileManagement(mf, this.logFilePath);
+      ArrayList<Staff> list = new ArrayList<Staff>();
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
+      list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", 0, 0, 0.0, 0));
       // Act
-      info = file.loadData(info);
+      file.saveData(new Information(null, null, null, null, list));
+      info = file.loadData(new Information(false, false, false, false, true));
       // Assert
       as.assertEquals(Boolean.toString(info.staffList.isEmpty()), Boolean.toString(false));
    }
