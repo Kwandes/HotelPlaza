@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class GuestUI2 extends CLI
+public class GuestUI extends CLI
 {   
    private int size = 70;
    private String[] error = { addText("Too long", size), addText("Too short", size), 
@@ -10,8 +10,11 @@ public class GuestUI2 extends CLI
                               addText("Cannot contain numbers", size), addText("The password didnt match, Try again", size)};
    private Scanner in = new Scanner(System.in);
    private Scanner in2 = new Scanner(System.in); //bug issue with the scanners, had to make an extra.
+   private Guest guest;
+   private MainFrame mf;
+   private int IDCounter;
    
-   public GuestUI(Guest user, String title) throws Exception
+   public GuestUI(Guest user, String title, MainFrame mfRef) throws Exception
    {
       this.title = title;
       this.screenNumber = 2;
@@ -19,7 +22,9 @@ public class GuestUI2 extends CLI
       this.userAccessLevel = 0; // Cannot be more than 0 for security reasons
       this.seperator = print(size); 
       this.running = true;
-      this.guestID = user.getID();
+      this.guest = user;
+      this.mf = mfRef;
+      this.IDCounter = 0;
    }
    
    public int guestMenu() 
@@ -52,13 +57,13 @@ public class GuestUI2 extends CLI
                bookRoom();
                break;
             case 3: 
-               seeBookings(user.getID(), 1);
+               seeBookings(this.guest.getID(), 1);
                break;
             case 4:
-               seeBookings(user.getID(), 2);
+               seeBookings(this.guest.getID(), 2);
                break;
             case 5:
-               user = changeInfo(user);
+               this.guest = changeInfo(this.guest);
                break;
             case 99:
                exit();
@@ -75,8 +80,8 @@ public class GuestUI2 extends CLI
    
    public void seeBookings(String guestID, int extendOrSee)
    {
-      if ( extendOrSee = 2 ) //So it doesnt double print the line when you extend booking
-      }
+      if ( extendOrSee == 2 ) //So it doesnt double print the line when you extend booking
+      {
          print();
       }
       printText("- BOOKINGS -", size);
@@ -84,11 +89,11 @@ public class GuestUI2 extends CLI
       
       int numberOfBookings = 0;
       ArrayList<String> bookingID = new ArrayList<>();
-      ArrayList<Booking> bookings = mfRef.getBookingList();
+      ArrayList<Booking> bookings = mf.getBookingList();
       
-      for ( Booking book : bookings )
+      for ( Booking book : bookings )  // smart. Stack overflow?
       {
-         String booking = book.getBookingID();
+         String booking = Integer.toString(book.getBookingID());
          if ( booking.contains( guestID ) )  //checking if the booking matches the guestID
          {
             bookingID.add( booking );  //adds booking that matches to new arraylist
@@ -130,12 +135,12 @@ public class GuestUI2 extends CLI
    
    public Guest changeInfo (Guest guest) 
    {
-      String firstName = user.getFirstName();
-      String lastName = user.getLastName();
-      String cpr = user.getCpr();
-      String[] address = user.getAddress();
-      String phoneNr = user.getPhoneNr();
-      String password = user.getPassword();
+      String firstName = guest.getFirstName();
+      String lastName = guest.getLastName();
+      String cpr = guest.getCpr();
+      String[] address = guest.getAddress();
+      String phoneNr = guest.getPhoneNumber();
+      String password = guest.getPassword();
       String pass1;
       String pass2;
       
@@ -209,7 +214,9 @@ public class GuestUI2 extends CLI
             print();
             password = pass1;
       }
-      Guest newUser = new Guest ( firstName, lastName, cpr, "GU", address, phoneNr, password, IDCounter, 1.0);
+      
+      
+      Guest newUser = new Guest ( firstName, lastName, cpr, address, phoneNr, password, 0); // Get ID via guest.getID(). The ID shouldn't change when changing info
       return newUser;
    }
    
@@ -223,7 +230,7 @@ public class GuestUI2 extends CLI
       String password;
       String pass1;
       String pass2;
-      IDCounter++; 
+      this.IDCounter++; // Don't increment before the user creation is succesful
       
       print();
       printText("- REGISTER GUEST -", size);
@@ -278,7 +285,8 @@ public class GuestUI2 extends CLI
       print();
       password = pass1;
       
-      Guest Teo = new Guest (firstName, lastName, cpr, "GU", address, phoneNr, password, IDCounter, 1.0);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
+      String guestID = mf.generateGuestID(); // this is how you will get a new Guest ID
+      Guest Teo = new Guest (firstName, lastName, cpr, address, phoneNr, password, this.IDCounter);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
       System.out.println("\n" + Teo.toString());
    }
    
