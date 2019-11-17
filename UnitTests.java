@@ -28,7 +28,7 @@ public class UnitTests
    
    public UnitTests()
    {
-      this.logFilePath = "testing";
+      this.logFilePath = "Testing";
       this.fileManager = new FileManagement(this.logFilePath);
    }
    

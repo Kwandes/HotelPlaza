@@ -201,13 +201,17 @@ public class MainFrame // MF or motherFucker for short
    
    public void setBookingList(ArrayList<Booking> bookingList)
    {
-       this.bookingList = bookingList;
-       createLog("Booking List modified", Log.Type.INFO);
-       if (this.saveToFile)
-       {
-          file.saveData(new Information(this.bookingList, null, null, null, null));
-          createLog("Booking List saved", Log.Type.INFO);
-       }
+      try
+      {
+         this.bookingList = bookingList;
+         createLog("Booking List modified", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(this.bookingList, null, null, null, null));
+            createLog("Booking List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
    }
    
    public ArrayList<Booking> getBookingList()
@@ -217,13 +221,17 @@ public class MainFrame // MF or motherFucker for short
    
    public void setArchivedBookingList(ArrayList<Booking> archivedBookingList)
    {
-      this.archivedBookingList = archivedBookingList;
-       createLog("Archived Booking List modified", Log.Type.INFO);
-       if (this.saveToFile)
-       {
-          file.saveData(new Information(null, this.archivedBookingList, null, null, null));
-          createLog("Archived Booking List saved", Log.Type.INFO);
-       }
+      try
+      {
+         this.archivedBookingList = archivedBookingList;
+         createLog("Archived Booking List modified", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, this.archivedBookingList, null, null, null));
+            createLog("Archived Booking List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
    }
    
    public ArrayList<Booking> getArchivedBookingList()
@@ -233,13 +241,17 @@ public class MainFrame // MF or motherFucker for short
    
    public void setRoomList(ArrayList<Room> roomList)
    {
-       this.roomList = roomList;
-       createLog("Room List modified", Log.Type.INFO);
-       if (this.saveToFile)
-       {
-          file.saveData(new Information(null, null, this.roomList, null, null));
-          createLog("Room List saved", Log.Type.INFO);
-       }
+      try
+      {
+         this.roomList = roomList;
+         createLog("Room List modified", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, this.roomList, null, null));
+            createLog("Room List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
    }
    
    public ArrayList<Room> getRoomList()
@@ -249,13 +261,17 @@ public class MainFrame // MF or motherFucker for short
    
    public void setGuestList(ArrayList<Guest> guestList)
    {
-       this.guestList = guestList;
-       createLog("Guest List modified", Log.Type.INFO);
-       if (this.saveToFile)
-       {
-          file.saveData(new Information(null, null, null, this.guestList, null));
-          createLog("Guest List saved", Log.Type.INFO);
-       }
+      try
+      {
+         this.guestList = guestList;
+         createLog("Guest List modified", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, null, this.guestList, null));
+            createLog("Guest List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
    }   
    
    public ArrayList<Guest> getGuestList()
@@ -265,13 +281,17 @@ public class MainFrame // MF or motherFucker for short
    
    public void setStaffList(ArrayList<Staff> staffList)
    {
-       this.staffList = staffList;
-       createLog("Staff List modified", Log.Type.INFO);
-       if (this.saveToFile)
-       {
-          file.saveData(new Information(null, null, null, null, this.staffList));
-          createLog("Staff List saved", Log.Type.INFO);
-       }
+      try
+      {
+         this.staffList = staffList;
+         createLog("Staff List modified", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, null, null, this.staffList));
+            createLog("Staff List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
    }   
    
    public ArrayList<Staff> getStaffList()
@@ -352,9 +372,13 @@ public class MainFrame // MF or motherFucker for short
       {
          if (bookingList.get(i).getBookingID() == bookingID)
          {
-            bookingList.remove(i);
-            file.saveData(new Information(bookingList, null, null, null, null));
-            createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
+            try
+            {
+               bookingList.remove(i);
+               file.saveData(new Information(bookingList, null, null, null, null));
+               createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
+            }
+            catch (Exception e) {  createLog(e, Log.Type.ERROR); }
             break;
          }
       }
@@ -366,10 +390,14 @@ public class MainFrame // MF or motherFucker for short
       {
          if (bookingList.get(i).getBookingID() == bookingID)
          {
-            archivedBookingList.add(bookingList.get(i));
-            bookingList.remove(i);
-            file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
-            createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
+            try
+            {
+               archivedBookingList.add(bookingList.get(i));
+               bookingList.remove(i);
+               file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
+               createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
+            }
+            catch (Exception e) {  createLog(e, Log.Type.ERROR); }
             break;
          }
       }
