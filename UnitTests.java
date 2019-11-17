@@ -4,12 +4,16 @@
 import java.util.ArrayList;
 import java.util.Properties;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 // Musik
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.UnsupportedAudioFileException; 
+
+// Exception handling && logs
+import java.io.StringWriter; 
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class UnitTests
 {
@@ -53,7 +57,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -64,7 +69,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -75,7 +81,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -86,7 +93,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -97,7 +105,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       ////////// MF ArrayList setting Tests //////////
       log("# MainFrame arrays tests");
@@ -110,8 +119,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
-      
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       try
       {
          testCount++;
@@ -121,7 +129,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -132,7 +140,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -143,7 +151,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -154,7 +162,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       ////////// Misc Tests //////////
       log("# Misc. tests");
@@ -167,7 +175,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -178,7 +186,7 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -189,7 +197,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage());}
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       try
       {
@@ -200,7 +209,8 @@ public class UnitTests
          testsPassedCount++;
       }
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage());}
-      catch (Exception e) { log(testName + " | Failed: " + e); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
       
       log("----------");
       log("Unit testing finished. Passed " + testsPassedCount + "/" + testCount + " tests\n\n");
@@ -219,7 +229,7 @@ public class UnitTests
    
    ////////// Information Tests //////////
    
-   public void saveAndLoadBookingListTest() throws TestException
+   public void saveAndLoadBookingListTest() throws TestException, FileNotFoundException, NullPointerException
    {
       // Arrange
       Information info;
@@ -234,7 +244,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadArchivedBookingListTest() throws TestException
+   public void saveAndLoadArchivedBookingListTest() throws TestException, FileNotFoundException, NullPointerException
    {
       // Arrange
       Information info;
@@ -249,7 +259,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.archivedBookingList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadRoomListTest() throws TestException
+   public void saveAndLoadRoomListTest() throws TestException, FileNotFoundException, NullPointerException
    {
       // Arrange
       Information info;
@@ -264,7 +274,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.roomList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadGuestListTest() throws TestException
+   public void saveAndLoadGuestListTest() throws TestException, FileNotFoundException, NullPointerException
    {
       // Arrange
       Information info;
@@ -283,7 +293,7 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.guestList.isEmpty()), Boolean.toString(false));
    }
    
-   public void saveAndLoadStaffListTest() throws TestException
+   public void saveAndLoadStaffListTest() throws TestException, FileNotFoundException, NullPointerException
    {
       // Arrange
       Information info;
@@ -385,7 +395,7 @@ public class UnitTests
    //loadData(new Info());
    //removeData(newInfo());
    
-   public void saveDataBookingTest() throws TestException
+   public void saveDataBookingTest() throws TestException, FileNotFoundException
    {
       // Arrange
       FileManagement file = new FileManagement(new MainFrame(this.printDebugInfo, this.logFilePath));
@@ -400,7 +410,7 @@ public class UnitTests
    
    ////////// Misc tests //////////
    
-   public void validateLoginGuestTest() throws TestException
+   public void validateLoginGuestTest() throws TestException, NullPointerException
    {
       // Arrange
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
@@ -413,7 +423,7 @@ public class UnitTests
        as.assertEquals(guest.getPhoneNumber(), phoneNumber);
    }
    
-   public void validateLoginStaffTest() throws TestException
+   public void validateLoginStaffTest() throws TestException, NullPointerException
    {
       // Arrange
       MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
@@ -475,5 +485,14 @@ public class UnitTests
    public void log(String message)
    {
       fileManager.appendToFile(message, true);
+   }
+   
+   public void log(String message, Exception e)
+   {
+      fileManager.appendToFile(message + e, true);
+      StringWriter sw = new StringWriter();
+      PrintWriter pw = new PrintWriter(sw);
+      e.printStackTrace(pw);
+      fileManager.appendToFile(sw.toString(), this.printDebugInfo);
    }
 }
