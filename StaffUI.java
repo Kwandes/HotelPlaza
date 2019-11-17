@@ -4,6 +4,7 @@ import java.util.*;
 public class StaffUI extends CLI
 {
    private  int spacerVariable = 40;
+   
    private String firstName;
    private String lastName;
    private String fullName;
@@ -19,6 +20,16 @@ public class StaffUI extends CLI
    private int headerLength = 100;
    private String formatSymbol = "\t>";
    private String print2formatSymbol = "\t";
+   
+   private int bookingID;
+   private int roomID;
+   private String userID;
+   private int startDate;
+   private int endDate;
+   private int price;
+   private boolean hasInternet;
+   private int beds;
+   private int roomPrice;
    
    private MainFrame mf;
 
@@ -97,14 +108,83 @@ public class StaffUI extends CLI
    {
       //int bookingID, int roomID, String userID, int startDate, int endDate, int roomPrice, boolean hasInternet 
       
-      //I assume that bookingID is generated somewhere, i assume that roomID is gotten from somewhere
+      //I assume that bookingID is generated somewhere, using placeholder 123 for now
       Scanner console = new Scanner(System.in);
+      int selection;
       
       print2("What is the cpr number of the Guest you would like to book a room for?");
       cpr = cprCheck(console);
-      //* user.arraylistwherethefuckareyou.search(cpr)
-      //* user.getUserID();
+      //* user.arraylistwherethefuckareyou.search(cpr) : i
+      //* userID = user.getUserID(i)
+      userID = "U123"; //placeholder ID
       
+      print2("How many beds would the guest like to have in his room?");
+      beds = intCheck();
+      
+      //print2("From what date would you like the booking?"); alternative question
+      print2("From what date will the guest's stay begin?");
+      while (!console.hasNextInt())
+      {
+         String shit = console.next();
+         print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
+      }
+      startDate = console.nextInt();
+      
+      print2("What date will the guest's stay end?");
+      while (!console.hasNextInt())
+      {
+         String shit = console.next();
+         print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
+      }
+      endDate = console.nextInt();
+      
+      print2("Does the guest wish to have internet access?");
+      System.out.println();
+      print("1 Yes.");
+      print("2 No");
+      selection = intCheck();
+      
+      switch(selection)
+      {
+         case 1:
+            hasInternet = true;
+            break;
+         case 2:
+            hasInternet = false;
+            break;
+      }
+      
+      //* get 5 options of rooms that match the beds + isBookable for the duration of stay
+      //* initialize each toom to room1-5 ints 
+      header("Select a room");
+      print("available rooms in a numbered order PLACEHOLDER");
+      selection = intCheck();
+      
+//       switch (selection)
+//       {
+//          case 1:
+//             roomID = room1.getRoomID;
+//             break;
+//          case 2:
+//             roomID = room2.getRoomID;
+//             break;
+//          case 3:
+//             roomID = room3.getRoomID;
+//             break;
+//          case 4:
+//             roomID = room4.getRoomID;
+//             break;
+//          case 5:
+//             roomID = room5.getRoomID;
+//             break;
+//       }
+      
+      //roomX.getID
+      roomID = 123; 
+      bookingID = 1234; //???????????????????
+      //* roomPrice = room.getPrice(); 
+      roomPrice = 800;
+      Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
    }
    
    
