@@ -17,6 +17,7 @@ public class StaffUI extends CLI
    private double salary;
    private int vacation;
    private int headerLength = 100;
+   private String formatSymbol = "\t>";
    
    private MainFrame mf;
 
@@ -29,6 +30,7 @@ public class StaffUI extends CLI
       this.seperator = "----------------------------------------------------------------------------------------------------"; // 100 dashes
       this.running = true;
       this.mf = mfRef;
+      this.fullName = user.getFirstName()+ " " + user.getLastName();
    }
    
    public StaffUI(Staff user, String title, MainFrame mfRef, int accessLevel)
@@ -54,17 +56,16 @@ public class StaffUI extends CLI
             // screens choosing example below
             
             case 1:
-               spacer();
-               createGuest();
+               header("Create a new Guest");
+               //createGuest();
                returnQuit();
                break; 
             case 2:
-               spacer();
+               header("Create a new staff");
                createStaff();
                returnQuit();
                break;
             case 3:
-               spacer();
                createBooking();
                returnQuit();
                break;
@@ -84,11 +85,11 @@ public class StaffUI extends CLI
       }  
    }
    
-   public void main(String[] args)
-   {
-      createGuest();
-      //createStaff();
-   }
+//    public void main(String[] args)
+//    {
+//       createGuest();
+//       createStaff();
+//    }
    
    public void createBooking()
    {
@@ -127,8 +128,6 @@ public class StaffUI extends CLI
    {
       Scanner input = new Scanner(System.in);
       Scanner inputAddress = new Scanner(System.in);
-      
-      header("Create " + type);
       
       print("Please type the first name of the new " + type + ", in only one word.");
       firstName = nameFixer(input.next());
@@ -374,13 +373,14 @@ public class StaffUI extends CLI
      
    public void print(String text)
    {
-      System.out.println("\t>" + text);
+      System.out.println(formatSymbol + text);
    }
   
    public void header(String text)
    {
-      print("HOTEL PLAZA");
-      print("@ " + "CURRENT STAFF");
+      spacer();
+      System.out.println("\t   HOTEL PLAZA");
+      print("@ " + fullName);
       printLines();
       print(text);
       printLines();
@@ -423,6 +423,8 @@ public class StaffUI extends CLI
       print("1 Create a guest");
       print("2 create a staff");
       print("3 create a booking");
+      print("4 ?");
+      print("5 quit");
       screenNumber = intCheck();
    }
    

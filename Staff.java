@@ -25,23 +25,23 @@ public class Staff extends User implements UserManagement
       this.accessLevel = calculateAccessLevel();
    }
    
-   // Explicit access level, for that sweet security override and backdoor
-   public Staff (String firstName, String lastName, String cpr, String type, 
-                 String[] address, String phoneNr, String password, int hours, 
-                 double salary, int vacation, int accessLevel) 
-   {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.cpr = cpr;
-      this.type = type;
-      this.address = address;
-      this.phoneNumber = phoneNr;
-      this.password = password;
-      this.hours = hours;
-      this.salary = salary;
-      this.vacation = vacation;
-      this.accessLevel = accessLevel;
-   }
+//    // Explicit access level, for that sweet security override and backdoor
+//    public Staff (String firstName, String lastName, String cpr, String type, 
+//                  String[] address, String phoneNr, String password, int hours, 
+//                  double salary, int vacation, int accessLevel) 
+//    {
+//       this.firstName = firstName;
+//       this.lastName = lastName;
+//       this.cpr = cpr;
+//       this.type = type;
+//       this.address = address;
+//       this.phoneNumber = phoneNr;
+//       this.password = password;
+//       this.hours = hours;
+//       this.salary = salary;
+//       this.vacation = vacation;
+//       this.accessLevel = accessLevel;
+//    }
    
       //Methods
       
