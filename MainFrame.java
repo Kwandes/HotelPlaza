@@ -526,6 +526,7 @@ public class MainFrame // MF or motherFucker for short
       try
       {
          Musik yes = new Musik(config.getProperty("musicFile"));
+         yes.setVolume(Float.parseFloat(config.getProperty("volume", "0.1")));
          yes.play();
          createLog("Playing " + config.getProperty("musicFile"), Log.Type.INFO);
       }
