@@ -515,7 +515,7 @@ public class MainFrame // MF or motherFucker for short
       createLog("Moving to next UI", Log.Type.INFO);
       try
       {
-         if( loginUI.getStaff() != null)
+         if(loginUI.getStaff() != null)
          {
             createLog("Creating StaffUI", Log.Type.INFO);
             staffMember = loginUI.getStaff();
@@ -525,7 +525,7 @@ public class MainFrame // MF or motherFucker for short
             createLog("StaffUi created", Log.Type.INFO);
             staffUI.display();
          }
-         else if ( loginUI.getGuest() != null)
+         else if (loginUI.getGuest() != null)
          {
             createLog("Creating GuestUI", Log.Type.INFO);
             guest = loginUI.getGuest();

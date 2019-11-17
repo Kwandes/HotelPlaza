@@ -128,9 +128,7 @@ public class GuestUI extends CLI
    {
       print();
       printText("- EXTEND BOOKING -", size);
-      print();
-      
-      
+      print();      
    }
    
    public Guest changeInfo (Guest guest) 
@@ -215,8 +213,8 @@ public class GuestUI extends CLI
             password = pass1;
       }
       
-      
       Guest newUser = new Guest ( firstName, lastName, cpr, address, phoneNr, password, 0); // Get ID via guest.getID(). The ID shouldn't change when changing info
+      // mf.replaceGuest(guest.getID(), newUser); in order to save
       return newUser;
    }
    

@@ -199,6 +199,7 @@ public class StaffUI extends CLI
       //$ roomList.get(roomID).getPrice(); alternatively: chosenRoom.getPrice();
       roomPrice = 800;
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
+      //$ mf.createBooking(guestBooking); in order to save
    }
    
    
@@ -334,6 +335,7 @@ public class StaffUI extends CLI
             number = console.next();
          }
       }
+      
       char intCheck;
       for (int i=0; i<8;i++)
       {
@@ -362,7 +364,6 @@ public class StaffUI extends CLI
             }
             intCheck = number.charAt(i);
          }
-            
       }
       return number;
    }
