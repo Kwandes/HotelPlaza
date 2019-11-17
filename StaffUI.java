@@ -109,6 +109,7 @@ public class StaffUI extends CLI
       //int bookingID, int roomID, String userID, int startDate, int endDate, int roomPrice, boolean hasInternet 
       
       //I assume that bookingID is generated somewhere, using placeholder 123 for now
+      //$ Use mf.generateBookingID() : String
       Scanner console = new Scanner(System.in);
       int selection;
       
@@ -116,7 +117,13 @@ public class StaffUI extends CLI
       cpr = cprCheck(console);
       //* user.arraylistwherethefuckareyou.search(cpr) : i
       //* userID = user.getUserID(i)
-      userID = "U123"; //placeholder ID
+      //$ I assume you meant this:
+      ArrayList<Guest> guestList = mf.getGuestList();
+      for (int i = 0; i < guestList.size(); i++)
+      {
+         if (guestList.get(i).getCPR().equals(cpr)) userID = guestList.get(i).getID();
+      }
+      //$ replaced: userID = "U123"; //placeholder ID
       
       print2("How many beds would the guest like to have in his room?");
       beds = intCheck();
@@ -155,34 +162,41 @@ public class StaffUI extends CLI
       }
       
       //* get 5 options of rooms that match the beds + isBookable for the duration of stay
-      //* initialize each toom to room1-5 ints 
+      ArrayList<Room> roomList = mf.getRoomList();
+      ArrayList<Room> displayRooms = new ArrayList<Room>();
+      for ( int i = 0; i < (roomList.size() < 5 ? roomList.size(): 5); i++)
+      {
+         //* initialize each toom to room1-5 ints 
+         displayRooms.add(roomList.get(i));
+      }
       header("Select a room");
       print2("available rooms in a numbered order PLACEHOLDER");
       selection = intCheck();
-      
+      //$ tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
 //       switch (selection)
 //       {
 //          case 1:
-//             roomID = room1.getRoomID;
+//             roomID = displayRooms.get(selection-1).getRoomID();
 //             break;
 //          case 2:
-//             roomID = room2.getRoomID;
+//             roomID = displayRooms.get(selection-1).getRoomID();
 //             break;
 //          case 3:
-//             roomID = room3.getRoomID;
+//             roomID = displayRooms.get(selection-1).getRoomID();
 //             break;
 //          case 4:
-//             roomID = room4.getRoomID;
+//             roomID = displayRooms.get(selection-1).getRoomID();
 //             break;
 //          case 5:
-//             roomID = room5.getRoomID;
+//             roomID = displayRooms.get(selection-1).getRoomID();
 //             break;
 //       }
       
       //roomX.getID
       roomID = 123; 
       bookingID = 1234; //???????????????????
-      //* roomPrice = room.getPrice(); 
+      //* roomPrice = room.getPrice();
+      //$ roomList.get(roomID).getPrice(); alternatively: chosenRoom.getPrice();
       roomPrice = 800;
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
    }
@@ -204,6 +218,8 @@ public class StaffUI extends CLI
       
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, 0, hours, salary, vacation);
       //* send newly created Staff: "created" to staff array. mf.addStaff(created);
+      //$ mf.addStaff(created); What about the staffID tho?
+      
    }
 
    public void createGuest() 
@@ -212,6 +228,7 @@ public class StaffUI extends CLI
       creationTemplate("Guest");
       Guest created = new Guest(firstName, lastName, cpr, address, phoneNumber, password, 0);
       //* send newly created User: "created" to user array. mf.addStaff(created);
+      //$ answer> mf.addGuest(created); BUT you forgot userID, I think?
       System.out.println();
    }
 

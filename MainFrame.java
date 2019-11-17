@@ -397,7 +397,7 @@ public class MainFrame // MF or motherFucker for short
       }
       catch (Exception e)
       {
-         createLog("Set Booking List Failed", Log.Type.WARNING);
+         createLog("Set Guest List Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
       }
    }
@@ -414,6 +414,25 @@ public class MainFrame // MF or motherFucker for short
          createLog("Load Guest List Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
          return false;
+      }
+   }
+   
+   public void addGuest(Guest guest)
+   {
+      try
+      {
+         this.guestList.add(guest);
+         createLog("Guest " + guest.getID() + "added", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, null, this.guestList, null));
+            createLog("New Guest List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Expanding Guest List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
       }
    }
    
@@ -455,6 +474,25 @@ public class MainFrame // MF or motherFucker for short
          createLog("Load Staff List Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
          return false;
+      }
+   }
+   
+   public void addStaff(Staff staff)
+   {
+      try
+      {
+         this.staffList.add(staff);
+         createLog("Staff " + staff.getID() + "added", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, null, null, this.staffList));
+            createLog("New Staff List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Expanding Staff List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
       }
    }
    
@@ -506,6 +544,26 @@ public class MainFrame // MF or motherFucker for short
          createLog(e, Log.Type.ERROR);
          createLog("UI failed to create", Log.Type.WARNING);
       }
+   }
+   
+   public String generateBookingID()
+   {
+      return "BYEET";
+   }
+   
+   public String generateRoomID()
+   {
+      return "RYEET";
+   }
+   
+   public String generateGuestID()
+   {
+      return "GYEET";
+   }
+   
+   public String generateStaffID()
+   {
+      return "SYEET";
    }
    
    //////////////////// Extra functionality ////////////////////
