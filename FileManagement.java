@@ -15,11 +15,20 @@ public class FileManagement
    public FileManagement () 
    {
       this.filePath = "Logs";
+      this.mf = new MainFrame(false);
    }
       
    public FileManagement (MainFrame mfRef) 
    {
       this.mf = mfRef;
+      this.filePath = "Logs";
+      this.mf = mfRef;
+   }
+   
+   public FileManagement (String filePath) 
+   {
+      this.filePath = filePath;
+      this.mf = null;
    }
    
    public FileManagement (MainFrame mfRef, String filePath) 
@@ -110,8 +119,8 @@ public class FileManagement
          else info.bookingList = null;
       }
       catch (Exception e)
-      {
-         mf.createLog("Loading Data not finished", Log.Type.WARNING);
+      {  
+         mf.createLog("Saving data has failed", Log.Type.WARNING);
          mf.createLog(e, Log.Type.ERROR);
       }
       
@@ -153,7 +162,8 @@ public class FileManagement
          }
       }
       catch (Exception e)
-      {
+      {  
+         mf.createLog("Saving data has failed", Log.Type.WARNING);
          mf.createLog(e, Log.Type.ERROR);
       }
    }

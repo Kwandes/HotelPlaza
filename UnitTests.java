@@ -20,10 +20,12 @@ public class UnitTests
    private int testCount;
    private int testsPassedCount;
    private FileManagement fileManager;
+   private String logFilePath;
    
    public UnitTests()
    {
-      this.fileManager = new FileManagement();
+      this.logFilePath = "testing";
+      this.fileManager = new FileManagement(this.logFilePath);
    }
    
    public void runTests(boolean debug)
@@ -152,6 +154,19 @@ public class UnitTests
       catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
       catch (Exception e) { log(testName + " | Failed: " + e); }
       
+      ////////// Saving ArrayLists //////////
+      
+      try
+      {
+         testCount++;
+         testName = "saving Arrays - Booking";
+         saveDataBookingTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: " + e); }
+      
       ////////// Misc Tests //////////
       try
       {
@@ -218,7 +233,7 @@ public class UnitTests
    {
       // Arrange
       Information info = new Information(true, false, false, false, false);
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       FileManagement file = new FileManagement(mf);
       file.setFilePath("logs");
       // Act
@@ -231,7 +246,7 @@ public class UnitTests
    {
       // Arrange
       Information info = new Information(false, true, false, false, false);
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       FileManagement file = new FileManagement(mf);
       file.setFilePath("logs");
       // Act
@@ -244,7 +259,7 @@ public class UnitTests
    {
       // Arrange
       Information info = new Information(false, false, true, false, false);
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       FileManagement file = new FileManagement(mf);
       file.setFilePath("logs");
       // Act
@@ -257,7 +272,7 @@ public class UnitTests
    {
       // Arrange
       Information info = new Information(false, false, false, true, false);
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       FileManagement file = new FileManagement(mf);
       file.setFilePath("logs");
       // Act
@@ -270,7 +285,7 @@ public class UnitTests
    {
       // Arrange
       Information info = new Information(false, false, false, false, true);
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       FileManagement file = new FileManagement(mf);
       file.setFilePath("logs");
       // Act
@@ -284,7 +299,7 @@ public class UnitTests
    public void setBookingListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.setSaveToFile(false);
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
@@ -297,7 +312,7 @@ public class UnitTests
    public void setArchivedBookingListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.setSaveToFile(false);
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
@@ -310,7 +325,7 @@ public class UnitTests
    public void setRoomListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.setSaveToFile(false);
       ArrayList<Room> list = new ArrayList<Room>();
       list.add(new Room(0, 1));
@@ -323,7 +338,7 @@ public class UnitTests
    public void setGuestListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.setSaveToFile(false);
       ArrayList<Guest> list = new ArrayList<Guest>();
       
@@ -341,7 +356,7 @@ public class UnitTests
    public void setStaffListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.setSaveToFile(false);
       ArrayList<Staff> list = new ArrayList<Staff>();
       
@@ -356,12 +371,31 @@ public class UnitTests
       as.assertEquals(Boolean.toString(mf.getStaffList().isEmpty()), Boolean.toString(false));
    }
    
+   ////////// Saving arrayLists test //////////
+   
+   //saveData(new Info());
+   //loadData(new Info());
+   //removeData(newInfo());
+   
+   public void saveDataBookingTest() throws TestException
+   {
+      // Arrange
+      FileManagement file = new FileManagement(new MainFrame(this.printDebugInfo, this.logFilePath));
+      ArrayList<Booking> list = new ArrayList<Booking>();
+      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
+      // Act
+      file.saveData(new Information(list, null, null, null, null));
+      Information info = file.loadData(new Information(true, false, false, false, false));
+      // Assert
+      as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
+   }
+   
    ////////// Misc tests //////////
    
    public void validateLoginGuestTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.init();
       String phoneNumber = "+69 420";
       String password = "yeet";
@@ -374,7 +408,7 @@ public class UnitTests
    public void validateLoginStaffTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo);
+      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
       mf.init();
       String phoneNumber = "+69 420";
       String password = "yeet";
