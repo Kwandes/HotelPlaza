@@ -18,6 +18,7 @@ public class StaffUI extends CLI
    private int vacation;
    private int headerLength = 100;
    private String formatSymbol = "\t>";
+   private String print2formatSymbol = "\t";
    
    private MainFrame mf;
 
@@ -57,7 +58,7 @@ public class StaffUI extends CLI
             
             case 1:
                header("Create a new Guest");
-               //createGuest();
+               createGuest();
                returnQuit();
                break; 
             case 2:
@@ -102,16 +103,17 @@ public class StaffUI extends CLI
       this.screenNumber = 2;
       //Staff firstName, lastName, cpr, type, address, phoneNumber, password,int hours, double salary, int vacation)
       creationTemplate("Staff");
-      print("How many hours will " + firstName + " be working weekly?");
+      print2("How many hours will " + firstName + " be working weekly?");
       hours = intCheck();
       
-      print("What is " + firstName + "'s hourly salary?");
+      print2("What is " + firstName + "'s hourly salary?");
       salary = doubleCheck();
       
-      print("How many vacation days will " + firstName + "have yearly?");
+      print2("How many vacation days will " + firstName + "have yearly?");
       vacation = intCheck();
       
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, 0, hours, salary, vacation);
+      //* send newly created Staff: "created" to staff array. mf.addStaff(created);
       returnQuit();
    }
 
@@ -120,8 +122,8 @@ public class StaffUI extends CLI
       //this.screenNumber = 1;
       creationTemplate("Guest");
       Guest created = new Guest(firstName, lastName, cpr, address, phoneNumber, password, 0);
+      //* send newly created User: "created" to user array. mf.addStaff(created);
       System.out.println();
-      returnQuit(); 
    }
 
    public void creationTemplate(String type)
@@ -129,45 +131,45 @@ public class StaffUI extends CLI
       Scanner input = new Scanner(System.in);
       Scanner inputAddress = new Scanner(System.in);
       
-      print("Please type the first name of the new " + type + ", in only one word.");
+      print2("Please type the first name of the new " + type + ", in only one word.");
       firstName = nameFixer(input.next());
       
-      print("Please type the last name of the new " + type +", in only one word.");
+      print2("Please type the last name of the new " + type +", in only one word.");
       lastName = nameFixer(input.next());
       
-      print("Please type the CPR number of the " + type);
+      print2("Please type the CPR number of the " + type);
       cpr = cprCheck(input);
       
       
       System.out.println();
-      print("Please type the " + type + "'s address in three parts.");
+      print2("Please type the " + type + "'s address in three parts.");
       System.out.println();
-      print("First, please type the stree name of " + firstName + "'s residence");
+      print2("First, please type the stree name of " + firstName + "'s residence");
       address[0] = nameFixer(inputAddress.nextLine());
       
-      print("Next, please type the city name of " + firstName + "'s residence.");
+      print2("Next, please type the city name of " + firstName + "'s residence.");
       address[1] = nameFixer(inputAddress.nextLine());
       
-      print("Lastly, please type the Postcode of " + firstName + "'s residence.");
+      print2("Lastly, please type the Postcode of " + firstName + "'s residence.");
       address[2] = nameFixer(inputAddress.nextLine());
       
-      print("Please type the " + type + "'s phone number");
+      print2("Please type the " + type + "'s phone number");
       phoneNumber = phoneNumberCheck(input);
       
-      print("Please create a password for the new " +  type);           
+      print2("Please create a password for the new " +  type);           
       
       do //Shamelessly stole Teo's password code 
       { 
-         print("Type the password.");
+         print2("Type the password.");
          pass1 = input.next();
-         print("please type the same password a second time");
+         print2("please type the same password a second time");
          pass2 = input.next();
          if ( !pass1.equals(pass2) ) 
          {
             print("The passwords do not match, please try again.");
          }
       } while ( !pass1.equals(pass2) );
-      print("Password creation successful");
+      print2("Password creation successful");
       password = pass1;
       System.out.println();  
    }
@@ -180,7 +182,7 @@ public class StaffUI extends CLI
       while (!input.hasNextDouble())
       {
          String shit = input.next();
-         print("Invalid input detected, please only type numbers.");
+         print2("Invalid input detected, please only type numbers.");
          
       }
       number = input.nextDouble();
@@ -196,7 +198,7 @@ public class StaffUI extends CLI
       while (!input.hasNextInt())
       {
          String shit = input.next();
-         print("Invalid input detected, please only type numbers without a comma.");
+         print2("Invalid input detected, please only type numbers without a comma.");
          
       }
       number = input.nextInt();
@@ -212,15 +214,15 @@ public class StaffUI extends CLI
       {
          if (number.length() > 8)
          {
-            print("Invalid phone number, please input a correct phone number");
-            print("Phone numbers should look something like this: 12345678\n");
+            print2("Invalid phone number, please input a correct phone number");
+            print2("Phone numbers should look something like this: 12345678\n");
             number = console.next();
          }
             
          if (number.length() < 8)
          {
-            print("Invalid phone number, please input a correct phone number");
-            print("Phone numbers should look something like this: 12345678\n");
+            print2("Invalid phone number, please input a correct phone number");
+            print2("Phone numbers should look something like this: 12345678\n");
             number = console.next();
          }
       }
@@ -230,23 +232,23 @@ public class StaffUI extends CLI
          intCheck = number.charAt(i);
          while (!Character.isDigit(intCheck))
          {
-            print("Phone numbers must contain 8 numbers, and no country code.");
-            print("For example '12345678'. Please try again.");
+            print2("Phone numbers must contain 8 numbers, and no country code.");
+            print2("For example '12345678'. Please try again.");
             number = console.next();
          
             while (!(number.length() == 8)) //checking that phone number length is corret.
             {
                if (number.length() > 8)
                {
-                  print("Invalid phone number, please input a correct phone number");
-                  print("Phone numbers should look something like this: 12345678\n");
+                  print2("Invalid phone number, please input a correct phone number");
+                  print2("Phone numbers should look something like this: 12345678\n");
                   number = console.next();
                }
                      
                if (number.length() < 8)
                {
-                  print("Invalid phone number, please input a correct phone number");
-                  print("Phone numbers should look something like this: 12345678\n");
+                  print2("Invalid phone number, please input a correct phone number");
+                  print2("Phone numbers should look something like this: 12345678\n");
                   number = console.next();
                }
             }
@@ -267,22 +269,22 @@ public class StaffUI extends CLI
       {
          if (cpr.length() > 11)
          {
-            print("CPR number is too long, please input a correct CPR number");
-            print("Cpr should look something like this: 123456-1234\n");
+            print2("CPR number is too long, please input a correct CPR number");
+            print2("Cpr should look something like this: 123456-1234\n");
             cpr = console.next();
          }
             
          if (cpr.length() < 11)
          {
-            print("CPR number is too short, please input a correct CPR number");
-            print("Cpr should look something like this: 123456-1234\n");
+            print2("CPR number is too short, please input a correct CPR number");
+            print2("Cpr should look something like this: 123456-1234\n");
             cpr = console.next();
          }
       }
       while (cpr.charAt(6) != '-')
       {
-         print("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
-         print("For example '123456-1234'. Please try again.");
+         print2("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
+         print2("For example '123456-1234'. Please try again.");
          cpr = console.next();
       }
       char intCheck;
@@ -295,30 +297,30 @@ public class StaffUI extends CLI
          intCheck = cpr.charAt(i);
          while (!Character.isDigit(intCheck))
          {
-            print("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
-            print("For example '123456-1234'. Please try again.");
+            print2("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
+            print2("For example '123456-1234'. Please try again.");
             cpr = console.next();
          
             while (!(cpr.length() == 11)) //checking that CPR number is corret.
             {
                if (cpr.length() > 11)
                {
-                  print("CPR number is too long, please input a correct CPR number.");
-                  print("Cpr should look something like this: 123456-1234\n");
+                  print2("CPR number is too long, please input a correct CPR number.");
+                  print2("Cpr should look something like this: 123456-1234\n");
                   cpr = console.next();
                }
                      
                if (cpr.length() < 11)
                {
-                  print("CPR number is too short, please input a correct CPR number.");
-                  print("Cpr should look something like this: 123456-1234\n");
+                  print2("CPR number is too short, please input a correct CPR number.");
+                  print2("Cpr should look something like this: 123456-1234\n");
                   cpr = console.next();
                }
             }
             while (cpr.charAt(6) != '-')
             {
-               print("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
-               print("For example '123456-1234'. Please try again.");
+               print2("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
+               print2("For example '123456-1234'. Please try again.");
                cpr = console.next();
             }
             intCheck = cpr.charAt(i);
@@ -375,15 +377,20 @@ public class StaffUI extends CLI
    {
       System.out.println(formatSymbol + text);
    }
+   
+   public void print2(String text)
+   {
+      System.out.println(print2formatSymbol + text);
+   }
   
    public void header(String text)
    {
       spacer();
-      System.out.println("\t   HOTEL PLAZA");
-      print("@ " + fullName);
+      System.out.println(print2formatSymbol + "HOTEL PLAZA");
+      print2("@ " + fullName);
       printLines();
-      print(text);
-      printLines();
+      print2(text);
+      //printLines();
       System.out.println();
    }
 
@@ -399,7 +406,7 @@ public class StaffUI extends CLI
    {
       int choice;
       
-      print("What would you like to do?");
+      print2("What would you like to do next?");
       System.out.println();
       print("1 Return to main menu");
       print("2 Quit");
