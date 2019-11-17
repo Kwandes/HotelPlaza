@@ -45,6 +45,7 @@ public class MainFrame // MF or motherFucker for short
       createLog("New MainFrame has been created", Log.Type.INFO);
    }    
    
+   // Initialization of all MF stuff. Config, populate data arrays etc
    public void init()
    {
       try
@@ -90,10 +91,10 @@ public class MainFrame // MF or motherFucker for short
       
    }
    
-   ////////// UI API //////////
+   //////////////////// UI API ////////////////////
    
-   // Returns a valid user for a given login. If none is found, returns null;
-   
+   ////////// Login //////////
+   // Returns a valid user for a given login. If none is found, returns null
    public Guest validateLoginGuest(String phoneNumber, String password)
    {  
       try
@@ -109,7 +110,7 @@ public class MainFrame // MF or motherFucker for short
       }
       catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
       createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.WARNING);
-      return null;   // If the login info is invalid return null
+      return null;
    }
    
    public Staff validateLoginStaff(String phoneNumber, String password)
@@ -127,9 +128,10 @@ public class MainFrame // MF or motherFucker for short
       }
       catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
       createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.WARNING);
-      return null;   // If the login info is invalid return null
+      return null;
    }
    
+   ////////// Booking stuff //////////
    public void createBooking(int roomID, int userID, int startDate, int endDate, int roomPrice, boolean hasInternet)
    {
       try
@@ -190,32 +192,6 @@ public class MainFrame // MF or motherFucker for short
       return userBookings;
    }   
    
-   ////////// Room management //////////
-   
-   public void requestRoomCleaning(int roomID)
-   {
-      try
-      {
-         for(int i = 0; i < roomList.size(); i++)
-         {
-            if(roomList.get(i).getRoomID() == roomID)
-            {
-               roomList.get(i).setRequiresCleaning(true);
-               file.saveData(new Information(null, null, roomList, null, null));
-               createLog("Room " + roomID + "has changed status to : requires cleaning", Log.Type.INFO);
-               break;
-            }
-         }
-      }
-      catch (Exception e)
-      {
-         createLog("Request Cleaning Failed", Log.Type.WARNING);
-         createLog(e, Log.Type.ERROR);
-      }
-   }
-   
-   ////////// ArrayList Setters && Getters //////////
-   
    public void setBookingList(ArrayList<Booking> bookingList)
    {
       try
@@ -256,6 +232,30 @@ public class MainFrame // MF or motherFucker for short
       return this.bookingList;
    }
    
+   public void removeBooking(int bookingID)
+   {
+      for (int i = 0 ; i < bookingList.size(); i++)
+      {
+         if (bookingList.get(i).getBookingID() == bookingID)
+         {
+            try
+            {
+               bookingList.remove(i);
+               file.saveData(new Information(bookingList, null, null, null, null));
+               createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
+            }
+            catch (Exception e)
+            {
+               createLog("Remove Booking Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
+            break;
+         }
+      }
+   }
+
+   ////////// Archived Bookings //////////
+      
    public void setArchivedBookingList(ArrayList<Booking> archivedBookingList)
    {
       try
@@ -293,6 +293,53 @@ public class MainFrame // MF or motherFucker for short
    public ArrayList<Booking> getArchivedBookingList()
    {
       return this.archivedBookingList;
+   }
+   
+   public void archiveBooking(int bookingID)
+   {
+      for (int i = 0 ; i < bookingList.size(); i++)
+      {
+         if (bookingList.get(i).getBookingID() == bookingID)
+         {
+            try
+            {
+               archivedBookingList.add(bookingList.get(i));
+               bookingList.remove(i);
+               file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
+               createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
+            }
+            catch (Exception e)
+            {
+               createLog("Archive Booking Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
+            break;
+         }
+      }
+   }
+   
+   ////////// Room Stuff //////////
+   
+   public void requestRoomCleaning(int roomID)
+   {
+      try
+      {
+         for(int i = 0; i < roomList.size(); i++)
+         {
+            if(roomList.get(i).getRoomID() == roomID)
+            {
+               roomList.get(i).setRequiresCleaning(true);
+               file.saveData(new Information(null, null, roomList, null, null));
+               createLog("Room " + roomID + "has changed status to : requires cleaning", Log.Type.INFO);
+               break;
+            }
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Request Cleaning Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
    }
    
    public void setRoomList(ArrayList<Room> roomList)
@@ -334,6 +381,8 @@ public class MainFrame // MF or motherFucker for short
       return this.roomList;
    }
    
+   ////////// Guest staff //////////
+   
    public void setGuestList(ArrayList<Guest> guestList)
    {
       try
@@ -373,6 +422,8 @@ public class MainFrame // MF or motherFucker for short
       return guestList;
    }
    
+   ////////// Staff stuff //////////
+   
    public void setStaffList(ArrayList<Staff> staffList)
    {
       try
@@ -411,26 +462,6 @@ public class MainFrame // MF or motherFucker for short
    {
       return this.staffList;
    }
-    
-   ////////// Config //////////
-   // read Config
-   // assign config values to stuff
-   
-   ////////// Logging //////////
-   public void createLog(String message, Log.Type logType)
-   {
-      file.appendToFile((new Log(message, logType)).toString(), this.printLogsToConsole);
-   }
-   public void createLog(Exception e, Log.Type logType)
-   {
-      file.appendToFile(new Log(e, logType).toString(), this.printLogsToConsole);
-   }
-   
-   ////////// testing purpose code //////////
-//    public void addUser(User user)
-//    {
-//       userList.add(user);
-//    }
    
    ////////// User Interface //////////
    public void openCLI()
@@ -477,55 +508,19 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   ////////// Array Element Removal //////////
+   //////////////////// Extra functionality ////////////////////
    
-   public void removeBooking(int bookingID)
+   ////////// Logging //////////
+   public void createLog(String message, Log.Type logType)
    {
-      for (int i = 0 ; i < bookingList.size(); i++)
-      {
-         if (bookingList.get(i).getBookingID() == bookingID)
-         {
-            try
-            {
-               bookingList.remove(i);
-               file.saveData(new Information(bookingList, null, null, null, null));
-               createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
-            }
-            catch (Exception e)
-            {
-               createLog("Remove Booking Failed", Log.Type.WARNING);
-               createLog(e, Log.Type.ERROR);
-            }
-            break;
-         }
-      }
+      file.appendToFile((new Log(message, logType)).toString(), this.printLogsToConsole);
+   }
+   public void createLog(Exception e, Log.Type logType)
+   {
+      file.appendToFile(new Log(e, logType).toString(), this.printLogsToConsole);
    }
    
-   public void archiveBooking(int bookingID)
-   {
-      for (int i = 0 ; i < bookingList.size(); i++)
-      {
-         if (bookingList.get(i).getBookingID() == bookingID)
-         {
-            try
-            {
-               archivedBookingList.add(bookingList.get(i));
-               bookingList.remove(i);
-               file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
-               createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
-            }
-            catch (Exception e)
-            {
-               createLog("Archive Booking Failed", Log.Type.WARNING);
-               createLog(e, Log.Type.ERROR);
-            }
-            break;
-         }
-      }
-   }
-   
-   ////////// Extra functionality //////////
-   
+   ////////// Music //////////
    public void playMusic()
    {
       try
@@ -556,7 +551,7 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   ////////// Getters and Setter //////////
+   ////////// minor Getters and Setter //////////
    
    public boolean getInitStatus()
    {
