@@ -142,7 +142,7 @@ public class Room {
 
 //________________________________________________________ROOM_ID_________________________________________
 
-   public int getRoomID()
+   public int getID()
    {
       return roomID;
    }

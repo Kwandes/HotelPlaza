@@ -101,4 +101,9 @@ public class Guest extends User
    {
       return this.accessLevel;
    }
+   
+   public String getCPR()
+   {
+      return this.cpr;
+   }
 }
