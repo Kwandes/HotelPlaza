@@ -19,7 +19,7 @@ public class MainFrame // MF or motherFucker for short
    private Properties config;
    private boolean isInitiatedProperly;
    private String appTitle;
-   private boolean saveToFile = false;
+   private boolean saveToFile = true;
    
    public MainFrame()
    {  
@@ -132,41 +132,18 @@ public class MainFrame // MF or motherFucker for short
    }
    
    ////////// Booking stuff //////////
-   public void createBooking(int roomID, int userID, int startDate, int endDate, int roomPrice, boolean hasInternet)
+   public void createBooking(Booking booking)
    {
       try
       {
-         int bookingID = 1;
-         bookingList.add(new Booking(bookingID, roomID, Integer.toString(userID), startDate, endDate, roomPrice, hasInternet));
+         bookingList.add(booking);
          
          if(this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null));
-         createLog("New Booking created, id: " + bookingList.get(bookingList.size()-1).getBookingID() + " by " + userID, Log.Type.INFO);
+         createLog("New Booking created, id: " + bookingList.get(bookingList.size()-1).getBookingID(), Log.Type.INFO);
       }
       catch (Exception e)
       {
          createLog("Create Booking Failed", Log.Type.WARNING);
-         createLog(e, Log.Type.ERROR);
-      }
-   }
-   
-   public void replaceBooking(int bookingID, Booking newBooking)
-   {
-      try
-      {
-         for(int i = 0; i < bookingList.size(); i++)
-         {
-            if(bookingList.get(i).getBookingID() == bookingID)
-            {
-               bookingList.set(i, newBooking);
-               file.saveData(new Information(bookingList, null, null, null, null));
-               createLog("Booking " + bookingID + "has been modified", Log.Type.INFO);
-               break;
-            }
-         }
-      }
-      catch (Exception e)
-      {
-         createLog("Replace Booking Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
       }
    }
@@ -227,9 +204,30 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   public ArrayList<Booking> getBookingList()
+   public void replaceBooking(int bookingID, Booking newBooking)
    {
-      return this.bookingList;
+      try
+      {
+         for(int i = 0; i < bookingList.size(); i++)
+         {
+            if(bookingList.get(i).getBookingID() == bookingID)
+            {
+               bookingList.set(i, newBooking);
+               if(this.saveToFile)
+               {
+                  file.saveData(new Information(bookingList, null, null, null, null));
+                  createLog("Booking " + bookingID + "has been modified and saved", Log.Type.INFO);
+               }               
+               else createLog("Booking " + bookingID + "has been modified", Log.Type.INFO);
+               break;
+            }
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Replace Booking Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
    }
    
    public void removeBooking(int bookingID)
@@ -241,7 +239,7 @@ public class MainFrame // MF or motherFucker for short
             try
             {
                bookingList.remove(i);
-               file.saveData(new Information(bookingList, null, null, null, null));
+               if (this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null));
                createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
             }
             catch (Exception e)
@@ -252,6 +250,11 @@ public class MainFrame // MF or motherFucker for short
             break;
          }
       }
+   }
+   
+   public ArrayList<Booking> getBookingList()
+   {
+      return this.bookingList;
    }
 
    ////////// Archived Bookings //////////
@@ -290,11 +293,6 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   public ArrayList<Booking> getArchivedBookingList()
-   {
-      return this.archivedBookingList;
-   }
-   
    public void archiveBooking(int bookingID)
    {
       for (int i = 0 ; i < bookingList.size(); i++)
@@ -305,7 +303,7 @@ public class MainFrame // MF or motherFucker for short
             {
                archivedBookingList.add(bookingList.get(i));
                bookingList.remove(i);
-               file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
+               if (this.saveToFile) file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
                createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
             }
             catch (Exception e)
@@ -318,6 +316,11 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public ArrayList<Booking> getArchivedBookingList()
+   {
+      return this.archivedBookingList;
+   }
+   
    ////////// Room Stuff //////////
    
    public void requestRoomCleaning(int roomID)
@@ -326,10 +329,10 @@ public class MainFrame // MF or motherFucker for short
       {
          for(int i = 0; i < roomList.size(); i++)
          {
-            if(roomList.get(i).getRoomID() == roomID)
+            if(roomList.get(i).getID() == roomID)
             {
                roomList.get(i).setRequiresCleaning(true);
-               file.saveData(new Information(null, null, roomList, null, null));
+               if (this.saveToFile) file.saveData(new Information(null, null, roomList, null, null));
                createLog("Room " + roomID + "has changed status to : requires cleaning", Log.Type.INFO);
                break;
             }
@@ -373,6 +376,32 @@ public class MainFrame // MF or motherFucker for short
          createLog("Load Room List Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
          return false;
+      }
+   }
+   
+   public void replaceRoom(int id, Room newRoom)
+   {
+      try
+      {  
+         for (int i = 0; i < roomList.size(); i++)
+         {
+            if(roomList.get(i).getID() == id)
+            {
+               roomList.set(i, newRoom);
+               break;
+            }
+         }
+         createLog("Room " + id + " replaced", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, this.roomList, null, null));
+            createLog("Modified Room List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Modifying Room List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
       }
    }
    
@@ -436,6 +465,32 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public void replaceGuest(String id, Guest newGuest)
+   {
+      try
+      {  
+         for (int i = 0; i < guestList.size(); i++)
+         {
+            if(guestList.get(i).getID().equals(id))
+            {
+               guestList.set(i, newGuest);
+               break;
+            }
+         }
+         createLog("Guest " + id + " replaced", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, null, this.guestList, null));
+            createLog("Modified Guest List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Modifying Staff List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
    public ArrayList<Guest> getGuestList()
    {
       return guestList;
@@ -492,6 +547,32 @@ public class MainFrame // MF or motherFucker for short
       catch (Exception e)
       {
          createLog("Expanding Staff List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public void replaceStaff(String id, Staff newStaff)
+   {
+      try
+      {  
+         for (int i = 0; i < staffList.size(); i++)
+         {
+            if(staffList.get(i).getID().equals(id))
+            {
+               staffList.set(i, newStaff);
+               break;
+            }
+         }
+         createLog("Staff " + id + " replaced", Log.Type.INFO);
+         if (this.saveToFile)
+         {
+            file.saveData(new Information(null, null, null, null, this.staffList));
+            createLog("Modified Staff List saved", Log.Type.INFO);
+         }
+      }
+      catch (Exception e)
+      {
+         createLog("Modifying Staff List Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
       }
    }
