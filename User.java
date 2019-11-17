@@ -9,7 +9,7 @@ public class User
    protected String[] address = new String[3]; //0 = Street name, 1 = city, 2 = postcode
    protected String phoneNumber;          // max 8 digits.
    protected String password;
-   protected String ID;           // Type + 2 last digits from PhoneNr + initals ( first letter of each name)
+   protected String ID;           // Type + 2 last digits from PhoneNr + initals ( first letter of each name) <-- this has to be wrong.
    protected int accessLevel;       // 0 - 6
    protected final String[] TYPE = { "Guest", "Cleaner", "Receptionist", "Accountant", "Director" };
    

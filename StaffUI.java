@@ -67,6 +67,7 @@ public class StaffUI extends CLI
                returnQuit();
                break;
             case 3:
+               header("Book a room");
                createBooking();
                returnQuit();
                break;
@@ -94,6 +95,15 @@ public class StaffUI extends CLI
    
    public void createBooking()
    {
+      //int bookingID, int roomID, String userID, int startDate, int endDate, int roomPrice, boolean hasInternet 
+      
+      //I assume that bookingID is generated somewhere, i assume that roomID is gotten from somewhere
+      Scanner console = new Scanner(System.in);
+      
+      print2("What is the cpr number of the Guest you would like to book a room for?");
+      cpr = cprCheck(console);
+      //* user.arraylistwherethefuckareyou.search(cpr)
+      //* user.getUserID();
       
    }
    
@@ -173,7 +183,9 @@ public class StaffUI extends CLI
       password = pass1;
       System.out.println();  
    }
-   
+  
+  
+//_________________________________________________________CHECK METHODS_____________________________________________   
    public double doubleCheck()
    {
       Scanner input = new Scanner(System.in);
@@ -329,7 +341,7 @@ public class StaffUI extends CLI
       }
       return cpr;
    }
-   
+//_____________________________________________________NAME FORMAT METHODS_________________________________________   
    public String nameFixer(String name)
    {
       String namePart;
@@ -363,7 +375,7 @@ public class StaffUI extends CLI
       }
       return fixedName;  
    }
-   
+//__________________________________________________UI + UI DECOR________________________________________________________   
    public void printLines()
    {
       for (int i = 0; i < headerLength; i++)
@@ -401,7 +413,7 @@ public class StaffUI extends CLI
          System.out.println();
       }
    }
-
+//____________________________________________________MENU + MENU NAVIGATION__________________________________________
    public void returnQuit()
    {
       int choice;
