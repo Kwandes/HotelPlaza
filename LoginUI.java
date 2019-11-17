@@ -110,8 +110,7 @@ public class LoginUI extends CLI
       arr[1] = "Yote";
       arr[2] = "yoten";
       this.guest = new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
-      this.staff = null;
-      // Implement proper user creation based on array gotten from MF
+      this.staff = new Staff ("Man", "Strong", "123456-1234", "ST", arr, "12345678", "passwd", 0, 37, 140.0, 5);
       
       this.screenNumber = 99; // Exit loginUI
    }
