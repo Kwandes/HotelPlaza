@@ -53,28 +53,29 @@ public class MainFrame // MF or motherFucker for short
          createLog("MainFrame Init started", Log.Type.INFO);
          
          ////////// Load Config //////////
-         createLog("Loading config", Log.Type.INFO);
+         createLog("Loading config...", Log.Type.INFO);
          config = new Properties();
          config.load(new FileInputStream("config.properties"));
          createLog("Config loaded", Log.Type.INFO);
          this.appTitle = config.getProperty("appTitle", "YEET");
-         
+            
          file.setFilePaths(config);
-         
          ////////// Get config and init arrays //////////
          // get config with filepaths etc
          
          // load ALL arrays from file
-         Information info = new Information(true, true, true, true, true);
-         info = file.loadData(info);
+         createLog("Loading Array Lists...", Log.Type.INFO);
          
-         bookingList = info.bookingList;
-         archivedBookingList = info.archivedBookingList;
-         roomList = info.roomList;
-         guestList = info.guestList;
-         staffList = info.staffList;
+         boolean loadStatus = true;
          
-         createLog("ArrayList setup complete", Log.Type.INFO);
+         if(!loadBookingList()) loadStatus = false;
+         if(!loadArchivedBookingList()) loadStatus = false;
+         if(!loadRoomList()) loadStatus = false;
+         if(!loadStaffList()) loadStatus = false;
+         if(!loadGuestList()) loadStatus = false;
+         
+         if(loadStatus) createLog("ArrayList setup complete", Log.Type.INFO);
+         else createLog("ArrayList setup incomplete", Log.Type.WARNING);
          
          createLog("MainFrame init has completed successfully", Log.Type.INFO);
          
@@ -82,8 +83,8 @@ public class MainFrame // MF or motherFucker for short
       }
       catch (Exception e)
       {
-         createLog(e, Log.Type.ERROR);
          createLog("MainFrame init has NOT completed successfully", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
          this.isInitiatedProperly = false;
       }
       
@@ -107,7 +108,7 @@ public class MainFrame // MF or motherFucker for short
          }
       }
       catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
-      createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.INFO);
+      createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.WARNING);
       return null;   // If the login info is invalid return null
    }
    
@@ -125,7 +126,7 @@ public class MainFrame // MF or motherFucker for short
          }
       }
       catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
-      createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.INFO);
+      createLog("Failed Login attempt, phone Number: " + phoneNumber + " , password: " + password, Log.Type.WARNING);
       return null;   // If the login info is invalid return null
    }
    
@@ -139,7 +140,11 @@ public class MainFrame // MF or motherFucker for short
          if(this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null));
          createLog("New Booking created, id: " + bookingList.get(bookingList.size()-1).getBookingID() + " by " + userID, Log.Type.INFO);
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+      catch (Exception e)
+      {
+         createLog("Create Booking Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
    }
    
    public void replaceBooking(int bookingID, Booking newBooking)
@@ -157,7 +162,11 @@ public class MainFrame // MF or motherFucker for short
             }
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+      catch (Exception e)
+      {
+         createLog("Replace Booking Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
    }
    
    public ArrayList<Booking> getUsersBookings(int userID)
@@ -173,7 +182,11 @@ public class MainFrame // MF or motherFucker for short
             }
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }   
+      catch (Exception e)
+      {
+         createLog("Get Users Bookings Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
       return userBookings;
    }   
    
@@ -194,7 +207,11 @@ public class MainFrame // MF or motherFucker for short
             }
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); } 
+      catch (Exception e)
+      {
+         createLog("Request Cleaning Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
    }
    
    ////////// ArrayList Setters && Getters //////////
@@ -211,7 +228,27 @@ public class MainFrame // MF or motherFucker for short
             createLog("Booking List saved", Log.Type.INFO);
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+      catch (Exception e)
+      {
+         createLog("Set Booking List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public boolean loadBookingList()
+   {
+      try
+      {
+         createLog("Loading BookingList...", Log.Type.INFO);
+         this.bookingList = file.loadData(new Information(true, false, false, false, false)).bookingList;
+         return true;
+      }
+      catch (Exception e)
+      {
+         createLog("Load Booking List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         return false;
+      }
    }
    
    public ArrayList<Booking> getBookingList()
@@ -231,7 +268,26 @@ public class MainFrame // MF or motherFucker for short
             createLog("Archived Booking List saved", Log.Type.INFO);
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+      catch (Exception e)
+      {
+         createLog("Set Archive Booking Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public boolean loadArchivedBookingList()
+   {
+      try
+      {
+         this.archivedBookingList = file.loadData(new Information(false, true, false, false, false)).archivedBookingList;
+         return true;
+      }
+      catch (Exception e)
+      {
+         createLog("Load Archived Booking List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         return false;
+      }
    }
    
    public ArrayList<Booking> getArchivedBookingList()
@@ -251,7 +307,26 @@ public class MainFrame // MF or motherFucker for short
             createLog("Room List saved", Log.Type.INFO);
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+      catch (Exception e)
+      {
+         createLog("Set Room List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public boolean loadRoomList()
+   {
+      try
+      {
+         this.roomList = file.loadData(new Information(false, false, true, false, false)).roomList;
+         return true;
+      }
+      catch (Exception e)
+      {
+         createLog("Load Room List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         return false;
+      }
    }
    
    public ArrayList<Room> getRoomList()
@@ -271,8 +346,27 @@ public class MainFrame // MF or motherFucker for short
             createLog("Guest List saved", Log.Type.INFO);
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
-   }   
+      catch (Exception e)
+      {
+         createLog("Set Booking List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public boolean loadGuestList()
+   {
+      try
+      {
+         this.guestList = file.loadData(new Information(false, false, false, true, false)).guestList;
+         return true;
+      }
+      catch (Exception e)
+      {
+         createLog("Load Guest List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         return false;
+      }
+   }
    
    public ArrayList<Guest> getGuestList()
    {
@@ -291,8 +385,27 @@ public class MainFrame // MF or motherFucker for short
             createLog("Staff List saved", Log.Type.INFO);
          }
       }
-      catch (Exception e) {  createLog(e, Log.Type.ERROR); }
-   }   
+      catch (Exception e)
+      {
+         createLog("Set Staff List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public boolean loadStaffList()
+   {
+      try
+      {
+         this.staffList = file.loadData(new Information(false, false, false, false, true)).staffList;
+         return true;
+      }
+      catch (Exception e)
+      {
+         createLog("Load Staff List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         return false;
+      }
+   }
    
    public ArrayList<Staff> getStaffList()
    {
@@ -360,7 +473,7 @@ public class MainFrame // MF or motherFucker for short
       catch (Exception e)
       {
          createLog(e, Log.Type.ERROR);
-         createLog("User UI failed to create", Log.Type.WARNING);
+         createLog("UI failed to create", Log.Type.WARNING);
       }
    }
    
@@ -378,7 +491,11 @@ public class MainFrame // MF or motherFucker for short
                file.saveData(new Information(bookingList, null, null, null, null));
                createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
             }
-            catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+            catch (Exception e)
+            {
+               createLog("Remove Booking Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
             break;
          }
       }
@@ -397,7 +514,11 @@ public class MainFrame // MF or motherFucker for short
                file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
                createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
             }
-            catch (Exception e) {  createLog(e, Log.Type.ERROR); }
+            catch (Exception e)
+            {
+               createLog("Archive Booking Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
             break;
          }
       }
