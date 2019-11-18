@@ -600,24 +600,24 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   public String generateBookingID()
+   public int generateBookingID()
    {
-      return "BYEET";
+      return 1;
    }
    
-   public String generateRoomID()
+   public int generateRoomID()
    {
-      return "RYEET";
+      return 2;
    }
    
-   public String generateGuestID()
+   public int generateGuestID()
    {
-      return "GYEET";
+      return 3;
    }
    
-   public String generateStaffID()
+   public int generateStaffID()
    {
-      return "SYEET";
+      return 4;
    }
    
    

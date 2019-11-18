@@ -141,11 +141,10 @@ public class StaffUI extends CLI
       startDate = dateNumber(monthTemp, dayTemp);
       
       
-      print2("Please type the ending month of the guest's stay");
-      monthTemp = intCheck(1,12);
-      print2("please type the last day of guest's stay");
-      dayTemp = intCheck(1,monthList[monthTemp-1]);
-      endDate = dateNumber(monthTemp, dayTemp);
+      print2("How many days will the guest be staying for?");
+      endDate = intCheck();
+      endDate = endDate + startDate;
+      
       
       
       
@@ -215,21 +214,20 @@ public class StaffUI extends CLI
 //             break;
 //       }
       
-      //roomX.getID
-      roomID = 123; 
-      bookingID = 1234; //???????????????????
+      
+      roomID = 123; //roomX.getID
+      bookingID = mf.generateBookingID(); 
       //* roomPrice = room.getPrice();
       //$ roomList.get(roomID).getPrice(); alternatively: chosenRoom.getPrice();
-      roomPrice = 800;
+      roomPrice = 800; //PLACEHOLDER
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
-      //$ mf.createBooking(guestBooking); in order to save
+      mf.createBooking(guestBooking); // in order to save
    }
    
    
    public void createStaff()
    {
       this.screenNumber = 2;
-      //Staff firstName, lastName, cpr, type, address, phoneNumber, password,int hours, double salary, int vacation)
       creationTemplate("Staff");
       print2("How many hours will " + firstName + " be working weekly?");
       hours = intCheck();
@@ -241,19 +239,17 @@ public class StaffUI extends CLI
       vacation = intCheck();
       
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, 0, hours, salary, vacation);
-      //* send newly created Staff: "created" to staff array. mf.addStaff(created);
-      //$ mf.addStaff(created); What about the staffID tho?
-      
+      mf.addStaff(created);
    }
 
    public void createGuest() 
    {
-      //this.screenNumber = 1;
+      this.screenNumber = 1;
       creationTemplate("Guest");
       Guest created = new Guest(firstName, lastName, cpr, address, phoneNumber, password, 0);
-      //* send newly created User: "created" to user array. mf.addStaff(created);
-      //$ answer> mf.addGuest(created); BUT you forgot userID, I think?
+      mf.addGuest(created);
       System.out.println();
+      
    }
 
    public void creationTemplate(String type)
@@ -280,7 +276,7 @@ public class StaffUI extends CLI
       print2("Next, please type the city name of " + firstName + "'s residence.");
       address[1] = nameFixer(inputAddress.nextLine());
       
-      print2("Lastly, please type the Postcode of " + firstName + "'s residence.");
+      print2("Lastly, please type the postcode of " + firstName + "'s residence.");
       address[2] = nameFixer(inputAddress.nextLine());
       
       print2("Please type the " + type + "'s phone number");
