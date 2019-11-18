@@ -250,8 +250,8 @@ public class UnitTests
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      file.saveData(new Information(list, null, null, null, null));
-      info = file.loadData(new Information(true, false, false, false, false));
+      file.saveData(new Information(list, null, null, null, null, null));
+      info = file.loadData(new Information(true, false, false, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
    }
@@ -265,8 +265,8 @@ public class UnitTests
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      file.saveData(new Information(null, list, null, null, null));
-      info = file.loadData(new Information(false, true, false, false, false));
+      file.saveData(new Information(null, list, null, null, null, null));
+      info = file.loadData(new Information(false, true, false, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.archivedBookingList.isEmpty()), Boolean.toString(false));
    }
@@ -280,8 +280,8 @@ public class UnitTests
       ArrayList<Room> list = new ArrayList<Room>();
       list.add(new Room(0, 1));
       // Act
-      file.saveData(new Information(null, null, list, null, null));
-      info = file.loadData(new Information(false, false, true, false, false));
+      file.saveData(new Information(null, null, list, null, null, null));
+      info = file.loadData(new Information(false, false, true, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.roomList.isEmpty()), Boolean.toString(false));
    }
@@ -299,8 +299,8 @@ public class UnitTests
       arr[2] = "yoten";
       list.add(new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0));
       // Act
-      file.saveData(new Information(null, null, null, list, null));
-      info = file.loadData(new Information(false, false, false, true, false));
+      file.saveData(new Information(null, null, null, list, null, null));
+      info = file.loadData(new Information(false, false, false, true, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.guestList.isEmpty()), Boolean.toString(false));
    }
@@ -318,8 +318,8 @@ public class UnitTests
       arr[2] = "yoten";
       list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", 0, 0, 0.0, 0));
       // Act
-      file.saveData(new Information(null, null, null, null, list));
-      info = file.loadData(new Information(false, false, false, false, true));
+      file.saveData(new Information(null, null, null, null, list, null));
+      info = file.loadData(new Information(false, false, false, false, true, false));
       // Assert
       as.assertEquals(Boolean.toString(info.staffList.isEmpty()), Boolean.toString(false));
    }
@@ -414,8 +414,8 @@ public class UnitTests
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      file.saveData(new Information(list, null, null, null, null));
-      Information info = file.loadData(new Information(true, false, false, false, false));
+      file.saveData(new Information(list, null, null, null, null, null));
+      Information info = file.loadData(new Information(true, false, false, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
    }
