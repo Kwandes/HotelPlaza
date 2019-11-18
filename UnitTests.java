@@ -20,12 +20,13 @@ public class UnitTests
    private Assert as;
    private boolean testPassed;
    private String testName;
-   private boolean printDebugInfo;
-   private boolean printLogInfo;
    private int testCount;
    private int testsPassedCount;
+   
    private FileManagement fileManager;
    private MainFrame mainFrame;
+   private boolean printDebugInfo;
+   private boolean printLogInfo;
    
    public UnitTests(boolean debug)
    {
@@ -36,10 +37,10 @@ public class UnitTests
       log("Unit Test Run initiated");
    }
    
+   //////////////////// Actual Test Execution ////////////////////
    public void runTests()
    {
-      // Debugging means printing logs created in MainFrame etc to console
-      // Enable to see what exactly is going on, Disable for simple Test Passed/Failed
+      // Debugging means printing logs created in MainFrame and Exception details to console
       log("New Unit test run");
       if(printDebugInfo) log("Debugging messages ON");
       else log("Debugging messages OFF");
@@ -231,9 +232,7 @@ public class UnitTests
       log("Unit testing finished. Passed " + testsPassedCount + "/" + testCount + " tests\n\n");
    }
    
-   
-   
-   ////////// unit tests //////////
+   //////////////////// Unit Tests ////////////////////
    public void templateTest() throws TestException
    {
       // Arrange
@@ -406,10 +405,6 @@ public class UnitTests
    
    ////////// Saving arrayLists test //////////
    
-   //saveData(new Info());
-   //loadData(new Info());
-   //removeData(newInfo());
-   
    public void saveDataBookingTest() throws TestException, FileNotFoundException, Exception
    {
       // Arrange
@@ -443,7 +438,6 @@ public class UnitTests
    {
       // Arrange
       MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
-      mf.init();
       String phoneNumber = "+69 420";
       String password = "yeet";
       // Act
