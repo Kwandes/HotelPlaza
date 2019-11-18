@@ -181,6 +181,7 @@ public class FileManagement
       
       while ( in.hasNext () ) 
       {  
+         room = new Room();
          room.setRoomID (in.nextInt());
          room.setFloor ( in.nextInt());
          room.setBeds ( in.nextInt());
@@ -208,6 +209,7 @@ public class FileManagement
       
       while ( in.hasNext () ) 
       {
+         guest = new Guest();
          guest.setFirstName (in.next());
          guest.setLastName (in.next());
          guest.setCpr (in.next());
@@ -235,11 +237,11 @@ public class FileManagement
       File file = new File ( staffListPath );
       Staff staff = new Staff();
       ArrayList<Staff> array = new ArrayList<Staff>();
-      Scanner in = new Scanner ( file );      
-      String[] address = new String[3];
-      
+      Scanner in = new Scanner ( file );    
+      String[] address = new String[3];  
       while ( in.hasNext () ) 
       {
+         staff = new Staff();
          staff.setFirstName (in.next());
          staff.setLastName (in.next());
          staff.setCpr (in.next());
@@ -255,7 +257,6 @@ public class FileManagement
          staff.setHours ( in.nextInt());
          staff.setSalary ( in.nextDouble());
          staff.setVacation ( in.nextInt());
-         staff.setID (in.next());
          array.add ( staff );
       }
             
@@ -281,6 +282,7 @@ public class FileManagement
       
       while ( in.hasNext () ) 
       {
+         booking = new Booking();
          booking.setBookingID ( in.nextInt() );
          booking.setUserID ( in.next() );
          booking.setRoomID ( in.nextInt() );
@@ -410,7 +412,7 @@ public class FileManagement
          out.println ( staff.fileFormatString() );
       }
       out.flush();
-      out.close();   
+      //out.close();   
    }
    
       // Bookings - Archived & Active

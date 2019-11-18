@@ -8,7 +8,7 @@ import java.io.*;
 public class TestMain {
    
       // File Path required for FileManagement.
-   private static final String FILEPATH = "C:/Users/crist/OneDrive/Documents/GitKraken/hOtEl-tHiNg-HoPe-It-Is-ThE-LaTeSt/Logs";
+   private static final String FILEPATH = "C:/Users/crist/OneDrive/Documents/GitKraken/HotelPlaza/Logs";
    
       // File Manager
    private static FileManagement fm;
@@ -20,17 +20,27 @@ public class TestMain {
       // ArrayLists
    private static ArrayList<Booking> bookingList = new ArrayList<Booking>();
    private static ArrayList<Room> roomList = new ArrayList<Room>();
+   private static ArrayList<Guest> guestList = new ArrayList<Guest>();
+   private static ArrayList<Staff> staffList = new ArrayList<Staff>();
+   private static ArrayList<Booking> aBookingList = new ArrayList<Booking>();
    
    
       // MAIN METHOD
    public static void main ( String[] args ) 
-                  throws FileNotFoundException, IOException {
+                  throws FileNotFoundException, IOException, Exception {
       
       fm = new FileManagement ( FILEPATH );
       
+      aBookingList = fm.loadBookings ( true );
       bookingList = fm.loadBookings( false );
       roomList = fm.loadRooms();
+      staffList = fm.loadStaff();
+      guestList = fm.loadGuests();
       
+      String[] address = new String[3];
+      address[0] = "street_one_word";
+      address[1] = "city";
+      address[2] = "postal_code";
       
          // Room Testing    
       // Setting required values for room class to work.
@@ -40,44 +50,80 @@ public class TestMain {
          
       //resetCalendar ( 511 );
       
-      /*
          // Booking Testing
-      int startDate = 1;
-      int endDate = 5;
+      int startDate = 11;
+      int endDate = 19;
       int daysExtend = 3;
       boolean hasInternet = true;
-      int bookingCount = 1;
+      int bookingCount = 4;
+      int roomID = 501;
+      
+         // Archive Bookings
+         
+      Booking ab = bookingList.get(0);
+      Booking ab1 = bookingList.get(2);
+      aBookingList.add(ab);
+      aBookingList.add(ab1);
+      
+         // Guest Creation
+       /*  
+      Guest g = new Guest("Bob", "Strongest", "123456-1234", address, "01233210", "word_of_passage", 5 );
+      g.setAddress ( address );
+      guestList.add(g);      
+      Guest g2 = new Guest("Rob", "Strongest", "123456-1234", address, "01233210", "word_of_passage", 6 ); 
+      g2.setAddress ( address );
+      guestList.add(g2);
+      
+      for ( int i = 0; i < guestList.size(); i ++ )
+      {
+         System.out.println ( guestList.get( i ).fileFormatString() );
+      }
+       */  
+         // Staff Creation
+      
+    //   Staff s = new Staff( "Bobert", "Strongest", "123456-1234", "type:dir", address, "01233210", "pass_the_word", 5, 10, 23000, 6 );
+//       Staff s2 = new Staff( "Robert", "Strongest", "123456-1234", "type:rec", address, "01233210", "pass_the_word", 6, 10, 23000, 6 );  
+//       staffList.add(s);
+//       staffList.add(s2); 
+      
+         // Room Creation
+         
+     //  Room r = new Room ( 399, 1 );
+//       roomList.add(r);
+//       Room r2 = new Room ( 723, 99999 );
+//       roomList.add(r2);
      
          // Booking.
-      System.out.println ( "Is bookable : " + isBookable ( 511, startDate, endDate ) );
-      
-      if ( isBookable ( 511, startDate, endDate ) )
-      {
-         createBooking ( bookingCount, "G.1.001", 511, startDate, endDate, hasInternet );
-      }
+     //  System.out.println ( "Is bookable : " + isBookable ( roomID, startDate, endDate ) );
+//       
+//       if ( isBookable ( roomID, startDate, endDate ) )
+//       {
+//          createBooking ( bookingCount, "userID", roomID, startDate, endDate, hasInternet );
+//       }
       
          // Extending.
-      int bookingPos = findBooking ( bookingCount );
-      int roomID = bookingList.get(bookingPos).getRoomID();
-      int roomPos = findRoom ( roomID );
+      // int bookingPos = findBooking ( bookingCount );
+//       int roomID = bookingList.get(bookingPos).getRoomID();
+//       int roomPos = findRoom ( roomID );
+//       
+//       int[] calendar = roomList.get(roomPos).getCalendar();
+//       
+//       System.out.println ( "Is Extendable : " + bookingList.get(bookingPos).isExtendable ( daysExtend, calendar ) );
+//       
+//       if ( bookingList.get(bookingPos).isExtendable ( daysExtend, calendar ) ) 
+//       {
+//          extendBooking ( bookingCount, roomID, daysExtend );
+//       }
       
-      int[] calendar = roomList.get(roomPos).getCalendar();
-      
-      System.out.println ( "Is Extendable : " + bookingList.get(bookingPos).isExtendable ( daysExtend, calendar ) );
-      
-      if ( bookingList.get(bookingPos).isExtendable ( daysExtend, calendar ) ) 
-      {
-         extendBooking ( bookingCount, roomID, daysExtend );
-      }
-      */
-      
+      fm.saveBookings ( aBookingList, true );
       fm.saveBookings(bookingList, false);
       fm.saveRooms(roomList);
-      
+      fm.saveGuests(guestList);
+      fm.saveStaff(staffList);   
    }
    
       // Booking Related Methods
-      
+   
    // Creates a booking.
    public static void createBooking ( int bookingCount, String userID, int roomID,
                                       int startDate, int endDate, boolean hasInternet ) // May have too many arguments (?)
@@ -100,6 +146,8 @@ public class TestMain {
       
       fm.saveRooms(roomList);
       fm.saveBookings(bookingList, false);
+      fm.saveGuests(guestList);
+      fm.saveStaff(staffList);
    }
    
    // Extends a booking.

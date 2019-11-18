@@ -1,2 +1,6 @@
-as21
-as21qweq
+Bober Stronger 123456-1234 type:cle street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
+Rober Stronger 123456-1234 type:acc street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
+Bob Strong 123456-1234 type:cle street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
+Rob Strong 123456-1234 type:acc street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
+Bobert Strongest 123456-1234 type:dir street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
+Robert Strongest 123456-1234 type:rec street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
