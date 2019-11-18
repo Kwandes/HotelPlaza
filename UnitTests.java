@@ -24,20 +24,23 @@ public class UnitTests
    private int testCount;
    private int testsPassedCount;
    private FileManagement fileManager;
+   private MainFrame mainFrame;
    private String logFilePath;
    
-   public UnitTests()
+   public UnitTests(boolean debug, String filePath)
    {
-      this.logFilePath = "Testing";
-      this.fileManager = new FileManagement(this.logFilePath);
+      this.printDebugInfo = debug;
+      this.logFilePath = filePath;
+      mainFrame = new MainFrame(this.printDebugInfo, this.logFilePath);
+      this.fileManager = mainFrame.getFileManager();
+      log("Unit Test Run initiated");
    }
    
-   public void runTests(boolean debug)
+   public void runTests()
    {
       // Debugging means printing logs created in MainFrame etc to console
       // Enable to see what exactly is going on, Disable for simple Test Passed/Failed
       log("New Unit test run");
-      this.printDebugInfo = debug;
       if(printDebugInfo) log("Debugging messages ON");
       else log("Debugging messages OFF");
       log("----------");
@@ -513,6 +516,7 @@ public class UnitTests
    
    public void log(String message, Exception e)
    {
+      mf.createLog(
       fileManager.appendToFile(message + e, true);
       StringWriter sw = new StringWriter();
       PrintWriter pw = new PrintWriter(sw);

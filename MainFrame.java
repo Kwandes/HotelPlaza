@@ -672,11 +672,11 @@ public class MainFrame // MF or motherFucker for short
    ////////// Logging //////////
    public void createLog(String message, Log.Type logType)
    {
-      file.appendToFile((new Log(message, logType)).toString(), this.printLogsToConsole);
+      file.appendToFile((new Log(message, logType)).toString(), false);
    }
    public void createLog(Exception e, Log.Type logType)
    {
-      file.appendToFile(new Log(e, logType).toString(), this.printLogsToConsole);
+      file.appendToFile(new Log(e, logType).toString(), true);
    }
    
    ////////// Music //////////
@@ -721,5 +721,10 @@ public class MainFrame // MF or motherFucker for short
    public void setSaveToFile(Boolean state)
    {
       this.saveToFile = state;
+   }
+   
+   public FileManagement getFileManager()
+   {
+      return file;
    }
 }
