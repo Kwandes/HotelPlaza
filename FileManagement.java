@@ -11,6 +11,7 @@ public class FileManagement
    private String filePath;
    private MainFrame mf;
    private Information info;
+   private Properties config;
       
       // Constructors
    public FileManagement () 
@@ -38,26 +39,18 @@ public class FileManagement
       this.mf = mfRef;
    }
    
-      // Methods
-      
-   public void appendToFile ( String log ) // Appends a given line to the bottom of the logs.txt file
+   public FileManagement (MainFrame mfRef, String filePath, Properties config) 
    {
-      File file = new File ( filePath + "/logs.txt" );
-      try
-      {
-         file.createNewFile();
-         FileWriter fw = new FileWriter ( file, true );
-         PrintWriter out = new PrintWriter ( fw );
-         out.println ( log );
-         out.flush();
-         out.close();
-      }
-      catch (Exception e){ System.out.println(e);};
+      this.config = config;
+      this.filePath = filePath;
+      this.mf = mfRef;
    }
    
+      // Methods
+         
    public void appendToFile ( String log, boolean outputToConsole ) // Appends a given line to the bottom of the logs.txt file
    {
-      File file = new File ( filePath + "/logs.txt" );
+      File file = new File ( config.getProperty("logPath") );
       try
       {
          file.createNewFile();
@@ -118,48 +111,14 @@ public class FileManagement
       else info.bookingList = null;
       
       return info;
-   }
-   
-   public void saveData(Information info) throws FileNotFoundException, NullPointerException
-   {
-      if(info.bookingList != null)
-      {
-         mf.createLog("FM>:Saving BookingList", Log.Type.INFO);
-         saveBookings(info.bookingList, false);
-      }
-      
-      if(info.archivedBookingList != null)
-      {
-         mf.createLog("FM>:Saving archived BookingList", Log.Type.INFO);
-         saveBookings(info.archivedBookingList, true);
-      }
-      
-      if(info.roomList != null)
-      {
-         mf.createLog("FM>:Saving RoomList", Log.Type.INFO);
-         saveRooms(info.roomList);
-      }
-      
-      if(info.loadGuests)
-      {
-         mf.createLog("FM>:Saving GuestList", Log.Type.INFO);
-         saveGuests(info.guestList);
-      }
-      
-      if(info.loadStaff)
-      {
-         mf.createLog("FM>:Saving StaffList", Log.Type.INFO);
-         saveStaff(info.staffList);
-      }
-   }
-   
+   }   
      
       // Rooms
    public ArrayList<Room> loadRooms () 
                            throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/rooms.txt" );
-      File calFile = new File ( filePath + "/calendar.txt" );
+      File file = new File ( config.getProperty("roomListPath") );
+      File calFile = new File ( config.getProperty("calendarPath") );
       Room room = new Room();
       ArrayList<Room> array = new ArrayList<Room>();
       Scanner in = new Scanner ( file );
@@ -186,7 +145,7 @@ public class FileManagement
    public ArrayList<Guest> loadGuests () 
                            throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/guests.txt" );
+      File file = new File ( config.getProperty("guestListPath") );
       Guest guest = new Guest();
       ArrayList<Guest> array = new ArrayList<Guest>();
       Scanner in = new Scanner ( file );
@@ -218,7 +177,7 @@ public class FileManagement
    public ArrayList<Staff> loadStaff () 
                            throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/staff.txt" );
+      File file = new File ( config.getProperty("staffListPath") );
       Staff staff = new Staff();
       ArrayList<Staff> array = new ArrayList<Staff>();
       Scanner in = new Scanner ( file );      
@@ -255,11 +214,11 @@ public class FileManagement
       File file;
       if ( isArchived )
       {
-         file = new File ( filePath + "/archived_bookings.txt" );
+         file = new File ( config.getProperty("archivedBookingListPath") );
       }
       else 
       {
-         file = new File ( filePath + "/bookings.txt" );
+         file = new File ( config.getProperty("bookingListPath") );
       }
       Booking booking = new Booking();
       ArrayList<Booking> array = new ArrayList<Booking>();
@@ -289,13 +248,46 @@ public class FileManagement
          - In the case of the bookings, they can be either active or archived and the saveBookings
            method takes in a boolean parameter 'isArchived' to help decide where to save the contents of the array.
    */
+   
+   public void saveData(Information info) throws FileNotFoundException, NullPointerException
+   {
+      if(info.bookingList != null)
+      {
+         mf.createLog("FM>:Saving BookingList", Log.Type.INFO);
+         saveBookings(info.bookingList, false);
+      }
+      
+      if(info.archivedBookingList != null)
+      {
+         mf.createLog("FM>:Saving archived BookingList", Log.Type.INFO);
+         saveBookings(info.archivedBookingList, true);
+      }
+      
+      if(info.roomList != null)
+      {
+         mf.createLog("FM>:Saving RoomList", Log.Type.INFO);
+         saveRooms(info.roomList);
+      }
+      
+      if(info.loadGuests)
+      {
+         mf.createLog("FM>:Saving GuestList", Log.Type.INFO);
+         saveGuests(info.guestList);
+      }
+      
+      if(info.loadStaff)
+      {
+         mf.createLog("FM>:Saving StaffList", Log.Type.INFO);
+         saveStaff(info.staffList);
+      }
+   }
 
       // Rooms      
    public void saveRooms ( ArrayList<Room> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/rooms.txt" );
-      File calFile = new File ( filePath + "/calendar.txt");
+      File file = new File ( config.getProperty("roomListPath") );
+      File calFile = new File ( config.getProperty("calendarPath") );
       PrintStream out = new PrintStream ( file );
       PrintStream calOut = new PrintStream ( calFile );
       for ( int i = 0; i < array.size(); i ++ ) 
@@ -318,7 +310,7 @@ public class FileManagement
    public void saveGuests ( ArrayList<Guest> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/guests.txt" );
+      File file = new File ( config.getProperty("guestListPath") );
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
       {
@@ -333,7 +325,7 @@ public class FileManagement
    public void saveStaff ( ArrayList<Staff> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/staff.txt" );
+      File file = new File ( config.getProperty("staffListPath") );
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
       {
@@ -351,11 +343,11 @@ public class FileManagement
       File file;
       if ( isArchived )
       {
-         file = new File ( filePath + "/archived_bookings.txt" );
+         file = new File ( config.getProperty("archivedBookingListPath") );
       }
       else 
       {
-         file = new File ( filePath + "/bookings.txt" );
+         file = new File ( config.getProperty("bookingListPath") );
       }
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
@@ -380,15 +372,5 @@ public class FileManagement
    public void setFilePath ( String filePath ) 
    {
       this.filePath = filePath;
-   }
-   
-   // Do your path assigment here or something. This method is called from MF during Init
-   public void setFilePaths(Properties config)
-   {
-      /*
-      Example code:
-      this.bookingListPath = config.getProperty("bookingListPath");
-      this.archivedBookingListPath = config.getProperty("archivedBookingListPath", "files/archive.txt"); // second parameter is a default value in case the property is missing
-      */
-   }        
+   } 
 }
