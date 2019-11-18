@@ -5,6 +5,8 @@ public class StaffUI extends CLI
 {
    private  int spacerVariable = 40;
    
+   private static int[] monthList = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+   
    private String firstName;
    private String lastName;
    private String fullName;
@@ -118,32 +120,53 @@ public class StaffUI extends CLI
       //* user.arraylistwherethefuckareyou.search(cpr) : i
       //* userID = user.getUserID(i)
       //$ I assume you meant this:
-      ArrayList<Guest> guestList = mf.getGuestList();
-      for (int i = 0; i < guestList.size(); i++)
-      {
-         if (guestList.get(i).getCPR().equals(cpr)) userID = guestList.get(i).getID();
-      }
+      
+      
+      //ArrayList<Guest> guestList = mf.getGuestList();
+      // for (int i = 0; i < guestList.size(); i++)
+//       {
+//          if (guestList.get(i).getCPR().equals(cpr)) userID = guestList.get(i).getID();
+//       }
       //$ replaced: userID = "U123"; //placeholder ID
       
       print2("How many beds would the guest like to have in his room?");
       beds = intCheck();
       
-      //print2("From what date would you like the booking?"); alternative question
-      print2("From what date will the guest's stay begin?");
-      while (!console.hasNextInt())
-      {
-         String shit = console.next();
-         print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
-      }
-      startDate = console.nextInt();
+      int monthTemp;
+      int dayTemp;      
+      print2("Please type the starting month of the guest's stay");
+      monthTemp = intCheck(1,12);
+      print2("please type the starting day of guest's stay");
+      dayTemp = intCheck(1,monthList[monthTemp-1]);
+      startDate = dateNumber(monthTemp, dayTemp);
       
-      print2("What date will the guest's stay end?");
-      while (!console.hasNextInt())
-      {
-         String shit = console.next();
-         print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
-      }
-      endDate = console.nextInt();
+      
+      print2("Please type the ending month of the guest's stay");
+      monthTemp = intCheck(1,12);
+      print2("please type the last day of guest's stay");
+      dayTemp = intCheck(1,monthList[monthTemp-1]);
+      endDate = dateNumber(monthTemp, dayTemp);
+      
+      
+      
+      
+      
+      //print2("From what date would you like the booking?"); alternative question
+      // print2("From what date will the guest's stay begin?");
+//       while (!console.hasNextInt())
+//       {
+//          String shit = console.next();
+//          print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
+//       }
+//       startDate = console.nextInt();
+//       
+//       print2("What date will the guest's stay end?");
+//       while (!console.hasNextInt())
+//       {
+//          String shit = console.next();
+//          print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
+//       }
+//       endDate = console.nextInt();
       
       print2("Does the guest wish to have internet access?");
       System.out.println();
@@ -280,6 +303,23 @@ public class StaffUI extends CLI
       password = pass1;
       System.out.println();  
    }
+
+//_________________________________________________________METHOD_METHODS___________________________________________
+
+   public static int dateNumber ( int month, int day )
+   {
+      String[] monthName = { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec" };
+      int days = 0;
+      for ( int i = 0; i < month - 1; i ++ ) 
+      {
+         days += monthList[i];
+      }
+      days += day;
+      return days;
+   } 
+
+
+
   
   
 //_________________________________________________________CHECK METHODS_____________________________________________   
@@ -297,7 +337,33 @@ public class StaffUI extends CLI
       number = input.nextDouble();
       return number;
    }
-   
+
+
+   public int intCheck(int min, int max)
+   {
+      Scanner input = new Scanner(System.in);
+      int number;
+      
+      while (!input.hasNextInt())
+      {
+         String shit = input.next();
+         print2("Invalid input detected, please only type numbers without a comma.");
+         
+      }
+      number = input.nextInt();
+      while (!(number>=min && number<=max))
+      {
+         print2(number + " is out of the acceptable range, plase type a number from " + min + " to " + max);
+         while (!input.hasNextInt())
+         {
+            String shit = input.next();
+            print2("Invalid input detected, please only type numbers without a comma.");
+            
+         }
+         number = input.nextInt();
+      }   
+      return number;
+   }   
    
    public int intCheck()
    {
@@ -308,7 +374,6 @@ public class StaffUI extends CLI
       {
          String shit = input.next();
          print2("Invalid input detected, please only type numbers without a comma.");
-         
       }
       number = input.nextInt();
       return number;
