@@ -112,6 +112,18 @@ public class UnitTests
       catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
       catch (Exception e) { log(testName + " | Failed: ", e); }
       
+      try
+      {
+         testCount++;
+         testName = "File-save and load CounterList";
+         saveAndLoadCounterListTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
       ////////// MF ArrayList setting Tests //////////
       log("# MainFrame arrays tests");
       try
@@ -160,8 +172,65 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "MF-ArrayLists-setStaffgList()";
+         testName = "MF-ArrayLists-setStaffList()";
          setStaffListTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setCounterList()";
+         setCounterListTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      ////////// Counter Tests 1.6 //////////
+      log("# Counter 1.6 tests");
+      try
+      {
+         testCount++;
+         testName = "generateBookingID()";
+         generateBookingID();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "generateRoomID()";
+         generateRoomID();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "generateGuestID()";
+         generateGuestID();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "generateStaffID()";
+         generateStaffID();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -326,6 +395,24 @@ public class UnitTests
       as.assertEquals(Boolean.toString(info.staffList.isEmpty()), Boolean.toString(false));
    }
    
+   public void saveAndLoadCounterListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
+   {
+      // Arrange
+      Information info;
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
+      ArrayList<Integer> list = new ArrayList<Integer>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      list.add(4);
+      // Act
+      file.saveData(new Information(null, null, null, null, null, list));
+      info = file.loadData(new Information(false, false, false, false, false, true));
+      // Assert
+      as.assertEquals(Boolean.toString(info.counterList.isEmpty()), Boolean.toString(false));
+   }
+   
    ////////// Setting ArrayLists Tests //////////
    
    public void setBookingListTest() throws TestException
@@ -403,21 +490,72 @@ public class UnitTests
       as.assertEquals(Boolean.toString(mf.getStaffList().isEmpty()), Boolean.toString(false));
    }
    
-   ////////// Saving arrayLists test //////////
-   
-   public void saveDataBookingTest() throws TestException, FileNotFoundException, Exception
+   public void setCounterListTest() throws TestException
    {
       // Arrange
       MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
-      FileManagement file = mf.getFileManager();
-      ArrayList<Booking> list = new ArrayList<Booking>();
-      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
+      mf.setSaveToFile(false);
+      ArrayList<Integer> list = new ArrayList<Integer>();
+      list.add(1);
+      list.add(9);
+      list.add(3);
+      list.add(9);
       // Act
-      file.saveData(new Information(list, null, null, null, null, null));
-      Information info = file.loadData(new Information(true, false, false, false, false, false));
+      mf.setCounterList(list);
       // Assert
-      as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
+      as.assertEquals(Boolean.toString(mf.getCounterList().isEmpty()), Boolean.toString(false));
    }
+   
+   ////////// Counter Test : Local Testing //////////
+   
+   public void generateBookingID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setBookingCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateBookingID()), Integer.toString(newValue + 1));
+   }
+   
+   public void generateRoomID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setRoomCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateRoomID()), Integer.toString(newValue + 1));
+   }
+   
+   public void generateGuestID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setGuestCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateGuestID()), Integer.toString(newValue + 1));
+   }
+   
+   public void generateStaffID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setStaffCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateStaffID()), Integer.toString(newValue + 1));
+   }
+   
    
    ////////// Misc tests //////////
    

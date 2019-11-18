@@ -609,26 +609,92 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public void saveCounterList()
+   {
+      
+      try
+      {
+         file.saveData(new Information(null, null, null, null, null, this.counterList));
+         createLog("Updated Counter List saved", Log.Type.INFO);
+      }
+      catch (Exception e)
+      {
+         createLog("Updating Counter List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
    public int generateBookingID()
    {
-      return 1;
+      int id = this.counterList.get(0) + 1;
+      this.counterList.set(0, this.counterList.get(0) + 1);
+      saveCounterList();
+      return id;
    }
    
    public int generateRoomID()
    {
-      return 2;
+      int id = this.counterList.get(1) + 1;
+      this.counterList.set(1, this.counterList.get(1) + 1);
+      saveCounterList();
+      return id;
    }
    
    public int generateGuestID()
    {
-      return 3;
+      int id = this.counterList.get(2) + 1;
+      this.counterList.set(2, this.counterList.get(2) + 1);
+      saveCounterList();
+      return id;
    }
    
    public int generateStaffID()
    {
-      return 4;
+      int id = this.counterList.get(3) + 1;
+      this.counterList.set(3, this.counterList.get(3) + 1);
+      saveCounterList();
+      return id;
    }
    
+   public void setBookingCounter(int value)
+   {
+      this.counterList.set(0, value);
+   }
+   
+   public void setRoomCounter(int value)
+   {
+      this.counterList.set(1, value);
+   }
+   
+   public void setGuestCounter(int value)
+   {
+      this.counterList.set(2, value);
+   }
+   
+   public void setStaffCounter(int value)
+   {
+      this.counterList.set(3, value);
+   }
+   
+   public void setCounterList(ArrayList<Integer> list)
+   {
+      this.counterList = list;
+   }
+   
+   public void setCounterList(int bookingCounter, int roomCounter, int guestCounter, int staffCounter)
+   {
+      this.counterList = new ArrayList<Integer>();
+      this.counterList.add(bookingCounter);
+      this.counterList.add(roomCounter);
+      this.counterList.add(guestCounter);
+      this.counterList.add(staffCounter);
+      saveCounterList();
+   }
+   
+   public ArrayList<Integer> getCounterList()
+   {
+      return this.counterList;
+   }
    
    
    ////////// User Interface //////////
