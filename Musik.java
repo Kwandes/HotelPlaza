@@ -47,7 +47,6 @@ public class Musik
       FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
       
       double gain = volume; // number between 0 and 1 (loudest)
-      System.out.println("DB: " + clip.getLevel());
       float dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
       gainControl.setValue(dB);
    }

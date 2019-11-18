@@ -21,38 +21,14 @@ public class FileManagement
    private String logPath;
    private String calendarPath;
    private String counterListPath;
+   
+   // Logging
+   private boolean printLogToConsole;
+   private boolean printDebugToConsole;   // Exceptions
       
       // Constructors
-   public FileManagement () 
-   {
-      this.filePath = "Logs";
-      this.counterListPath = filePath + "/counters.txt";
-      this.bookingListPath = filePath + "/bookings.txt";
-      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
-      this.roomListPath = filePath + "/rooms.txt";
-      this.guestListPath = filePath + "/guests.txt";
-      this.staffListPath = filePath + "/staff.txt";
-      this.logPath = filePath + "/logs.txt";
-      this.calendarPath = filePath + "/calendar.txt";
-      this.mf = new MainFrame(false);
-   }
-      
-   public FileManagement (MainFrame mfRef) 
-   {
-      this.mf = mfRef;
-      this.filePath = "Logs";
-      this.counterListPath = filePath + "/counters.txt";
-      this.bookingListPath = filePath + "/bookings.txt";
-      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
-      this.roomListPath = filePath + "/rooms.txt";
-      this.guestListPath = filePath + "/guests.txt";
-      this.staffListPath = filePath + "/staff.txt";
-      this.logPath = filePath + "/logs.txt";
-      this.calendarPath = filePath + "/calendar.txt";
-      this.mf = mfRef;
-   }
    
-   public FileManagement (String filePath) 
+   public FileManagement (MainFrame mfRef, String filePath, boolean printLog, boolean printDebug) 
    {
       this.filePath = filePath;
       this.counterListPath = filePath + "/counters.txt";
@@ -61,26 +37,14 @@ public class FileManagement
       this.roomListPath = filePath + "/rooms.txt";
       this.guestListPath = filePath + "/guests.txt";
       this.staffListPath = filePath + "/staff.txt";
-      this.logPath = filePath + "/logs.txt";
-      this.calendarPath = filePath + "/calendar.txt";
-      this.mf = null;
-   }
-   
-   public FileManagement (MainFrame mfRef, String filePath) 
-   {
-      this.filePath = filePath;
-      this.counterListPath = filePath + "/counters.txt";
-      this.bookingListPath = filePath + "/bookings.txt";
-      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
-      this.roomListPath = filePath + "/rooms.txt";
-      this.guestListPath = filePath + "/guests.txt";
-      this.staffListPath = filePath + "/staff.txt";
-      this.logPath = filePath + "/logs.txt";
+      this.logPath = filePath + "/log.txt";
       this.calendarPath = filePath + "/calendar.txt";
       this.mf = mfRef;
+      this.printLogToConsole = printLog;
+      this.printDebugToConsole = printDebug;
    }
    
-   public FileManagement (MainFrame mfRef, Properties config) 
+   public FileManagement (MainFrame mfRef, Properties config, boolean printLog, boolean printDebug) 
    {
       this.config = config;
       this.counterListPath = config.getProperty("counterListPath");
@@ -92,11 +56,12 @@ public class FileManagement
       this.logPath = config.getProperty("logPath");
       this.calendarPath = config.getProperty("calendarPath");
       this.mf = mfRef;
+      this.printLogToConsole = printLog;
+      this.printDebugToConsole = printDebug;
    }
    
       // Methods
-         
-   public void appendToFile ( String log, boolean outputToConsole ) // Appends a given line to the bottom of the logs.txt file
+   public void appendToFile ( String log, boolean isException) // Appends a given line to the bottom of the logs.txt file
    {
       File file = new File ( logPath );
       try
@@ -110,7 +75,34 @@ public class FileManagement
       }
       catch (Exception e){ System.out.println(e);};
       
-      if(outputToConsole) System.out.println(log);
+      if(this.printLogToConsole)
+      {
+         if(isException)
+         {
+            if(this.printDebugToConsole) System.out.println(log);
+         }
+         else
+         {
+            System.out.println(log);
+         }  
+      }
+   }
+   
+   public void appendToFile ( String log) // Unit testing log
+   {
+      File file = new File ( logPath );
+      try
+      {
+         file.createNewFile();
+         FileWriter fw = new FileWriter ( file, true );
+         PrintWriter out = new PrintWriter ( fw );
+         out.println ( log );
+         out.flush();
+         out.close();
+      }
+      catch (Exception e){ System.out.println(e);};
+      
+      System.out.println(log);
    }
       // Loaders
       
