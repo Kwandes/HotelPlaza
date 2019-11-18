@@ -425,9 +425,15 @@ public class UnitTests
    {
       // Arrange
       MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
-      mf.init();
+      ArrayList<Guest> list = new ArrayList<Guest>();
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
       String phoneNumber = "+69 420";
       String password = "yeet";
+      list.add(new Guest("Faisal", "Boolyan", "1234561234", arr, phoneNumber, password, 0));
+      mf.setGuestList(list);
       // Act
       Guest guest = mf.validateLoginGuest(phoneNumber, password);
       //Assert
@@ -438,8 +444,15 @@ public class UnitTests
    {
       // Arrange
       MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      ArrayList<Staff> list = new ArrayList<Staff>();
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
       String phoneNumber = "+69 420";
       String password = "yeet";
+      list.add(new Staff("Faisal", "Strong", "123456-1234", "ST", arr, phoneNumber, password, 0, 37, 140.0, 5));
+      mf.setStaffList(list);
       // Act
       Staff staff = mf.validateLoginStaff(phoneNumber, password);
       //Assert

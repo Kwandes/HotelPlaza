@@ -340,7 +340,7 @@ public class MainFrame // MF or motherFucker for short
       {
          for(int i = 0; i < roomList.size(); i++)
          {
-            if(roomList.get(i).getID() == roomID)
+            if(roomList.get(i).getRoomID() == roomID)
             {
                roomList.get(i).setRequiresCleaning(true);
                if (this.saveToFile) file.saveData(new Information(null, null, roomList, null, null, null));
@@ -396,7 +396,7 @@ public class MainFrame // MF or motherFucker for short
       {  
          for (int i = 0; i < roomList.size(); i++)
          {
-            if(roomList.get(i).getID() == id)
+            if(roomList.get(i).getRoomID() == id)
             {
                roomList.set(i, newRoom);
                break;
