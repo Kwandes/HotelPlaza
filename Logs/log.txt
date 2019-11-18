@@ -1,0 +1,118 @@
+>>>Mon 2019/11/18 17:44:156: INFO: MainFrame Init started
+>>>Mon 2019/11/18 17:44:159: INFO: Loading config...
+>>>Mon 2019/11/18 17:44:160: INFO: Config loaded
+>>>Mon 2019/11/18 17:44:162: INFO: Loading Array Lists...
+>>>Mon 2019/11/18 17:44:164: INFO: Loading BookingList...
+>>>Mon 2019/11/18 17:44:166: INFO: FM>:Loading BookingList
+>>>Mon 2019/11/18 17:44:181: INFO: FM>:Loading Archived Bookings
+>>>Mon 2019/11/18 17:44:195: WARNING: Load Archived Booking List Failed
+>>>Mon 2019/11/18 17:44:199: ERROR: java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Scanner.java:864)
+	at java.util.Scanner.next(Scanner.java:1485)
+	at java.util.Scanner.nextInt(Scanner.java:2117)
+	at java.util.Scanner.nextInt(Scanner.java:2076)
+	at FileManagement.loadBookings(FileManagement.java:276)
+	at FileManagement.loadData(FileManagement.java:128)
+	at MainFrame.loadArchivedBookingList(MainFrame.java:296)
+	at MainFrame.init(MainFrame.java:83)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:201: INFO: FM>:Loading RoomList
+>>>Mon 2019/11/18 17:44:222: INFO: FM>:Loading StaffList
+>>>Mon 2019/11/18 17:44:226: WARNING: Load Staff List Failed
+>>>Mon 2019/11/18 17:44:228: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at FileManagement.loadStaff(FileManagement.java:237)
+	at FileManagement.loadData(FileManagement.java:149)
+	at MainFrame.loadStaffList(MainFrame.java:535)
+	at MainFrame.init(MainFrame.java:85)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:229: INFO: FM>:Loading GuestList
+>>>Mon 2019/11/18 17:44:234: WARNING: Load Guest List Failed
+>>>Mon 2019/11/18 17:44:236: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at FileManagement.loadGuests(FileManagement.java:205)
+	at FileManagement.loadData(FileManagement.java:142)
+	at MainFrame.loadGuestList(MainFrame.java:449)
+	at MainFrame.init(MainFrame.java:86)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:238: INFO: FM>:Loading CounterList
+>>>Mon 2019/11/18 17:44:243: WARNING: Load Counter List Failed
+>>>Mon 2019/11/18 17:44:244: ERROR: java.io.FileNotFoundException: Logs\counters.txt (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:296)
+	at FileManagement.loadData(FileManagement.java:156)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:248: WARNING: ArrayList setup incomplete
+>>>Mon 2019/11/18 17:44:251: INFO: MainFrame init has completed successfully
+>>>Mon 2019/11/18 17:44:598: INFO: Playing musik/depression.wav
+>>>Mon 2019/11/18 17:44:482: INFO: Moving to next UI
+>>>Mon 2019/11/18 17:44:485: WARNING: No UI openable OR User has exited the application
+>>>Mon 2019/11/18 17:44:101: INFO: MainFrame Init started
+>>>Mon 2019/11/18 17:44:108: INFO: Loading config...
+>>>Mon 2019/11/18 17:44:113: INFO: Config loaded
+>>>Mon 2019/11/18 17:44:117: INFO: Loading Array Lists...
+>>>Mon 2019/11/18 17:44:122: INFO: Loading BookingList...
+>>>Mon 2019/11/18 17:44:128: INFO: FM>:Loading BookingList
+>>>Mon 2019/11/18 17:44:168: INFO: FM>:Loading Archived Bookings
+>>>Mon 2019/11/18 17:44:176: WARNING: Load Archived Booking List Failed
+>>>Mon 2019/11/18 17:44:182: ERROR: java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Scanner.java:864)
+	at java.util.Scanner.next(Scanner.java:1485)
+	at java.util.Scanner.nextInt(Scanner.java:2117)
+	at java.util.Scanner.nextInt(Scanner.java:2076)
+	at FileManagement.loadBookings(FileManagement.java:276)
+	at FileManagement.loadData(FileManagement.java:128)
+	at MainFrame.loadArchivedBookingList(MainFrame.java:296)
+	at MainFrame.init(MainFrame.java:83)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:186: INFO: FM>:Loading RoomList
+>>>Mon 2019/11/18 17:44:218: INFO: FM>:Loading StaffList
+>>>Mon 2019/11/18 17:44:226: WARNING: Load Staff List Failed
+>>>Mon 2019/11/18 17:44:231: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at FileManagement.loadStaff(FileManagement.java:237)
+	at FileManagement.loadData(FileManagement.java:149)
+	at MainFrame.loadStaffList(MainFrame.java:535)
+	at MainFrame.init(MainFrame.java:85)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:234: INFO: FM>:Loading GuestList
+>>>Mon 2019/11/18 17:44:241: WARNING: Load Guest List Failed
+>>>Mon 2019/11/18 17:44:243: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at FileManagement.loadGuests(FileManagement.java:205)
+	at FileManagement.loadData(FileManagement.java:142)
+	at MainFrame.loadGuestList(MainFrame.java:449)
+	at MainFrame.init(MainFrame.java:86)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:246: INFO: FM>:Loading CounterList
+>>>Mon 2019/11/18 17:44:250: WARNING: Load Counter List Failed
+>>>Mon 2019/11/18 17:44:254: ERROR: java.io.FileNotFoundException: Logs\counters.txt (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:296)
+	at FileManagement.loadData(FileManagement.java:156)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Mon 2019/11/18 17:44:257: WARNING: ArrayList setup incomplete
+>>>Mon 2019/11/18 17:44:260: INFO: MainFrame init has completed successfully
+>>>Mon 2019/11/18 17:44:743: INFO: Playing musik/depression.wav

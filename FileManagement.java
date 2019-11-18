@@ -87,6 +87,23 @@ public class FileManagement
          }  
       }
    }
+   
+   public void appendToFile ( String log) // Unit testing log
+   {
+      File file = new File ( logPath );
+      try
+      {
+         file.createNewFile();
+         FileWriter fw = new FileWriter ( file, true );
+         PrintWriter out = new PrintWriter ( fw );
+         out.println ( log );
+         out.flush();
+         out.close();
+      }
+      catch (Exception e){ System.out.println(e);};
+      
+      System.out.println(log);
+   }
       // Loaders
       
    /*

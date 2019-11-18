@@ -16,35 +16,44 @@ public class MainFrame // MF or motherFucker for short
    private ArrayList<Integer> counterList;
    
    private FileManagement file;
-   private boolean printLogsToConsole;
    private Properties config;
    private boolean isInitiatedProperly;
    private String appTitle;
-   private boolean saveToFile = true;
-   
-   public MainFrame()
+   private boolean printLogToConsole;
+   private boolean printDebugToConsole;   // Print Exception details
+   private boolean saveToFile = true;  // extra, delete later
+      
+   public MainFrame(boolean pathsFromConfig, boolean printLog, boolean printDebug)
    {  
-      this.printLogsToConsole = false;
-   
-      file = new FileManagement(this, "Logs");
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   } 
-
-   public MainFrame(boolean printLogs)
-   {  
-      this.printLogsToConsole = printLogs;
-   
-      file = new FileManagement(this, "Logs");
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   }    
-
-   public MainFrame(boolean printLogs, String filePath)
-   {  
-      this.printLogsToConsole = printLogs;
-   
-      file = new FileManagement(this, filePath);
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   }    
+      this.printLogToConsole = printLog;
+      this.printDebugToConsole = printDebug;
+      if (pathsFromConfig)
+      {
+         try
+         {
+            config = new Properties();
+            config.load(new FileInputStream("config.properties"));
+            file = new FileManagement(this, config, this.printLogToConsole, this.printDebugToConsole);
+         }
+         catch (Exception e)
+         {
+            System.out.println("Something went wrong, probably failed to load config. Shutting down");
+            System.exit(1);
+         }
+      }
+      else
+      {
+         try
+         {
+            file = new FileManagement(this, "Testing", this.printLogToConsole, this.printDebugToConsole);
+         }
+         catch (Exception e)
+         {
+            System.out.println("Something went wrong, probably something with File Management. Shutting down");
+            System.exit(1);
+         }
+      }
+   }      
    
    // Initialization of all MF stuff. Config, populate data arrays etc
    public void init()
@@ -674,9 +683,15 @@ public class MainFrame // MF or motherFucker for short
    {
       file.appendToFile((new Log(message, logType)).toString(), false);
    }
+   
    public void createLog(Exception e, Log.Type logType)
    {
       file.appendToFile(new Log(e, logType).toString(), true);
+   }
+   
+   public void createTestLog(String message, Log.Type logType)
+   {
+      file.appendToFile(message);
    }
    
    ////////// Music //////////
@@ -712,6 +727,16 @@ public class MainFrame // MF or motherFucker for short
    }
    
    ////////// minor Getters and Setter //////////
+   
+   public void enableLog(boolean printLog)
+   {
+      this.printLogToConsole = printLog;
+   }
+   
+   public void enableDebug(boolean printDebug)
+   {
+      this.printDebugToConsole = printDebug;
+   }
    
    public boolean getInitStatus()
    {

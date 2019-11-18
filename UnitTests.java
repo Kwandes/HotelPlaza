@@ -21,17 +21,17 @@ public class UnitTests
    private boolean testPassed;
    private String testName;
    private boolean printDebugInfo;
+   private boolean printLogInfo;
    private int testCount;
    private int testsPassedCount;
    private FileManagement fileManager;
    private MainFrame mainFrame;
-   private String logFilePath;
    
-   public UnitTests(boolean debug, String filePath)
+   public UnitTests(boolean debug)
    {
       this.printDebugInfo = debug;
-      this.logFilePath = filePath;
-      mainFrame = new MainFrame(this.printDebugInfo, this.logFilePath);
+      this.printLogInfo = debug;
+      mainFrame = new MainFrame(false, true, this.printDebugInfo);
       this.fileManager = mainFrame.getFileManager();
       log("Unit Test Run initiated");
    }
@@ -248,8 +248,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
@@ -263,8 +263,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
@@ -278,8 +278,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Room> list = new ArrayList<Room>();
       list.add(new Room(0, 1));
       // Act
@@ -293,8 +293,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Guest> list = new ArrayList<Guest>();
       String[] arr = new String[3];
       arr[0] = "Yeet";
@@ -312,8 +312,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Staff> list = new ArrayList<Staff>();
       String[] arr = new String[3];
       arr[0] = "Yeet";
@@ -332,7 +332,7 @@ public class UnitTests
    public void setBookingListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
@@ -345,7 +345,7 @@ public class UnitTests
    public void setArchivedBookingListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
@@ -358,7 +358,7 @@ public class UnitTests
    public void setRoomListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Room> list = new ArrayList<Room>();
       list.add(new Room(0, 1));
@@ -371,7 +371,7 @@ public class UnitTests
    public void setGuestListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Guest> list = new ArrayList<Guest>();
       
@@ -389,7 +389,7 @@ public class UnitTests
    public void setStaffListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Staff> list = new ArrayList<Staff>();
       
@@ -413,7 +413,8 @@ public class UnitTests
    public void saveDataBookingTest() throws TestException, FileNotFoundException, Exception
    {
       // Arrange
-      FileManagement file = new FileManagement(new MainFrame(this.printDebugInfo, this.logFilePath));
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
@@ -428,7 +429,7 @@ public class UnitTests
    public void validateLoginGuestTest() throws TestException, NullPointerException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.init();
       String phoneNumber = "+69 420";
       String password = "yeet";
@@ -441,7 +442,7 @@ public class UnitTests
    public void validateLoginStaffTest() throws TestException, NullPointerException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.init();
       String phoneNumber = "+69 420";
       String password = "yeet";
@@ -511,16 +512,18 @@ public class UnitTests
    
    public void log(String message)
    {
-      fileManager.appendToFile(message, true);
+      mainFrame.createTestLog(message, Log.Type.INFO);
    }
    
    public void log(String message, Exception e)
    {
-      mf.createLog(
-      fileManager.appendToFile(message + e, true);
-      StringWriter sw = new StringWriter();
-      PrintWriter pw = new PrintWriter(sw);
-      e.printStackTrace(pw);
-      fileManager.appendToFile(sw.toString(), this.printDebugInfo);
+      mainFrame.createTestLog(message + e, Log.Type.WARNING);
+      if ( this.printDebugInfo)
+      {
+         StringWriter sw = new StringWriter();
+         PrintWriter pw = new PrintWriter(sw);
+         e.printStackTrace(pw);
+         mainFrame.createTestLog(sw.toString(), Log.Type.ERROR);
+      }
    }
 }
