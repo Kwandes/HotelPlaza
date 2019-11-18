@@ -20,11 +20,13 @@ public class FileManagement
    private String staffListPath;
    private String logPath;
    private String calendarPath;
+   private String counterListPath;
       
       // Constructors
    public FileManagement () 
    {
       this.filePath = "Logs";
+      this.counterListPath = filePath + "/counters.txt";
       this.bookingListPath = filePath + "/bookings.txt";
       this.archivedBookingListPath = filePath + "/archived_bookings.txt";
       this.roomListPath = filePath + "/rooms.txt";
@@ -39,6 +41,7 @@ public class FileManagement
    {
       this.mf = mfRef;
       this.filePath = "Logs";
+      this.counterListPath = filePath + "/counters.txt";
       this.bookingListPath = filePath + "/bookings.txt";
       this.archivedBookingListPath = filePath + "/archived_bookings.txt";
       this.roomListPath = filePath + "/rooms.txt";
@@ -52,6 +55,7 @@ public class FileManagement
    public FileManagement (String filePath) 
    {
       this.filePath = filePath;
+      this.counterListPath = filePath + "/counters.txt";
       this.bookingListPath = filePath + "/bookings.txt";
       this.archivedBookingListPath = filePath + "/archived_bookings.txt";
       this.roomListPath = filePath + "/rooms.txt";
@@ -65,6 +69,7 @@ public class FileManagement
    public FileManagement (MainFrame mfRef, String filePath) 
    {
       this.filePath = filePath;
+      this.counterListPath = filePath + "/counters.txt";
       this.bookingListPath = filePath + "/bookings.txt";
       this.archivedBookingListPath = filePath + "/archived_bookings.txt";
       this.roomListPath = filePath + "/rooms.txt";
@@ -78,6 +83,7 @@ public class FileManagement
    public FileManagement (MainFrame mfRef, Properties config) 
    {
       this.config = config;
+      this.counterListPath = config.getProperty("counterListPath");
       this.bookingListPath = config.getProperty("bookingListPath");
       this.archivedBookingListPath = config.getProperty("archivedBookingListPath");
       this.roomListPath = config.getProperty("roomListPath");
@@ -151,6 +157,13 @@ public class FileManagement
          info.staffList = loadStaff();
       }
       else info.bookingList = null;
+      
+      if (info.loadCounters)
+      {
+         mf.createLog("FM>:Loading CounterList", Log.Type.INFO);
+         info.counterList = loadCounters();
+      }
+      else info.counterList = null;
       
       return info;
    }   
@@ -281,6 +294,23 @@ public class FileManagement
             
       return array;
    }   
+   
+      // Counters
+   public ArrayList<Integer> loadCounters () 
+                           throws FileNotFoundException 
+   {
+      File file = new File ( counterListPath );
+      ArrayList<Integer> array = new ArrayList<Integer>();
+      Scanner in = new Scanner ( file );      
+      
+      if ( in.hasNext() ) {
+         array.add ( in.nextInt() );
+         array.add ( in.nextInt() );
+         array.add ( in.nextInt() );
+      }            
+      return array;
+   }
+
      
       // Savers
       
@@ -311,16 +341,21 @@ public class FileManagement
          saveRooms(info.roomList);
       }
       
-      if(info.loadGuests)
+      if(info.guestList != null)
       {
          mf.createLog("FM>:Saving GuestList", Log.Type.INFO);
          saveGuests(info.guestList);
       }
       
-      if(info.loadStaff)
+      if(info.staffList != null)
       {
          mf.createLog("FM>:Saving StaffList", Log.Type.INFO);
          saveStaff(info.staffList);
+      }
+      if ( info.counterList != null)
+      {
+         mf.createLog("FM>:Saving CounterList", Log.Type.INFO);
+         saveCounters(info.counterList);
       }
    }
 
@@ -400,6 +435,21 @@ public class FileManagement
       out.flush();
       out.close();   
    }
+   
+       // Counters
+   public void saveCounters ( ArrayList<Integer> array ) 
+                     throws FileNotFoundException 
+   {
+      File file = new File ( counterListPath );
+      PrintStream out = new PrintStream ( file );
+      for ( int i = 0; i < array.size(); i ++ ) 
+      {
+         out.println ( array.get(i) );
+      }
+      out.flush();
+      out.close();   
+   }
+
 
 
       // Getters
