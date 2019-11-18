@@ -12,11 +12,26 @@ public class FileManagement
    private MainFrame mf;
    private Information info;
    private Properties config;
+   
+   private String bookingListPath;
+   private String archivedBookingListPath;
+   private String roomListPath;
+   private String guestListPath;
+   private String staffListPath;
+   private String logPath;
+   private String calendarPath;
       
       // Constructors
    public FileManagement () 
    {
       this.filePath = "Logs";
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/logs.txt";
+      this.calendarPath = filePath + "/calendar.txt";
       this.mf = new MainFrame(false);
    }
       
@@ -24,25 +39,52 @@ public class FileManagement
    {
       this.mf = mfRef;
       this.filePath = "Logs";
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/logs.txt";
+      this.calendarPath = filePath + "/calendar.txt";
       this.mf = mfRef;
    }
    
    public FileManagement (String filePath) 
    {
       this.filePath = filePath;
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/logs.txt";
+      this.calendarPath = filePath + "/calendar.txt";
       this.mf = null;
    }
    
    public FileManagement (MainFrame mfRef, String filePath) 
    {
       this.filePath = filePath;
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/logs.txt";
+      this.calendarPath = filePath + "/calendar.txt";
       this.mf = mfRef;
    }
    
-   public FileManagement (MainFrame mfRef, String filePath, Properties config) 
+   public FileManagement (MainFrame mfRef, Properties config) 
    {
       this.config = config;
-      this.filePath = filePath;
+      this.bookingListPath = config.getProperty("bookingListPath");
+      this.archivedBookingListPath = config.getProperty("archivedBookingListPath");
+      this.roomListPath = config.getProperty("roomListPath");
+      this.guestListPath = config.getProperty("guestListPath");
+      this.staffListPath = config.getProperty("staffListPath");
+      this.logPath = config.getProperty("logPath");
+      this.calendarPath = config.getProperty("calendarPath");
       this.mf = mfRef;
    }
    
@@ -50,7 +92,7 @@ public class FileManagement
          
    public void appendToFile ( String log, boolean outputToConsole ) // Appends a given line to the bottom of the logs.txt file
    {
-      File file = new File ( config.getProperty("logPath") );
+      File file = new File ( logPath );
       try
       {
          file.createNewFile();
@@ -117,8 +159,8 @@ public class FileManagement
    public ArrayList<Room> loadRooms () 
                            throws FileNotFoundException 
    {
-      File file = new File ( config.getProperty("roomListPath") );
-      File calFile = new File ( config.getProperty("calendarPath") );
+      File file = new File ( roomListPath );
+      File calFile = new File ( calendarPath );
       Room room = new Room();
       ArrayList<Room> array = new ArrayList<Room>();
       Scanner in = new Scanner ( file );
@@ -145,7 +187,7 @@ public class FileManagement
    public ArrayList<Guest> loadGuests () 
                            throws FileNotFoundException 
    {
-      File file = new File ( config.getProperty("guestListPath") );
+      File file = new File ( guestListPath );
       Guest guest = new Guest();
       ArrayList<Guest> array = new ArrayList<Guest>();
       Scanner in = new Scanner ( file );
@@ -177,7 +219,7 @@ public class FileManagement
    public ArrayList<Staff> loadStaff () 
                            throws FileNotFoundException 
    {
-      File file = new File ( config.getProperty("staffListPath") );
+      File file = new File ( staffListPath );
       Staff staff = new Staff();
       ArrayList<Staff> array = new ArrayList<Staff>();
       Scanner in = new Scanner ( file );      
@@ -214,11 +256,11 @@ public class FileManagement
       File file;
       if ( isArchived )
       {
-         file = new File ( config.getProperty("archivedBookingListPath") );
+         file = new File ( archivedBookingListPath );
       }
       else 
       {
-         file = new File ( config.getProperty("bookingListPath") );
+         file = new File ( bookingListPath );
       }
       Booking booking = new Booking();
       ArrayList<Booking> array = new ArrayList<Booking>();
@@ -286,8 +328,8 @@ public class FileManagement
    public void saveRooms ( ArrayList<Room> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( config.getProperty("roomListPath") );
-      File calFile = new File ( config.getProperty("calendarPath") );
+      File file = new File ( roomListPath );
+      File calFile = new File ( calendarPath );
       PrintStream out = new PrintStream ( file );
       PrintStream calOut = new PrintStream ( calFile );
       for ( int i = 0; i < array.size(); i ++ ) 
@@ -310,7 +352,7 @@ public class FileManagement
    public void saveGuests ( ArrayList<Guest> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( config.getProperty("guestListPath") );
+      File file = new File ( guestListPath );
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
       {
@@ -325,7 +367,7 @@ public class FileManagement
    public void saveStaff ( ArrayList<Staff> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( config.getProperty("staffListPath") );
+      File file = new File ( staffListPath );
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
       {
@@ -343,11 +385,11 @@ public class FileManagement
       File file;
       if ( isArchived )
       {
-         file = new File ( config.getProperty("archivedBookingListPath") );
+         file = new File ( archivedBookingListPath );
       }
       else 
       {
-         file = new File ( config.getProperty("bookingListPath") );
+         file = new File ( bookingListPath );
       }
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
