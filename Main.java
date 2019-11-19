@@ -16,11 +16,11 @@ public class Main
       {
          MainFrame hotel = new MainFrame(true, PRINT_DETAILS, PRINT_DETAILS);
          hotel.init();
-         //if(hotel.getInitStatus())
-         //{
+         if(hotel.getInitStatus())
+         {
             hotel.playMusic();
             hotel.openCLI();
-         //}
+         }
       }
    }
 }
