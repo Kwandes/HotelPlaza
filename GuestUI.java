@@ -120,7 +120,7 @@ public class GuestUI extends CLI
       else if ( extendOrSee == 2 )
       {
          System.out.println("Now select a booking that you want to extend");
-         int choice = Integer.parseInt(check("\tPlease select 1 - " + numberOfBookings, 0, 6));
+         int choice = Integer.parseInt(check("\tPlease select 1 - " + numberOfBookings, 0, numberOfBookings + 1));
       }
    }
    
@@ -153,7 +153,7 @@ public class GuestUI extends CLI
                          "\n\t > 5 Phonenumber " +
                          "\n\t > 6 Password ");
       
-      int choice = Integer.parseInt(check("\tPlease select 1 - 5 : ", 0, 6));
+      int choice = Integer.parseInt(check("\tPlease select 1 - 6 : ", 0, 7));
       
       switch ( choice ) 
       {
@@ -178,7 +178,7 @@ public class GuestUI extends CLI
             print();
             
             System.out.print("\tAddress - Street number : ");
-            String streetNumber = check("\tPlease write Street number (ex. 41) : ", 0, 999);
+            String streetNumber = check("\tPlease write Street number (ex. 41) : ", 0, 1000);
             streetName += streetNumber;
             address[0] = streetName;
             print();
@@ -189,13 +189,13 @@ public class GuestUI extends CLI
             print();
             
             System.out.print("\tAddress - Postcode : ");
-            String postCode = check("\tPlease write Postcode (ex. 2200) : ", 999, 9999);
+            String postCode = check("\tPlease write Postcode (ex. 2200) : ", 999, 10000);
             address[2] = postCode;
             print();
             break;
          case 5:
             System.out.print("\tPhonenumber : ");
-            phoneNr = check("\tPlease write your Phonenumber : ", 1000000, 99999999);
+            phoneNr = check("\tPlease write your Phonenumber : ", 999999, 100000000);
             print();
             break;
          case 6:
@@ -283,7 +283,7 @@ public class GuestUI extends CLI
       print();
       password = pass1;
       
-      String guestID = mf.generateGuestID(); // this is how you will get a new Guest ID
+      int guestID = mf.generateGuestID(); // this is how you will get a new Guest ID
       Guest Teo = new Guest (firstName, lastName, cpr, address, phoneNr, password, this.IDCounter);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
       System.out.println("\n" + Teo.toString());
    }
@@ -299,13 +299,22 @@ public class GuestUI extends CLI
          isValid = true;
          if ( a == 1 )
          {
-            System.out.print("Please write a number " + (min + 1) + " - " + max + " : ");
+            System.out.print("\tPlease write a number " + (min + 1) + " - " + max + " : " +
+                             "\n\t( 0 for returning to menu ) ");
          }
-         else { a++; }
+         else 
+         { 
+            System.out.println("\n\t( 0 for returning to menu )");
+            a++; 
+         }
          if ( in.hasNextInt() ) 
          {
             input = in.next();
-            if ( Integer.parseInt(input) > min && Integer.parseInt(input) < max ) 
+            if ( Integer.parseInt(input) == 0 ) 
+            {
+               display();
+            }
+            else if ( Integer.parseInt(input) > min && Integer.parseInt(input) < max ) 
             {
                isValid = true; 
             } 
