@@ -27,6 +27,20 @@ public class FileManagement
    private boolean printDebugToConsole;   // Exceptions
       
       // Constructors
+      
+   public FileManagement ( String filePath ) 
+   {
+      this.filePath = filePath;
+      this.counterListPath = filePath + "/counters.txt";
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/log.txt";
+      this.calendarPath = filePath + "/calendar.txt";
+   }
+
    
    public FileManagement (MainFrame mfRef, String filePath, boolean printLog, boolean printDebug) 
    {
@@ -148,7 +162,7 @@ public class FileManagement
          mf.createLog("FM>:Loading StaffList", Log.Type.INFO);
          info.staffList = loadStaff();
       }
-      else info.bookingList = null;
+      else info.staffList = null;
       
       if (info.loadCounters)
       {
