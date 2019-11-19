@@ -179,14 +179,40 @@ public class StaffUI extends CLI
       //* get 5 options of rooms that match the beds + isBookable for the duration of stay
       ArrayList<Room> roomList = mf.getRoomList();
       ArrayList<Room> displayRooms = new ArrayList<Room>();
+      int totalRoomsMatched = 0;
+      Room tempRoom;
       for ( int i = 0; i < (roomList.size() < 5 ? roomList.size(): 5); i++)
       {
          //* initialize each toom to room 0-4 ints 
-         displayRooms.add(roomList.get(i));
+         tempRoom =(roomList.get(i));
+         if (tempRoom.getBeds() >= beds && tempRoom.getIsBooked() == false)
+         {
+            displayRooms.add(tempRoom);
+            totalRoomsMatched++;
+         }
+         
+         
       }
-      header("Select a room");
-      print2("available rooms in a numbered order PLACEHOLDER");
-      selection = intCheck();
+      if (totalRoomsMatched>0)
+      {
+         header("Select a room");
+         printLines();
+         
+         for (int i=1; i<=totalRoomsMatched; i++)
+         {
+            System.out.println("Selection " + "<" + (i) + ">");
+            System.out.println();
+            System.out.println(displayRooms.get(i).toString());
+            i++;
+            
+         }
+         selection = intCheck();
+      } else 
+      {
+         print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
+      }
+      
+      //print2("available rooms in a numbered order PLACEHOLDER");
 //$   tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
 //       switch (selection)
 //       {
@@ -208,7 +234,7 @@ public class StaffUI extends CLI
 //       }
       
       
-      roomID = 123; //roomX.getID
+      roomID = displayRooms.get(selection).getRoomID();
       bookingID = mf.generateBookingID(); 
       //* roomPrice = room.getPrice();
       //$ roomList.get(roomID).getPrice(); alternatively: chosenRoom.getPrice();
@@ -292,6 +318,8 @@ public class StaffUI extends CLI
       password = pass1;
       System.out.println();  
    }
+      
+   
 
 //_________________________________________________________METHOD_METHODS___________________________________________
 
@@ -307,9 +335,32 @@ public class StaffUI extends CLI
       return days;
    } 
 
-
-
-  
+   // public static boolean isBookable ( int roomID, int startDate, int endDate ) 
+//    {
+//       int roomPos = findRoom ( roomID );
+//       int[] calendar = roomList.get(roomPos).getCalendar();
+//       for ( int i = startDate - 1; i < endDate; i ++ ) {
+//          if ( calendar[i] != 0 )
+//          {
+//             return false;
+//          }
+//       }
+//       return true;
+//    }
+// 
+//    public static int findRoom ( int roomID ) 
+//    {
+//       int roomPos = -1;
+//       for ( int i = 0; i < roomList.size(); i ++ )
+//       {
+//          if ( roomList.get(i).getRoomID() == roomID )
+//          {
+//             roomPos = i;
+//             break;
+//          }
+//       }
+//       return roomPos;
+//    }
   
 //_________________________________________________________CHECK METHODS_____________________________________________   
    public double doubleCheck()
