@@ -13,37 +13,47 @@ public class MainFrame // MF or motherFucker for short
    private ArrayList<Room> roomList;
    private ArrayList<Guest> guestList;
    private ArrayList<Staff> staffList;
+   private ArrayList<Integer> counterList;
    
    private FileManagement file;
-   private boolean printLogsToConsole;
    private Properties config;
    private boolean isInitiatedProperly;
    private String appTitle;
-   private boolean saveToFile = true;
-   
-   public MainFrame()
+   private boolean printLogToConsole;
+   private boolean printDebugToConsole;   // Print Exception details
+   private boolean saveToFile = true;  // extra, delete later
+      
+   public MainFrame(boolean pathsFromConfig, boolean printLog, boolean printDebug)
    {  
-      this.printLogsToConsole = false;
-   
-      file = new FileManagement(this, "Logs");
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   } 
-
-   public MainFrame(boolean printLogs)
-   {  
-      this.printLogsToConsole = printLogs;
-   
-      file = new FileManagement(this, "Logs");
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   }    
-
-   public MainFrame(boolean printLogs, String filePath)
-   {  
-      this.printLogsToConsole = printLogs;
-   
-      file = new FileManagement(this, filePath);
-      createLog("New MainFrame has been created", Log.Type.INFO);
-   }    
+      this.printLogToConsole = printLog;
+      this.printDebugToConsole = printDebug;
+      if (pathsFromConfig)
+      {
+         try
+         {
+            config = new Properties();
+            config.load(new FileInputStream("config.properties"));
+            file = new FileManagement(this, config, this.printLogToConsole, this.printDebugToConsole);
+         }
+         catch (Exception e)
+         {
+            System.out.println("Something went wrong, probably failed to load config. Shutting down");
+            System.exit(1);
+         }
+      }
+      else
+      {
+         try
+         {
+            file = new FileManagement(this, "Testing", this.printLogToConsole, this.printDebugToConsole);
+         }
+         catch (Exception e)
+         {
+            System.out.println("Something went wrong, probably something with File Management. Shutting down");
+            System.exit(1);
+         }
+      }
+   }      
    
    // Initialization of all MF stuff. Config, populate data arrays etc
    public void init()
@@ -60,7 +70,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Config loaded", Log.Type.INFO);
          this.appTitle = config.getProperty("appTitle", "YEET");
             
-         file.setFilePaths(config);
+         //file.setFilePaths(config);
          ////////// Get config and init arrays //////////
          // get config with filepaths etc
          
@@ -74,6 +84,7 @@ public class MainFrame // MF or motherFucker for short
          if(!loadRoomList()) loadStatus = false;
          if(!loadStaffList()) loadStatus = false;
          if(!loadGuestList()) loadStatus = false;
+         if(!loadCounterList()) loadStatus = false;
          
          if(loadStatus) createLog("ArrayList setup complete", Log.Type.INFO);
          else createLog("ArrayList setup incomplete", Log.Type.WARNING);
@@ -138,7 +149,7 @@ public class MainFrame // MF or motherFucker for short
       {
          bookingList.add(booking);
          
-         if(this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null));
+         if(this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null, null));
          createLog("New Booking created, id: " + bookingList.get(bookingList.size()-1).getBookingID(), Log.Type.INFO);
       }
       catch (Exception e)
@@ -177,7 +188,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Booking List modified", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(this.bookingList, null, null, null, null));
+            file.saveData(new Information(this.bookingList, null, null, null, null, null));
             createLog("Booking List saved", Log.Type.INFO);
          }
       }
@@ -193,7 +204,7 @@ public class MainFrame // MF or motherFucker for short
       try
       {
          createLog("Loading BookingList...", Log.Type.INFO);
-         this.bookingList = file.loadData(new Information(true, false, false, false, false)).bookingList;
+         this.bookingList = file.loadData(new Information(true, false, false, false, false, false)).bookingList;
          return true;
       }
       catch (Exception e)
@@ -215,7 +226,7 @@ public class MainFrame // MF or motherFucker for short
                bookingList.set(i, newBooking);
                if(this.saveToFile)
                {
-                  file.saveData(new Information(bookingList, null, null, null, null));
+                  file.saveData(new Information(bookingList, null, null, null, null, null));
                   createLog("Booking " + bookingID + "has been modified and saved", Log.Type.INFO);
                }               
                else createLog("Booking " + bookingID + "has been modified", Log.Type.INFO);
@@ -239,7 +250,7 @@ public class MainFrame // MF or motherFucker for short
             try
             {
                bookingList.remove(i);
-               if (this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null));
+               if (this.saveToFile) file.saveData(new Information(bookingList, null, null, null, null, null));
                createLog("Booking " + bookingID + "has been removed", Log.Type.INFO);
             }
             catch (Exception e)
@@ -267,7 +278,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Archived Booking List modified", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, this.archivedBookingList, null, null, null));
+            file.saveData(new Information(null, this.archivedBookingList, null, null, null, null));
             createLog("Archived Booking List saved", Log.Type.INFO);
          }
       }
@@ -282,7 +293,7 @@ public class MainFrame // MF or motherFucker for short
    {
       try
       {
-         this.archivedBookingList = file.loadData(new Information(false, true, false, false, false)).archivedBookingList;
+         this.archivedBookingList = file.loadData(new Information(false, true, false, false, false, false)).archivedBookingList;
          return true;
       }
       catch (Exception e)
@@ -303,7 +314,7 @@ public class MainFrame // MF or motherFucker for short
             {
                archivedBookingList.add(bookingList.get(i));
                bookingList.remove(i);
-               if (this.saveToFile) file.saveData(new Information(bookingList, archivedBookingList, null, null, null));
+               if (this.saveToFile) file.saveData(new Information(bookingList, archivedBookingList, null, null, null, null));
                createLog("Booking " + bookingID + "has been archived", Log.Type.INFO);
             }
             catch (Exception e)
@@ -329,10 +340,10 @@ public class MainFrame // MF or motherFucker for short
       {
          for(int i = 0; i < roomList.size(); i++)
          {
-            if(roomList.get(i).getID() == roomID)
+            if(roomList.get(i).getRoomID() == roomID)
             {
                roomList.get(i).setRequiresCleaning(true);
-               if (this.saveToFile) file.saveData(new Information(null, null, roomList, null, null));
+               if (this.saveToFile) file.saveData(new Information(null, null, roomList, null, null, null));
                createLog("Room " + roomID + "has changed status to : requires cleaning", Log.Type.INFO);
                break;
             }
@@ -353,7 +364,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Room List modified", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, this.roomList, null, null));
+            file.saveData(new Information(null, null, this.roomList, null, null, null));
             createLog("Room List saved", Log.Type.INFO);
          }
       }
@@ -368,7 +379,7 @@ public class MainFrame // MF or motherFucker for short
    {
       try
       {
-         this.roomList = file.loadData(new Information(false, false, true, false, false)).roomList;
+         this.roomList = file.loadData(new Information(false, false, true, false, false, false)).roomList;
          return true;
       }
       catch (Exception e)
@@ -385,7 +396,7 @@ public class MainFrame // MF or motherFucker for short
       {  
          for (int i = 0; i < roomList.size(); i++)
          {
-            if(roomList.get(i).getID() == id)
+            if(roomList.get(i).getRoomID() == id)
             {
                roomList.set(i, newRoom);
                break;
@@ -394,7 +405,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Room " + id + " replaced", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, this.roomList, null, null));
+            file.saveData(new Information(null, null, this.roomList, null, null, null));
             createLog("Modified Room List saved", Log.Type.INFO);
          }
       }
@@ -420,7 +431,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Guest List modified", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, null, this.guestList, null));
+            file.saveData(new Information(null, null, null, this.guestList, null, null));
             createLog("Guest List saved", Log.Type.INFO);
          }
       }
@@ -435,7 +446,7 @@ public class MainFrame // MF or motherFucker for short
    {
       try
       {
-         this.guestList = file.loadData(new Information(false, false, false, true, false)).guestList;
+         this.guestList = file.loadData(new Information(false, false, false, true, false, false)).guestList;
          return true;
       }
       catch (Exception e)
@@ -454,7 +465,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Guest " + guest.getID() + "added", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, null, this.guestList, null));
+            file.saveData(new Information(null, null, null, this.guestList, null, null));
             createLog("New Guest List saved", Log.Type.INFO);
          }
       }
@@ -480,7 +491,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Guest " + id + " replaced", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, null, this.guestList, null));
+            file.saveData(new Information(null, null, null, this.guestList, null, null));
             createLog("Modified Guest List saved", Log.Type.INFO);
          }
       }
@@ -506,7 +517,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Staff List modified", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, null, null, this.staffList));
+            file.saveData(new Information(null, null, null, null, this.staffList, null));
             createLog("Staff List saved", Log.Type.INFO);
          }
       }
@@ -521,7 +532,7 @@ public class MainFrame // MF or motherFucker for short
    {
       try
       {
-         this.staffList = file.loadData(new Information(false, false, false, false, true)).staffList;
+         this.staffList = file.loadData(new Information(false, false, false, false, true, false)).staffList;
          return true;
       }
       catch (Exception e)
@@ -540,7 +551,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Staff " + staff.getID() + "added", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, null, null, this.staffList));
+            file.saveData(new Information(null, null, null, null, this.staffList, null));
             createLog("New Staff List saved", Log.Type.INFO);
          }
       }
@@ -566,7 +577,7 @@ public class MainFrame // MF or motherFucker for short
          createLog("Staff " + id + " replaced", Log.Type.INFO);
          if (this.saveToFile)
          {
-            file.saveData(new Information(null, null, null, null, this.staffList));
+            file.saveData(new Information(null, null, null, null, this.staffList, null));
             createLog("Modified Staff List saved", Log.Type.INFO);
          }
       }
@@ -581,6 +592,110 @@ public class MainFrame // MF or motherFucker for short
    {
       return this.staffList;
    }
+   
+   ////////// Counters //////////
+   public boolean loadCounterList()
+   {
+      try
+      {
+         this.counterList = file.loadData(new Information(false, false, false, false, false, true)).counterList;
+         return true;
+      }
+      catch (Exception e)
+      {
+         createLog("Load Counter List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         return false;
+      }
+   }
+   
+   public void saveCounterList()
+   {
+      
+      try
+      {
+         file.saveData(new Information(null, null, null, null, null, this.counterList));
+         createLog("Updated Counter List saved", Log.Type.INFO);
+      }
+      catch (Exception e)
+      {
+         createLog("Updating Counter List Failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public int generateBookingID()
+   {
+      int id = this.counterList.get(0) + 1;
+      this.counterList.set(0, this.counterList.get(0) + 1);
+      saveCounterList();
+      return id;
+   }
+   
+   public int generateRoomID()
+   {
+      int id = this.counterList.get(1) + 1;
+      this.counterList.set(1, this.counterList.get(1) + 1);
+      saveCounterList();
+      return id;
+   }
+   
+   public int generateGuestID()
+   {
+      int id = this.counterList.get(2) + 1;
+      this.counterList.set(2, this.counterList.get(2) + 1);
+      saveCounterList();
+      return id;
+   }
+   
+   public int generateStaffID()
+   {
+      int id = this.counterList.get(3) + 1;
+      this.counterList.set(3, this.counterList.get(3) + 1);
+      saveCounterList();
+      return id;
+   }
+   
+   public void setBookingCounter(int value)
+   {
+      this.counterList.set(0, value);
+   }
+   
+   public void setRoomCounter(int value)
+   {
+      this.counterList.set(1, value);
+   }
+   
+   public void setGuestCounter(int value)
+   {
+      this.counterList.set(2, value);
+   }
+   
+   public void setStaffCounter(int value)
+   {
+      this.counterList.set(3, value);
+   }
+   
+   public void setCounterList(ArrayList<Integer> list)
+   {
+      this.counterList = list;
+   }
+   
+   public void setCounterList(int bookingCounter, int roomCounter, int guestCounter, int staffCounter)
+   {
+      this.counterList = new ArrayList<Integer>();
+      this.counterList.add(bookingCounter);
+      this.counterList.add(roomCounter);
+      this.counterList.add(guestCounter);
+      this.counterList.add(staffCounter);
+      saveCounterList();
+   }
+   
+   public ArrayList<Integer> getCounterList()
+   {
+      return this.counterList;
+   }
+   
    
    ////////// User Interface //////////
    public void openCLI()
@@ -627,36 +742,22 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   public String generateBookingID()
-   {
-      return "BYEET";
-   }
-   
-   public String generateRoomID()
-   {
-      return "RYEET";
-   }
-   
-   public String generateGuestID()
-   {
-      return "GYEET";
-   }
-   
-   public String generateStaffID()
-   {
-      return "SYEET";
-   }
-   
    //////////////////// Extra functionality ////////////////////
    
    ////////// Logging //////////
    public void createLog(String message, Log.Type logType)
    {
-      file.appendToFile((new Log(message, logType)).toString(), this.printLogsToConsole);
+      file.appendToFile((new Log(message, logType)).toString(), false);
    }
+   
    public void createLog(Exception e, Log.Type logType)
    {
-      file.appendToFile(new Log(e, logType).toString(), this.printLogsToConsole);
+      file.appendToFile(new Log(e, logType).toString(), true);
+   }
+   
+   public void createTestLog(String message, Log.Type logType)
+   {
+      file.appendToFile(message);
    }
    
    ////////// Music //////////
@@ -693,6 +794,16 @@ public class MainFrame // MF or motherFucker for short
    
    ////////// minor Getters and Setter //////////
    
+   public void enableLog(boolean printLog)
+   {
+      this.printLogToConsole = printLog;
+   }
+   
+   public void enableDebug(boolean printDebug)
+   {
+      this.printDebugToConsole = printDebug;
+   }
+   
    public boolean getInitStatus()
    {
       return this.isInitiatedProperly;
@@ -701,5 +812,10 @@ public class MainFrame // MF or motherFucker for short
    public void setSaveToFile(Boolean state)
    {
       this.saveToFile = state;
+   }
+   
+   public FileManagement getFileManager()
+   {
+      return file;
    }
 }

@@ -1,2 +1,6 @@
-asdasdas
-as21
+Bobert Strong 123456-1234 null street_one_word city postal_code 01233210 word_of_passage G01 0 0 0.0
+Robert Strong 123456-1234 null street_one_word city postal_code 01233210 word_of_passage G02 0 0 0.0
+Bober Stronger 123456-1234 null street_one_word city postal_code 01233210 word_of_passage G03 0 0 0.0
+Rober Stronger 123456-1234 null street_one_word city postal_code 01233210 word_of_passage G04 0 0 0.0
+Bob Strongest 123456-1234 null street_one_word city postal_code 01233210 word_of_passage G05 0 0 0.0
+Rob Strongest 123456-1234 null street_one_word city postal_code 01233210 word_of_passage G06 0 0 0.0

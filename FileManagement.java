@@ -11,38 +11,73 @@ public class FileManagement
    private String filePath;
    private MainFrame mf;
    private Information info;
+   private Properties config;
+   
+   private String bookingListPath;
+   private String archivedBookingListPath;
+   private String roomListPath;
+   private String guestListPath;
+   private String staffListPath;
+   private String logPath;
+   private String calendarPath;
+   private String counterListPath;
+   
+   // Logging
+   private boolean printLogToConsole;
+   private boolean printDebugToConsole;   // Exceptions
       
       // Constructors
-   public FileManagement () 
-   {
-      this.filePath = "Logs";
-      this.mf = new MainFrame(false);
-   }
       
-   public FileManagement (MainFrame mfRef) 
-   {
-      this.mf = mfRef;
-      this.filePath = "Logs";
-      this.mf = mfRef;
-   }
-   
-   public FileManagement (String filePath) 
+   public FileManagement ( String filePath ) 
    {
       this.filePath = filePath;
-      this.mf = null;
+      this.counterListPath = filePath + "/counters.txt";
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/log.txt";
+      this.calendarPath = filePath + "/calendar.txt";
    }
+
    
-   public FileManagement (MainFrame mfRef, String filePath) 
+   public FileManagement (MainFrame mfRef, String filePath, boolean printLog, boolean printDebug) 
    {
       this.filePath = filePath;
+      this.counterListPath = filePath + "/counters.txt";
+      this.bookingListPath = filePath + "/bookings.txt";
+      this.archivedBookingListPath = filePath + "/archived_bookings.txt";
+      this.roomListPath = filePath + "/rooms.txt";
+      this.guestListPath = filePath + "/guests.txt";
+      this.staffListPath = filePath + "/staff.txt";
+      this.logPath = filePath + "/log.txt";
+      this.calendarPath = filePath + "/calendar.txt";
       this.mf = mfRef;
+      this.printLogToConsole = printLog;
+      this.printDebugToConsole = printDebug;
+   }
+   
+   public FileManagement (MainFrame mfRef, Properties config, boolean printLog, boolean printDebug) 
+   {
+      this.config = config;
+      this.counterListPath = config.getProperty("counterListPath");
+      this.bookingListPath = config.getProperty("bookingListPath");
+      this.archivedBookingListPath = config.getProperty("archivedBookingListPath");
+      this.roomListPath = config.getProperty("roomListPath");
+      this.guestListPath = config.getProperty("guestListPath");
+      this.staffListPath = config.getProperty("staffListPath");
+      this.logPath = config.getProperty("logPath");
+      this.calendarPath = config.getProperty("calendarPath");
+      this.mf = mfRef;
+      this.printLogToConsole = printLog;
+      this.printDebugToConsole = printDebug;
    }
    
       // Methods
-      
-   public void appendToFile ( String log ) // Appends a given line to the bottom of the logs.txt file
+   public void appendToFile ( String log, boolean isException) // Appends a given line to the bottom of the logs.txt file
    {
-      File file = new File ( filePath + "/logs.txt" );
+      File file = new File ( logPath );
       try
       {
          file.createNewFile();
@@ -53,11 +88,23 @@ public class FileManagement
          out.close();
       }
       catch (Exception e){ System.out.println(e);};
+      
+      if(this.printLogToConsole)
+      {
+         if(isException)
+         {
+            if(this.printDebugToConsole) System.out.println(log);
+         }
+         else
+         {
+            System.out.println(log);
+         }  
+      }
    }
    
-   public void appendToFile ( String log, boolean outputToConsole ) // Appends a given line to the bottom of the logs.txt file
+   public void appendToFile ( String log) // Unit testing log
    {
-      File file = new File ( filePath + "/logs.txt" );
+      File file = new File ( logPath );
       try
       {
          file.createNewFile();
@@ -69,7 +116,7 @@ public class FileManagement
       }
       catch (Exception e){ System.out.println(e);};
       
-      if(outputToConsole) System.out.println(log);
+      System.out.println(log);
    }
       // Loaders
       
@@ -115,51 +162,24 @@ public class FileManagement
          mf.createLog("FM>:Loading StaffList", Log.Type.INFO);
          info.staffList = loadStaff();
       }
-      else info.bookingList = null;
+      else info.staffList = null;
+      
+      if (info.loadCounters)
+      {
+         mf.createLog("FM>:Loading CounterList", Log.Type.INFO);
+         info.counterList = loadCounters();
+      }
+      else info.counterList = null;
       
       return info;
-   }
-   
-   public void saveData(Information info) throws FileNotFoundException, NullPointerException
-   {
-      if(info.bookingList != null)
-      {
-         mf.createLog("FM>:Saving BookingList", Log.Type.INFO);
-         saveBookings(info.bookingList, false);
-      }
-      
-      if(info.archivedBookingList != null)
-      {
-         mf.createLog("FM>:Saving archived BookingList", Log.Type.INFO);
-         saveBookings(info.archivedBookingList, true);
-      }
-      
-      if(info.roomList != null)
-      {
-         mf.createLog("FM>:Saving RoomList", Log.Type.INFO);
-         saveRooms(info.roomList);
-      }
-      
-      if(info.loadGuests)
-      {
-         mf.createLog("FM>:Saving GuestList", Log.Type.INFO);
-         saveGuests(info.guestList);
-      }
-      
-      if(info.loadStaff)
-      {
-         mf.createLog("FM>:Saving StaffList", Log.Type.INFO);
-         saveStaff(info.staffList);
-      }
-   }
-   
+   }   
      
       // Rooms
    public ArrayList<Room> loadRooms () 
                            throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/rooms.txt" );
-      File calFile = new File ( filePath + "/calendar.txt" );
+      File file = new File ( roomListPath );
+      File calFile = new File ( calendarPath );
       Room room = new Room();
       ArrayList<Room> array = new ArrayList<Room>();
       Scanner in = new Scanner ( file );
@@ -167,6 +187,7 @@ public class FileManagement
       
       while ( in.hasNext () ) 
       {  
+         room = new Room();
          room.setRoomID (in.nextInt());
          room.setFloor ( in.nextInt());
          room.setBeds ( in.nextInt());
@@ -186,7 +207,7 @@ public class FileManagement
    public ArrayList<Guest> loadGuests () 
                            throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/guests.txt" );
+      File file = new File ( guestListPath );
       Guest guest = new Guest();
       ArrayList<Guest> array = new ArrayList<Guest>();
       Scanner in = new Scanner ( file );
@@ -194,6 +215,7 @@ public class FileManagement
       
       while ( in.hasNext () ) 
       {
+         guest = new Guest();
          guest.setFirstName (in.next());
          guest.setLastName (in.next());
          guest.setCpr (in.next());
@@ -218,14 +240,14 @@ public class FileManagement
    public ArrayList<Staff> loadStaff () 
                            throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/staff.txt" );
+      File file = new File ( staffListPath );
       Staff staff = new Staff();
       ArrayList<Staff> array = new ArrayList<Staff>();
-      Scanner in = new Scanner ( file );      
-      String[] address = new String[3];
-      
+      Scanner in = new Scanner ( file );    
+      String[] address = new String[3];  
       while ( in.hasNext () ) 
       {
+         staff = new Staff();
          staff.setFirstName (in.next());
          staff.setLastName (in.next());
          staff.setCpr (in.next());
@@ -241,7 +263,6 @@ public class FileManagement
          staff.setHours ( in.nextInt());
          staff.setSalary ( in.nextDouble());
          staff.setVacation ( in.nextInt());
-         staff.setID (in.next());
          array.add ( staff );
       }
             
@@ -255,11 +276,11 @@ public class FileManagement
       File file;
       if ( isArchived )
       {
-         file = new File ( filePath + "/archived_bookings.txt" );
+         file = new File ( archivedBookingListPath );
       }
       else 
       {
-         file = new File ( filePath + "/bookings.txt" );
+         file = new File ( bookingListPath );
       }
       Booking booking = new Booking();
       ArrayList<Booking> array = new ArrayList<Booking>();
@@ -267,6 +288,7 @@ public class FileManagement
       
       while ( in.hasNext () ) 
       {
+         booking = new Booking();
          booking.setBookingID ( in.nextInt() );
          booking.setUserID ( in.next() );
          booking.setRoomID ( in.nextInt() );
@@ -280,6 +302,23 @@ public class FileManagement
             
       return array;
    }   
+   
+      // Counters
+   public ArrayList<Integer> loadCounters () 
+                           throws FileNotFoundException 
+   {
+      File file = new File ( counterListPath );
+      ArrayList<Integer> array = new ArrayList<Integer>();
+      Scanner in = new Scanner ( file );      
+      
+      if ( in.hasNext() ) {
+         array.add ( in.nextInt() );
+         array.add ( in.nextInt() );
+         array.add ( in.nextInt() );
+      }            
+      return array;
+   }
+
      
       // Savers
       
@@ -289,13 +328,51 @@ public class FileManagement
          - In the case of the bookings, they can be either active or archived and the saveBookings
            method takes in a boolean parameter 'isArchived' to help decide where to save the contents of the array.
    */
+   
+   public void saveData(Information info) throws FileNotFoundException, NullPointerException
+   {
+      if(info.bookingList != null)
+      {
+         mf.createLog("FM>:Saving BookingList", Log.Type.INFO);
+         saveBookings(info.bookingList, false);
+      }
+      
+      if(info.archivedBookingList != null)
+      {
+         mf.createLog("FM>:Saving archived BookingList", Log.Type.INFO);
+         saveBookings(info.archivedBookingList, true);
+      }
+      
+      if(info.roomList != null)
+      {
+         mf.createLog("FM>:Saving RoomList", Log.Type.INFO);
+         saveRooms(info.roomList);
+      }
+      
+      if(info.guestList != null)
+      {
+         mf.createLog("FM>:Saving GuestList", Log.Type.INFO);
+         saveGuests(info.guestList);
+      }
+      
+      if(info.staffList != null)
+      {
+         mf.createLog("FM>:Saving StaffList", Log.Type.INFO);
+         saveStaff(info.staffList);
+      }
+      if ( info.counterList != null)
+      {
+         mf.createLog("FM>:Saving CounterList", Log.Type.INFO);
+         saveCounters(info.counterList);
+      }
+   }
 
       // Rooms      
    public void saveRooms ( ArrayList<Room> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/rooms.txt" );
-      File calFile = new File ( filePath + "/calendar.txt");
+      File file = new File ( roomListPath );
+      File calFile = new File ( calendarPath );
       PrintStream out = new PrintStream ( file );
       PrintStream calOut = new PrintStream ( calFile );
       for ( int i = 0; i < array.size(); i ++ ) 
@@ -318,7 +395,7 @@ public class FileManagement
    public void saveGuests ( ArrayList<Guest> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/guests.txt" );
+      File file = new File ( guestListPath );
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
       {
@@ -333,7 +410,7 @@ public class FileManagement
    public void saveStaff ( ArrayList<Staff> array ) 
                      throws FileNotFoundException 
    {
-      File file = new File ( filePath + "/staff.txt" );
+      File file = new File ( staffListPath );
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
       {
@@ -341,7 +418,7 @@ public class FileManagement
          out.println ( staff.fileFormatString() );
       }
       out.flush();
-      out.close();   
+      //out.close();   
    }
    
       // Bookings - Archived & Active
@@ -351,11 +428,11 @@ public class FileManagement
       File file;
       if ( isArchived )
       {
-         file = new File ( filePath + "/archived_bookings.txt" );
+         file = new File ( archivedBookingListPath );
       }
       else 
       {
-         file = new File ( filePath + "/bookings.txt" );
+         file = new File ( bookingListPath );
       }
       PrintStream out = new PrintStream ( file );
       for ( int i = 0; i < array.size(); i ++ ) 
@@ -366,6 +443,21 @@ public class FileManagement
       out.flush();
       out.close();   
    }
+   
+       // Counters
+   public void saveCounters ( ArrayList<Integer> array ) 
+                     throws FileNotFoundException 
+   {
+      File file = new File ( counterListPath );
+      PrintStream out = new PrintStream ( file );
+      for ( int i = 0; i < array.size(); i ++ ) 
+      {
+         out.println ( array.get(i) );
+      }
+      out.flush();
+      out.close();   
+   }
+
 
 
       // Getters
@@ -380,15 +472,5 @@ public class FileManagement
    public void setFilePath ( String filePath ) 
    {
       this.filePath = filePath;
-   }
-   
-   // Do your path assigment here or something. This method is called from MF during Init
-   public void setFilePaths(Properties config)
-   {
-      /*
-      Example code:
-      this.bookingListPath = config.getProperty("bookingListPath");
-      this.archivedBookingListPath = config.getProperty("archivedBookingListPath", "files/archive.txt"); // second parameter is a default value in case the property is missing
-      */
-   }        
+   } 
 }

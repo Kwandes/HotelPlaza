@@ -20,24 +20,28 @@ public class UnitTests
    private Assert as;
    private boolean testPassed;
    private String testName;
-   private boolean printDebugInfo;
    private int testCount;
    private int testsPassedCount;
-   private FileManagement fileManager;
-   private String logFilePath;
    
-   public UnitTests()
+   private FileManagement fileManager;
+   private MainFrame mainFrame;
+   private boolean printDebugInfo;
+   private boolean printLogInfo;
+   
+   public UnitTests(boolean debug)
    {
-      this.logFilePath = "Testing";
-      this.fileManager = new FileManagement(this.logFilePath);
+      this.printDebugInfo = debug;
+      this.printLogInfo = debug;
+      mainFrame = new MainFrame(false, true, this.printDebugInfo);
+      this.fileManager = mainFrame.getFileManager();
+      log("Unit Test Run initiated");
    }
    
-   public void runTests(boolean debug)
+   //////////////////// Actual Test Execution ////////////////////
+   public void runTests()
    {
-      // Debugging means printing logs created in MainFrame etc to console
-      // Enable to see what exactly is going on, Disable for simple Test Passed/Failed
+      // Debugging means printing logs created in MainFrame and Exception details to console
       log("New Unit test run");
-      this.printDebugInfo = debug;
       if(printDebugInfo) log("Debugging messages ON");
       else log("Debugging messages OFF");
       log("----------");
@@ -108,6 +112,18 @@ public class UnitTests
       catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
       catch (Exception e) { log(testName + " | Failed: ", e); }
       
+      try
+      {
+         testCount++;
+         testName = "File-save and load CounterList";
+         saveAndLoadCounterListTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (FileNotFoundException e) { log(testName + " | Failed: ", e); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
       ////////// MF ArrayList setting Tests //////////
       log("# MainFrame arrays tests");
       try
@@ -156,8 +172,65 @@ public class UnitTests
       try
       {
          testCount++;
-         testName = "MF-ArrayLists-setStaffgList()";
+         testName = "MF-ArrayLists-setStaffList()";
          setStaffListTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "MF-ArrayLists-setCounterList()";
+         setCounterListTest();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      ////////// Counter Tests 1.6 //////////
+      log("# Counter 1.6 tests");
+      try
+      {
+         testCount++;
+         testName = "generateBookingID()";
+         generateBookingID();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "generateRoomID()";
+         generateRoomID();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "generateGuestID()";
+         generateGuestID();
+         log(testName + " | " + "Passed");
+         testsPassedCount++;
+      }
+      catch (TestException e) { log(testName + " | Failed: " + e.getMessage()); }
+      catch (Exception e) { log(testName + " | Failed: ", e); }
+      
+      try
+      {
+         testCount++;
+         testName = "generateStaffID()";
+         generateStaffID();
          log(testName + " | " + "Passed");
          testsPassedCount++;
       }
@@ -228,9 +301,7 @@ public class UnitTests
       log("Unit testing finished. Passed " + testsPassedCount + "/" + testCount + " tests\n\n");
    }
    
-   
-   
-   ////////// unit tests //////////
+   //////////////////// Unit Tests ////////////////////
    public void templateTest() throws TestException
    {
       // Arrange
@@ -245,13 +316,13 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      file.saveData(new Information(list, null, null, null, null));
-      info = file.loadData(new Information(true, false, false, false, false));
+      file.saveData(new Information(list, null, null, null, null, null));
+      info = file.loadData(new Information(true, false, false, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
    }
@@ -260,13 +331,13 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
       // Act
-      file.saveData(new Information(null, list, null, null, null));
-      info = file.loadData(new Information(false, true, false, false, false));
+      file.saveData(new Information(null, list, null, null, null, null));
+      info = file.loadData(new Information(false, true, false, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.archivedBookingList.isEmpty()), Boolean.toString(false));
    }
@@ -275,13 +346,13 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Room> list = new ArrayList<Room>();
       list.add(new Room(0, 1));
       // Act
-      file.saveData(new Information(null, null, list, null, null));
-      info = file.loadData(new Information(false, false, true, false, false));
+      file.saveData(new Information(null, null, list, null, null, null));
+      info = file.loadData(new Information(false, false, true, false, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.roomList.isEmpty()), Boolean.toString(false));
    }
@@ -290,8 +361,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Guest> list = new ArrayList<Guest>();
       String[] arr = new String[3];
       arr[0] = "Yeet";
@@ -299,8 +370,8 @@ public class UnitTests
       arr[2] = "yoten";
       list.add(new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0));
       // Act
-      file.saveData(new Information(null, null, null, list, null));
-      info = file.loadData(new Information(false, false, false, true, false));
+      file.saveData(new Information(null, null, null, list, null, null));
+      info = file.loadData(new Information(false, false, false, true, false, false));
       // Assert
       as.assertEquals(Boolean.toString(info.guestList.isEmpty()), Boolean.toString(false));
    }
@@ -309,8 +380,8 @@ public class UnitTests
    {
       // Arrange
       Information info;
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      FileManagement file = new FileManagement(mf, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
       ArrayList<Staff> list = new ArrayList<Staff>();
       String[] arr = new String[3];
       arr[0] = "Yeet";
@@ -318,10 +389,28 @@ public class UnitTests
       arr[2] = "yoten";
       list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", 0, 0, 0.0, 0));
       // Act
-      file.saveData(new Information(null, null, null, null, list));
-      info = file.loadData(new Information(false, false, false, false, true));
+      file.saveData(new Information(null, null, null, null, list, null));
+      info = file.loadData(new Information(false, false, false, false, true, false));
       // Assert
       as.assertEquals(Boolean.toString(info.staffList.isEmpty()), Boolean.toString(false));
+   }
+   
+   public void saveAndLoadCounterListTest() throws TestException, FileNotFoundException, NullPointerException, Exception
+   {
+      // Arrange
+      Information info;
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      FileManagement file = mf.getFileManager();
+      ArrayList<Integer> list = new ArrayList<Integer>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      list.add(4);
+      // Act
+      file.saveData(new Information(null, null, null, null, null, list));
+      info = file.loadData(new Information(false, false, false, false, false, true));
+      // Assert
+      as.assertEquals(Boolean.toString(info.counterList.isEmpty()), Boolean.toString(false));
    }
    
    ////////// Setting ArrayLists Tests //////////
@@ -329,7 +418,7 @@ public class UnitTests
    public void setBookingListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
@@ -342,7 +431,7 @@ public class UnitTests
    public void setArchivedBookingListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Booking> list = new ArrayList<Booking>();
       list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
@@ -355,7 +444,7 @@ public class UnitTests
    public void setRoomListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Room> list = new ArrayList<Room>();
       list.add(new Room(0, 1));
@@ -368,7 +457,7 @@ public class UnitTests
    public void setGuestListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Guest> list = new ArrayList<Guest>();
       
@@ -386,7 +475,7 @@ public class UnitTests
    public void setStaffListTest() throws TestException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
       mf.setSaveToFile(false);
       ArrayList<Staff> list = new ArrayList<Staff>();
       
@@ -401,34 +490,88 @@ public class UnitTests
       as.assertEquals(Boolean.toString(mf.getStaffList().isEmpty()), Boolean.toString(false));
    }
    
-   ////////// Saving arrayLists test //////////
-   
-   //saveData(new Info());
-   //loadData(new Info());
-   //removeData(newInfo());
-   
-   public void saveDataBookingTest() throws TestException, FileNotFoundException, Exception
+   public void setCounterListTest() throws TestException
    {
       // Arrange
-      FileManagement file = new FileManagement(new MainFrame(this.printDebugInfo, this.logFilePath));
-      ArrayList<Booking> list = new ArrayList<Booking>();
-      list.add(new Booking(0, 0, "yeet", 0, 0, 0, false));
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      mf.setSaveToFile(false);
+      ArrayList<Integer> list = new ArrayList<Integer>();
+      list.add(1);
+      list.add(9);
+      list.add(3);
+      list.add(9);
       // Act
-      file.saveData(new Information(list, null, null, null, null));
-      Information info = file.loadData(new Information(true, false, false, false, false));
+      mf.setCounterList(list);
       // Assert
-      as.assertEquals(Boolean.toString(info.bookingList.isEmpty()), Boolean.toString(false));
+      as.assertEquals(Boolean.toString(mf.getCounterList().isEmpty()), Boolean.toString(false));
    }
+   
+   ////////// Counter Test : Local Testing //////////
+   
+   public void generateBookingID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setBookingCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateBookingID()), Integer.toString(newValue + 1));
+   }
+   
+   public void generateRoomID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setRoomCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateRoomID()), Integer.toString(newValue + 1));
+   }
+   
+   public void generateGuestID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setGuestCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateGuestID()), Integer.toString(newValue + 1));
+   }
+   
+   public void generateStaffID() throws TestException, FileNotFoundException, Exception
+   {
+      // Arrange
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      int newValue = 1;
+      mf.setCounterList(0,0,0,0);
+      // Act
+      mf.setStaffCounter(newValue);
+      // Assert
+      as.assertEquals(Integer.toString(mf.generateStaffID()), Integer.toString(newValue + 1));
+   }
+   
    
    ////////// Misc tests //////////
    
    public void validateLoginGuestTest() throws TestException, NullPointerException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      mf.init();
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      ArrayList<Guest> list = new ArrayList<Guest>();
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
       String phoneNumber = "+69 420";
       String password = "yeet";
+      list.add(new Guest("Faisal", "Boolyan", "1234561234", arr, phoneNumber, password, 0));
+      mf.setGuestList(list);
       // Act
       Guest guest = mf.validateLoginGuest(phoneNumber, password);
       //Assert
@@ -438,10 +581,16 @@ public class UnitTests
    public void validateLoginStaffTest() throws TestException, NullPointerException
    {
       // Arrange
-      MainFrame mf = new MainFrame(this.printDebugInfo, this.logFilePath);
-      mf.init();
+      MainFrame mf = new MainFrame(false, this.printLogInfo, this.printDebugInfo);
+      ArrayList<Staff> list = new ArrayList<Staff>();
+      String[] arr = new String[3];
+      arr[0] = "Yeet";
+      arr[1] = "Yote";
+      arr[2] = "yoten";
       String phoneNumber = "+69 420";
       String password = "yeet";
+      list.add(new Staff("Faisal", "Strong", "123456-1234", "ST", arr, phoneNumber, password, 0, 37, 140.0, 5));
+      mf.setStaffList(list);
       // Act
       Staff staff = mf.validateLoginStaff(phoneNumber, password);
       //Assert
@@ -508,15 +657,18 @@ public class UnitTests
    
    public void log(String message)
    {
-      fileManager.appendToFile(message, true);
+      mainFrame.createTestLog(message, Log.Type.INFO);
    }
    
    public void log(String message, Exception e)
    {
-      fileManager.appendToFile(message + e, true);
-      StringWriter sw = new StringWriter();
-      PrintWriter pw = new PrintWriter(sw);
-      e.printStackTrace(pw);
-      fileManager.appendToFile(sw.toString(), this.printDebugInfo);
+      mainFrame.createTestLog(message + e, Log.Type.WARNING);
+      if ( this.printDebugInfo)
+      {
+         StringWriter sw = new StringWriter();
+         PrintWriter pw = new PrintWriter(sw);
+         e.printStackTrace(pw);
+         mainFrame.createTestLog(sw.toString(), Log.Type.ERROR);
+      }
    }
 }

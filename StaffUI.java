@@ -5,6 +5,8 @@ public class StaffUI extends CLI
 {
    private  int spacerVariable = 40;
    
+   private static int[] monthList = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+   
    private String firstName;
    private String lastName;
    private String fullName;
@@ -118,32 +120,45 @@ public class StaffUI extends CLI
       //* user.arraylistwherethefuckareyou.search(cpr) : i
       //* userID = user.getUserID(i)
       //$ I assume you meant this:
-      ArrayList<Guest> guestList = mf.getGuestList();
-      for (int i = 0; i < guestList.size(); i++)
-      {
-         if (guestList.get(i).getCPR().equals(cpr)) userID = guestList.get(i).getID();
-      }
+      
+      
+      //ArrayList<Guest> guestList = mf.getGuestList();
+      // for (int i = 0; i < guestList.size(); i++)
+//       {
+//          if (guestList.get(i).getCPR().equals(cpr)) userID = guestList.get(i).getID();
+//       }
       //$ replaced: userID = "U123"; //placeholder ID
       
       print2("How many beds would the guest like to have in his room?");
       beds = intCheck();
       
-      //print2("From what date would you like the booking?"); alternative question
-      print2("From what date will the guest's stay begin?");
-      while (!console.hasNextInt())
-      {
-         String shit = console.next();
-         print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
-      }
-      startDate = console.nextInt();
+      int monthTemp;
+      int dayTemp;      
+      print2("Please type the starting month of the guest's stay");
+      monthTemp = intCheck(1,12);
+      print2("please type the starting day of guest's stay");
+      dayTemp = intCheck(1,monthList[monthTemp-1]);
+      startDate = dateNumber(monthTemp, dayTemp);
       
-      print2("What date will the guest's stay end?");
-      while (!console.hasNextInt())
-      {
-         String shit = console.next();
-         print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
-      }
-      endDate = console.nextInt();
+      
+      print2("How many days will the guest be staying for?");
+      endDate = intCheck();
+      endDate = endDate + startDate;
+
+//       while (!console.hasNextInt())
+//       {
+//          String shit = console.next();
+//          print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
+//       }
+//       startDate = console.nextInt();
+//       
+//       print2("What date will the guest's stay end?");
+//       while (!console.hasNextInt())
+//       {
+//          String shit = console.next();
+//          print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
+//       }
+//       endDate = console.nextInt();
       
       print2("Does the guest wish to have internet access?");
       System.out.println();
@@ -164,15 +179,41 @@ public class StaffUI extends CLI
       //* get 5 options of rooms that match the beds + isBookable for the duration of stay
       ArrayList<Room> roomList = mf.getRoomList();
       ArrayList<Room> displayRooms = new ArrayList<Room>();
+      int totalRoomsMatched = 0;
+      Room tempRoom;
       for ( int i = 0; i < (roomList.size() < 5 ? roomList.size(): 5); i++)
       {
-         //* initialize each toom to room1-5 ints 
-         displayRooms.add(roomList.get(i));
+         //* initialize each toom to room 0-4 ints 
+         tempRoom =(roomList.get(i));
+         if (tempRoom.getBeds() >= beds && tempRoom.getIsBooked() == false)
+         {
+            displayRooms.add(tempRoom);
+            totalRoomsMatched++;
+         }
+         
+         
       }
-      header("Select a room");
-      print2("available rooms in a numbered order PLACEHOLDER");
-      selection = intCheck();
-      //$ tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
+      if (totalRoomsMatched>0)
+      {
+         header("Select a room");
+         printLines();
+         
+         for (int i=1; i<=totalRoomsMatched; i++)
+         {
+            System.out.println("Selection " + "<" + (i) + ">");
+            System.out.println();
+            System.out.println(displayRooms.get(i).toString());
+            i++;
+            
+         }
+         selection = intCheck();
+      } else 
+      {
+         print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
+      }
+      
+      //print2("available rooms in a numbered order PLACEHOLDER");
+//$   tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
 //       switch (selection)
 //       {
 //          case 1:
@@ -192,21 +233,20 @@ public class StaffUI extends CLI
 //             break;
 //       }
       
-      //roomX.getID
-      roomID = 123; 
-      bookingID = 1234; //???????????????????
+      
+      roomID = displayRooms.get(selection).getRoomID();
+      bookingID = mf.generateBookingID(); 
       //* roomPrice = room.getPrice();
       //$ roomList.get(roomID).getPrice(); alternatively: chosenRoom.getPrice();
-      roomPrice = 800;
+      roomPrice = 800; //PLACEHOLDER
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
-      //$ mf.createBooking(guestBooking); in order to save
+      mf.createBooking(guestBooking); // in order to save
    }
    
    
    public void createStaff()
    {
       this.screenNumber = 2;
-      //Staff firstName, lastName, cpr, type, address, phoneNumber, password,int hours, double salary, int vacation)
       creationTemplate("Staff");
       print2("How many hours will " + firstName + " be working weekly?");
       hours = intCheck();
@@ -218,19 +258,17 @@ public class StaffUI extends CLI
       vacation = intCheck();
       
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, 0, hours, salary, vacation);
-      //* send newly created Staff: "created" to staff array. mf.addStaff(created);
-      //$ mf.addStaff(created); What about the staffID tho?
-      
+      mf.addStaff(created);
    }
 
    public void createGuest() 
    {
-      //this.screenNumber = 1;
+      this.screenNumber = 1;
       creationTemplate("Guest");
       Guest created = new Guest(firstName, lastName, cpr, address, phoneNumber, password, 0);
-      //* send newly created User: "created" to user array. mf.addStaff(created);
-      //$ answer> mf.addGuest(created); BUT you forgot userID, I think?
+      mf.addGuest(created);
       System.out.println();
+      
    }
 
    public void creationTemplate(String type)
@@ -257,7 +295,7 @@ public class StaffUI extends CLI
       print2("Next, please type the city name of " + firstName + "'s residence.");
       address[1] = nameFixer(inputAddress.nextLine());
       
-      print2("Lastly, please type the Postcode of " + firstName + "'s residence.");
+      print2("Lastly, please type the postcode of " + firstName + "'s residence.");
       address[2] = nameFixer(inputAddress.nextLine());
       
       print2("Please type the " + type + "'s phone number");
@@ -280,7 +318,49 @@ public class StaffUI extends CLI
       password = pass1;
       System.out.println();  
    }
-  
+      
+   
+
+//_________________________________________________________METHOD_METHODS___________________________________________
+
+   public static int dateNumber ( int month, int day )
+   {
+      String[] monthName = { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec" };
+      int days = 0;
+      for ( int i = 0; i < month - 1; i ++ ) 
+      {
+         days += monthList[i];
+      }
+      days += day;
+      return days;
+   } 
+
+   // public static boolean isBookable ( int roomID, int startDate, int endDate ) 
+//    {
+//       int roomPos = findRoom ( roomID );
+//       int[] calendar = roomList.get(roomPos).getCalendar();
+//       for ( int i = startDate - 1; i < endDate; i ++ ) {
+//          if ( calendar[i] != 0 )
+//          {
+//             return false;
+//          }
+//       }
+//       return true;
+//    }
+// 
+//    public static int findRoom ( int roomID ) 
+//    {
+//       int roomPos = -1;
+//       for ( int i = 0; i < roomList.size(); i ++ )
+//       {
+//          if ( roomList.get(i).getRoomID() == roomID )
+//          {
+//             roomPos = i;
+//             break;
+//          }
+//       }
+//       return roomPos;
+//    }
   
 //_________________________________________________________CHECK METHODS_____________________________________________   
    public double doubleCheck()
@@ -297,7 +377,33 @@ public class StaffUI extends CLI
       number = input.nextDouble();
       return number;
    }
-   
+
+
+   public int intCheck(int min, int max)
+   {
+      Scanner input = new Scanner(System.in);
+      int number;
+      
+      while (!input.hasNextInt())
+      {
+         String shit = input.next();
+         print2("Invalid input detected, please only type numbers without a comma.");
+         
+      }
+      number = input.nextInt();
+      while (!(number>=min && number<=max))
+      {
+         print2(number + " is out of the acceptable range, plase type a number from " + min + " to " + max);
+         while (!input.hasNextInt())
+         {
+            String shit = input.next();
+            print2("Invalid input detected, please only type numbers without a comma.");
+            
+         }
+         number = input.nextInt();
+      }   
+      return number;
+   }   
    
    public int intCheck()
    {
@@ -308,7 +414,6 @@ public class StaffUI extends CLI
       {
          String shit = input.next();
          print2("Invalid input detected, please only type numbers without a comma.");
-         
       }
       number = input.nextInt();
       return number;
