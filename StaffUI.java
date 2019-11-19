@@ -144,14 +144,7 @@ public class StaffUI extends CLI
       print2("How many days will the guest be staying for?");
       endDate = intCheck();
       endDate = endDate + startDate;
-      
-      
-      
-      
-      
-      
-      //print2("From what date would you like the booking?"); alternative question
-      // print2("From what date will the guest's stay begin?");
+
 //       while (!console.hasNextInt())
 //       {
 //          String shit = console.next();
@@ -188,13 +181,13 @@ public class StaffUI extends CLI
       ArrayList<Room> displayRooms = new ArrayList<Room>();
       for ( int i = 0; i < (roomList.size() < 5 ? roomList.size(): 5); i++)
       {
-         //* initialize each toom to room1-5 ints 
+         //* initialize each toom to room 0-4 ints 
          displayRooms.add(roomList.get(i));
       }
       header("Select a room");
       print2("available rooms in a numbered order PLACEHOLDER");
       selection = intCheck();
-      //$ tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
+//$   tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
 //       switch (selection)
 //       {
 //          case 1:
