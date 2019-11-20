@@ -3,7 +3,7 @@
 public class Main
 {
    private final static boolean RUN_UNIT_TESTS = false;
-   private final static boolean PRINT_DETAILS = false;
+   private final static boolean PRINT_DETAILS = true;
    
    public static void main(String [] args)
    {

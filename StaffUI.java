@@ -108,26 +108,24 @@ public class StaffUI extends CLI
    
    public void createBooking()
    {
-      //int bookingID, int roomID, String userID, int startDate, int endDate, int roomPrice, boolean hasInternet 
-      
-      //I assume that bookingID is generated somewhere, using placeholder 123 for now
-      //$ Use mf.generateBookingID() : String
       Scanner console = new Scanner(System.in);
       int selection;
       
       print2("What is the cpr number of the Guest you would like to book a room for?");
-      cpr = cprCheck(console);
-      //* user.arraylistwherethefuckareyou.search(cpr) : i
-      //* userID = user.getUserID(i)
-      //$ I assume you meant this:
-      
-      
-      //ArrayList<Guest> guestList = mf.getGuestList();
-      // for (int i = 0; i < guestList.size(); i++)
-//       {
-//          if (guestList.get(i).getCPR().equals(cpr)) userID = guestList.get(i).getID();
-//       }
-      //$ replaced: userID = "U123"; //placeholder ID
+      do
+      {
+         cpr = cprCheck(console);
+         ArrayList<Guest> guestList = mf.getGuestList();
+         for (int i = 0; i < guestList.size(); i++)
+         {
+            if (guestList.get(i).getCPR().equals(cpr))
+            {  
+               userID = guestList.get(i).getID();
+               break;
+            }
+         }
+         print2("Cpr not found, please try again.");
+       } while (userID == null);
       
       print2("How many beds would the guest like to have in his room?");
       beds = intCheck();
@@ -144,21 +142,6 @@ public class StaffUI extends CLI
       print2("How many days will the guest be staying for?");
       endDate = intCheck();
       endDate = endDate + startDate;
-
-//       while (!console.hasNextInt())
-//       {
-//          String shit = console.next();
-//          print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
-//       }
-//       startDate = console.nextInt();
-//       
-//       print2("What date will the guest's stay end?");
-//       while (!console.hasNextInt())
-//       {
-//          String shit = console.next();
-//          print2("Please type a date that is only numbers. Example date: PLACEHOLDER");
-//       }
-//       endDate = console.nextInt();
       
       print2("Does the guest wish to have internet access?");
       System.out.println();
@@ -193,52 +176,29 @@ public class StaffUI extends CLI
          
          
       }
+      int selectedRoom = 0;
       if (totalRoomsMatched>0)
       {
          header("Select a room");
          printLines();
          
-         for (int i=1; i<=totalRoomsMatched; i++)
+         for (selectedRoom=1; selectedRoom<=totalRoomsMatched; selectedRoom++)
          {
-            System.out.println("Selection " + "<" + (i) + ">");
+            System.out.println("Selection " + "<" + (selectedRoom) + ">");
             System.out.println();
-            System.out.println(displayRooms.get(i).toString());
-            i++;
-            
+            System.out.println(displayRooms.get(selectedRoom-1).toString());  
+            System.out.println();          
          }
+         printLines();
          selection = intCheck();
       } else 
       {
          print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
       }
       
-      //print2("available rooms in a numbered order PLACEHOLDER");
-//$   tip: dynamic display of rooms (there might be less than 5 rooms), store chosen room in a Room var, not using a roomID
-//       switch (selection)
-//       {
-//          case 1:
-//             roomID = displayRooms.get(selection-1).getRoomID();
-//             break;
-//          case 2:
-//             roomID = displayRooms.get(selection-1).getRoomID();
-//             break;
-//          case 3:
-//             roomID = displayRooms.get(selection-1).getRoomID();
-//             break;
-//          case 4:
-//             roomID = displayRooms.get(selection-1).getRoomID();
-//             break;
-//          case 5:
-//             roomID = displayRooms.get(selection-1).getRoomID();
-//             break;
-//       }
-      
-      
-      roomID = displayRooms.get(selection).getRoomID();
+      roomID = displayRooms.get(selection-1).getRoomID();
       bookingID = mf.generateBookingID(); 
-      //* roomPrice = room.getPrice();
-      //$ roomList.get(roomID).getPrice(); alternatively: chosenRoom.getPrice();
-      roomPrice = 800; //PLACEHOLDER
+      roomPrice = displayRooms.get(selectedRoom-2).getPrice();
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
       mf.createBooking(guestBooking); // in order to save
    }
@@ -254,7 +214,7 @@ public class StaffUI extends CLI
       print2("What is " + firstName + "'s hourly salary?");
       salary = doubleCheck();
       
-      print2("How many vacation days will " + firstName + "have yearly?");
+      print2("How many vacation days will " + firstName + " have yearly?");
       vacation = intCheck();
       
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, 0, hours, salary, vacation);
@@ -335,32 +295,6 @@ public class StaffUI extends CLI
       return days;
    } 
 
-   // public static boolean isBookable ( int roomID, int startDate, int endDate ) 
-//    {
-//       int roomPos = findRoom ( roomID );
-//       int[] calendar = roomList.get(roomPos).getCalendar();
-//       for ( int i = startDate - 1; i < endDate; i ++ ) {
-//          if ( calendar[i] != 0 )
-//          {
-//             return false;
-//          }
-//       }
-//       return true;
-//    }
-// 
-//    public static int findRoom ( int roomID ) 
-//    {
-//       int roomPos = -1;
-//       for ( int i = 0; i < roomList.size(); i ++ )
-//       {
-//          if ( roomList.get(i).getRoomID() == roomID )
-//          {
-//             roomPos = i;
-//             break;
-//          }
-//       }
-//       return roomPos;
-//    }
   
 //_________________________________________________________CHECK METHODS_____________________________________________   
    public double doubleCheck()

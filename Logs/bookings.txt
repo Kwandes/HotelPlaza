@@ -2,3 +2,5 @@
 2 userID 111 false 4 10 true 5770
 3 userID 501 false 11 15 true 3928
 4 userID 501 false 17 19 true 5204
+4 G01 204 false 1 15 true 310340
+5 G01 512 false 1 15 true 310340

@@ -650,3 +650,508 @@
 	at Main.main(Main.java:22)
 
 >>>Tue 2019/11/19 15:34:908: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:33:540: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:33:550: INFO: Loading config...
+>>>Wed 2019/11/20 14:33:551: INFO: Config loaded
+>>>Wed 2019/11/20 14:33:551: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:33:552: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:33:553: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:33:581: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:33:587: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:33:630: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:33:646: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:33:661: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:33:662: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:33:665: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:33:666: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:33:666: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:33:195: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:33:780: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:33:780: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:33:783: INFO: StaffUi created
+>>>Wed 2019/11/20 14:34:555: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:188)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:34:560: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:38:986: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:38:989: INFO: Loading config...
+>>>Wed 2019/11/20 14:38:990: INFO: Config loaded
+>>>Wed 2019/11/20 14:38:990: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:38:991: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:38:993: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:38:020: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:38:026: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:38:072: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:38:088: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:38:099: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:38:100: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:38:102: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:38:103: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:38:103: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:38:474: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:38:235: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:38:236: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:38:238: INFO: StaffUi created
+>>>Wed 2019/11/20 14:39:429: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.cprCheck(StaffUI.java:414)
+	at StaffUI.createBooking(StaffUI.java:117)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:39:429: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:39:772: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:39:774: INFO: Loading config...
+>>>Wed 2019/11/20 14:39:774: INFO: Config loaded
+>>>Wed 2019/11/20 14:39:775: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:39:775: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:39:777: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:39:798: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:39:803: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:39:846: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:39:864: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:39:875: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:39:876: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:39:878: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:39:879: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:39:880: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:39:210: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:39:205: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:39:206: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:39:209: INFO: StaffUi created
+>>>Wed 2019/11/20 14:39:326: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.cprCheck(StaffUI.java:415)
+	at StaffUI.createBooking(StaffUI.java:117)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:39:327: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:40:369: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:40:371: INFO: Loading config...
+>>>Wed 2019/11/20 14:40:372: INFO: Config loaded
+>>>Wed 2019/11/20 14:40:372: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:40:373: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:40:374: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:40:393: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:40:397: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:40:439: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:40:456: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:40:466: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:40:467: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:40:470: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:40:470: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:40:471: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:40:786: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:40:282: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:40:282: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:40:286: INFO: StaffUi created
+>>>Wed 2019/11/20 14:41:134: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:189)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:41:135: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:43:938: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:43:940: INFO: Loading config...
+>>>Wed 2019/11/20 14:43:940: INFO: Config loaded
+>>>Wed 2019/11/20 14:43:941: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:43:942: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:43:943: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:43:966: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:43:972: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:43:019: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:43:034: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:43:045: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:43:046: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:43:048: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:43:049: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:43:050: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:43:361: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:43:061: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:43:062: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:43:064: INFO: StaffUi created
+>>>Wed 2019/11/20 14:43:137: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:189)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:43:137: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:44:716: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:44:718: INFO: Loading config...
+>>>Wed 2019/11/20 14:44:719: INFO: Config loaded
+>>>Wed 2019/11/20 14:44:720: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:44:720: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:44:721: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:44:751: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:44:758: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:44:853: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:44:895: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:44:916: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:44:917: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:44:919: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:44:920: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:44:921: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:44:303: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:44:500: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:44:501: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:44:505: INFO: StaffUi created
+>>>Wed 2019/11/20 14:45:121: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:189)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:45:122: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:47:034: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:47:036: INFO: Loading config...
+>>>Wed 2019/11/20 14:47:036: INFO: Config loaded
+>>>Wed 2019/11/20 14:47:037: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:47:037: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:47:039: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:47:060: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:47:066: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:47:116: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:47:132: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:47:144: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:47:145: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:47:147: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:47:148: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:47:149: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:47:510: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:47:770: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:47:770: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:47:774: INFO: StaffUi created
+>>>Wed 2019/11/20 14:47:021: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:189)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:47:022: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:48:505: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:48:507: INFO: Loading config...
+>>>Wed 2019/11/20 14:48:508: INFO: Config loaded
+>>>Wed 2019/11/20 14:48:508: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:48:509: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:48:510: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:48:533: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:48:538: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:48:583: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:48:604: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:48:615: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:48:616: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:48:619: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:48:620: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:48:620: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:48:963: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:48:169: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:48:170: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:48:173: INFO: StaffUi created
+>>>Wed 2019/11/20 14:50:673: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:348)
+	at StaffUI.createBooking(StaffUI.java:192)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:50:675: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:50:710: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:50:712: INFO: Loading config...
+>>>Wed 2019/11/20 14:50:713: INFO: Config loaded
+>>>Wed 2019/11/20 14:50:714: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:50:714: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:50:715: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:50:736: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:50:741: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:50:791: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:50:808: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:50:819: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:50:820: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:50:823: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:50:823: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:50:824: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:50:098: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:50:499: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:50:500: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:50:502: INFO: StaffUi created
+>>>Wed 2019/11/20 14:50:202: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:199)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:50:203: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:51:061: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:51:063: INFO: Loading config...
+>>>Wed 2019/11/20 14:51:064: INFO: Config loaded
+>>>Wed 2019/11/20 14:51:065: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:51:065: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:51:067: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:51:091: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:51:099: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:51:149: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:51:169: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:51:184: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:51:185: WARNING: Load Counter List Failed
+>>>Wed 2019/11/20 14:51:187: ERROR: java.io.FileNotFoundException: Logs/counters.txt (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.util.Scanner.<init>(Scanner.java:611)
+	at FileManagement.loadCounters(FileManagement.java:312)
+	at FileManagement.loadData(FileManagement.java:170)
+	at MainFrame.loadCounterList(MainFrame.java:601)
+	at MainFrame.init(MainFrame.java:87)
+	at Main.main(Main.java:18)
+
+>>>Wed 2019/11/20 14:51:188: WARNING: ArrayList setup incomplete
+>>>Wed 2019/11/20 14:51:189: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:51:544: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:51:753: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:51:754: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:51:757: INFO: StaffUi created
+>>>Wed 2019/11/20 14:51:005: ERROR: java.lang.NullPointerException
+	at MainFrame.generateBookingID(MainFrame.java:629)
+	at StaffUI.createBooking(StaffUI.java:200)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:51:005: WARNING: UI failed to create
+>>>Wed 2019/11/20 14:56:241: INFO: MainFrame Init started
+>>>Wed 2019/11/20 14:56:243: INFO: Loading config...
+>>>Wed 2019/11/20 14:56:244: INFO: Config loaded
+>>>Wed 2019/11/20 14:56:245: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 14:56:245: INFO: Loading BookingList...
+>>>Wed 2019/11/20 14:56:247: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 14:56:270: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 14:56:275: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 14:56:320: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 14:56:338: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 14:56:350: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 14:56:353: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 14:56:353: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 14:56:678: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 14:56:421: INFO: Moving to next UI
+>>>Wed 2019/11/20 14:56:422: INFO: Creating StaffUI
+>>>Wed 2019/11/20 14:56:425: INFO: StaffUi created
+>>>Wed 2019/11/20 14:59:093: INFO: FM>:Saving CounterList
+>>>Wed 2019/11/20 14:59:094: INFO: Updated Counter List saved
+>>>Wed 2019/11/20 14:59:096: ERROR: java.lang.IndexOutOfBoundsException: Index: 4, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:201)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 14:59:097: WARNING: UI failed to create
+>>>Wed 2019/11/20 15:06:741: INFO: MainFrame Init started
+>>>Wed 2019/11/20 15:06:743: INFO: Loading config...
+>>>Wed 2019/11/20 15:06:743: INFO: Config loaded
+>>>Wed 2019/11/20 15:06:745: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 15:06:746: INFO: Loading BookingList...
+>>>Wed 2019/11/20 15:06:748: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 15:06:768: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 15:06:774: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 15:06:820: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 15:06:837: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 15:06:851: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 15:06:854: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 15:06:855: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 15:06:185: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 15:06:799: INFO: Moving to next UI
+>>>Wed 2019/11/20 15:06:800: INFO: Creating StaffUI
+>>>Wed 2019/11/20 15:06:802: INFO: StaffUi created
+>>>Wed 2019/11/20 15:06:239: INFO: FM>:Saving CounterList
+>>>Wed 2019/11/20 15:06:243: INFO: Updated Counter List saved
+>>>Wed 2019/11/20 15:06:247: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:201)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 15:06:248: WARNING: UI failed to create
+>>>Wed 2019/11/20 15:07:094: INFO: MainFrame Init started
+>>>Wed 2019/11/20 15:07:097: INFO: Loading config...
+>>>Wed 2019/11/20 15:07:097: INFO: Config loaded
+>>>Wed 2019/11/20 15:07:098: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 15:07:098: INFO: Loading BookingList...
+>>>Wed 2019/11/20 15:07:100: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 15:07:124: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 15:07:129: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 15:07:178: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 15:07:196: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 15:07:208: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 15:07:211: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 15:07:212: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 15:07:540: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 15:10:539: INFO: MainFrame Init started
+>>>Wed 2019/11/20 15:10:541: INFO: Loading config...
+>>>Wed 2019/11/20 15:10:542: INFO: Config loaded
+>>>Wed 2019/11/20 15:10:542: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 15:10:543: INFO: Loading BookingList...
+>>>Wed 2019/11/20 15:10:545: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 15:10:569: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 15:10:575: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 15:10:631: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 15:10:650: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 15:10:663: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 15:10:665: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 15:10:666: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 15:10:993: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 15:10:232: INFO: Moving to next UI
+>>>Wed 2019/11/20 15:10:233: INFO: Creating StaffUI
+>>>Wed 2019/11/20 15:10:237: INFO: StaffUi created
+>>>Wed 2019/11/20 15:10:425: INFO: FM>:Saving CounterList
+>>>Wed 2019/11/20 15:10:426: INFO: Updated Counter List saved
+>>>Wed 2019/11/20 15:10:429: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at StaffUI.createBooking(StaffUI.java:201)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 15:10:430: WARNING: UI failed to create
+>>>Wed 2019/11/20 15:11:535: INFO: MainFrame Init started
+>>>Wed 2019/11/20 15:11:538: INFO: Loading config...
+>>>Wed 2019/11/20 15:11:538: INFO: Config loaded
+>>>Wed 2019/11/20 15:11:539: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 15:11:539: INFO: Loading BookingList...
+>>>Wed 2019/11/20 15:11:541: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 15:11:562: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 15:11:568: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 15:11:618: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 15:11:634: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 15:11:646: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 15:11:648: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 15:11:649: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 15:11:002: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 15:11:795: INFO: Moving to next UI
+>>>Wed 2019/11/20 15:11:796: INFO: Creating StaffUI
+>>>Wed 2019/11/20 15:11:800: INFO: StaffUi created
+>>>Wed 2019/11/20 15:11:221: INFO: FM>:Saving CounterList
+>>>Wed 2019/11/20 15:11:224: INFO: Updated Counter List saved
+>>>Wed 2019/11/20 15:11:225: INFO: FM>:Saving BookingList
+>>>Wed 2019/11/20 15:11:226: INFO: New Booking created, id: 4
+>>>Wed 2019/11/20 15:11:245: INFO: FM>:Saving CounterList
+>>>Wed 2019/11/20 15:11:246: INFO: Updated Counter List saved
+>>>Wed 2019/11/20 15:11:247: INFO: FM>:Saving BookingList
+>>>Wed 2019/11/20 15:11:248: INFO: New Booking created, id: 5
