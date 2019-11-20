@@ -109,7 +109,7 @@ public class StaffUI extends CLI
    public void createBooking()
    {
       Scanner console = new Scanner(System.in);
-      int selection;
+      int selection = 0;
       
       print2("What is the cpr number of the Guest you would like to book a room for?");
       do
@@ -126,74 +126,77 @@ public class StaffUI extends CLI
          }
          print2("Cpr not found, please try again.");
        } while (userID == null);
-      
-      print2("How many beds would the guest like to have in his room?");
-      beds = intCheck();
-      
-      int monthTemp;
-      int dayTemp;      
-      print2("Please type the starting month of the guest's stay");
-      monthTemp = intCheck(1,12);
-      print2("please type the starting day of guest's stay");
-      dayTemp = intCheck(1,monthList[monthTemp-1]);
-      startDate = dateNumber(monthTemp, dayTemp);
-      
-      
-      print2("How many days will the guest be staying for?");
-      endDate = intCheck();
-      endDate = endDate + startDate;
-      
-      print2("Does the guest wish to have internet access?");
-      System.out.println();
-      print("1 Yes.");
-      print("2 No");
-      selection = intCheck();
-      
-      switch(selection)
-      {
-         case 1:
-            hasInternet = true;
-            break;
-         case 2:
-            hasInternet = false;
-            break;
-      }
-      
-      //* get 5 options of rooms that match the beds + isBookable for the duration of stay
+       boolean suitableRoom = false;
       ArrayList<Room> roomList = mf.getRoomList();
       ArrayList<Room> displayRooms = new ArrayList<Room>();
-      int totalRoomsMatched = 0;
-      Room tempRoom;
-      for ( int i = 0; i < (roomList.size() < 5 ? roomList.size(): 5); i++)
-      {
-         //* initialize each toom to room 0-4 ints 
-         tempRoom =(roomList.get(i));
-         if (tempRoom.getBeds() >= beds && tempRoom.getIsBooked() == false)
-         {
-            displayRooms.add(tempRoom);
-            totalRoomsMatched++;
-         }
-         
-         
-      }
       int selectedRoom = 0;
-      if (totalRoomsMatched>0)
-      {
-         header("Select a room");
-         printLines();
+       while (!suitableRoom)
+       {
+         print2("How many beds would the guest like to have in his room?");
+         beds = intCheck();
          
-         for (selectedRoom=1; selectedRoom<=totalRoomsMatched; selectedRoom++)
-         {
-            System.out.println("Selection " + "<" + (selectedRoom) + ">");
-            System.out.println();
-            System.out.println(displayRooms.get(selectedRoom-1).toString());  
-            System.out.println();          
-         }
-         printLines();
+         int monthTemp;
+         int dayTemp;      
+         print2("Please type the starting month of the guest's stay");
+         monthTemp = intCheck(1,12);
+         print2("please type the starting day of guest's stay");
+         dayTemp = intCheck(1,monthList[monthTemp-1]);
+         startDate = dateNumber(monthTemp, dayTemp);
+         
+         
+         print2("How many days will the guest be staying for?");
+         endDate = intCheck();
+         endDate = endDate + startDate;
+         
+         print2("Does the guest wish to have internet access?");
+         System.out.println();
+         print("1 Yes.");
+         print("2 No");
          selection = intCheck();
-      } else 
-      {
-         print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
+         
+         switch(selection)
+         {
+            case 1:
+               hasInternet = true;
+               break;
+            case 2:
+               hasInternet = false;
+               break;
+         }
+         
+         //* get 5 options of rooms that match the beds + isBookable for the duration of stay
+         int totalRoomsMatched = 0;
+         Room tempRoom;
+         for ( int i = 0; i < (roomList.size() < 5 ? roomList.size(): 5); i++)
+         {
+            //* initialize each toom to room 0-4 ints 
+            tempRoom =(roomList.get(i));
+            if (tempRoom.getBeds() >= beds && tempRoom.getIsBooked() == false)
+            {
+               displayRooms.add(tempRoom);
+               totalRoomsMatched++;
+            }  
+         }
+         
+         if (totalRoomsMatched>0)
+         {
+            header("Select a room");
+            printLines();
+            suitableRoom = true;
+            
+            for (selectedRoom=1; selectedRoom<=totalRoomsMatched; selectedRoom++)
+            {
+               System.out.println("Selection " + "<" + (selectedRoom) + ">");
+               System.out.println();
+               System.out.println(displayRooms.get(selectedRoom-1).toString());  
+               System.out.println();          
+            }
+            printLines();
+            selection = intCheck();
+         } else 
+         {
+            print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
+         }
       }
       
       roomID = displayRooms.get(selection-1).getRoomID();
@@ -509,6 +512,7 @@ public class StaffUI extends CLI
          }
          fixedName += " ";
       }
+      fixedName = fixedName.trim();
       return fixedName;  
    }
 //__________________________________________________UI + UI DECOR________________________________________________________   
