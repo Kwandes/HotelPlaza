@@ -46,9 +46,9 @@ public class Guest extends User
    //@Override
    public String fileFormatString ()
    {
-      return firstName + " " + lastName + " " + cpr + " " + type + " " + address[0] + " " +
-             address[1] + " " + address[2] + " " + phoneNumber + " " + password + " " + ID + " " + accessLevel
-             + " " + guestDays + " " + moneySpent;
+      return firstName + " | " + lastName + " | " + cpr + " | " + type + " | " + address[0] + " | " +
+             address[1] + " | " + address[2] + " | " + phoneNumber + " | " + password + " | " + ID + " | " + accessLevel
+             + " | " + guestDays + " | " + moneySpent;
    }
    
       //AddToMethods

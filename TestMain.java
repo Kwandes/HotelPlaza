@@ -38,9 +38,9 @@ public class TestMain {
       guestList = fm.loadGuests();
       
       String[] address = new String[3];
-      address[0] = "street_one_word";
-      address[1] = "city";
-      address[2] = "postal_code";
+      address[0] = "street multiple word";
+      address[1] = "city perhaps";
+      address[2] = "postal code";
       
          // Room Testing    
       // Setting required values for room class to work.
@@ -60,17 +60,17 @@ public class TestMain {
       
          // Archive Bookings
          
-      Booking ab = bookingList.get(0);
-      Booking ab1 = bookingList.get(2);
-      aBookingList.add(ab);
-      aBookingList.add(ab1);
+      // Booking ab = bookingList.get(0);
+//       Booking ab1 = bookingList.get(2);
+//       aBookingList.add(ab);
+//       aBookingList.add(ab1);
       
          // Guest Creation
-       /*  
-      Guest g = new Guest("Bob", "Strongest", "123456-1234", address, "01233210", "word_of_passage", 5 );
+       /*
+      Guest g = new Guest("Bob Hell", "Strongest Boi", "123456-1234", address, "01233210", "word_of_passage", 5 );
       g.setAddress ( address );
       guestList.add(g);      
-      Guest g2 = new Guest("Rob", "Strongest", "123456-1234", address, "01233210", "word_of_passage", 6 ); 
+      Guest g2 = new Guest("Rob Heaven", "Strongest Dog Man", "123456-1234", address, "01233210", "word_of_passage", 6 ); 
       g2.setAddress ( address );
       guestList.add(g2);
       
@@ -78,13 +78,13 @@ public class TestMain {
       {
          System.out.println ( guestList.get( i ).fileFormatString() );
       }
-       */  
+       */
          // Staff Creation
       
-    //   Staff s = new Staff( "Bobert", "Strongest", "123456-1234", "type:dir", address, "01233210", "pass_the_word", 5, 10, 23000, 6 );
-//       Staff s2 = new Staff( "Robert", "Strongest", "123456-1234", "type:rec", address, "01233210", "pass_the_word", 6, 10, 23000, 6 );  
-//       staffList.add(s);
-//       staffList.add(s2); 
+      Staff s = new Staff( "Bobert Rob", "Strong Of Them All", "123456-1234", "type:dir", address, "01233210", "pass_the_word", 5, 10, 23000, 6 );
+      Staff s2 = new Staff( "Robert Bob", "Strong Pollo", "123456-1234", "type:rec", address, "01233210", "pass_the_word", 6, 10, 23000, 6 );  
+      staffList.add(s);
+      staffList.add(s2); 
       
          // Room Creation
          

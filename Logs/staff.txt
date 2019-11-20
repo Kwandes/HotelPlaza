@@ -1,7 +1,4 @@
-Bober Stronger 123456-1234 type:cle street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
-Rober Stronger 123456-1234 type:acc street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
-Bob Strong 123456-1234 type:cle street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
-Rob Strong 123456-1234 type:acc street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
-Bobert Strongest 123456-1234 type:dir street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
-Robert Strongest 123456-1234 type:rec street_one_word city postal_code 01233210 pass_the_word null 0 10 23000.0 6
-Anders  Mortensen  123456-1233 ST Peterway  Personia  2041  55554444 1234 null 0 37 140.0 4
+ Bobert Rob |  Strongest Of Them All | 123456-1234 | type:dir |  street multiple word |  city perhaps |  postal code | 01233210 | pass_the_word | null | 0 | 10 | 23000.0 | 6
+ Robert Bob |  Strongest Pollo | 123456-1234 | type:rec |  street multiple word |  city perhaps |  postal code | 01233210 | pass_the_word | null | 0 | 10 | 23000.0 | 6
+Bobert Rob | Strong Of Them All | 123456-1234 | type:dir | street multiple word | city perhaps | postal code | 01233210 | pass_the_word | null | 0 | 10 | 23000.0 | 6
+Robert Bob | Strong Pollo | 123456-1234 | type:rec | street multiple word | city perhaps | postal code | 01233210 | pass_the_word | null | 0 | 10 | 23000.0 | 6
