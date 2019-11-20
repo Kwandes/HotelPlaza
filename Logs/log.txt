@@ -1155,3 +1155,174 @@
 >>>Wed 2019/11/20 15:11:246: INFO: Updated Counter List saved
 >>>Wed 2019/11/20 15:11:247: INFO: FM>:Saving BookingList
 >>>Wed 2019/11/20 15:11:248: INFO: New Booking created, id: 5
+>>>Wed 2019/11/20 16:01:169: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:01:172: INFO: Loading config...
+>>>Wed 2019/11/20 16:01:173: INFO: Config loaded
+>>>Wed 2019/11/20 16:01:173: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:01:174: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:01:176: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:01:222: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:01:246: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:01:323: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:01:339: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:01:352: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:01:355: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:01:356: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:01:781: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:01:711: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:01:712: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:01:715: INFO: StaffUi created
+>>>Wed 2019/11/20 16:01:224: INFO: Guest G00added
+>>>Wed 2019/11/20 16:01:225: INFO: FM>:Saving GuestList
+>>>Wed 2019/11/20 16:01:228: INFO: New Guest List saved
+>>>Wed 2019/11/20 16:04:927: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:04:929: INFO: Loading config...
+>>>Wed 2019/11/20 16:04:930: INFO: Config loaded
+>>>Wed 2019/11/20 16:04:931: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:04:931: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:04:932: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:04:953: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:04:957: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:04:021: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:04:038: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:04:061: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:04:064: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:04:065: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:04:445: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:05:201: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:05:202: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:05:204: INFO: StaffUi created
+>>>Wed 2019/11/20 16:05:852: INFO: Guest G00added
+>>>Wed 2019/11/20 16:05:853: INFO: FM>:Saving GuestList
+>>>Wed 2019/11/20 16:05:855: INFO: New Guest List saved
+>>>Wed 2019/11/20 16:08:044: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:08:046: INFO: Loading config...
+>>>Wed 2019/11/20 16:08:047: INFO: Config loaded
+>>>Wed 2019/11/20 16:08:047: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:08:048: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:08:049: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:08:073: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:08:077: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:08:127: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:08:144: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:08:167: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:08:180: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:08:181: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:08:652: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:08:723: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:08:724: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:08:726: INFO: StaffUi created
+>>>Wed 2019/11/20 16:08:422: INFO: Guest G00added
+>>>Wed 2019/11/20 16:08:423: INFO: FM>:Saving GuestList
+>>>Wed 2019/11/20 16:08:425: INFO: New Guest List saved
+>>>Wed 2019/11/20 16:09:597: INFO: Guest G00added
+>>>Wed 2019/11/20 16:09:598: INFO: FM>:Saving GuestList
+>>>Wed 2019/11/20 16:09:599: INFO: New Guest List saved
+>>>Wed 2019/11/20 16:23:657: INFO: Staff nulladded
+>>>Wed 2019/11/20 16:23:657: INFO: FM>:Saving StaffList
+>>>Wed 2019/11/20 16:23:663: INFO: New Staff List saved
+>>>Wed 2019/11/20 16:33:999: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:349)
+	at StaffUI.mainMenu(StaffUI.java:583)
+	at StaffUI.display(StaffUI.java:91)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 16:33:005: WARNING: UI failed to create
+>>>Wed 2019/11/20 16:37:168: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:37:172: INFO: Loading config...
+>>>Wed 2019/11/20 16:37:173: INFO: Config loaded
+>>>Wed 2019/11/20 16:37:173: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:37:174: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:37:175: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:37:214: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:37:219: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:37:276: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:37:308: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:37:331: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:37:335: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:37:336: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:37:056: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:37:545: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:37:545: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:37:548: INFO: StaffUi created
+>>>Wed 2019/11/20 16:37:105: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:352)
+	at StaffUI.createBooking(StaffUI.java:136)
+	at StaffUI.display(StaffUI.java:84)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 16:37:106: WARNING: UI failed to create
+>>>Wed 2019/11/20 16:47:910: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:47:914: INFO: Loading config...
+>>>Wed 2019/11/20 16:47:914: INFO: Config loaded
+>>>Wed 2019/11/20 16:47:915: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:47:915: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:47:917: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:47:947: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:47:952: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:47:001: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:47:030: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:47:043: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:47:046: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:47:047: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:47:566: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:47:813: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:47:814: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:47:817: INFO: StaffUi created
+>>>Wed 2019/11/20 16:48:878: INFO: Guest G00added
+>>>Wed 2019/11/20 16:48:879: INFO: FM>:Saving GuestList
+>>>Wed 2019/11/20 16:48:882: INFO: New Guest List saved
+>>>Wed 2019/11/20 16:58:833: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:58:835: INFO: Loading config...
+>>>Wed 2019/11/20 16:58:835: INFO: Config loaded
+>>>Wed 2019/11/20 16:58:836: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:58:836: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:58:837: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:58:860: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:58:866: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:58:908: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:58:924: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:58:936: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:58:939: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:58:940: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:58:306: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:59:314: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:59:315: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:59:318: INFO: StaffUi created
+>>>Wed 2019/11/20 16:59:814: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.cprCheck(StaffUI.java:417)
+	at StaffUI.creationTemplate(StaffUI.java:249)
+	at StaffUI.createGuest(StaffUI.java:230)
+	at StaffUI.display(StaffUI.java:74)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Wed 2019/11/20 16:59:815: WARNING: UI failed to create
+>>>Wed 2019/11/20 16:59:227: INFO: MainFrame Init started
+>>>Wed 2019/11/20 16:59:229: INFO: Loading config...
+>>>Wed 2019/11/20 16:59:229: INFO: Config loaded
+>>>Wed 2019/11/20 16:59:230: INFO: Loading Array Lists...
+>>>Wed 2019/11/20 16:59:230: INFO: Loading BookingList...
+>>>Wed 2019/11/20 16:59:232: INFO: FM>:Loading BookingList
+>>>Wed 2019/11/20 16:59:252: INFO: FM>:Loading Archived Bookings
+>>>Wed 2019/11/20 16:59:256: INFO: FM>:Loading RoomList
+>>>Wed 2019/11/20 16:59:297: INFO: FM>:Loading StaffList
+>>>Wed 2019/11/20 16:59:314: INFO: FM>:Loading GuestList
+>>>Wed 2019/11/20 16:59:326: INFO: FM>:Loading CounterList
+>>>Wed 2019/11/20 16:59:330: INFO: ArrayList setup complete
+>>>Wed 2019/11/20 16:59:331: INFO: MainFrame init has completed successfully
+>>>Wed 2019/11/20 16:59:596: INFO: Playing musik/depression.wav
+>>>Wed 2019/11/20 16:59:264: INFO: Moving to next UI
+>>>Wed 2019/11/20 16:59:265: INFO: Creating StaffUI
+>>>Wed 2019/11/20 16:59:267: INFO: StaffUi created
+>>>Wed 2019/11/20 17:00:151: INFO: Guest G00added
+>>>Wed 2019/11/20 17:00:152: INFO: FM>:Saving GuestList
+>>>Wed 2019/11/20 17:00:155: INFO: New Guest List saved
