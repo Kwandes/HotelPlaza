@@ -11,6 +11,7 @@ public class GuestUI extends CLI
    private Scanner in = new Scanner(System.in);
    private Scanner in2 = new Scanner(System.in); //bug issue with the scanners, had to make an extra.
    private ArrayList<Booking> bookings; 
+   private static ArrayList<Room> roomList;
    private Guest guest;
    private MainFrame mf;
    private int IDCounter;
@@ -54,29 +55,19 @@ public class GuestUI extends CLI
             case 1:
                mainMenu();
                break;
-            case 2:
-               bookRoom();
-               break;
-            case 3: 
+            case 2: 
                seeBookings(this.guest.getID(), 1); //See Booking
                break;
-            case 4:
+            case 3:
                seeBookings(this.guest.getID(), 2); //Extend Booking
                break;
-            case 5:
+            case 4:
                this.guest = changeInfo(this.guest);
                break;
-            case 99:
+            case 5:
                exit();
          }
       }  
-   }
-   
-   public void bookRoom() 
-   {
-      print();
-      printText("- BOOK ROOM -", size);
-      print();
    }
    
    public void seeBookings(String guestID, int extendOrSee)
@@ -87,6 +78,7 @@ public class GuestUI extends CLI
       
       int numberOfBookings = 0;
       ArrayList<Integer> bookingID = new ArrayList<>();
+      roomList = mf.getRoomList();
       bookings = mf.getBookingList();//static array of Bookings are in place
       
       for ( Booking book : bookings )  // smart. Stack overflow?
@@ -118,16 +110,86 @@ public class GuestUI extends CLI
       } 
       else if ( extendOrSee == 2 )
       {
-         System.out.println("Now select a booking that you want to extend");
+         System.out.println("Now select a booking that you want to extend : ");
          int choice = Integer.parseInt(check("\tPlease select 1 - " + numberOfBookings, 0, numberOfBookings + 1));
          int bookingChoice = findBooking(bookingID.get(choice));
-         int roomID = bookings.get(bookingChoice).getRoomID();
+         Booking chosenBooking = bookings.get(bookingChoice);
+         int roomID = chosenBooking.getRoomID();
          
          System.out.println("\tYou chose booking nr " + choice + "\n" +
-                            bookings.get(bookingChoice).toString() + "\n");
+                            chosenBooking.toString() + "\n");
          
+         System.out.println("\tHow many Extra days would you like? ");
+         int extendDays = Integer.parseInt(check("\tPlease select ", 0, 32));
+         int startDate = chosenBooking.getStartDate();
+         int endDate = chosenBooking.getEndDate() + extendDays;
          
+         boolean possible = isBookable(roomID, startDate, endDate);
+         
+         if ( possible ) 
+         {
+            System.out.println("Great, booking is possible." +
+                               "\nNew booking info : \n" + chosenBooking.toString() );
+            
+            System.out.println("Do you agree with the new booking?");
+            int yesNo = Integer.parseInt(check("Please write (1-yes, 2-no) ", 0, 3));
+            if ( yesNo == 1 )
+            {
+               chosenBooking.setEndDate(endDate);
+               mf.replaceBooking(bookingChoice, chosenBooking);
+            }
+            else 
+            {
+               possible = false;
+            }
+         }
+         
+         if ( !possible )
+         {
+            System.out.println("Sorry, the room is not available for the extended amount of time." +
+                               "\n\t> 1 Back to Menu" +
+                               "\n\t> 2 Select new Date");
+            int goAgain = Integer.parseInt(check ("Please select 1 - 2 : ", 0, 3));
+            if ( goAgain == 1 ) 
+            {
+               guestMenu();
+            }
+            else 
+            {
+               screenNumber = 3;
+               display();
+            }
+         }
       }
+   }
+   
+   // Checks if a room is available for a given period of time.  
+   public static boolean isBookable ( int roomID, int startDate, int endDate ) 
+   {
+      int roomPos = findRoom ( roomID );
+      int[] calendar = roomList.get(roomPos).getCalendar();
+      for ( int i = startDate - 1; i < endDate; i ++ ) {
+         if ( calendar[i] != 0 )
+         {
+            return false;
+         }
+      }
+      return true;
+   }
+
+   // Finds a room by ID.
+   public static int findRoom ( int roomID ) 
+   {
+      int roomPos = -1;
+      for ( int i = 0; i < roomList.size(); i ++ )
+      {
+         if ( roomList.get(i).getRoomID() == roomID )
+         {
+            roomPos = i;
+            break;
+         }
+      }
+      return roomPos;
    }
    
    // Find a booking by ID/Count
@@ -313,12 +375,12 @@ public class GuestUI extends CLI
          isValid = true;
          if ( a == 1 )
          {
-            System.out.print("\tPlease write a number " + (min + 1) + " - " + max + " : " +
+            System.out.print(question + (min + 1) + " - " + (max - 1) + " : " +
                              "\n\t( 0 for returning to menu ) ");
          }
          else 
          { 
-            System.out.println("\n\t( 0 for returning to menu )");
+            System.out.print("\n\t( 0 for returning to menu )");
             a++; 
          }
          if ( in.hasNextInt() ) 
@@ -326,7 +388,7 @@ public class GuestUI extends CLI
             input = in.next();
             if ( Integer.parseInt(input) == 0 ) 
             {
-               display();
+               guestMenu();
             }
             else if ( Integer.parseInt(input) > min && Integer.parseInt(input) < max ) 
             {
