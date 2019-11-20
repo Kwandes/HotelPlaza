@@ -159,7 +159,7 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
-   public ArrayList<Booking> getUsersBookings(int userID)
+   public ArrayList<Booking> getUsersBookings(String userID)
    {
       ArrayList<Booking> userBookings = new ArrayList<Booking>();
       try
