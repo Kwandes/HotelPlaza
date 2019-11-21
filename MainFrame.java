@@ -327,6 +327,28 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public void removeArchivedBooking(int archivedBookingID)
+   {
+      for (int i = 0 ; i < archivedBookingList.size(); i++)
+      {
+         if (archivedBookingList.get(i).getBookingID() == archivedBookingID)
+         {
+            try
+            {
+               archivedBookingList.remove(i);
+               if (this.saveToFile) file.saveData(new Information(null, archivedBookingList, null,null, null, null));
+               createLog("Archive " + archivedBookingID + "has been removed", Log.Type.INFO);
+            }
+            catch (Exception e)
+            {
+               createLog("Remove Archive Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
+            break;
+         }
+      }
+   }
+   
    public ArrayList<Booking> getArchivedBookingList()
    {
       return this.archivedBookingList;
@@ -416,6 +438,28 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public void removeRoom(int roomID)
+   {
+      for (int i = 0 ; i < roomList.size(); i++)
+      {
+         if (roomList.get(i).getRoomID() == roomID)
+         {
+            try
+            {
+               roomList.remove(i);
+               if (this.saveToFile) file.saveData(new Information(null, null, roomList,null, null, null));
+               createLog("Room " + roomID + "has been removed", Log.Type.INFO);
+            }
+            catch (Exception e)
+            {
+               createLog("Remove Room Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
+            break;
+         }
+      }
+   }
+   
    public ArrayList<Room> getRoomList()
    {
       return this.roomList;
@@ -502,6 +546,28 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public void removeGuest(String guestID)
+   {
+      for (int i = 0 ; i < guestList.size(); i++)
+      {
+         if (guestList.get(i).getID() == guestID)
+         {
+            try
+            {
+               guestList.remove(i);
+               if (this.saveToFile) file.saveData(new Information(null, null, null, guestList, null, null));
+               createLog("Guest " + guestID + "has been removed", Log.Type.INFO);
+            }
+            catch (Exception e)
+            {
+               createLog("Remove Guest Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
+            break;
+         }
+      }
+   }
+   
    public ArrayList<Guest> getGuestList()
    {
       return guestList;
@@ -585,6 +651,28 @@ public class MainFrame // MF or motherFucker for short
       {
          createLog("Modifying Staff List Failed", Log.Type.WARNING);
          createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public void removeStaff(String staffID)
+   {
+      for (int i = 0 ; i < staffList.size(); i++)
+      {
+         if (staffList.get(i).getID() == staffID)
+         {
+            try
+            {
+               staffList.remove(i);
+               if (this.saveToFile) file.saveData(new Information(null, null, null, null, staffList, null));
+               createLog("Staff member " + staffID + "has been removed", Log.Type.INFO);
+            }
+            catch (Exception e)
+            {
+               createLog("Remove Staff member Failed", Log.Type.WARNING);
+               createLog(e, Log.Type.ERROR);
+            }
+            break;
+         }
       }
    }
    
