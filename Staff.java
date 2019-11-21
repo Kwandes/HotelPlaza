@@ -108,7 +108,17 @@ public class Staff extends User implements UserManagement
       this.ID = ID;
    }
    
+   public void setPhoneNumber (String phoneNumber)
+   {
+      this.phoneNumber = phoneNumber;
+   }
+   
       //Getters
+      
+   public String getPhoneNumber()
+   {
+      return phoneNumber;
+   }
    
    public int getHours () 
    {

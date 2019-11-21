@@ -1,15 +1,15 @@
-createGuest()
-createStaff()
-+changeGuest()
-+changeStaff()
-createBooking()
-+modifyBooking()
-+archiveBooking()
-+requestInfo()
-+guestInfo()
-+reportGuest()
-+reportStaff()
-+createRoom()
+createGuest()     <DONE>
+createStaff()     <DONE>
+changeGuest()     <DONE>
+changeStaff()     <DONE>
+createBooking()   <DONE>
++modifyBooking()  
++archiveBooking() ??????
++requestInfo() 
++guestInfo()      
+reportGuest()     <missing minimal functionality>
+reportStaff()     <missing minimal functionality>
++createRoom()     
 +modifyRoom()
 +removeRoom()
-+logOut()
++logOut()   

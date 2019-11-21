@@ -80,6 +80,11 @@ public class Guest extends User
       this.ID = ID;
    }
    
+   public void setPhoneNumber (String phoneNumber)
+   {
+      this.phoneNumber = phoneNumber;
+   }
+   
       //Getters
    
    public int getGuestDays () 

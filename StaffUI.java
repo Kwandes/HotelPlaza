@@ -115,7 +115,7 @@ public class StaffUI extends CLI
                         
                      } while (userID == null);
                      printLines();
-                     //* print2(guestList.get(i).toString()); //breaks on TYPE, needs fixing
+                     //* print2(guestList.get(i).toString()); //breaks on TYPE, needs fixing__________________________
                      print2("PLACEHOLDER USER INFO");
                      printLines();
                      print2("Are you sure you wish to delete this user?");
@@ -125,8 +125,8 @@ public class StaffUI extends CLI
                      switch (selection)
                      {
                         case 1: //yes
-                           //delete user //____________________________________________
-                           //mf.guestList.remove(i);
+                           guestList.remove(i);
+                           mf.setGuestList(guestList);
                            print2("Guest has been deleted");
                            returnQuit();
                            break;
@@ -137,7 +137,7 @@ public class StaffUI extends CLI
                      break;
                   case 4:  //print guest repport
                      header("Print guest repport");
-                     
+                     //__________________________________________________________________________________________________________________
                      print2("Guest repport has been saved to: " + "PLACEHOLDER : LOCATION");
                      returnQuit();
                      break;
@@ -150,14 +150,128 @@ public class StaffUI extends CLI
             
                break; 
             case 2: //manage Staff
-               header("Create a new staff");
-               createStaff();
-               returnQuit();
+               this.screenNumber = 2;
+               header("Manage staff");
+               print("1 register a new staff");
+               print("2 change staff details");
+               print("3 delete a staff");
+               print("4 print a repport of all staff to file");
+               print("5 return to main menu or quit"); 
+               selection = intCheck(1,5);
+               switch (selection)
+               {
+                  case 1:  //register staff
+                     header("Register a new staff");
+                     createStaff();
+                     returnQuit();
+                     break;
+                  case 2:  //change staff details
+                     header("Edit details of a staff member");
+                     changeStaff();
+                     break;
+                     
+                  case 3:  //delete a staff
+                     header("Delete a staff");
+                     print2("Please type the CPR number of the staff you would like to delete.");
+                     int i = 0;
+                     ArrayList<Staff> staffList = mf.getStaffList();
+                     do
+                     {
+                        Scanner console = new Scanner(System.in);
+                        cpr = cprCheck(console);
+                        staffList = mf.getStaffList();
+                        for (i = 0; i < staffList.size(); i++)
+                        {
+                           if (staffList.get(i).getCpr().equals(cpr))
+                           {  
+                              userID = staffList.get(i).getID();
+                              break;
+                           }
+                        }
+                        if (userID == null)
+                        {
+                           print2("Cpr not found, please try again.");
+                        }
+                        
+                     } while (userID == null);
+                     printLines();
+                     //* print2(staffList.get(i).toString()); //breaks on TYPE, needs fixing__________________________
+                     print2("PLACEHOLDER USER INFO");
+                     printLines();
+                     print2("Are you sure you wish to delete this user?");
+                     print("1 Yes");
+                     print("2 No");
+                     selection = intCheck(1,2);
+                     switch (selection)
+                     {
+                        case 1: //yes
+                           staffList.remove(i);
+                           mf.setStaffList(staffList);
+                           print2("Staff has been deleted");
+                           returnQuit();
+                           break;
+                        case 2: //no
+                           returnQuit();
+                           break;
+                     }
+                     break;
+                  case 4:   //print staff report
+                     header("Print staff repport");
+                     //__________________________________________________________________________________________________________________
+                     print2("Staff repport has been saved to: " + "PLACEHOLDER : LOCATION");
+                     returnQuit();
+                     break;
+                  case 5:  //returnQuit
+                     returnQuit();
+                     break;
+               }
                break;
             case 3:  //manage Room
-               header("Book a room");
-               createBooking();
-               returnQuit();
+               header("Manage rooms");
+               print2("1 Change an existing room");
+               print2("2 Add a new room out of thin air");
+               print2("3 Delete a room from existance");
+               print2("4 Never mind...");
+               selection = intCheck(1,4);
+               switch (selection)
+               {
+                  case 1:
+                     header("Change an existing room");
+                     //_______________________________________
+                     break;
+                  case 2:
+                     header("Add a new room");
+                     //_______________________________________
+                     break;
+                  case 3:
+                     header("Delete a room");
+                     //_______________________________________
+                     break;
+                  case 4:  //nevermind
+                     returnQuit();
+                     break;
+               }
+               break;
+            case 4:
+               header("Manage booking");
+               selection = intCheck();
+               switch (selection)
+               {
+                  case 1:
+                     header("Create booking");
+                     createBooking();
+                     returnQuit();
+                     break;
+                  case 2:
+                     header("Change a booking??");
+                     //___________________________________________________
+                     returnQuit();
+                     break;
+                  case 3:
+                     header("i dont even know anymore..");
+                     //???????????????????????????????????????????????????
+                     break;
+               }
                break;
             case 5:
                exit();
@@ -175,11 +289,156 @@ public class StaffUI extends CLI
       }  
    }
    
-//    public void main(String[] args)
-//    {
-//       createGuest();
-//       createStaff();
-//    }
+   public void changeStaff()
+   {
+    
+      Scanner console = new Scanner(System.in);
+      String nameWiP;
+      print2("Please type the CPR number of the staff you would like to edit.");
+      int i = 0;
+      ArrayList<Staff> staffList = mf.getStaffList();
+      do
+      {
+         
+         cpr = cprCheck(console);
+         for (i = 0; i < staffList.size(); i++)
+         {
+            if (staffList.get(i).getCpr().equals(cpr))
+            {  
+               userID = staffList.get(i).getID();
+               break;
+            }
+         }
+         if (userID == null)
+         {
+            print2("Cpr not found, please try again.");
+         }
+      } while (userID == null);
+      printLines();
+      print2("PLACEHOLD USER INFORMATION");
+      printLines();
+      firstName = staffList.get(i).getFirstName();
+      lastName = staffList.get(i).getLastName();
+      fullName = firstName + " " + lastName;
+      print2("What of " + fullName + "'s information would you like to change?");
+      print("1 First name");
+      print("2 Last name");
+      print("3 Phone number");
+      print("4 CPR");
+      print("5 Address");
+      print("6 Password");
+      print("7 Change yearly vacation days");
+      print("8 Change weekly work hours");
+      print("9 Change password");
+      print("10 Back");
+      selection = intCheck(1,10);
+      switch (selection)
+      {
+         case 1:  //change first name
+            header("Change " + fullName + "'s first Name");
+            print2("Please type the new name for '" + fullName + "'");
+            nameWiP = "";
+            console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
+            nameWiP = console.nextLine();
+            nameWiP = nameFixer(nameWiP);
+            staffList.get(i).setFirstName(nameWiP);
+            mf.setStaffList(staffList); 
+            print2("The previous name of '" + fullName + "' has been changed to '" + nameWiP + " " + lastName + "'");
+            break;
+         case 2:  //change last name
+            header("Change " + fullName + "'s last Name");
+            print2("Please type the new last name for '" + fullName + "'");
+            nameWiP = "";
+            console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
+            nameWiP = console.nextLine();
+            nameWiP = nameFixer(nameWiP);
+            staffList.get(i).setLastName(nameWiP);
+            mf.setStaffList(staffList); 
+            print2("The previous last name of '" + fullName + "' has been changed to '" + firstName + " " + nameWiP + "'");
+            break;
+         case 3:  //change phone number
+            header("Change " + fullName + "'s phone number");
+            print2("Please type the new phone number for '" + fullName + "'");
+            String phoneNumberWiP = "";
+            console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
+            phoneNumberWiP = console.nextLine();
+            staffList.get(i).setPhoneNumber(phoneNumberWiP);
+            mf.setStaffList(staffList); 
+            print2("The previous phone number of '" + fullName + "' has been changed to '" + phoneNumberWiP + "'");
+            break;
+         case 4:  //change CPR??
+            print2("Now why would you wanna do that silly?");
+            break;
+         case 5:  //change address
+            header("Change " + fullName + "'s registered address");
+            print2("Please type " + fullName + "'s address in three parts.");
+            System.out.println();
+            console.nextLine(); // fixes the bug of console skipping one input on nextLine
+            print2("First, please type the street name and door number of " + fullName + "'s residence");
+            address[0] = null;
+            address[1] = null;
+            address[2] = null;
+            address[0] = nameFixer(console.nextLine());
+            
+            print2("Next, please type the city name of " + fullName + "'s residence.");
+            address[1] = nameFixer(console.nextLine());
+            
+            print2("Lastly, please type the postcode of " + fullName + "'s residence.");
+            address[2] = console.nextLine();
+            staffList.get(i).setAddress(address);
+            mf.setStaffList(staffList); 
+            print2("The address of " + fullName + " has been changed to '" + Arrays.toString(address) + "'");
+            break;
+         case 6:  //change hourly pay
+            header("Change " + fullName + "'s hourly salary");
+            salary = staffList.get(i).getSalary();
+            print2(fullName + " currently earns :" + salary + ",00- please type the amount you would like to change it to");
+            salary = intCheck();
+            staffList.get(i).setSalary(salary);
+            mf.setStaffList(staffList);   
+            break;
+         case 7:  //change yearly vacation days
+            header("Change the amount of vacation days " + fullName + " has yearly");
+            vacation = staffList.get(i).getVacation();
+            print2(fullName + " currently has " + vacation + " vacation days yearly");
+            print2("Please type the amount you would like to change it to");
+            vacation = intCheck();
+            staffList.get(i).setVacation(vacation);
+            mf.setStaffList(staffList); 
+            break;
+         case 8: //change weekly work hours
+            header("Change " + fullName + "'s weekly working hours");
+            hours = staffList.get(i).getHours();
+            print2(fullName + " currently works " + hours + " hours weekly");
+            print2("How many hours would you like to change it to?");
+            hours = intCheck(1,45);
+            staffList.get(i).setHours(hours);
+            mf.setStaffList(staffList);
+            break;
+         case 9: //change password
+            header("Change " + fullName + "'s password");   
+            do //Shamelessly stole Teo's password code 
+            { 
+               print2("Type the new password");
+               pass1 = console.next();
+               print2("please type the new password a second time");
+               pass2 = console.next();
+               if ( !pass1.equals(pass2) ) 
+               {
+                  print("The passwords do not match, please try again");
+               }
+            } while ( !pass1.equals(pass2) );
+            print2("Password modification successful");
+            password = pass1;
+            staffList.get(i).setPassword(password);
+            mf.setStaffList(staffList);
+            break;
+         case 10: //nothing
+            returnQuit();
+            break;
+      }
+   }
+      
    public void changeGuest()
    {
       Scanner console = new Scanner(System.in);
@@ -222,7 +481,7 @@ public class StaffUI extends CLI
       selection = intCheck(1,7);
       switch (selection)
       {
-         case 1:
+         case 1:  //change first name
             header("Change " + fullName + "'s first Name");
             print2("Please type the new name for '" + fullName + "'");
             nameWiP = "";
@@ -230,10 +489,10 @@ public class StaffUI extends CLI
             nameWiP = console.nextLine();
             nameWiP = nameFixer(nameWiP);
             guestList.get(i).setFirstName(nameWiP);
-            mf.setGuestList(guestList); //_______________________________________________________________________________________________________________________Needs to be formatter right
+            mf.setGuestList(guestList); 
             print2("The previous name of '" + fullName + "' has been changed to '" + nameWiP + " " + lastName + "'");
             break;
-         case 2:
+         case 2:  //change last name
             header("Change " + fullName + "'s last Name");
             print2("Please type the new last name for '" + fullName + "'");
             nameWiP = "";
@@ -241,19 +500,61 @@ public class StaffUI extends CLI
             nameWiP = console.nextLine();
             nameWiP = nameFixer(nameWiP);
             guestList.get(i).setLastName(nameWiP);
-            mf.setGuestList(guestList); //_______________________________________________________________________________________________________________________Needs to be formatter right
+            mf.setGuestList(guestList); 
             print2("The previous last name of '" + fullName + "' has been changed to '" + firstName + " " + nameWiP + "'");
             break;
-         case 3:
+         case 3:  //change phone number
+            header("Change " + fullName + "'s phone number");
+            print2("Please type the new phone number for '" + fullName + "'");
+            String phoneNumberWiP = "";
+            console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
+            phoneNumberWiP = console.nextLine();
+            guestList.get(i).setPhoneNumber(phoneNumberWiP);
+            mf.setGuestList(guestList); 
+            print2("The previous phone number of '" + fullName + "' has been changed to '" + phoneNumberWiP + "'");
             break;
-         case 4:
+         case 4:  //change CPR??
+            print2("Now why would you wanna do that silly?");
             break;
-         case 5:
+         case 5:  //change address
+            header("Change " + fullName + "'s registered address");
+            print2("Please type " + fullName + "'s address in three parts.");
+            System.out.println();
+            console.nextLine(); // fixes the bug of console skipping one input on nextLine
+            print2("First, please type the street name and door number of " + fullName + "'s residence");
+            address[0] = null;
+            address[1] = null;
+            address[2] = null;
+            address[0] = nameFixer(console.nextLine());
+            
+            print2("Next, please type the city name of " + fullName + "'s residence.");
+            address[1] = nameFixer(console.nextLine());
+            
+            print2("Lastly, please type the postcode of " + fullName + "'s residence.");
+            address[2] = console.nextLine();
+            guestList.get(i).setAddress(address);
+            mf.setGuestList(guestList); 
+            print2("The address of " + fullName + " has been changed to '" + Arrays.toString(address) + "'");
             break;
-         case 6:
+         case 6:  //change password
+            header("Change " + fullName + "'s password");   
+            do //Shamelessly stole Teo's password code 
+            { 
+               print2("Type the new password");
+               pass1 = console.next();
+               print2("please type the new password a second time");
+               pass2 = console.next();
+               if ( !pass1.equals(pass2) ) 
+               {
+                  print("The passwords do not match, please try again");
+               }
+            } while ( !pass1.equals(pass2) );
+            print2("Password modification successful");
+            password = pass1;
+            guestList.get(i).setPassword(password);
+            mf.setGuestList(guestList);
             break;
-         case 7:
-            returnQuit();
+         case 7: //nothing
             break;
       }
    }
@@ -407,7 +708,7 @@ public class StaffUI extends CLI
       System.out.println();
       print2("Please type the " + type + "'s address in three parts.");
       System.out.println();
-      print2("First, please type the stree name and door number of " + firstName + "'s residence");
+      print2("First, please type the street name and door number of " + firstName + "'s residence");
       address[0] = nameFixer(inputAddress.nextLine());
       
       print2("Next, please type the city name of " + firstName + "'s residence.");
@@ -436,7 +737,7 @@ public class StaffUI extends CLI
       password = pass1;
       System.out.println();  
    }
-      
+
    
 
 //_________________________________________________________METHOD_METHODS___________________________________________
@@ -736,8 +1037,8 @@ public class StaffUI extends CLI
       header("Main Menu");
       print("1 Manage guests");
       print("2 Manage staff");
-      print("3 Manage bookings");
-      print("4 ?");
+      print("3 Manage rooms");
+      print("4 Manage booking");
       print("5 quit");
       screenNumber = intCheck();
    }
