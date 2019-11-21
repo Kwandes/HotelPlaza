@@ -340,11 +340,11 @@ public class FileManagement
       String word = "";
       
       word = in.next();
-         while ( !word.equals("|") )
-         {
-            text += " " + word;
-            word = in.next();
-         } 
+      while ( !word.equals("|") )
+      {
+         text += " " + word;
+         word = in.next();
+      } 
       return text;
    }
      

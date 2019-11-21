@@ -77,7 +77,8 @@ public class Staff extends User implements UserManagement
    {
       for(int i = 0; i < TYPE.length; i++)
       {
-         if( TYPE[i].equals(this.type)) return i;
+         if( TYPE[i].equals(this.type)) 
+            return i;
       }
       return 0;
    }

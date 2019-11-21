@@ -183,6 +183,7 @@ public class StaffUI extends CLI
    public void changeGuest()
    {
       Scanner console = new Scanner(System.in);
+      String nameWiP;
       print2("Please type the CPR number of the guest you would like to edit.");
       int i = 0;
       ArrayList<Guest> guestList = mf.getGuestList();
@@ -208,7 +209,9 @@ public class StaffUI extends CLI
       print2("PLACEHOLD USER INFORMATION");
       printLines();
       firstName = guestList.get(i).getFirstName();
-      print2("What of " + firstName + "'s information would you like to change?");
+      lastName = guestList.get(i).getLastName();
+      fullName = firstName + " " + lastName;
+      print2("What of " + fullName + "'s information would you like to change?");
       print("1 First name");
       print("2 Last name");
       print("3 Phone number");
@@ -220,17 +223,26 @@ public class StaffUI extends CLI
       switch (selection)
       {
          case 1:
-            header("Change " + firstName + "'s first Name");
-            print2("Please type the new name for '" + firstName + "'");
-            String nameWiP;
+            header("Change " + fullName + "'s first Name");
+            print2("Please type the new name for '" + fullName + "'");
+            nameWiP = "";
             console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
             nameWiP = console.nextLine();
             nameWiP = nameFixer(nameWiP);
-            print2("The previous first name of '" + firstName + "' has been changed to '" + nameWiP + "'");
             guestList.get(i).setFirstName(nameWiP);
-            setUserList(guestList<Guest>);
+            mf.setGuestList(guestList); //_______________________________________________________________________________________________________________________Needs to be formatter right
+            print2("The previous name of '" + fullName + "' has been changed to '" + nameWiP + " " + lastName + "'");
             break;
          case 2:
+            header("Change " + fullName + "'s last Name");
+            print2("Please type the new last name for '" + fullName + "'");
+            nameWiP = "";
+            console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
+            nameWiP = console.nextLine();
+            nameWiP = nameFixer(nameWiP);
+            guestList.get(i).setLastName(nameWiP);
+            mf.setGuestList(guestList); //_______________________________________________________________________________________________________________________Needs to be formatter right
+            print2("The previous last name of '" + fullName + "' has been changed to '" + firstName + " " + nameWiP + "'");
             break;
          case 3:
             break;

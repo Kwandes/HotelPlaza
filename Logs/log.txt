@@ -1784,3 +1784,38 @@
 >>>Thu 2019/11/21 15:20:051: INFO: Moving to next UI
 >>>Thu 2019/11/21 15:20:051: INFO: Creating StaffUI
 >>>Thu 2019/11/21 15:20:060: INFO: StaffUi created
+>>>Thu 2019/11/21 16:19:545: INFO: MainFrame Init started
+>>>Thu 2019/11/21 16:19:545: INFO: Loading config...
+>>>Thu 2019/11/21 16:19:545: INFO: Config loaded
+>>>Thu 2019/11/21 16:19:546: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 16:19:546: INFO: Loading BookingList...
+>>>Thu 2019/11/21 16:19:546: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 16:19:555: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 16:19:558: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 16:19:568: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 16:19:573: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 16:19:576: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 16:19:577: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 16:19:577: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 16:19:040: INFO: Moving to next UI
+>>>Thu 2019/11/21 16:19:040: INFO: Creating StaffUI
+>>>Thu 2019/11/21 16:19:042: INFO: StaffUi created
+>>>Thu 2019/11/21 16:20:035: INFO: MainFrame Init started
+>>>Thu 2019/11/21 16:20:036: INFO: Loading config...
+>>>Thu 2019/11/21 16:20:036: INFO: Config loaded
+>>>Thu 2019/11/21 16:20:036: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 16:20:036: INFO: Loading BookingList...
+>>>Thu 2019/11/21 16:20:037: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 16:20:044: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 16:20:046: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 16:20:055: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 16:20:061: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 16:20:064: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 16:20:064: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 16:20:065: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 16:20:368: INFO: Moving to next UI
+>>>Thu 2019/11/21 16:20:369: INFO: Creating StaffUI
+>>>Thu 2019/11/21 16:20:370: INFO: StaffUi created
+>>>Thu 2019/11/21 16:20:911: INFO: Guest List modified
+>>>Thu 2019/11/21 16:20:911: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 16:20:912: INFO: Guest List saved
