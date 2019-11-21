@@ -13,3 +13,48 @@ reportStaff()     <missing minimal functionality>
 +modifyRoom()
 +removeRoom()
 +logOut()   
+
+```Java
+_________________________________________________________________
+STAFF UI CURRENT STATUS
+-----------------------------------------------------------------------------------
+manage guest					<DONE>
+	1. register new guest			<DONE>
+	2. change guest details			<DONE>
+		1. first name			<DONE>
+		2. last name			<DONE>
+		3. phone number			<DONE>
+		4. cpr				<DONE>
+		5. address			<DONE>
+		6. password			<DONE>
+		7. nvm				<DONE>
+	3. delete guest				<DONE>
+	4. print guest report		<needs tweaking>
+	5. return mainmenu			<DONE>
+manage staff					<DONE>
+	1. register new staff			<DONE>
+	2. change staff				<DONE>
+		1. first name			<DONE>
+		2. last name			<DONE>
+		3. phone number 		<DONE>
+		4. cpr				<DONE>
+		5. address			<DONE>
+		6. password			<DONE>
+		7. vacation days		<DONE>
+		8. weekly hours			<DONE>
+		9. change password		<DONE>
+		10. back			<DONE>
+	3. delete staff				<DONE>
+	4 print staff report		<needs tweaking>
+	5. back					<DONE>
+manage rooms
+	1. change existing room	
+	2. add a new room
+	3. delete room
+	4. back
+manage booking
+	1. create booking			<DONE>
+	2. change booking??
+	3. idk man
+	4. back?
+```

@@ -2142,3 +2142,80 @@
 >>>Thu 2019/11/21 22:03:543: INFO: Moving to next UI
 >>>Thu 2019/11/21 22:03:543: INFO: Creating StaffUI
 >>>Thu 2019/11/21 22:03:545: INFO: StaffUi created
+>>>Thu 2019/11/21 22:29:186: INFO: MainFrame Init started
+>>>Thu 2019/11/21 22:29:186: INFO: Loading config...
+>>>Thu 2019/11/21 22:29:187: INFO: Config loaded
+>>>Thu 2019/11/21 22:29:187: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 22:29:187: INFO: Loading BookingList...
+>>>Thu 2019/11/21 22:29:187: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 22:29:194: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 22:29:195: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 22:29:206: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 22:29:212: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 22:29:215: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 22:29:216: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 22:29:216: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 22:29:299: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 22:29:907: INFO: Moving to next UI
+>>>Thu 2019/11/21 22:29:908: INFO: Creating StaffUI
+>>>Thu 2019/11/21 22:29:910: INFO: StaffUi created
+>>>Thu 2019/11/21 22:29:161: ERROR: java.lang.ArrayIndexOutOfBoundsException: -1
+	at User.getType(User.java:39)
+	at User.toString(User.java:70)
+	at StaffUI.changeStaff(StaffUI.java:318)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Thu 2019/11/21 22:29:162: WARNING: UI failed to create
+>>>Thu 2019/11/21 22:32:039: INFO: MainFrame Init started
+>>>Thu 2019/11/21 22:32:040: INFO: Loading config...
+>>>Thu 2019/11/21 22:32:040: INFO: Config loaded
+>>>Thu 2019/11/21 22:32:040: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 22:32:040: INFO: Loading BookingList...
+>>>Thu 2019/11/21 22:32:041: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 22:32:048: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 22:32:049: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 22:32:058: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 22:32:063: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 22:32:066: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 22:32:066: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 22:32:067: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 22:32:149: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 22:32:209: INFO: Moving to next UI
+>>>Thu 2019/11/21 22:32:210: INFO: Creating StaffUI
+>>>Thu 2019/11/21 22:32:211: INFO: StaffUi created
+>>>Thu 2019/11/21 22:34:832: INFO: MainFrame Init started
+>>>Thu 2019/11/21 22:34:833: INFO: Loading config...
+>>>Thu 2019/11/21 22:34:833: INFO: Config loaded
+>>>Thu 2019/11/21 22:34:833: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 22:34:833: INFO: Loading BookingList...
+>>>Thu 2019/11/21 22:34:834: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 22:34:842: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 22:34:845: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 22:34:857: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 22:34:863: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 22:34:866: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 22:34:867: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 22:34:867: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 22:34:952: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 22:34:200: INFO: Moving to next UI
+>>>Thu 2019/11/21 22:34:201: INFO: Creating StaffUI
+>>>Thu 2019/11/21 22:34:202: INFO: StaffUi created
+>>>Thu 2019/11/21 22:36:736: INFO: MainFrame Init started
+>>>Thu 2019/11/21 22:36:736: INFO: Loading config...
+>>>Thu 2019/11/21 22:36:737: INFO: Config loaded
+>>>Thu 2019/11/21 22:36:737: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 22:36:737: INFO: Loading BookingList...
+>>>Thu 2019/11/21 22:36:737: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 22:36:744: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 22:36:746: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 22:36:755: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 22:36:760: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 22:36:763: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 22:36:764: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 22:36:764: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 22:36:856: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 22:36:878: INFO: Moving to next UI
+>>>Thu 2019/11/21 22:36:878: INFO: Creating StaffUI
+>>>Thu 2019/11/21 22:36:880: INFO: StaffUi created

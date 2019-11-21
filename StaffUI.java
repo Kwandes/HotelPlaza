@@ -315,7 +315,8 @@ public class StaffUI extends CLI
          }
       } while (userID == null);
       printLines();
-      print2("PLACEHOLD USER INFORMATION");
+      System.out.println(staffList.get(i).staffRepportToString());
+      //print2("PLACEHOLD USER INFORMATION");
       printLines();
       firstName = staffList.get(i).getFirstName();
       lastName = staffList.get(i).getLastName();
@@ -465,7 +466,8 @@ public class StaffUI extends CLI
          }
       } while (userID == null);
       printLines();
-      print2("PLACEHOLD USER INFORMATION");
+      System.out.println(guestList.get(i).fileFormatString());
+      //print2("PLACEHOLD USER INFORMATION");
       printLines();
       firstName = guestList.get(i).getFirstName();
       lastName = guestList.get(i).getLastName();
