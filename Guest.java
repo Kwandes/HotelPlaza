@@ -8,7 +8,7 @@ public class Guest extends User
    public Guest () {}
      
    public Guest (String firstName, String lastName, String cpr, 
-                 String[] adress, String phoneNr, String password, int IDCounter)
+                 String[] address, String phoneNr, String password, int IDCounter)
    {
       this.firstName = firstName;
       this.lastName = lastName;

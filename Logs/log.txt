@@ -1326,3 +1326,461 @@
 >>>Wed 2019/11/20 17:00:151: INFO: Guest G00added
 >>>Wed 2019/11/20 17:00:152: INFO: FM>:Saving GuestList
 >>>Wed 2019/11/20 17:00:155: INFO: New Guest List saved
+>>>Thu 2019/11/21 12:38:790: INFO: MainFrame Init started
+>>>Thu 2019/11/21 12:38:791: INFO: Loading config...
+>>>Thu 2019/11/21 12:38:792: INFO: Config loaded
+>>>Thu 2019/11/21 12:38:792: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 12:38:792: INFO: Loading BookingList...
+>>>Thu 2019/11/21 12:38:793: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 12:38:806: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 12:38:808: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 12:38:817: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 12:38:823: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 12:38:826: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 12:38:827: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 12:38:827: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 12:38:164: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 12:40:872: INFO: Moving to next UI
+>>>Thu 2019/11/21 12:40:873: INFO: Creating StaffUI
+>>>Thu 2019/11/21 12:40:874: INFO: StaffUi created
+>>>Thu 2019/11/21 12:50:767: INFO: MainFrame Init started
+>>>Thu 2019/11/21 12:50:768: INFO: Loading config...
+>>>Thu 2019/11/21 12:50:768: INFO: Config loaded
+>>>Thu 2019/11/21 12:50:768: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 12:50:768: INFO: Loading BookingList...
+>>>Thu 2019/11/21 12:50:769: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 12:50:775: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 12:50:777: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 12:50:786: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 12:50:791: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 12:50:793: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 12:50:794: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 12:50:794: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 12:50:882: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 12:50:544: INFO: Moving to next UI
+>>>Thu 2019/11/21 12:50:544: INFO: Creating StaffUI
+>>>Thu 2019/11/21 12:50:546: INFO: StaffUi created
+>>>Thu 2019/11/21 12:51:802: INFO: MainFrame Init started
+>>>Thu 2019/11/21 12:51:803: INFO: Loading config...
+>>>Thu 2019/11/21 12:51:803: INFO: Config loaded
+>>>Thu 2019/11/21 12:51:803: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 12:51:803: INFO: Loading BookingList...
+>>>Thu 2019/11/21 12:51:804: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 12:51:811: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 12:51:812: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 12:51:822: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 12:51:828: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 12:51:831: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 12:51:832: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 12:51:832: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 12:51:923: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 12:51:408: INFO: Moving to next UI
+>>>Thu 2019/11/21 12:51:408: INFO: Creating StaffUI
+>>>Thu 2019/11/21 12:51:409: INFO: StaffUi created
+>>>Thu 2019/11/21 12:52:053: INFO: MainFrame Init started
+>>>Thu 2019/11/21 12:52:053: INFO: Loading config...
+>>>Thu 2019/11/21 12:52:054: INFO: Config loaded
+>>>Thu 2019/11/21 12:52:054: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 12:52:054: INFO: Loading BookingList...
+>>>Thu 2019/11/21 12:52:054: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 12:52:061: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 12:52:062: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 12:52:074: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 12:52:079: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 12:52:081: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 12:52:082: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 12:52:082: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 12:52:167: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 12:52:525: INFO: Moving to next UI
+>>>Thu 2019/11/21 12:52:525: INFO: Creating StaffUI
+>>>Thu 2019/11/21 12:52:527: INFO: StaffUi created
+>>>Thu 2019/11/21 12:52:762: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 12:52:762: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 12:52:762: INFO: Guest G01added
+>>>Thu 2019/11/21 12:52:763: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 12:52:763: INFO: New Guest List saved
+>>>Thu 2019/11/21 12:52:339: INFO: MainFrame Init started
+>>>Thu 2019/11/21 12:52:339: INFO: Loading config...
+>>>Thu 2019/11/21 12:52:339: INFO: Config loaded
+>>>Thu 2019/11/21 12:52:340: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 12:52:340: INFO: Loading BookingList...
+>>>Thu 2019/11/21 12:52:340: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 12:52:347: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 12:52:348: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 12:52:358: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 12:52:363: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 12:52:366: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 12:52:366: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 12:52:366: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 12:52:451: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 12:52:648: INFO: Moving to next UI
+>>>Thu 2019/11/21 12:52:648: INFO: Creating StaffUI
+>>>Thu 2019/11/21 12:52:650: INFO: StaffUi created
+>>>Thu 2019/11/21 12:54:858: INFO: MainFrame Init started
+>>>Thu 2019/11/21 12:54:858: INFO: Loading config...
+>>>Thu 2019/11/21 12:54:859: INFO: Config loaded
+>>>Thu 2019/11/21 12:54:859: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 12:54:859: INFO: Loading BookingList...
+>>>Thu 2019/11/21 12:54:859: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 12:54:866: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 12:54:867: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 12:54:875: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 12:54:880: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 12:54:882: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 12:54:883: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 12:54:883: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 12:54:962: INFO: Playing musik/depression.wav
+>>>Thu 2019/11/21 12:54:012: INFO: Moving to next UI
+>>>Thu 2019/11/21 12:54:013: INFO: Creating StaffUI
+>>>Thu 2019/11/21 12:54:014: INFO: StaffUi created
+>>>Thu 2019/11/21 13:00:801: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:00:802: INFO: Loading config...
+>>>Thu 2019/11/21 13:00:802: INFO: Config loaded
+>>>Thu 2019/11/21 13:00:802: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:00:802: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:00:802: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:00:809: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:00:810: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:00:822: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:00:827: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:00:830: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:00:830: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:00:831: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:00:454: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:00:455: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:00:456: INFO: StaffUi created
+>>>Thu 2019/11/21 13:01:774: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:01:775: INFO: Loading config...
+>>>Thu 2019/11/21 13:01:775: INFO: Config loaded
+>>>Thu 2019/11/21 13:01:775: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:01:775: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:01:776: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:01:782: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:01:784: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:01:794: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:01:799: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:01:801: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:01:802: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:01:802: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:01:987: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:01:987: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:01:988: INFO: StaffUi created
+>>>Thu 2019/11/21 13:01:528: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:01:529: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:01:529: INFO: Guest G02added
+>>>Thu 2019/11/21 13:01:529: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:01:530: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:20:406: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:20:406: INFO: Loading config...
+>>>Thu 2019/11/21 13:20:407: INFO: Config loaded
+>>>Thu 2019/11/21 13:20:407: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:20:407: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:20:407: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:20:414: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:20:415: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:20:425: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:20:431: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:20:433: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:20:434: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:20:434: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:20:165: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:20:165: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:20:166: INFO: StaffUi created
+>>>Thu 2019/11/21 13:20:931: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:20:931: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:20:932: INFO: Guest G03added
+>>>Thu 2019/11/21 13:20:932: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:20:933: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:21:791: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:21:792: INFO: Loading config...
+>>>Thu 2019/11/21 13:21:792: INFO: Config loaded
+>>>Thu 2019/11/21 13:21:792: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:21:792: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:21:793: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:21:799: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:21:801: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:21:810: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:21:815: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:21:818: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:21:819: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:21:819: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:21:210: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:21:210: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:21:211: INFO: StaffUi created
+>>>Thu 2019/11/21 13:21:154: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:21:155: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:21:155: INFO: Guest G04added
+>>>Thu 2019/11/21 13:21:155: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:21:156: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:23:422: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:23:423: INFO: Loading config...
+>>>Thu 2019/11/21 13:23:423: INFO: Config loaded
+>>>Thu 2019/11/21 13:23:423: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:23:423: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:23:424: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:23:430: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:23:433: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:23:446: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:23:451: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:23:453: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:23:454: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:23:454: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:23:846: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:23:846: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:23:848: INFO: StaffUi created
+>>>Thu 2019/11/21 13:23:943: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:23:944: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:23:944: INFO: Guest G05added
+>>>Thu 2019/11/21 13:23:944: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:23:945: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:24:946: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:24:947: INFO: Loading config...
+>>>Thu 2019/11/21 13:24:947: INFO: Config loaded
+>>>Thu 2019/11/21 13:24:947: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:24:948: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:24:948: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:24:955: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:24:956: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:24:966: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:24:970: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:24:973: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:24:973: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:24:974: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:24:034: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:24:035: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:24:036: INFO: StaffUi created
+>>>Thu 2019/11/21 13:27:713: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:27:713: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:27:714: INFO: Guest G06added
+>>>Thu 2019/11/21 13:27:714: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:27:715: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:28:057: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:28:058: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:28:058: INFO: Guest G07added
+>>>Thu 2019/11/21 13:28:058: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:28:059: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:29:504: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:29:504: INFO: Loading config...
+>>>Thu 2019/11/21 13:29:505: INFO: Config loaded
+>>>Thu 2019/11/21 13:29:505: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:29:505: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:29:505: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:29:512: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:29:514: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:29:523: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:29:528: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:29:531: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:29:532: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:29:532: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:29:643: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:29:643: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:29:645: INFO: StaffUi created
+>>>Thu 2019/11/21 13:30:365: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:30:366: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:30:366: INFO: Guest G08added
+>>>Thu 2019/11/21 13:30:367: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:30:367: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:33:234: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:33:235: INFO: Loading config...
+>>>Thu 2019/11/21 13:33:235: INFO: Config loaded
+>>>Thu 2019/11/21 13:33:235: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:33:235: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:33:236: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:33:242: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:33:244: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:33:252: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:33:258: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:33:260: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:33:261: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:33:261: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:33:454: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:33:454: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:33:455: INFO: StaffUi created
+>>>Thu 2019/11/21 13:33:974: INFO: FM>:Saving CounterList
+>>>Thu 2019/11/21 13:33:975: INFO: Updated Counter List saved
+>>>Thu 2019/11/21 13:33:975: INFO: Guest G09added
+>>>Thu 2019/11/21 13:33:976: INFO: FM>:Saving GuestList
+>>>Thu 2019/11/21 13:33:976: INFO: New Guest List saved
+>>>Thu 2019/11/21 13:49:062: INFO: MainFrame Init started
+>>>Thu 2019/11/21 13:49:063: INFO: Loading config...
+>>>Thu 2019/11/21 13:49:063: INFO: Config loaded
+>>>Thu 2019/11/21 13:49:064: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 13:49:064: INFO: Loading BookingList...
+>>>Thu 2019/11/21 13:49:064: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 13:49:071: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 13:49:072: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 13:49:082: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 13:49:087: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 13:49:090: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 13:49:091: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 13:49:091: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 13:49:540: INFO: Moving to next UI
+>>>Thu 2019/11/21 13:49:540: INFO: Creating StaffUI
+>>>Thu 2019/11/21 13:49:542: INFO: StaffUi created
+>>>Thu 2019/11/21 13:49:697: ERROR: java.lang.ArrayIndexOutOfBoundsException: -1
+	at User.getType(User.java:39)
+	at User.toString(User.java:70)
+	at StaffUI.display(StaffUI.java:114)
+	at MainFrame.openCLI(MainFrame.java:722)
+	at Main.main(Main.java:22)
+
+>>>Thu 2019/11/21 13:49:698: WARNING: UI failed to create
+>>>Thu 2019/11/21 14:01:419: INFO: MainFrame Init started
+>>>Thu 2019/11/21 14:01:420: INFO: Loading config...
+>>>Thu 2019/11/21 14:01:420: INFO: Config loaded
+>>>Thu 2019/11/21 14:01:421: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 14:01:421: INFO: Loading BookingList...
+>>>Thu 2019/11/21 14:01:422: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 14:01:431: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 14:01:432: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 14:01:445: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 14:01:450: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 14:01:453: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 14:01:454: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 14:01:454: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 14:01:857: INFO: Moving to next UI
+>>>Thu 2019/11/21 14:01:857: INFO: Creating StaffUI
+>>>Thu 2019/11/21 14:01:859: INFO: StaffUi created
+>>>Thu 2019/11/21 14:03:869: INFO: MainFrame Init started
+>>>Thu 2019/11/21 14:03:870: INFO: Loading config...
+>>>Thu 2019/11/21 14:03:870: INFO: Config loaded
+>>>Thu 2019/11/21 14:03:871: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 14:03:871: INFO: Loading BookingList...
+>>>Thu 2019/11/21 14:03:871: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 14:03:878: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 14:03:879: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 14:03:889: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 14:03:895: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 14:03:898: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 14:03:899: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 14:03:899: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 14:03:972: INFO: Moving to next UI
+>>>Thu 2019/11/21 14:03:972: INFO: Creating StaffUI
+>>>Thu 2019/11/21 14:03:973: INFO: StaffUi created
+>>>Thu 2019/11/21 14:46:016: INFO: MainFrame Init started
+>>>Thu 2019/11/21 14:46:017: INFO: Loading config...
+>>>Thu 2019/11/21 14:46:017: INFO: Config loaded
+>>>Thu 2019/11/21 14:46:017: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 14:46:017: INFO: Loading BookingList...
+>>>Thu 2019/11/21 14:46:018: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 14:46:024: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 14:46:026: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 14:46:036: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 14:46:041: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 14:46:044: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 14:46:045: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 14:46:045: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 14:46:369: INFO: Moving to next UI
+>>>Thu 2019/11/21 14:46:369: INFO: Creating StaffUI
+>>>Thu 2019/11/21 14:46:371: INFO: StaffUi created
+>>>Thu 2019/11/21 14:46:860: INFO: MainFrame Init started
+>>>Thu 2019/11/21 14:46:860: INFO: Loading config...
+>>>Thu 2019/11/21 14:46:860: INFO: Config loaded
+>>>Thu 2019/11/21 14:46:860: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 14:46:861: INFO: Loading BookingList...
+>>>Thu 2019/11/21 14:46:861: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 14:46:867: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 14:46:870: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 14:46:881: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 14:46:887: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 14:46:890: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 14:46:891: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 14:46:891: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 14:46:523: INFO: Moving to next UI
+>>>Thu 2019/11/21 14:46:523: WARNING: No UI openable OR User has exited the application
+>>>Thu 2019/11/21 14:47:993: INFO: MainFrame Init started
+>>>Thu 2019/11/21 14:47:994: INFO: Loading config...
+>>>Thu 2019/11/21 14:47:994: INFO: Config loaded
+>>>Thu 2019/11/21 14:47:994: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 14:47:994: INFO: Loading BookingList...
+>>>Thu 2019/11/21 14:47:995: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 14:47:001: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 14:47:003: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 14:47:013: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 14:47:017: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 14:47:020: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 14:47:021: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 14:47:021: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 14:47:863: INFO: Moving to next UI
+>>>Thu 2019/11/21 14:47:864: INFO: Creating StaffUI
+>>>Thu 2019/11/21 14:47:865: INFO: StaffUi created
+>>>Thu 2019/11/21 15:14:547: INFO: MainFrame Init started
+>>>Thu 2019/11/21 15:14:548: INFO: Loading config...
+>>>Thu 2019/11/21 15:14:548: INFO: Config loaded
+>>>Thu 2019/11/21 15:14:548: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 15:14:548: INFO: Loading BookingList...
+>>>Thu 2019/11/21 15:14:549: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 15:14:558: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 15:14:560: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 15:14:572: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 15:14:577: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 15:14:580: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 15:14:581: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 15:14:581: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 15:14:072: INFO: Moving to next UI
+>>>Thu 2019/11/21 15:14:072: INFO: Creating StaffUI
+>>>Thu 2019/11/21 15:14:074: INFO: StaffUi created
+>>>Thu 2019/11/21 15:16:417: INFO: MainFrame Init started
+>>>Thu 2019/11/21 15:16:418: INFO: Loading config...
+>>>Thu 2019/11/21 15:16:418: INFO: Config loaded
+>>>Thu 2019/11/21 15:16:418: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 15:16:418: INFO: Loading BookingList...
+>>>Thu 2019/11/21 15:16:419: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 15:16:426: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 15:16:428: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 15:16:441: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 15:16:447: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 15:16:450: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 15:16:451: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 15:16:451: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 15:16:039: INFO: Moving to next UI
+>>>Thu 2019/11/21 15:16:040: INFO: Creating StaffUI
+>>>Thu 2019/11/21 15:16:041: INFO: StaffUi created
+>>>Thu 2019/11/21 15:17:718: INFO: MainFrame Init started
+>>>Thu 2019/11/21 15:17:718: INFO: Loading config...
+>>>Thu 2019/11/21 15:17:719: INFO: Config loaded
+>>>Thu 2019/11/21 15:17:719: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 15:17:719: INFO: Loading BookingList...
+>>>Thu 2019/11/21 15:17:720: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 15:17:727: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 15:17:728: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 15:17:738: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 15:17:743: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 15:17:746: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 15:17:747: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 15:17:747: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 15:17:183: INFO: Moving to next UI
+>>>Thu 2019/11/21 15:17:183: INFO: Creating StaffUI
+>>>Thu 2019/11/21 15:17:185: INFO: StaffUi created
+>>>Thu 2019/11/21 15:19:524: INFO: MainFrame Init started
+>>>Thu 2019/11/21 15:19:525: INFO: Loading config...
+>>>Thu 2019/11/21 15:19:525: INFO: Config loaded
+>>>Thu 2019/11/21 15:19:525: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 15:19:525: INFO: Loading BookingList...
+>>>Thu 2019/11/21 15:19:525: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 15:19:533: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 15:19:536: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 15:19:545: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 15:19:550: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 15:19:553: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 15:19:554: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 15:19:554: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 15:19:978: INFO: Moving to next UI
+>>>Thu 2019/11/21 15:19:978: INFO: Creating StaffUI
+>>>Thu 2019/11/21 15:19:979: INFO: StaffUi created
+>>>Thu 2019/11/21 15:20:671: INFO: MainFrame Init started
+>>>Thu 2019/11/21 15:20:672: INFO: Loading config...
+>>>Thu 2019/11/21 15:20:672: INFO: Config loaded
+>>>Thu 2019/11/21 15:20:672: INFO: Loading Array Lists...
+>>>Thu 2019/11/21 15:20:672: INFO: Loading BookingList...
+>>>Thu 2019/11/21 15:20:673: INFO: FM>:Loading BookingList
+>>>Thu 2019/11/21 15:20:679: INFO: FM>:Loading Archived Bookings
+>>>Thu 2019/11/21 15:20:681: INFO: FM>:Loading RoomList
+>>>Thu 2019/11/21 15:20:695: INFO: FM>:Loading StaffList
+>>>Thu 2019/11/21 15:20:700: INFO: FM>:Loading GuestList
+>>>Thu 2019/11/21 15:20:703: INFO: FM>:Loading CounterList
+>>>Thu 2019/11/21 15:20:704: INFO: ArrayList setup complete
+>>>Thu 2019/11/21 15:20:704: INFO: MainFrame init has completed successfully
+>>>Thu 2019/11/21 15:20:051: INFO: Moving to next UI
+>>>Thu 2019/11/21 15:20:051: INFO: Creating StaffUI
+>>>Thu 2019/11/21 15:20:060: INFO: StaffUi created

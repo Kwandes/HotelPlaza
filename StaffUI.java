@@ -32,7 +32,7 @@ public class StaffUI extends CLI
    private boolean hasInternet;
    private int beds;
    private int roomPrice;
-   
+   private int selection;
    private MainFrame mf;
 
    public StaffUI(Staff user, String title, MainFrame mfRef)
@@ -69,17 +69,92 @@ public class StaffUI extends CLI
             // each "screen" has a specific screen Number
             // screens choosing example below
             
-            case 1:
-               header("Create a new Guest");
-               createGuest();
-               returnQuit();
+            case 1:        //manage Guest
+               header("Manage guests");
+               print("1 register a new guest");
+               print("2 change guest details");
+               print("3 delete a guest");
+               print("4 print a repport of all guests to file");
+               print("5 return to main menu or quit");            
+               
+               selection = intCheck(1,5);
+               switch (selection)
+               {
+                  case 1:  //create guest
+                     header("register a new guest");
+                     createGuest();
+                     returnQuit();
+                     break;
+                  case 2:  //change guest
+                     header("Edit guest details");
+                     changeGuest();
+                     returnQuit();
+                     break;
+                  case 3:  //delete guest 
+                     header("Delete a guest");
+                     print2("Please type the CPR number of the guest you would like to delete.");
+                     int i = 0;
+                     ArrayList<Guest> guestList = mf.getGuestList();
+                     do
+                     {
+                        Scanner console = new Scanner(System.in);
+                        cpr = cprCheck(console);
+                        guestList = mf.getGuestList();
+                        for (i = 0; i < guestList.size(); i++)
+                        {
+                           if (guestList.get(i).getCPR().equals(cpr))
+                           {  
+                              userID = guestList.get(i).getID();
+                              break;
+                           }
+                        }
+                        if (userID == null)
+                        {
+                           print2("Cpr not found, please try again.");
+                        }
+                        
+                     } while (userID == null);
+                     printLines();
+                     //* print2(guestList.get(i).toString()); //breaks on TYPE, needs fixing
+                     print2("PLACEHOLDER USER INFO");
+                     printLines();
+                     print2("Are you sure you wish to delete this user?");
+                     print("1 Yes");
+                     print("2 No");
+                     selection = intCheck(1,2);
+                     switch (selection)
+                     {
+                        case 1: //yes
+                           //delete user //____________________________________________
+                           //mf.guestList.remove(i);
+                           print2("Guest has been deleted");
+                           returnQuit();
+                           break;
+                        case 2: //no
+                           returnQuit();
+                           break;
+                     }
+                     break;
+                  case 4:  //print guest repport
+                     header("Print guest repport");
+                     
+                     print2("Guest repport has been saved to: " + "PLACEHOLDER : LOCATION");
+                     returnQuit();
+                     break;
+                  case 5: //return to main menu or quit
+                     returnQuit();
+                     break;
+                             
+               }
+               
+            
                break; 
-            case 2:
+            case 2: //manage Staff
                header("Create a new staff");
                createStaff();
                returnQuit();
                break;
-            case 3:
+            case 3:  //manage Room
                header("Book a room");
                createBooking();
                returnQuit();
@@ -105,6 +180,71 @@ public class StaffUI extends CLI
 //       createGuest();
 //       createStaff();
 //    }
+   public void changeGuest()
+   {
+      Scanner console = new Scanner(System.in);
+      print2("Please type the CPR number of the guest you would like to edit.");
+      int i = 0;
+      ArrayList<Guest> guestList = mf.getGuestList();
+      do
+      {
+         
+         cpr = cprCheck(console);
+         guestList = mf.getGuestList();
+         for (i = 0; i < guestList.size(); i++)
+         {
+            if (guestList.get(i).getCPR().equals(cpr))
+            {  
+               userID = guestList.get(i).getID();
+               break;
+            }
+         }
+         if (userID == null)
+         {
+            print2("Cpr not found, please try again.");
+         }
+      } while (userID == null);
+      printLines();
+      print2("PLACEHOLD USER INFORMATION");
+      printLines();
+      firstName = guestList.get(i).getFirstName();
+      print2("What of " + firstName + "'s information would you like to change?");
+      print("1 First name");
+      print("2 Last name");
+      print("3 Phone number");
+      print("4 CPR");
+      print("5 Address");
+      print("6 Password");
+      print("7 Nothing");
+      selection = intCheck(1,7);
+      switch (selection)
+      {
+         case 1:
+            header("Change " + firstName + "'s first Name");
+            print2("Please type the new name for '" + firstName + "'");
+            String nameWiP;
+            console.nextLine(); //does nothing but fixes the bug for nextLine input being skipped
+            nameWiP = console.nextLine();
+            nameWiP = nameFixer(nameWiP);
+            print2("The previous first name of '" + firstName + "' has been changed to '" + nameWiP + "'");
+            guestList.get(i).setFirstName(nameWiP);
+            setUserList(guestList<Guest>);
+            break;
+         case 2:
+            break;
+         case 3:
+            break;
+         case 4:
+            break;
+         case 5:
+            break;
+         case 6:
+            break;
+         case 7:
+            returnQuit();
+            break;
+      }
+   }
    
    public void createBooking()
    {
@@ -125,13 +265,13 @@ public class StaffUI extends CLI
             }
          }
          print2("Cpr not found, please try again.");
-       } while (userID == null);
-       boolean suitableRoom = false;
+      } while (userID == null);
+      boolean suitableRoom = false;
       ArrayList<Room> roomList = mf.getRoomList();
       ArrayList<Room> displayRooms = new ArrayList<Room>();
       int selectedRoom = 0;
-       while (!suitableRoom)
-       {
+      while (!suitableRoom)
+      {
          print2("How many beds would the guest like to have in his room?");
          beds = intCheck();
          
@@ -222,6 +362,7 @@ public class StaffUI extends CLI
       
       int staffID = mf.generateStaffID();
       Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, staffID, hours, salary, vacation);
+      //created.setAddress(address);
       mf.addStaff(created);
    }
 
@@ -241,10 +382,10 @@ public class StaffUI extends CLI
       Scanner input = new Scanner(System.in);
       Scanner inputAddress = new Scanner(System.in);
       
-      print2("Please type the first name of the new " + type + ", in only one word.");
+      print2("Please type the first name of the new " + type + "?");
       firstName = nameFixer(input.next());
       
-      print2("Please type the last name of the new " + type +", in only one word.");
+      print2("Please type the last name of the new " + type +"?");
       lastName = nameFixer(input.next());
       
       print2("Please type the CPR number of the " + type);
@@ -254,7 +395,7 @@ public class StaffUI extends CLI
       System.out.println();
       print2("Please type the " + type + "'s address in three parts.");
       System.out.println();
-      print2("First, please type the stree name of " + firstName + "'s residence");
+      print2("First, please type the stree name and door number of " + firstName + "'s residence");
       address[0] = nameFixer(inputAddress.nextLine());
       
       print2("Next, please type the city name of " + firstName + "'s residence.");
@@ -362,7 +503,7 @@ public class StaffUI extends CLI
    {
       String number;
       number = console.next();
-
+   
       while (!(number.length() == 8)) //checking that number length is correct
       {
          if (number.length() > 8)
@@ -522,7 +663,7 @@ public class StaffUI extends CLI
    {
       for (int i = 0; i < headerLength; i++)
       {
-      System.out.print("-");
+         System.out.print("-");
       }
       System.out.println();
    }
@@ -559,7 +700,7 @@ public class StaffUI extends CLI
    public void returnQuit()
    {
       int choice;
-      
+      System.out.println();
       print2("What would you like to do next?");
       System.out.println();
       print("1 Return to main menu");
@@ -581,9 +722,9 @@ public class StaffUI extends CLI
       this.screenNumber = 10; 
       Scanner input = new Scanner(System.in);
       header("Main Menu");
-      print("1 Create a guest");
-      print("2 create a staff");
-      print("3 create a booking");
+      print("1 Manage guests");
+      print("2 Manage staff");
+      print("3 Manage bookings");
       print("4 ?");
       print("5 quit");
       screenNumber = intCheck();
@@ -600,4 +741,4 @@ public class StaffUI extends CLI
    {
       this.mf = mfRef;
    }
-}  
+}
