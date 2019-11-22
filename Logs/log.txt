@@ -2219,3 +2219,226 @@
 >>>Thu 2019/11/21 22:36:878: INFO: Moving to next UI
 >>>Thu 2019/11/21 22:36:878: INFO: Creating StaffUI
 >>>Thu 2019/11/21 22:36:880: INFO: StaffUi created
+>>>Fri 2019/11/22 09:44:288: INFO: MainFrame Init started
+>>>Fri 2019/11/22 09:44:294: INFO: Loading config...
+>>>Fri 2019/11/22 09:44:294: INFO: Config loaded
+>>>Fri 2019/11/22 09:44:295: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 09:44:296: INFO: Loading BookingList...
+>>>Fri 2019/11/22 09:44:299: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 09:44:334: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 09:44:340: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 09:44:390: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 09:44:411: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 09:44:427: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 09:44:431: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 09:44:432: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 09:44:995: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 09:44:280: INFO: Moving to next UI
+>>>Fri 2019/11/22 09:44:280: INFO: Creating StaffUI
+>>>Fri 2019/11/22 09:44:289: INFO: StaffUi created
+>>>Fri 2019/11/22 09:46:571: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeStaff(StaffUI.java:335)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 09:46:572: WARNING: UI failed to create
+>>>Fri 2019/11/22 09:47:302: INFO: MainFrame Init started
+>>>Fri 2019/11/22 09:47:304: INFO: Loading config...
+>>>Fri 2019/11/22 09:47:305: INFO: Config loaded
+>>>Fri 2019/11/22 09:47:306: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 09:47:306: INFO: Loading BookingList...
+>>>Fri 2019/11/22 09:47:307: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 09:47:332: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 09:47:336: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 09:47:382: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 09:47:396: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 09:47:410: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 09:47:413: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 09:47:414: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 09:47:744: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 09:47:729: INFO: Moving to next UI
+>>>Fri 2019/11/22 09:47:730: INFO: Creating StaffUI
+>>>Fri 2019/11/22 09:47:733: INFO: StaffUi created
+>>>Fri 2019/11/22 09:48:665: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeStaff(StaffUI.java:335)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 09:48:667: WARNING: UI failed to create
+>>>Fri 2019/11/22 09:49:286: INFO: MainFrame Init started
+>>>Fri 2019/11/22 09:49:289: INFO: Loading config...
+>>>Fri 2019/11/22 09:49:290: INFO: Config loaded
+>>>Fri 2019/11/22 09:49:291: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 09:49:292: INFO: Loading BookingList...
+>>>Fri 2019/11/22 09:49:294: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 09:49:325: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 09:49:331: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 09:49:384: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 09:49:401: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 09:49:419: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 09:49:422: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 09:49:423: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 09:49:815: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 09:49:572: INFO: Moving to next UI
+>>>Fri 2019/11/22 09:49:573: INFO: Creating StaffUI
+>>>Fri 2019/11/22 09:49:579: INFO: StaffUi created
+>>>Fri 2019/11/22 09:56:895: INFO: MainFrame Init started
+>>>Fri 2019/11/22 09:56:897: INFO: Loading config...
+>>>Fri 2019/11/22 09:56:898: INFO: Config loaded
+>>>Fri 2019/11/22 09:56:898: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 09:56:899: INFO: Loading BookingList...
+>>>Fri 2019/11/22 09:56:900: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 09:56:924: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 09:56:930: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 09:56:976: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 09:56:993: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 09:56:013: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 09:56:019: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 09:56:020: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 09:56:351: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 09:56:476: INFO: Moving to next UI
+>>>Fri 2019/11/22 09:56:476: INFO: Creating StaffUI
+>>>Fri 2019/11/22 09:56:480: INFO: StaffUi created
+>>>Fri 2019/11/22 09:57:240: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeStaff(StaffUI.java:335)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 09:57:241: WARNING: UI failed to create
+>>>Fri 2019/11/22 09:57:108: INFO: MainFrame Init started
+>>>Fri 2019/11/22 09:57:110: INFO: Loading config...
+>>>Fri 2019/11/22 09:57:110: INFO: Config loaded
+>>>Fri 2019/11/22 09:57:111: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 09:57:111: INFO: Loading BookingList...
+>>>Fri 2019/11/22 09:57:113: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 09:57:137: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 09:57:141: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 09:57:186: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 09:57:215: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 09:57:233: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 09:57:236: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 09:57:237: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 09:57:486: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 09:57:787: INFO: Moving to next UI
+>>>Fri 2019/11/22 09:57:788: INFO: Creating StaffUI
+>>>Fri 2019/11/22 09:57:792: INFO: StaffUi created
+>>>Fri 2019/11/22 09:59:267: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeStaff(StaffUI.java:335)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 09:59:268: WARNING: UI failed to create
+>>>Fri 2019/11/22 09:59:976: INFO: MainFrame Init started
+>>>Fri 2019/11/22 09:59:978: INFO: Loading config...
+>>>Fri 2019/11/22 09:59:979: INFO: Config loaded
+>>>Fri 2019/11/22 09:59:979: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 09:59:980: INFO: Loading BookingList...
+>>>Fri 2019/11/22 09:59:981: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 09:59:005: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 09:59:009: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 09:59:062: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 09:59:079: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 09:59:094: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 09:59:097: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 09:59:098: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 09:59:371: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 09:59:498: INFO: Moving to next UI
+>>>Fri 2019/11/22 09:59:498: INFO: Creating StaffUI
+>>>Fri 2019/11/22 09:59:502: INFO: StaffUi created
+>>>Fri 2019/11/22 10:00:378: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeStaff(StaffUI.java:335)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 10:00:379: WARNING: UI failed to create
+>>>Fri 2019/11/22 10:01:288: INFO: MainFrame Init started
+>>>Fri 2019/11/22 10:01:291: INFO: Loading config...
+>>>Fri 2019/11/22 10:01:291: INFO: Config loaded
+>>>Fri 2019/11/22 10:01:292: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 10:01:292: INFO: Loading BookingList...
+>>>Fri 2019/11/22 10:01:293: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 10:01:315: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 10:01:319: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 10:01:376: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 10:01:394: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 10:01:410: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 10:01:413: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 10:01:413: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 10:01:748: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 10:01:183: INFO: Moving to next UI
+>>>Fri 2019/11/22 10:01:184: INFO: Creating StaffUI
+>>>Fri 2019/11/22 10:01:188: INFO: StaffUi created
+>>>Fri 2019/11/22 10:02:690: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeStaff(StaffUI.java:335)
+	at StaffUI.display(StaffUI.java:170)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 10:02:691: WARNING: UI failed to create
+>>>Fri 2019/11/22 10:05:325: INFO: MainFrame Init started
+>>>Fri 2019/11/22 10:05:327: INFO: Loading config...
+>>>Fri 2019/11/22 10:05:328: INFO: Config loaded
+>>>Fri 2019/11/22 10:05:328: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 10:05:329: INFO: Loading BookingList...
+>>>Fri 2019/11/22 10:05:330: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 10:05:352: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 10:05:356: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 10:05:403: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 10:05:420: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 10:05:435: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 10:05:437: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 10:05:438: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 10:05:771: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 10:05:847: INFO: Moving to next UI
+>>>Fri 2019/11/22 10:05:849: INFO: Creating StaffUI
+>>>Fri 2019/11/22 10:05:853: INFO: StaffUi created
+>>>Fri 2019/11/22 10:05:315: ERROR: java.util.NoSuchElementException
+	at java.util.Scanner.throwFor(Scanner.java:862)
+	at java.util.Scanner.next(Scanner.java:1371)
+	at StaffUI.intCheck(StaffUI.java:784)
+	at StaffUI.changeGuest(StaffUI.java:483)
+	at StaffUI.display(StaffUI.java:90)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Fri 2019/11/22 10:05:315: WARNING: UI failed to create
+>>>Fri 2019/11/22 10:05:940: INFO: MainFrame Init started
+>>>Fri 2019/11/22 10:05:942: INFO: Loading config...
+>>>Fri 2019/11/22 10:05:943: INFO: Config loaded
+>>>Fri 2019/11/22 10:05:943: INFO: Loading Array Lists...
+>>>Fri 2019/11/22 10:05:944: INFO: Loading BookingList...
+>>>Fri 2019/11/22 10:05:945: INFO: FM>:Loading BookingList
+>>>Fri 2019/11/22 10:05:968: INFO: FM>:Loading Archived Bookings
+>>>Fri 2019/11/22 10:05:972: INFO: FM>:Loading RoomList
+>>>Fri 2019/11/22 10:06:017: INFO: FM>:Loading StaffList
+>>>Fri 2019/11/22 10:06:035: INFO: FM>:Loading GuestList
+>>>Fri 2019/11/22 10:06:051: INFO: FM>:Loading CounterList
+>>>Fri 2019/11/22 10:06:054: INFO: ArrayList setup complete
+>>>Fri 2019/11/22 10:06:054: INFO: MainFrame init has completed successfully
+>>>Fri 2019/11/22 10:06:322: INFO: Playing musik/depression.wav
+>>>Fri 2019/11/22 10:06:128: INFO: Moving to next UI
+>>>Fri 2019/11/22 10:06:129: INFO: Creating StaffUI
+>>>Fri 2019/11/22 10:06:134: INFO: StaffUi created

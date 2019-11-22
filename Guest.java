@@ -27,8 +27,12 @@ public class Guest extends User
    
    public String guestRepportToString ()
    {
-      return "Total days at hotel         : " + guestDays +
-             "\nTotal amount of money spent : " + moneySpent;
+      return "\tFull name                   : " + firstName + ", " + lastName +
+             "\n\tCpr number                  : " + cpr +
+             "\n\tAddress                     : " + address[0] + ", " + address[1] + ", " + address[2] +
+             "\n\tPhone number                : " + phoneNumber +
+             "\n\tTotal days at hotel         : " + guestDays +
+             "\n\tTotal amount of money spent : " + moneySpent;
    }
    
    //@Override

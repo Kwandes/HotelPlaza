@@ -19,7 +19,7 @@ public class Main
          if(hotel.getInitStatus())
          {
             hotel.playMusic();
-            hotel.openCLI();
+            hotel.openCLI(); 
          }
       }
    }

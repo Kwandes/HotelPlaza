@@ -1,3 +1,4 @@
+import java.util.*;
 public class Staff extends User implements UserManagement
 {
    private int hours;           //pr week
@@ -47,10 +48,13 @@ public class Staff extends User implements UserManagement
       
    public String staffRepportToString () 
    {
-      return "\tHours a week          : " + hours + 
-             "\n\tSalary pr hour      : " + salary +
-             "\n\tVacation days pr/y  : " + vacation + 
-             "\n\tMonthly salary      : " + getSalaryMonth();
+      return    "\tFull name           : " + firstName + " " + lastName +
+                "\n\tCpr number          : " + cpr +
+                "\n\tAddress             : " + address[0] + ", " + address[1] + ", " + address[2] +   
+                "\n\tHours a week        : " + hours + 
+                "\n\tSalary pr hour      : " + salary +
+                "\n\tVacation days pr/y  : " + vacation + 
+                "\n\tMonthly salary      : " + getSalaryMonth();
    }
    
    //@Override

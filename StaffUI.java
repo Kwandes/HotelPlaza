@@ -466,7 +466,7 @@ public class StaffUI extends CLI
          }
       } while (userID == null);
       printLines();
-      System.out.println(guestList.get(i).fileFormatString());
+      System.out.println(guestList.get(i).guestRepportToString());
       //print2("PLACEHOLD USER INFORMATION");
       printLines();
       firstName = guestList.get(i).getFirstName();
