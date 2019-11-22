@@ -245,22 +245,22 @@ public class StaffUI extends CLI
                {
                   case 1:
                      header("Change an existing room");
-                     //_______________________________________
+                     changeRoom();
                      break;
                   case 2:
                      header("Add a new room");
-                     //_______________________________________
+                     createRoom();
                      break;
                   case 3:
                      header("Delete a room");
-                     //_______________________________________
+                     deleteRoom();   
                      break;
                   case 4:  //nevermind
                      returnQuit();
                      break;
                }
                break;
-            case 4:  //manage Booking
+            case 4: // manage buching
                header("Manage booking");
                print("1 Create booking");
                print("2 Print booking report");
@@ -583,6 +583,116 @@ public class StaffUI extends CLI
       }
    }
    
+   public void deleteRoom ()
+   {
+      print2 ( "Select a floor : " );
+      int floor = intCheck ( 1, 10 );
+      
+      ArrayList<Room> roomList = mf.getRoomList();
+      
+      for ( int i = 0; i < roomList.size(); i ++ )
+      {
+         if ( roomList.get(i).getFloor() == floor )
+         {
+            print ( (i+1) + " " + roomList.get(i).toString() );
+         }
+      }
+      
+      print2 ( "Select a room : " );
+      int roomNo = intCheck ( 1, roomList.size() ) - 1;
+         roomList.remove(roomNo);
+         mf.setRoomList(roomList);
+   }
+   
+   public void changeRoom()
+   {
+      print2 ( "Select a floor : " );
+      int floor = intCheck ( 1, 10 );
+      
+      ArrayList<Room> roomList = mf.getRoomList();
+      
+      for ( int i = 0; i < roomList.size(); i ++ )
+      {
+         if ( roomList.get(i).getFloor() == floor )
+         {
+            print ( "Room No. : "  + (i+1) + "\n ");
+            System..out.println ( roomList.get(i).toString() );
+         }
+      }
+      
+      print2 ( "Select a room : " );
+      int roomNo = intCheck ( 1, roomList.size() ) - 1;
+      
+      print2 ( "What would you like to change ?" );
+      print("1 Beds : " + roomList.get(roomNo).getBeds() );
+      print("2 Price : " + roomList.get(roomNo).getPrice() );
+      print("3 Is booked : " + roomList.get(roomNo).getIsBooked() );
+      print("4 Requires cleaning : " + roomList.get(roomNo).getRequiresCleaning() );
+      print("5 Back");
+      
+      int answer;
+      selection = intCheck(1,5);
+      switch (selection)
+      {
+         case 1:  //change number of beds
+            header("Change number of beds");
+            print2("Please type the new amount of beds.");
+            int bedsWiP = 0;
+            bedsWiP = intCheck(1, 10);
+            roomList.get(roomNo).setBeds(bedsWiP);
+            mf.setRoomList(roomList); 
+            break;
+         case 2:  //change price
+            header("Change the room's price");
+            print2("Please type the new price of the room.");
+            int priceWiP = 0;
+            priceWiP = intCheck( 100, 100000 );
+            roomList.get(roomNo).setPrice(priceWiP);
+            mf.setRoomList(roomList); 
+            break;
+         case 3:  //change isBooked
+            header("Change room's booking status");
+            print2("Please specify wether the room's booked or not.");
+            print("0 - Booked");
+            print("1 - Not booked");
+            boolean isBookedWiP = false;
+            answer = intCheck ( 0, 1 );
+            if ( answer == 0 )
+            {
+               isBookedWiP = false;
+            }
+            else
+            {
+               isBookedWiP = true;
+            }
+            roomList.get(roomNo).setIsBooked(isBookedWiP);
+            mf.setRoomList(roomList); 
+            break;
+         case 4:  //change requiresCleaning
+            header("Change room's cleaning status");
+            print2("Please specify wether the room needs cleaning or not.");
+            print("0 - Does not need cleaning");
+            print("1 - Needs cleaning");
+            boolean requiresCleaningWiP = false;
+            answer = intCheck ( 0, 1 );
+            if ( answer == 0 )
+            {
+               requiresCleaningWiP = false;
+            }
+            else
+            {
+               requiresCleaningWiP = true;
+            }
+            roomList.get(roomNo).setRequiresCleaning(requiresCleaningWiP);
+            mf.setRoomList(roomList); 
+            break;
+         case 5:
+            returnQuit();
+            break;
+      }
+      mf.setRoomList(roomList);
+   }
+   
    public void createBooking()
    {
       Scanner console = new Scanner(System.in);
@@ -682,8 +792,7 @@ public class StaffUI extends CLI
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
       mf.createBooking(guestBooking); // in order to save
    }
-   
-   
+  
    public void createStaff()
    {
       this.screenNumber = 2;
@@ -713,6 +822,25 @@ public class StaffUI extends CLI
       System.out.println();
       
    }
+
+    public void createRoom()
+    {
+      print2 ("Please type the ID of the new Room : ");
+      roomID = intCheck(101, 1099);
+      while ( roomExists(roomID) ) 
+      {  
+         print2 ("The room already exists, please input another ID : ");
+         roomID = intCheck ( 101, 1099 );   
+      }
+      print2 ("Please type the amount of beds the room will have : ");
+      int beds = intCheck ( 1, 20 );
+      
+      Room r = new Room (roomID, beds);
+      ArrayList<Room> roomList = mf.getRoomList();
+      roomList.add(r);
+      mf.setRoomList(roomList);
+      System.out.println();
+    }
 
    public void creationTemplate(String type)
    {
@@ -777,7 +905,17 @@ public class StaffUI extends CLI
       days += day;
       return days;
    } 
-
+   public boolean roomExists ( int roomID )
+   {
+      for ( int i = 0; i < mf.getRoomList().size(); i ++ )
+      {
+         if ( mf.getRoomList().get(i).getRoomID() == roomID )
+         {
+            return true;
+         }
+      }
+      return false;
+   }
   
 //_________________________________________________________CHECK METHODS_____________________________________________   
    public double doubleCheck()
