@@ -236,10 +236,10 @@ public class StaffUI extends CLI
                break;
             case 3:  //manage Room
                header("Manage rooms");
-               print2("1 Change an existing room");
-               print2("2 Add a new room out of thin air");
-               print2("3 Delete a room from existance");
-               print2("4 Never mind...");
+               print("1 Change an existing room");
+               print("2 Add a new room out of thin air");
+               print("3 Delete a room from existance");
+               print("4 Back.");
                selection = intCheck(1,4);
                switch (selection)
                {
@@ -600,8 +600,8 @@ public class StaffUI extends CLI
       
       print2 ( "Select a room : " );
       int roomNo = intCheck ( 1, roomList.size() ) - 1;
-         roomList.remove(roomNo);
-         mf.setRoomList(roomList);
+      roomList.remove(roomNo);
+      mf.setRoomList(roomList);
    }
    
    public void changeRoom()
@@ -616,7 +616,7 @@ public class StaffUI extends CLI
          if ( roomList.get(i).getFloor() == floor )
          {
             print ( "Room No. : "  + (i+1) + "\n ");
-            System..out.println ( roomList.get(i).toString() );
+            System.out.println ( roomList.get(i).toString() );
          }
       }
       
@@ -779,13 +779,14 @@ public class StaffUI extends CLI
                System.out.println();          
             }
             printLines();
+            print2("Please select the preferred room");
             selection = intCheck();
          } else 
          {
             print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
          }
+         print2("Please select the preferred room");
       }
-      
       roomID = displayRooms.get(selection-1).getRoomID();
       bookingID = mf.generateBookingID(); 
       roomPrice = displayRooms.get(selectedRoom-2).getPrice();
@@ -823,8 +824,8 @@ public class StaffUI extends CLI
       
    }
 
-    public void createRoom()
-    {
+   public void createRoom()
+   {
       print2 ("Please type the ID of the new Room : ");
       roomID = intCheck(101, 1099);
       while ( roomExists(roomID) ) 
@@ -840,7 +841,7 @@ public class StaffUI extends CLI
       roomList.add(r);
       mf.setRoomList(roomList);
       System.out.println();
-    }
+   }
 
    public void creationTemplate(String type)
    {
