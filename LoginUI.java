@@ -94,25 +94,40 @@ public class LoginUI extends CLI
       printText("Log In", size);
       print();
       
-      System.out.print(">Username: ");
+      boolean loginSuccessful = false;
       
-      String userName  = input.nextLine();
+      do
+      {
+         System.out.print(">Phone Number: ");
+         
+         String phoneNumber  = input.nextLine();
+         
+         System.out.print(">Password: ");
+         
+         String password = input.nextLine();
+         
+         this.guest = mf.validateLoginGuest(phoneNumber, password);
+         if ( guest == null)
+         {
+            this.staff = mf.validateLoginStaff(phoneNumber, password);
+         }
+         
+         if( this.guest != null || this.staff != null) loginSuccessful = true;
+         else System.out.println("INVALID. Try again. You can'y exit this loo. Good luck");
+      } while (!loginSuccessful);
       
-      System.out.print(">Password: ");
-      
-      String password  = input.nextLine();
-      
-      printText("All good bro, ain't even gonna check", size);
+      //printText("All good bro, ain't even gonna check", size);
       
       // Placeholder user init
-      String[] arr = new String[3];
-      arr[0] = "Yeet";
-      arr[1] = "Yote";
-      arr[2] = "yoten";
-      this.guest = new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
-      this.staff = new Staff ("Man", "Strong", "123456-1234", "ST", arr, "12345678", "passwd", 0, 37, 140.0, 5);
+      //String[] arr = new String[3];
+      //arr[0] = "Yeet";
+      //arr[1] = "Yote";
+      //arr[2] = "yoten";
+      //this.guest = new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
+      //this.staff = new Staff ("Man", "Strong", "123456-1234", "ST", arr, "12345678", "passwd", 0, 37, 140.0, 5);
       //this.guest = null;
       //this.staff = null;
+      //mf.validateogin(
       
       this.screenNumber = 99; // Exit loginUI
    }
