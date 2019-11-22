@@ -69,7 +69,7 @@ public class StaffUI extends CLI
             // each "screen" has a specific screen Number
             // screens choosing example below
             
-            case 1:        //manage Guest
+            case 1:  //manage Guest
                header("Manage guests");
                print("1 register a new guest");
                print("2 change guest details");
@@ -137,8 +137,12 @@ public class StaffUI extends CLI
                      break;
                   case 4:  //print guest repport
                      header("Print guest repport");
-                     //__________________________________________________________________________________________________________________
-                     print2("Guest repport has been saved to: " + "PLACEHOLDER : LOCATION");
+                     ArrayList <Guest> guestListPrint = mf.getGuestList();
+                     for (i= 0; i<guestListPrint.size(); i++)
+                     {
+                        System.out.println(guestListPrint.get(i).guestRepportToString());
+                        System.out.println();
+                     }
                      returnQuit();
                      break;
                   case 5: //return to main menu or quit
@@ -149,7 +153,7 @@ public class StaffUI extends CLI
                
             
                break; 
-            case 2: //manage Staff
+            case 2:  //manage Staff
                this.screenNumber = 2;
                header("Manage staff");
                print("1 register a new staff");
@@ -217,8 +221,12 @@ public class StaffUI extends CLI
                      break;
                   case 4:   //print staff report
                      header("Print staff repport");
-                     //__________________________________________________________________________________________________________________
-                     print2("Staff repport has been saved to: " + "PLACEHOLDER : LOCATION");
+                     ArrayList<Staff> staffListPrint = mf.getStaffList();
+                     for (i=0; i<staffListPrint.size(); i++)
+                     {
+                        System.out.println(staffListPrint.get(i).staffRepportToString());
+                        System.out.println();
+                     }
                      returnQuit();
                      break;
                   case 5:  //returnQuit
@@ -252,24 +260,38 @@ public class StaffUI extends CLI
                      break;
                }
                break;
-            case 4:
+            case 4:  //manage Booking
                header("Manage booking");
-               selection = intCheck();
+               print("1 Create booking");
+               print("2 Print booking report");
+               print("3 Cancel booking");
+               print("4 Back");
+               selection = intCheck(1, 4);
                switch (selection)
                {
-                  case 1:
+                  case 1:  // create bookin
                      header("Create booking");
                      createBooking();
                      returnQuit();
                      break;
-                  case 2:
-                     header("Change a booking??");
-                     //___________________________________________________
+                  case 2:   //Print booking report
+                     header("Print booking report");
+                     ArrayList<Booking> bookingList = mf.getBookingList();
+                     for (int i = 0; i<bookingList.size(); i++)
+                     {
+                        System.out.println(bookingList.get(i).toString());
+                        System.out.println();
+                     }
+                     //print("Report has been printed to file");
                      returnQuit();
                      break;
-                  case 3:
-                     header("i dont even know anymore..");
-                     //???????????????????????????????????????????????????
+                  case 3:  //Cancel booking
+                     header("Cancel booking");
+                     //JAN'S REPONSABILITY _____________________________________________________________ALLAHU AKBAR__________________________________________________________
+                     returnQuit();
+                     break;
+                  case 4:
+                     returnQuit();
                      break;
                }
                break;

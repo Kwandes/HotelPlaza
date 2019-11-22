@@ -29,7 +29,7 @@ manage guest					<DONE>
 		6. password			<DONE>
 		7. nvm				<DONE>
 	3. delete guest				<DONE>
-	4. print guest report		<needs tweaking>
+	4. print guest report			<DONE>
 	5. return mainmenu			<DONE>
 manage staff					<DONE>
 	1. register new staff			<DONE>
@@ -45,16 +45,16 @@ manage staff					<DONE>
 		9. change password		<DONE>
 		10. back			<DONE>
 	3. delete staff				<DONE>
-	4 print staff report		<needs tweaking>
+	4 print staff report			<DONE>
 	5. back					<DONE>
 manage rooms
 	1. change existing room	
 	2. add a new room
 	3. delete room
-	4. back
-manage booking
+	4. back					<DONE>
+manage booking					<DONE>
 	1. create booking			<DONE>
-	2. change booking??
-	3. idk man
-	4. back?
+	2. print booking report			<DONE>
+	3. cancel booking		<JAN'S RESPONSABILTY>
+	4. back?				<DONE>
 ```
