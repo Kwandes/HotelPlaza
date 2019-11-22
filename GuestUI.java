@@ -19,7 +19,7 @@ public class GuestUI extends CLI
    public GuestUI(Guest user, String title, MainFrame mfRef) throws Exception
    {
       this.title = title;
-      this.screenNumber = 2;
+      this.screenNumber = 1;
       this.loggedUser = user.getLastName();
       this.userAccessLevel = 0; // Cannot be more than 0 for security reasons
       this.seperator = print(size); 
@@ -29,23 +29,21 @@ public class GuestUI extends CLI
       this.IDCounter = 0;
    }
    
-   public void guestMenu() 
+   public void mainMenu() 
    {
-      System.out.println(" > 1 Book a Room ");
-      System.out.println(" > 2 Check Bookings ");
-      System.out.println(" > 3 Extend Booking ");
-      System.out.println(" > 4 Change Info ");
-      System.out.println(" > 5 Log out ");
+      System.out.println(" > 1 Check Bookings ");
+      System.out.println(" > 2 Extend Booking ");
+      System.out.println(" > 3 Change Info ");
+      System.out.println(" > 4 Log out ");
       
-      screenNumber = Integer.parseInt(check("\tPlease select 1 - 5 : ", 0, 6));
-      display();
+      System.out.println("Please select one of the options");
+      screenNumber = 1 + Integer.parseInt(check("\tPlease select ", 0, 5));
    }
    
    public void display()
    {
       while(running)
-      {
-         guestMenu();
+      {         
          switch(screenNumber)
          {
             // actual display
@@ -63,6 +61,7 @@ public class GuestUI extends CLI
                break;
             case 4:
                this.guest = changeInfo(this.guest);
+               mf.replaceGuest(guest.getID(), guest);
                break;
             case 5:
                exit();
@@ -92,6 +91,7 @@ public class GuestUI extends CLI
       if ( bookingID.isEmpty() ) //if no bookings are found
       {
          System.out.print("Sorry, there are no active bookings");
+         extendOrSee = 1;
       }
       else 
       {
@@ -105,8 +105,8 @@ public class GuestUI extends CLI
       }
       if ( extendOrSee == 1 )
       {
-         in.next(); //just so it doenst skipp back to menu before you get to see bookings
-         display();
+         screenNumber = 1;
+         in2.nextLine(); //just so it doenst skipp back to menu before you get to see bookings
       } 
       else if ( extendOrSee == 2 )
       {
@@ -152,12 +152,11 @@ public class GuestUI extends CLI
             int goAgain = Integer.parseInt(check ("Please select 1 - 2 : ", 0, 3));
             if ( goAgain == 1 ) 
             {
-               guestMenu();
+               mainMenu();
             }
             else 
             {
                screenNumber = 3;
-               display();
             }
          }
       }
@@ -222,14 +221,13 @@ public class GuestUI extends CLI
       printText("- CHANGE INFO -", size);
       print();
       
-      System.out.println("\n\t > 1 First Name " +
+      System.out.println("\t > 1 First Name " +
                          "\n\t > 2 Last Name " + 
-                         "\n\t > 3 Cpr " +
-                         "\n\t > 4 Address " +
-                         "\n\t > 5 Phonenumber " +
-                         "\n\t > 6 Password ");
+                         "\n\t > 3 Address " +
+                         "\n\t > 4 Phonenumber " +
+                         "\n\t > 5 Password ");
       
-      int choice = Integer.parseInt(check("\tPlease select 1 - 6 : ", 0, 7));
+      int choice = Integer.parseInt(check("\tPlease select ", 0, 6));
       
       switch ( choice ) 
       {
@@ -244,11 +242,6 @@ public class GuestUI extends CLI
             print();
             break;
          case 3:
-            System.out.print("\tMembers cpr Nr : ");
-            cpr = checkCpr();
-            print();
-            break;
-         case 4:
             System.out.print("\tAddress - Street name : ");
             String streetName = checkAddress();
             print();
@@ -269,12 +262,12 @@ public class GuestUI extends CLI
             address[2] = postCode;
             print();
             break;
-         case 5:
+         case 4:
             System.out.print("\tPhonenumber : ");
             phoneNr = check("\tPlease write your Phonenumber : ", 999999, 100000000);
             print();
             break;
-         case 6:
+         case 5:
             do {
                System.out.print("\tCreate password : ");
                pass1 = in.next();
@@ -291,6 +284,9 @@ public class GuestUI extends CLI
       
       Guest newUser = new Guest ( firstName, lastName, cpr, address, phoneNr, password, 0); // Get ID via guest.getID(). The ID shouldn't change when changing info
       // mf.replaceGuest(guest.getID(), newUser); in order to save
+      screenNumber = 1;
+      printText("- USER UPDATED - ", size);
+      print();
       return newUser;
    }
    
@@ -347,7 +343,7 @@ public class GuestUI extends CLI
       print();
                  
       do {
-         System.out.print("\tCreate password : ");
+         System.out.print("\tCreate password : wew ");
          pass1 = in.next();
          System.out.print("\tVerify password : ");
          pass2 = in.next();
@@ -375,12 +371,10 @@ public class GuestUI extends CLI
          isValid = true;
          if ( a == 1 )
          {
-            System.out.print(question + (min + 1) + " - " + (max - 1) + " : " +
-                             "\n\t( 0 for returning to menu ) ");
+            System.out.print(question + (min + 1) + " - " + (max - 1) + " ");
          }
          else 
          { 
-            System.out.print("\n\t( 0 for returning to menu )");
             a++; 
          }
          if ( in.hasNextInt() ) 
@@ -388,7 +382,7 @@ public class GuestUI extends CLI
             input = in.next();
             if ( Integer.parseInt(input) == 0 ) 
             {
-               guestMenu();
+               mainMenu();
             }
             else if ( Integer.parseInt(input) > min && Integer.parseInt(input) < max ) 
             {
@@ -407,6 +401,7 @@ public class GuestUI extends CLI
             in.next();
          }
       }
+      in.nextLine();
       return input;
    }
    
@@ -425,7 +420,7 @@ public class GuestUI extends CLI
          }
          else { a++; }
          
-         input = in.nextLine();
+         input = in2.nextLine();
          input = input.trim();
          
          if ( input.length() < 5 )
@@ -456,6 +451,7 @@ public class GuestUI extends CLI
       }
       inputWith += " ";
       
+      in.nextLine();
       return inputWith;
    }
    
@@ -504,9 +500,7 @@ public class GuestUI extends CLI
             input = in.nextLine();
          }
          input = input.trim();
-         
-         System.out.println(input);
-         
+                  
          if ( input.contains(" ") )
          {
             input = "";
@@ -545,6 +539,7 @@ public class GuestUI extends CLI
          inputWith += Character.toLowerCase(input.charAt(i));
       }
       
+      in.nextLine();
       return inputWith;
    }
    
@@ -599,6 +594,7 @@ public class GuestUI extends CLI
             isValid = false;
          }
       }
+      in.nextLine();
       return input;
    }
    
@@ -641,11 +637,6 @@ public class GuestUI extends CLI
       print();
       System.out.println(error[message]);
       print();
-   }
-   
-   public void mainMenu()
-   {
-      this.screenNumber = 1;
    }
    
    public void exit()

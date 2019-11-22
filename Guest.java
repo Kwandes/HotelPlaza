@@ -13,7 +13,7 @@ public class Guest extends User
       this.firstName = firstName;
       this.lastName = lastName;
       this.cpr = cpr;
-      this.type = type;
+      this.type = "GU";
       this.address = address;
       this.phoneNumber = phoneNr;
       this.password = password;
