@@ -34,17 +34,19 @@ public class StaffUI extends CLI
    private int roomPrice;
    private int selection;
    private MainFrame mf;
+   private Staff user;
 
    public StaffUI(Staff user, String title, MainFrame mfRef)
    {
       this.title = title;
       this.screenNumber = 10;
-      this.loggedUser = user.getLastName();
+      this.loggedUser = user.getLastName();  // wait what do you do?
       this.userAccessLevel = user.getAccessLevel();
       this.seperator = "----------------------------------------------------------------------------------------------------"; // 100 dashes
       this.running = true;
       this.mf = mfRef;
       this.fullName = user.getFirstName()+ " " + user.getLastName();
+      this.user = user;
    }
    
    public StaffUI(Staff user, String title, MainFrame mfRef, int accessLevel)
@@ -59,6 +61,170 @@ public class StaffUI extends CLI
    }
    
    public void display()
+   {  this.userAccessLevel = 5; // hardcoded because types are a clusterfuck and it sucks
+      switch(this.userAccessLevel)
+      {
+         case 1:
+            switchLevelOne();
+            break;
+         case 2:
+            switchLevelTwo();
+            break;
+         case 3:
+            switchLevelThree();
+            break;
+         case 4:
+            switchLevelFour();
+            break;
+         case 5:
+            switchLevelFive();
+            break;
+         default:
+            System.out.println("Yeet out boi, you got not accessLevel for this UI");
+            mf.createLog("How did this guy get in here? id: " + user.getID(), Log.Type.WARNING);
+            break;
+      } 
+   }
+   
+   public void switchLevelOne()
+   {
+      while(running)
+      {
+         switch(screenNumber)
+         {
+            // actual display
+            // listen to inputs, show different screens depending on input
+            // each "screen" has a specific screen Number
+            // screens choosing example below
+            
+            case 69:
+               exit();
+               break;
+            case 10:
+               mainMenuLevelOne();
+               break;
+            default:
+               print("invalid input, please try again.");
+               System.out.println();
+               System.out.println();
+               mainMenuLevelOne();
+               break;
+         }
+      }
+   }
+   
+   public void mainMenuLevelOne()
+   {
+      this.screenNumber = 10; 
+      Scanner input = new Scanner(System.in);
+      header("Main Menu");
+      print("Clean rooms:");
+      print("420 | 69 | yaYeet");
+      print("Input 69 to yeet out");
+      screenNumber = intCheck();
+   }
+   
+   public void switchLevelTwo()
+   {
+      while(running)
+      {
+         switch(screenNumber)
+         {
+            // actual display
+            // listen to inputs, show different screens depending on input
+            // each "screen" has a specific screen Number
+            // screens choosing example below
+            
+            case 1:  //manage Guest
+               manageGuests();
+               break;
+            case 2: // manage buching
+               manageBunching();
+               break;
+            case 3:
+               exit();
+               break;
+            case 10:
+               mainMenuLevelTwo();
+               break;
+            default:
+               print("invalid input, please try again.");
+               System.out.println();
+               System.out.println();
+               mainMenuLevelOne();
+               break;
+         }
+      }
+   }
+   
+   public void mainMenuLevelTwo()
+   {
+      this.screenNumber = 10; 
+      Scanner input = new Scanner(System.in);
+      header("Main Menu");
+      print("1 Manage guests");
+      print("2 Manage booking");
+      print("3 quit");
+      screenNumber = intCheck();
+   }
+   
+   public void switchLevelThree()
+   {
+      while(running)
+      {
+         switch(screenNumber)
+         {
+            // actual display
+            // listen to inputs, show different screens depending on input
+            // each "screen" has a specific screen Number
+            // screens choosing example below
+            
+            case 1:  //print report Guest
+               System.out.println("Rob, Bob, Bor, Rbo, Bro, Obr, Orb \n FuckFuckFuckFuckFuckFuckFuckFuckFuckFuckYeetFuckFuckFuckFuck");
+               break; 
+            case 2:  //print report Staff
+               System.out.println("123, 231, 321, 213, 231 \n word_pass_yeet_fuckfuckfuc");
+               break;
+            case 3:  //print report Room
+               System.out.println("420, 1123, 690, 666, 420x2 \n aviable, taken, occupied, demolished, secretMethlab");
+               break;
+            case 4: // print report buching
+               System.out.println("Today, Tomorrow, yesterday, Never, Gonna, Give, You, Up \n 00100111010100 0110101000110101 00011010110101 100010010001110");
+               break;
+            case 5: // print report teo
+               System.out.println("Today, Tomorrow, yesterday, Never, Gonna, Give, You, Up \n 00100111010100 0110101000110101 00011010110101 100010010001110");
+               break;
+            case 6:
+               exit();
+               break;
+            case 10:
+               mainMenuLevelOne();
+               break;
+            default:
+               print("invalid input, please try again.");
+               System.out.println();
+               System.out.println();
+               mainMenuLevelOne();
+               break;
+         }
+      }
+   }
+   
+   public void mainMenuLevelThree()
+   {
+      this.screenNumber = 10; 
+      Scanner input = new Scanner(System.in);
+      header("Main Menu");
+      print("1 Guest Report");
+      print("2 Staff Report");
+      print("3 Room Report");
+      print("4 Bookings Report");
+      print("5 Teo Report");
+      print("6 quit");
+      screenNumber = intCheck();
+   }
+   
+   public void switchLevelFour()
    {
       while(running)
       {
@@ -85,17 +251,84 @@ public class StaffUI extends CLI
                exit();
                break;
             case 10:
-               mainMenu();
+               mainMenuLevelFour();
                break;
             default:
                print("invalid input, please try again.");
                System.out.println();
                System.out.println();
-               mainMenu();
+               mainMenuLevelOne();
                break;
          }
-      }  
+      }
+   
    }
+   
+   public void mainMenuLevelFour()
+   {
+      this.screenNumber = 10; 
+      Scanner input = new Scanner(System.in);
+      header("Main Menu");
+      print("1 Manage guests");
+      print("2 Manage staff");
+      print("3 Manage rooms");
+      print("4 Manage booking");
+      print("5 quit");
+      screenNumber = intCheck();
+   }
+   
+   public void switchLevelFive()
+   {
+      while(running)
+      {
+         switch(screenNumber)
+         {
+            // actual display
+            // listen to inputs, show different screens depending on input
+            // each "screen" has a specific screen Number
+            // screens choosing example below
+            
+            case 1:  //manage Guest
+               manageGuests();
+               break; 
+            case 2:  //manage Staff
+               manageStaff();
+               break;
+            case 3:  //manage Room
+               manageRooms();
+               break;
+            case 4: // manage buching
+               manageBunching();
+               break;
+            case 5:
+               exit();
+               break;
+            case 10:
+               mainMenuLevelFive();
+               break;
+            default:
+               print("invalid input, please try again.");
+               System.out.println();
+               System.out.println();
+               mainMenuLevelOne();
+               break;
+         }
+      }
+   }
+   
+   public void mainMenuLevelFive()
+   {
+      this.screenNumber = 10; 
+      Scanner input = new Scanner(System.in);
+      header("Main Menu");
+      print("1 Manage guests");
+      print("2 Manage staff");
+      print("3 Manage rooms");
+      print("4 Manage booking");
+      print("5 quit");
+      screenNumber = intCheck();
+   }
+   
    
    public void manageGuests()
    {
@@ -1206,19 +1439,6 @@ public class StaffUI extends CLI
             this.running = false;
             break;
       }
-   }
-   
-   public void mainMenu()
-   {
-      this.screenNumber = 10; 
-      Scanner input = new Scanner(System.in);
-      header("Main Menu");
-      print("1 Manage guests");
-      print("2 Manage staff");
-      print("3 Manage rooms");
-      print("4 Manage booking");
-      print("5 quit");
-      screenNumber = intCheck();
    }
    
    public void exit()
