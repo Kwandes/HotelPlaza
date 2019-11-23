@@ -70,230 +70,16 @@ public class StaffUI extends CLI
             // screens choosing example below
             
             case 1:  //manage Guest
-               header("Manage guests");
-               print("1 register a new guest");
-               print("2 change guest details");
-               print("3 delete a guest");
-               print("4 print a repport of all guests to file");
-               print("5 return to main menu or quit");            
-               
-               selection = intCheck(1,5);
-               switch (selection)
-               {
-                  case 1:  //create guest
-                     header("register a new guest");
-                     createGuest();
-                     returnQuit();
-                     break;
-                  case 2:  //change guest
-                     header("Edit guest details");
-                     changeGuest();
-                     returnQuit();
-                     break;
-                  case 3:  //delete guest 
-                     header("Delete a guest");
-                     print2("Please type the CPR number of the guest you would like to delete.");
-                     int i = 0;
-                     ArrayList<Guest> guestList = mf.getGuestList();
-                     do
-                     {
-                        Scanner console = new Scanner(System.in);
-                        cpr = cprCheck(console);
-                        guestList = mf.getGuestList();
-                        for (i = 0; i < guestList.size(); i++)
-                        {
-                           if (guestList.get(i).getCPR().equals(cpr))
-                           {  
-                              userID = guestList.get(i).getID();
-                              break;
-                           }
-                        }
-                        if (userID == null)
-                        {
-                           print2("Cpr not found, please try again.");
-                        }
-                        
-                     } while (userID == null);
-                     printLines();
-                     //* print2(guestList.get(i).toString()); //breaks on TYPE, needs fixing__________________________
-                     print2("PLACEHOLDER USER INFO");
-                     printLines();
-                     print2("Are you sure you wish to delete this user?");
-                     print("1 Yes");
-                     print("2 No");
-                     selection = intCheck(1,2);
-                     switch (selection)
-                     {
-                        case 1: //yes
-                           guestList.remove(i);
-                           mf.setGuestList(guestList);
-                           print2("Guest has been deleted");
-                           returnQuit();
-                           break;
-                        case 2: //no
-                           returnQuit();
-                           break;
-                     }
-                     break;
-                  case 4:  //print guest repport
-                     header("Print guest repport");
-                     ArrayList <Guest> guestListPrint = mf.getGuestList();
-                     for (i= 0; i<guestListPrint.size(); i++)
-                     {
-                        System.out.println(guestListPrint.get(i).guestRepportToString());
-                        System.out.println();
-                     }
-                     returnQuit();
-                     break;
-                  case 5: //return to main menu or quit
-                     returnQuit();
-                     break;
-                             
-               }
-               
-            
+               manageGuests();
                break; 
             case 2:  //manage Staff
-               this.screenNumber = 2;
-               header("Manage staff");
-               print("1 register a new staff");
-               print("2 change staff details");
-               print("3 delete a staff");
-               print("4 print a repport of all staff to file");
-               print("5 return to main menu or quit"); 
-               selection = intCheck(1,5);
-               switch (selection)
-               {
-                  case 1:  //register staff
-                     header("Register a new staff");
-                     createStaff();
-                     returnQuit();
-                     break;
-                  case 2:  //change staff details
-                     header("Edit details of a staff member");
-                     changeStaff();
-                     break;
-                     
-                  case 3:  //delete a staff
-                     header("Delete a staff");
-                     print2("Please type the CPR number of the staff you would like to delete.");
-                     int i = 0;
-                     ArrayList<Staff> staffList = mf.getStaffList();
-                     do
-                     {
-                        Scanner console = new Scanner(System.in);
-                        cpr = cprCheck(console);
-                        staffList = mf.getStaffList();
-                        for (i = 0; i < staffList.size(); i++)
-                        {
-                           if (staffList.get(i).getCpr().equals(cpr))
-                           {  
-                              userID = staffList.get(i).getID();
-                              break;
-                           }
-                        }
-                        if (userID == null)
-                        {
-                           print2("Cpr not found, please try again.");
-                        }
-                        
-                     } while (userID == null);
-                     printLines();
-                     //* print2(staffList.get(i).toString()); //breaks on TYPE, needs fixing__________________________
-                     print2("PLACEHOLDER USER INFO");
-                     printLines();
-                     print2("Are you sure you wish to delete this user?");
-                     print("1 Yes");
-                     print("2 No");
-                     selection = intCheck(1,2);
-                     switch (selection)
-                     {
-                        case 1: //yes
-                           staffList.remove(i);
-                           mf.setStaffList(staffList);
-                           print2("Staff has been deleted");
-                           returnQuit();
-                           break;
-                        case 2: //no
-                           returnQuit();
-                           break;
-                     }
-                     break;
-                  case 4:   //print staff report
-                     header("Print staff repport");
-                     ArrayList<Staff> staffListPrint = mf.getStaffList();
-                     for (i=0; i<staffListPrint.size(); i++)
-                     {
-                        System.out.println(staffListPrint.get(i).staffRepportToString());
-                        System.out.println();
-                     }
-                     returnQuit();
-                     break;
-                  case 5:  //returnQuit
-                     returnQuit();
-                     break;
-               }
+               manageStaff();
                break;
             case 3:  //manage Room
-               header("Manage rooms");
-               print("1 Change an existing room");
-               print("2 Add a new room out of thin air");
-               print("3 Delete a room from existance");
-               print("4 Back.");
-               selection = intCheck(1,4);
-               switch (selection)
-               {
-                  case 1:
-                     header("Change an existing room");
-                     changeRoom();
-                     break;
-                  case 2:
-                     header("Add a new room");
-                     createRoom();
-                     break;
-                  case 3:
-                     header("Delete a room");
-                     deleteRoom();   
-                     break;
-                  case 4:  //nevermind
-                     returnQuit();
-                     break;
-               }
+               manageRooms();
                break;
             case 4: // manage buching
-               header("Manage booking");
-               print("1 Create booking");
-               print("2 Print booking report");
-               print("3 Cancel booking");
-               print("4 Back");
-               selection = intCheck(1, 4);
-               switch (selection)
-               {
-                  case 1:  // create bookin
-                     header("Create booking");
-                     createBooking();
-                     returnQuit();
-                     break;
-                  case 2:   //Print booking report
-                     header("Print booking report");
-                     ArrayList<Booking> bookingList = mf.getBookingList();
-                     for (int i = 0; i<bookingList.size(); i++)
-                     {
-                        System.out.println(bookingList.get(i).toString());
-                        System.out.println();
-                     }
-                     //print("Report has been printed to file");
-                     returnQuit();
-                     break;
-                  case 3:  //Cancel booking
-                     header("Cancel booking");
-                     //JAN'S REPONSABILITY _____________________________________________________________ALLAHU AKBAR__________________________________________________________
-                     returnQuit();
-                     break;
-                  case 4:
-                     returnQuit();
-                     break;
-               }
+               manageBunching();
                break;
             case 5:
                exit();
@@ -311,6 +97,199 @@ public class StaffUI extends CLI
       }  
    }
    
+   public void manageGuests()
+   {
+      header("Manage guests");
+      print("1 register a new guest");
+      print("2 change guest details");
+      print("3 delete a guest");
+      print("4 print a repport of all guests to file");
+      print("5 return to main menu or quit");            
+            
+      selection = intCheck(1,5);
+      switch (selection)
+      {
+         case 1:  //create guest
+            header("register a new guest");
+            createGuest();
+            returnQuit();
+            break;
+         case 2:  //change guest
+            header("Edit guest details");
+            changeGuest();
+            returnQuit();
+            break;
+         case 3:  //delete guest 
+            header("Delete a guest");
+            print2("Please type the CPR number of the guest you would like to delete.");
+            int i = 0;
+            ArrayList<Guest> guestList = mf.getGuestList();
+            do
+            {
+               Scanner console = new Scanner(System.in);
+               cpr = cprCheck(console);
+               guestList = mf.getGuestList();
+               for (i = 0; i < guestList.size(); i++)
+               {
+                  if (guestList.get(i).getCPR().equals(cpr))
+                  {  
+                     userID = guestList.get(i).getID();
+                     break;
+                  }
+               }
+               if (userID == null)
+               {
+                  print2("Cpr not found, please try again.");
+               }
+                     
+            } while (userID == null);
+            printLines();
+                  //* print2(guestList.get(i).toString()); //breaks on TYPE, needs fixing__________________________
+            print2("PLACEHOLDER USER INFO");
+            printLines();
+            print2("Are you sure you wish to delete this user?");
+            print("1 Yes");
+            print("2 No");
+            selection = intCheck(1,2);
+            switch (selection)
+            {
+               case 1: //yes
+                  guestList.remove(i);
+                  mf.setGuestList(guestList);
+                  print2("Guest has been deleted");
+                  returnQuit();
+                  break;
+               case 2: //no
+                  returnQuit();
+                  break;
+            }
+            break;
+         case 4:  //print guest repport
+            header("Print guest repport");
+            ArrayList <Guest> guestListPrint = mf.getGuestList();
+            for (i= 0; i<guestListPrint.size(); i++)
+            {
+               System.out.println(guestListPrint.get(i).guestRepportToString());
+               System.out.println();
+            }
+            returnQuit();
+            break;
+         case 5: //return to main menu or quit
+            returnQuit();
+      }
+   }
+   
+   public void manageStaff()
+   {
+      this.screenNumber = 2;
+      header("Manage staff");
+      print("1 register a new staff");
+      print("2 change staff details");
+      print("3 delete a staff");
+      print("4 print a repport of all staff to file");
+      print("5 return to main menu or quit"); 
+      selection = intCheck(1,5);
+      switch (selection)
+      {
+         case 1:  //register staff
+            header("Register a new staff");
+            createStaff();
+            returnQuit();
+            break;
+         case 2:  //change staff details
+            header("Edit details of a staff member");
+            changeStaff();
+            break;
+            
+         case 3:  //delete a staff
+            header("Delete a staff");
+            print2("Please type the CPR number of the staff you would like to delete.");
+            int i = 0;
+            ArrayList<Staff> staffList = mf.getStaffList();
+            do
+            {
+               Scanner console = new Scanner(System.in);
+               cpr = cprCheck(console);
+               staffList = mf.getStaffList();
+               for (i = 0; i < staffList.size(); i++)
+               {
+                  if (staffList.get(i).getCpr().equals(cpr))
+                  {  
+                     userID = staffList.get(i).getID();
+                     break;
+                  }
+               }
+               if (userID == null)
+               {
+                  print2("Cpr not found, please try again.");
+               }
+               
+            } while (userID == null);
+            printLines();
+            //* print2(staffList.get(i).toString()); //breaks on TYPE, needs fixing__________________________
+            print2("PLACEHOLDER USER INFO");
+            printLines();
+            print2("Are you sure you wish to delete this user?");
+            print("1 Yes");
+            print("2 No");
+            selection = intCheck(1,2);
+            switch (selection)
+            {
+               case 1: //yes
+                  staffList.remove(i);
+                  mf.setStaffList(staffList);
+                  print2("Staff has been deleted");
+                  returnQuit();
+                  break;
+               case 2: //no
+                  returnQuit();
+                  break;
+            }
+            break;
+         case 4:   //print staff report
+            header("Print staff repport");
+            ArrayList<Staff> staffListPrint = mf.getStaffList();
+            for (i=0; i<staffListPrint.size(); i++)
+            {
+               System.out.println(staffListPrint.get(i).staffRepportToString());
+               System.out.println();
+            }
+            returnQuit();
+            break;
+         case 5:  //returnQuit
+            returnQuit();
+            break;
+      }
+   }
+   
+   public void manageRooms()
+   {
+      header("Manage rooms");
+      print("1 Change an existing room");
+      print("2 Add a new room out of thin air");
+      print("3 Delete a room from existance");
+      print("4 Back.");
+      selection = intCheck(1,4);
+      switch (selection)
+      {
+         case 1:
+            header("Change an existing room");
+            changeRoom();
+            break;
+         case 2:
+            header("Add a new room");
+            createRoom();
+            break;
+         case 3:
+            header("Delete a room");
+            deleteRoom();   
+            break;
+         case 4:  //nevermind
+            returnQuit();
+            break;
+      }
+   }
+
    public void changeStaff()
    {
     
@@ -461,7 +440,43 @@ public class StaffUI extends CLI
             break;
       }
    }
-      
+
+   public void manageBunching()
+   {
+      header("Manage booking");
+      print("1 Create booking");
+      print("2 Print booking report");
+      print("3 Cancel booking");
+      print("4 Back");
+      selection = intCheck(1, 4);
+      switch (selection)
+      {
+         case 1:  // create bookin
+            header("Create booking");
+            createBooking();
+            returnQuit();
+            break;
+         case 2:   //Print booking report
+            header("Print booking report");
+            ArrayList<Booking> bookingList = mf.getBookingList();
+            for (int i = 0; i<bookingList.size(); i++)
+            {
+               System.out.println(bookingList.get(i).toString());
+               System.out.println();
+            }
+                     //print("Report has been printed to file");
+            returnQuit();
+            break;
+         case 3:  //Cancel booking
+            header("Cancel booking");
+                     //JAN'S REPONSABILITY _____________________________________________________________ALLAHU AKBAR__________________________________________________________
+            returnQuit();
+            break;
+         case 4:
+            returnQuit();
+            break;
+      }
+   }      
    public void changeGuest()
    {
       Scanner console = new Scanner(System.in);
