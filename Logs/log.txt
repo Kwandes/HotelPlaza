@@ -3262,3 +3262,440 @@
 >>>Sun 2019/11/24 03:28:975: INFO: FM>:Saving StaffList
 >>>Sun 2019/11/24 03:28:977: INFO: New Staff List saved
 >>>Sun 2019/11/24 03:28:978: INFO: New Staff member Added, ID: S054
+>>>Sun 2019/11/24 14:08:550: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:08:555: INFO: Loading config...
+>>>Sun 2019/11/24 14:08:556: INFO: Config loaded
+>>>Sun 2019/11/24 14:08:557: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:08:558: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:08:560: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:08:601: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:08:602: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:08:608: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:08:609: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:08:677: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:08:678: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:08:747: INFO: Staff List size: 12
+>>>Sun 2019/11/24 14:08:748: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:08:794: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:08:795: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:08:797: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:08:798: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:08:799: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:09:382: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:11:115: WARNING: Failed Login attempt, phone Number: 66666666 , password: 6666
+>>>Sun 2019/11/24 14:11:116: INFO: Staff Member S550 has logged in
+>>>Sun 2019/11/24 14:11:117: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:11:118: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:11:124: INFO: StaffUi created
+>>>Sun 2019/11/24 14:11:125: INFO: Logged in user access level: 10
+>>>Sun 2019/11/24 14:11:126: WARNING: How did this guy get in here? id: S550
+>>>Sun 2019/11/24 14:15:085: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:15:087: INFO: Loading config...
+>>>Sun 2019/11/24 14:15:088: INFO: Config loaded
+>>>Sun 2019/11/24 14:15:088: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:15:089: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:15:091: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:15:117: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:15:118: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:15:122: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:15:123: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:15:203: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:15:207: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:15:269: INFO: Staff List size: 12
+>>>Sun 2019/11/24 14:15:270: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:15:295: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:15:296: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:15:299: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:15:300: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:15:300: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:15:671: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:15:691: WARNING: Failed Login attempt, phone Number: 66666666 , password: 6666
+>>>Sun 2019/11/24 14:15:691: INFO: Staff Member S550 has logged in
+>>>Sun 2019/11/24 14:15:692: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:15:693: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:15:698: INFO: StaffUi created
+>>>Sun 2019/11/24 14:15:699: INFO: Logged in user access level: 5
+>>>Sun 2019/11/24 14:16:251: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:16:253: INFO: Loading config...
+>>>Sun 2019/11/24 14:16:254: INFO: Config loaded
+>>>Sun 2019/11/24 14:16:254: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:16:255: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:16:256: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:16:281: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:16:282: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:16:286: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:16:287: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:16:341: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:16:341: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:16:372: INFO: Staff List size: 12
+>>>Sun 2019/11/24 14:16:373: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:16:392: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:16:392: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:16:398: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:16:399: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:16:400: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:16:735: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:16:156: WARNING: Failed Login attempt, phone Number: 66666666 , password: 6666
+>>>Sun 2019/11/24 14:16:157: INFO: Staff Member S550 has logged in
+>>>Sun 2019/11/24 14:16:157: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:16:158: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:16:163: INFO: StaffUi created
+>>>Sun 2019/11/24 14:16:163: INFO: Logged in user access level: 5
+>>>Sun 2019/11/24 14:17:151: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 14:17:369: INFO: getting user Type
+>>>Sun 2019/11/24 14:18:307: INFO: User type selected: Receptionist
+>>>Sun 2019/11/24 14:18:383: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 14:18:384: INFO: Generated new Staff ID: 56
+>>>Sun 2019/11/24 14:18:385: INFO: FM>:Saving CounterList
+>>>Sun 2019/11/24 14:18:387: INFO: Updated Counter List saved
+>>>Sun 2019/11/24 14:18:387: INFO: Creating new Staff member, ID: S256
+>>>Sun 2019/11/24 14:18:388: INFO: Staff S256 added
+>>>Sun 2019/11/24 14:18:388: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 14:18:390: INFO: New Staff List saved
+>>>Sun 2019/11/24 14:18:390: INFO: New Staff member Added, ID: S256
+>>>Sun 2019/11/24 14:18:615: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:18:617: INFO: Loading config...
+>>>Sun 2019/11/24 14:18:618: INFO: Config loaded
+>>>Sun 2019/11/24 14:18:618: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:18:619: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:18:620: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:18:649: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:18:650: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:18:655: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:18:656: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:18:753: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:18:754: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:18:777: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:18:778: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:18:791: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:18:792: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:18:794: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:18:795: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:18:796: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:18:105: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:18:052: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:18:053: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:18:054: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:18:055: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:18:060: INFO: StaffUi created
+>>>Sun 2019/11/24 14:18:060: INFO: Logged in user access level: 2
+>>>Sun 2019/11/24 14:19:041: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:19:043: INFO: Loading config...
+>>>Sun 2019/11/24 14:19:044: INFO: Config loaded
+>>>Sun 2019/11/24 14:19:045: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:19:045: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:19:047: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:19:077: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:19:078: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:19:083: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:19:084: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:19:140: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:19:141: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:19:164: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:19:165: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:19:179: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:19:179: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:19:182: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:19:183: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:19:184: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:19:564: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:19:676: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:19:677: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:19:678: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:19:679: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:19:683: INFO: StaffUi created
+>>>Sun 2019/11/24 14:19:684: INFO: Logged in user access level: 3
+>>>Sun 2019/11/24 14:49:156: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:49:158: INFO: Loading config...
+>>>Sun 2019/11/24 14:49:159: INFO: Config loaded
+>>>Sun 2019/11/24 14:49:160: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:49:160: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:49:161: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:49:191: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:49:192: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:49:196: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:49:197: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:49:251: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:49:252: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:49:274: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:49:275: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:49:302: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:49:303: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:49:305: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:49:305: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:49:322: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:49:726: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:49:988: WARNING: Failed Login attempt, phone Number: 666666 , password: 6666
+>>>Sun 2019/11/24 14:49:989: WARNING: Failed Login attempt, phone Number: 666666 , password: 6666
+>>>Sun 2019/11/24 14:49:403: WARNING: Failed Login attempt, phone Number: 66666666 , password: 6666
+>>>Sun 2019/11/24 14:49:403: INFO: Staff Member S550 has logged in
+>>>Sun 2019/11/24 14:49:404: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:49:405: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:49:410: INFO: StaffUi created
+>>>Sun 2019/11/24 14:49:410: INFO: Logged in user access level: 5
+>>>Sun 2019/11/24 14:52:560: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:52:562: INFO: Loading config...
+>>>Sun 2019/11/24 14:52:562: INFO: Config loaded
+>>>Sun 2019/11/24 14:52:563: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:52:564: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:52:565: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:52:592: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:52:593: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:52:600: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:52:600: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:52:682: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:52:683: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:52:704: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:52:705: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:52:723: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:52:724: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:52:727: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:52:727: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:52:728: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:52:137: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:52:200: WARNING: Failed Login attempt, phone Number:  , password: 
+>>>Sun 2019/11/24 14:52:201: WARNING: Failed Login attempt, phone Number:  , password: 
+>>>Sun 2019/11/24 14:52:253: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:52:253: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:52:254: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:52:255: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:52:260: INFO: StaffUi created
+>>>Sun 2019/11/24 14:52:261: INFO: Logged in user access level: 3
+>>>Sun 2019/11/24 14:54:557: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:54:559: INFO: Loading config...
+>>>Sun 2019/11/24 14:54:560: INFO: Config loaded
+>>>Sun 2019/11/24 14:54:560: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:54:561: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:54:562: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:54:592: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:54:593: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:54:599: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:54:600: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:54:652: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:54:652: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:54:674: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:54:675: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:54:688: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:54:689: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:54:692: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:54:692: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:54:693: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:54:118: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:54:590: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1
+>>>Sun 2019/11/24 14:54:591: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1
+>>>Sun 2019/11/24 14:54:009: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:54:010: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:54:013: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:54:014: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:54:021: INFO: StaffUi created
+>>>Sun 2019/11/24 14:54:021: INFO: Logged in user access level: 4
+>>>Sun 2019/11/24 14:55:017: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:55:020: INFO: Loading config...
+>>>Sun 2019/11/24 14:55:020: INFO: Config loaded
+>>>Sun 2019/11/24 14:55:021: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:55:021: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:55:023: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:55:049: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:55:050: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:55:053: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:55:054: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:55:106: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:55:107: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:55:129: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:55:130: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:55:145: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:55:145: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:55:148: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:55:149: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:55:149: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:55:531: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:55:772: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:55:773: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:55:774: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:55:774: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:55:778: INFO: StaffUi created
+>>>Sun 2019/11/24 14:55:778: INFO: Logged in user access level: 5
+>>>Sun 2019/11/24 14:55:569: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:55:571: INFO: Loading config...
+>>>Sun 2019/11/24 14:55:572: INFO: Config loaded
+>>>Sun 2019/11/24 14:55:572: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:55:573: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:55:575: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:55:600: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:55:601: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:55:604: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:55:605: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:55:665: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:55:666: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:55:695: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:55:696: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:55:712: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:55:713: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:55:715: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:55:716: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:55:717: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:55:155: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:55:269: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:55:270: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:55:271: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:55:272: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:55:276: INFO: StaffUi created
+>>>Sun 2019/11/24 14:55:276: INFO: Logged in user access level: 1
+>>>Sun 2019/11/24 14:56:635: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:56:637: INFO: Loading config...
+>>>Sun 2019/11/24 14:56:637: INFO: Config loaded
+>>>Sun 2019/11/24 14:56:638: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:56:639: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:56:640: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:56:665: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:56:666: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:56:670: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:56:671: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:56:723: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:56:724: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:56:749: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:56:749: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:56:767: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:56:767: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:56:772: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:56:772: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:56:773: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:56:172: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:56:260: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:56:261: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:56:262: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:56:262: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:56:266: INFO: StaffUi created
+>>>Sun 2019/11/24 14:56:266: INFO: Logged in user access level: 2
+>>>Sun 2019/11/24 14:56:926: INFO: MainFrame Init started
+>>>Sun 2019/11/24 14:56:929: INFO: Loading config...
+>>>Sun 2019/11/24 14:56:930: INFO: Config loaded
+>>>Sun 2019/11/24 14:56:931: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 14:56:931: INFO: Loading BookingList...
+>>>Sun 2019/11/24 14:56:933: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 14:56:964: INFO: Booking List size: 11
+>>>Sun 2019/11/24 14:56:965: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 14:56:969: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 14:56:970: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 14:56:029: INFO: Room List size: 7
+>>>Sun 2019/11/24 14:56:030: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 14:56:053: INFO: Staff List size: 13
+>>>Sun 2019/11/24 14:56:054: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 14:56:068: INFO: Guest List size: 12
+>>>Sun 2019/11/24 14:56:069: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 14:56:072: INFO: Counter List size: 4
+>>>Sun 2019/11/24 14:56:072: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 14:56:073: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 14:56:423: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 14:56:927: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 14:56:929: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 14:56:930: INFO: Moving to next UI
+>>>Sun 2019/11/24 14:56:930: INFO: Creating StaffUI
+>>>Sun 2019/11/24 14:56:934: INFO: StaffUi created
+>>>Sun 2019/11/24 14:56:935: INFO: Logged in user access level: 3
+>>>Sun 2019/11/24 15:06:045: INFO: MainFrame Init started
+>>>Sun 2019/11/24 15:06:047: INFO: Loading config...
+>>>Sun 2019/11/24 15:06:048: INFO: Config loaded
+>>>Sun 2019/11/24 15:06:049: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 15:06:049: INFO: Loading BookingList...
+>>>Sun 2019/11/24 15:06:051: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 15:06:078: INFO: Booking List size: 11
+>>>Sun 2019/11/24 15:06:078: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 15:06:084: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 15:06:084: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 15:06:147: INFO: Room List size: 7
+>>>Sun 2019/11/24 15:06:148: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 15:06:176: INFO: Staff List size: 13
+>>>Sun 2019/11/24 15:06:177: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 15:06:197: INFO: Guest List size: 12
+>>>Sun 2019/11/24 15:06:198: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 15:06:201: INFO: Counter List size: 4
+>>>Sun 2019/11/24 15:06:202: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 15:06:203: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 15:06:586: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 15:06:196: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 15:06:236: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 15:06:237: INFO: Moving to next UI
+>>>Sun 2019/11/24 15:06:238: INFO: Creating StaffUI
+>>>Sun 2019/11/24 15:06:244: INFO: StaffUi created
+>>>Sun 2019/11/24 15:06:245: INFO: Logged in user access level: 1
+>>>Sun 2019/11/24 15:13:760: INFO: MainFrame Init started
+>>>Sun 2019/11/24 15:13:762: INFO: Loading config...
+>>>Sun 2019/11/24 15:13:763: INFO: Config loaded
+>>>Sun 2019/11/24 15:13:764: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 15:13:764: INFO: Loading BookingList...
+>>>Sun 2019/11/24 15:13:765: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 15:13:797: INFO: Booking List size: 11
+>>>Sun 2019/11/24 15:13:798: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 15:13:804: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 15:13:805: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 15:13:909: INFO: Room List size: 7
+>>>Sun 2019/11/24 15:13:910: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 15:13:938: INFO: Staff List size: 13
+>>>Sun 2019/11/24 15:13:939: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 15:13:961: INFO: Guest List size: 12
+>>>Sun 2019/11/24 15:13:962: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 15:13:964: INFO: Counter List size: 4
+>>>Sun 2019/11/24 15:13:965: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 15:13:966: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 15:13:401: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 15:13:801: WARNING: Failed Login attempt, phone Number:  , password: 
+>>>Sun 2019/11/24 15:13:803: WARNING: Failed Login attempt, phone Number:  , password: 
+>>>Sun 2019/11/24 15:13:924: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 15:13:925: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 15:13:925: INFO: Moving to next UI
+>>>Sun 2019/11/24 15:13:926: INFO: Creating StaffUI
+>>>Sun 2019/11/24 15:13:932: INFO: StaffUi created
+>>>Sun 2019/11/24 15:13:932: INFO: Logged in user access level: 1
+>>>Sun 2019/11/24 15:14:365: INFO: MainFrame Init started
+>>>Sun 2019/11/24 15:14:367: INFO: Loading config...
+>>>Sun 2019/11/24 15:14:368: INFO: Config loaded
+>>>Sun 2019/11/24 15:14:368: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 15:14:369: INFO: Loading BookingList...
+>>>Sun 2019/11/24 15:14:370: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 15:14:395: INFO: Booking List size: 11
+>>>Sun 2019/11/24 15:14:395: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 15:14:399: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 15:14:399: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 15:14:447: INFO: Room List size: 7
+>>>Sun 2019/11/24 15:14:448: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 15:14:473: INFO: Staff List size: 13
+>>>Sun 2019/11/24 15:14:473: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 15:14:490: INFO: Guest List size: 12
+>>>Sun 2019/11/24 15:14:493: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 15:14:496: INFO: Counter List size: 4
+>>>Sun 2019/11/24 15:14:497: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 15:14:497: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 15:14:828: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 15:14:345: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 15:14:346: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 15:14:347: INFO: Moving to next UI
+>>>Sun 2019/11/24 15:14:347: INFO: Creating StaffUI
+>>>Sun 2019/11/24 15:14:353: INFO: StaffUi created
+>>>Sun 2019/11/24 15:14:354: INFO: Logged in user access level: 1
+>>>Sun 2019/11/24 15:14:184: INFO: MainFrame Init started
+>>>Sun 2019/11/24 15:14:187: INFO: Loading config...
+>>>Sun 2019/11/24 15:14:188: INFO: Config loaded
+>>>Sun 2019/11/24 15:14:188: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 15:14:189: INFO: Loading BookingList...
+>>>Sun 2019/11/24 15:14:191: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 15:14:222: INFO: Booking List size: 11
+>>>Sun 2019/11/24 15:14:223: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 15:14:227: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 15:14:228: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 15:14:286: INFO: Room List size: 7
+>>>Sun 2019/11/24 15:14:287: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 15:14:309: INFO: Staff List size: 13
+>>>Sun 2019/11/24 15:14:310: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 15:14:325: INFO: Guest List size: 12
+>>>Sun 2019/11/24 15:14:326: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 15:14:329: INFO: Counter List size: 4
+>>>Sun 2019/11/24 15:14:330: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 15:14:331: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 15:14:654: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 15:14:427: WARNING: Failed Login attempt, phone Number: 52525252 , password: 1234
+>>>Sun 2019/11/24 15:14:427: INFO: Staff Member S256 has logged in
+>>>Sun 2019/11/24 15:14:428: INFO: Moving to next UI
+>>>Sun 2019/11/24 15:14:428: INFO: Creating StaffUI
+>>>Sun 2019/11/24 15:14:433: INFO: StaffUi created
+>>>Sun 2019/11/24 15:14:433: INFO: Logged in user access level: 1

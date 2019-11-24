@@ -32,7 +32,7 @@ public class Booking {
       {
          this.price += 100;
       }
-    }
+   }
    
    
       // Methods

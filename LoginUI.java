@@ -113,7 +113,7 @@ public class LoginUI extends CLI
          }
          
          if( this.guest != null || this.staff != null) loginSuccessful = true;
-         else System.out.println("INVALID. Try again. You can'y exit this loo. Good luck");
+         else System.out.println("Incorrect phone number or password combination, please try again");
       } while (!loginSuccessful);
       
       //printText("All good bro, ain't even gonna check", size);

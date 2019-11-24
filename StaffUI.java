@@ -120,10 +120,34 @@ public class StaffUI extends CLI
       this.screenNumber = 10; 
       Scanner input = new Scanner(System.in);
       header("Main Menu");
-      print("Clean rooms:");
-      print("420 | 69 | yaYeet");
-      print("Input 69 to yeet out");
-      screenNumber = intCheck();
+      print("1 Show list of rooms that neeed cleaning");
+      print("2 Quit");
+      selection = intCheck(1,2);
+      switch (selection)
+      {
+         case 1: // print rooms that require cleaning
+            header( "Rooms that require cleaning" );
+            ArrayList<Room> roomList = mf.getRoomList();
+            int dirtyRooms = 0;
+            for ( int i = 0; i < roomList.size(); i ++ )
+            {
+               if ( roomList.get(i).getRequiresCleaning() == true)
+               {
+                  print( (i+1) + " " + roomList.get(i).toString() );
+                  dirtyRooms++;
+               }
+            }
+            if (dirtyRooms == 0)
+            {
+               print2("No rooms require cleaning, check again in the next cleaning window");
+            }
+            returnQuit();
+            break;
+         case 2:
+            exit();
+            break;
+      }
+      //screenNumber = intCheck(1,1);
    }
    
    public void switchLevelTwo()
@@ -182,25 +206,39 @@ public class StaffUI extends CLI
             // screens choosing example below
             
             case 1:  //print report Guest
-               System.out.println("Rob, Bob, Bor, Rbo, Bro, Obr, Orb \n FuckFuckFuckFuckFuckFuckFuckFuckFuckFuckYeetFuckFuckFuckFuck");
-               break; 
+               header("Print guest repport");
+               ArrayList <Guest> guestListPrint = mf.getGuestList();
+               for (int i= 0; i<guestListPrint.size(); i++)
+               {
+                  System.out.println(guestListPrint.get(i).guestRepportToString());
+                  System.out.println();
+               }
+            //returnQuit();
+               break;                   
             case 2:  //print report Staff
-               System.out.println("123, 231, 321, 213, 231 \n word_pass_yeet_fuckfuckfuc");
+               header("Print staff repport");
+               ArrayList<Staff> staffListPrint = mf.getStaffList();
+               for (int i=0; i<staffListPrint.size(); i++)
+               {
+                  System.out.println(staffListPrint.get(i).staffRepportToString());
+                  System.out.println();
+               }
+               //returnQuit();
                break;
-            case 3:  //print report Room
-               System.out.println("420, 1123, 690, 666, 420x2 \n aviable, taken, occupied, demolished, secretMethlab");
+            case 3:  //print report booking
+               header("Print booking report");
+               ArrayList<Booking> bookingList = mf.getBookingList();
+               for (int i = 0; i<bookingList.size(); i++)
+               {
+                  System.out.println(bookingList.get(i).toString());
+                  System.out.println();
+               }
                break;
-            case 4: // print report buching
-               System.out.println("Today, Tomorrow, yesterday, Never, Gonna, Give, You, Up \n 00100111010100 0110101000110101 00011010110101 100010010001110");
-               break;
-            case 5: // print report teo
-               System.out.println("Today, Tomorrow, yesterday, Never, Gonna, Give, You, Up \n 00100111010100 0110101000110101 00011010110101 100010010001110");
-               break;
-            case 6:
-               exit();
-               break;
-            case 10:
+            case 4:  //main menu
                mainMenuLevelThree();
+               break;
+            case 5:  // exit
+               exit();
                break;
             default:
                print("invalid input, please try again.");
@@ -217,13 +255,12 @@ public class StaffUI extends CLI
       this.screenNumber = 10; 
       Scanner input = new Scanner(System.in);
       header("Main Menu");
-      print("1 Guest Report");
+      print("1 Guests Report");
       print("2 Staff Report");
-      print("3 Room Report");
-      print("4 Bookings Report");
-      print("5 Teo Report");
-      print("6 quit");
-      screenNumber = intCheck();
+      print("3 Bookings Report");
+      print("4 Return to main menu");
+      print("5 Quit");
+      screenNumber = intCheck(1,5);
    }
    
    public void switchLevelFour()
@@ -339,10 +376,9 @@ public class StaffUI extends CLI
       print("1 register a new guest");
       print("2 change guest details");
       print("3 delete a guest");
-      print("4 print a repport of all guests to file");
-      print("5 return to main menu or quit");            
+      print("4 return to main menu or quit");            
             
-      selection = intCheck(1,5);
+      selection = intCheck(1,4);
       switch (selection)
       {
          case 1:  //create guest
@@ -400,17 +436,17 @@ public class StaffUI extends CLI
                   break;
             }
             break;
-         case 4:  //print guest repport
-            header("Print guest repport");
-            ArrayList <Guest> guestListPrint = mf.getGuestList();
-            for (i= 0; i<guestListPrint.size(); i++)
-            {
-               System.out.println(guestListPrint.get(i).guestRepportToString());
-               System.out.println();
-            }
-            returnQuit();
-            break;
-         case 5: //return to main menu or quit
+         // case 4:  //print guest repport
+            // header("Print guest repport");
+            // ArrayList <Guest> guestListPrint = mf.getGuestList();
+            // for (i= 0; i<guestListPrint.size(); i++)
+            // {
+               // System.out.println(guestListPrint.get(i).guestRepportToString());
+               // System.out.println();
+            // }
+            // returnQuit();
+            // break;
+         case 4: //return to main menu or quit
             returnQuit();
       }
    }
@@ -422,9 +458,8 @@ public class StaffUI extends CLI
       print("1 register a new staff");
       print("2 change staff details");
       print("3 delete a staff");
-      print("4 print a repport of all staff to file");
-      print("5 return to main menu or quit"); 
-      selection = intCheck(1,5);
+      print("4 return to main menu or quit"); 
+      selection = intCheck(1,4);
       switch (selection)
       {
          case 1:  //register staff
@@ -482,17 +517,17 @@ public class StaffUI extends CLI
                   break;
             }
             break;
-         case 4:   //print staff report
-            header("Print staff repport");
-            ArrayList<Staff> staffListPrint = mf.getStaffList();
-            for (i=0; i<staffListPrint.size(); i++)
-            {
-               System.out.println(staffListPrint.get(i).staffRepportToString());
-               System.out.println();
-            }
-            returnQuit();
-            break;
-         case 5:  //returnQuit
+         // case 4:   //print staff report
+            // header("Print staff repport");
+            // ArrayList<Staff> staffListPrint = mf.getStaffList();
+            // for (i=0; i<staffListPrint.size(); i++)
+            // {
+               // System.out.println(staffListPrint.get(i).staffRepportToString());
+               // System.out.println();
+            // }
+            // returnQuit();
+            // break;
+         case 4:  //returnQuit
             returnQuit();
             break;
       }
@@ -681,10 +716,9 @@ public class StaffUI extends CLI
    {
       header("Manage booking");
       print("1 Create booking");
-      print("2 Print booking report");
-      print("3 Cancel booking");
-      print("4 Back");
-      selection = intCheck(1, 4);
+      print("2 Cancel booking");
+      print("3 Back");
+      selection = intCheck(1, 3);
       switch (selection)
       {
          case 1:  // create bookin
@@ -692,23 +726,23 @@ public class StaffUI extends CLI
             createBooking();
             returnQuit();
             break;
-         case 2:   //Print booking report
-            header("Print booking report");
-            ArrayList<Booking> bookingList = mf.getBookingList();
-            for (int i = 0; i<bookingList.size(); i++)
-            {
-               System.out.println(bookingList.get(i).toString());
-               System.out.println();
-            }
-                     //print("Report has been printed to file");
-            returnQuit();
-            break;
-         case 3:  //Cancel booking
+         // case 2:   //Print booking report
+            // header("Print booking report");
+            // ArrayList<Booking> bookingList = mf.getBookingList();
+            // for (int i = 0; i<bookingList.size(); i++)
+            // {
+               // System.out.println(bookingList.get(i).toString());
+               // System.out.println();
+            // }
+         //             //print("Report has been printed to file");
+            // returnQuit();
+            // break;
+         case 2:  //Cancel booking
             header("Cancel booking");
                      //JAN'S REPONSABILITY _____________________________________________________________ALLAHU AKBAR__________________________________________________________
             returnQuit();
             break;
-         case 4:
+         case 3:
             returnQuit();
             break;
       }
