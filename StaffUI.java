@@ -35,6 +35,9 @@ public class StaffUI extends CLI
    private int selection;
    private MainFrame mf;
    private Staff user;
+   
+   private boolean playSuccessSounds = true;
+   private boolean playDenySounds = true;
 
    public StaffUI(Staff user, String title, MainFrame mfRef)
    {
@@ -84,6 +87,7 @@ public class StaffUI extends CLI
          default:
             System.out.println("Yeet out boi, you got not accessLevel for this UI");
             mf.createLog("How did this guy get in here? id: " + user.getID(), Log.Type.WARNING);
+            if(this.playDenySounds) mf.playDeniedSound();
             break;
       } 
    }
@@ -107,6 +111,7 @@ public class StaffUI extends CLI
                break;
             default:
                print("invalid input, please try again.");
+               if(this.playDenySounds) mf.playDeniedSound();
                System.out.println();
                System.out.println();
                mainMenuLevelOne();
@@ -175,6 +180,7 @@ public class StaffUI extends CLI
                break;
             default:
                print("invalid input, please try again.");
+               if(this.playDenySounds) mf.playDeniedSound();
                System.out.println();
                System.out.println();
                mainMenuLevelOne();
@@ -246,6 +252,7 @@ public class StaffUI extends CLI
                break;
             default:
                print("invalid input, please try again.");
+               if(this.playDenySounds) mf.playDeniedSound();
                System.out.println();
                System.out.println();
                mainMenuLevelThree();
@@ -298,6 +305,7 @@ public class StaffUI extends CLI
                break;
             default:
                print("invalid input, please try again.");
+               if(this.playDenySounds) mf.playDeniedSound();
                System.out.println();
                System.out.println();
                mainMenuLevelOne();
@@ -351,6 +359,7 @@ public class StaffUI extends CLI
                break;
             default:
                print("invalid input, please try again.");
+               if(this.playDenySounds) mf.playDeniedSound();
                System.out.println();
                System.out.println();
                mainMenuLevelOne();
@@ -514,6 +523,7 @@ public class StaffUI extends CLI
                   staffList.remove(i);
                   mf.setStaffList(staffList);
                   print2("Staff has been deleted");
+                  if(this.playSuccessSounds) mf.playSuccessSound();
                   returnQuit();
                   break;
                case 2: //no
@@ -588,6 +598,7 @@ public class StaffUI extends CLI
          if (userID == null)
          {
             print2("Cpr not found, please try again.");
+            if(this.playDenySounds) mf.playDeniedSound();
          }
       } while (userID == null);
       printLines();
@@ -621,6 +632,7 @@ public class StaffUI extends CLI
             staffList.get(i).setFirstName(nameWiP);
             mf.setStaffList(staffList); 
             print2("The previous name of '" + fullName + "' has been changed to '" + nameWiP + " " + lastName + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 2:  //change last name
             header("Change " + fullName + "'s last Name");
@@ -632,6 +644,7 @@ public class StaffUI extends CLI
             staffList.get(i).setLastName(nameWiP);
             mf.setStaffList(staffList); 
             print2("The previous last name of '" + fullName + "' has been changed to '" + firstName + " " + nameWiP + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 3:  //change phone number
             header("Change " + fullName + "'s phone number");
@@ -642,6 +655,7 @@ public class StaffUI extends CLI
             staffList.get(i).setPhoneNumber(phoneNumberWiP);
             mf.setStaffList(staffList); 
             print2("The previous phone number of '" + fullName + "' has been changed to '" + phoneNumberWiP + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 4:  //change CPR??
             print2("Now why would you wanna do that silly?");
@@ -665,6 +679,7 @@ public class StaffUI extends CLI
             staffList.get(i).setAddress(address);
             mf.setStaffList(staffList); 
             print2("The address of " + fullName + " has been changed to '" + Arrays.toString(address) + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 6:  //change hourly pay
             header("Change " + fullName + "'s hourly salary");
@@ -673,6 +688,7 @@ public class StaffUI extends CLI
             salary = intCheck();
             staffList.get(i).setSalary(salary);
             mf.setStaffList(staffList);   
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 7:  //change yearly vacation days
             header("Change the amount of vacation days " + fullName + " has yearly");
@@ -682,6 +698,7 @@ public class StaffUI extends CLI
             vacation = intCheck();
             staffList.get(i).setVacation(vacation);
             mf.setStaffList(staffList); 
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 8: //change weekly work hours
             header("Change " + fullName + "'s weekly working hours");
@@ -691,6 +708,7 @@ public class StaffUI extends CLI
             hours = intCheck(1,45);
             staffList.get(i).setHours(hours);
             mf.setStaffList(staffList);
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 9: //change password
             header("Change " + fullName + "'s password");   
@@ -703,12 +721,14 @@ public class StaffUI extends CLI
                if ( !pass1.equals(pass2) ) 
                {
                   print("The passwords do not match, please try again");
+                  if(this.playDenySounds) mf.playDeniedSound();
                }
             } while ( !pass1.equals(pass2) );
             print2("Password modification successful");
             password = pass1;
             staffList.get(i).setPassword(password);
             mf.setStaffList(staffList);
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 10: //nothing
             returnQuit();
@@ -774,6 +794,7 @@ public class StaffUI extends CLI
          if (userID == null)
          {
             print2("Cpr not found, please try again.");
+            if(this.playDenySounds) mf.playDeniedSound();
          }
       } while (userID == null);
       printLines();
@@ -804,6 +825,7 @@ public class StaffUI extends CLI
             guestList.get(i).setFirstName(nameWiP);
             mf.setGuestList(guestList); 
             print2("The previous name of '" + fullName + "' has been changed to '" + nameWiP + " " + lastName + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 2:  //change last name
             header("Change " + fullName + "'s last Name");
@@ -815,6 +837,7 @@ public class StaffUI extends CLI
             guestList.get(i).setLastName(nameWiP);
             mf.setGuestList(guestList); 
             print2("The previous last name of '" + fullName + "' has been changed to '" + firstName + " " + nameWiP + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 3:  //change phone number
             header("Change " + fullName + "'s phone number");
@@ -825,6 +848,7 @@ public class StaffUI extends CLI
             guestList.get(i).setPhoneNumber(phoneNumberWiP);
             mf.setGuestList(guestList); 
             print2("The previous phone number of '" + fullName + "' has been changed to '" + phoneNumberWiP + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 4:  //change CPR??
             print2("Now why would you wanna do that silly?");
@@ -848,6 +872,7 @@ public class StaffUI extends CLI
             guestList.get(i).setAddress(address);
             mf.setGuestList(guestList); 
             print2("The address of " + fullName + " has been changed to '" + Arrays.toString(address) + "'");
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 6:  //change password
             header("Change " + fullName + "'s password");   
@@ -860,12 +885,14 @@ public class StaffUI extends CLI
                if ( !pass1.equals(pass2) ) 
                {
                   print("The passwords do not match, please try again");
+                  if(this.playDenySounds) mf.playDeniedSound();
                }
             } while ( !pass1.equals(pass2) );
             print2("Password modification successful");
             password = pass1;
             guestList.get(i).setPassword(password);
             mf.setGuestList(guestList);
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 7: //nothing
             break;
@@ -891,6 +918,7 @@ public class StaffUI extends CLI
       int roomNo = intCheck ( 1, roomList.size() ) - 1;
       roomList.remove(roomNo);
       mf.setRoomList(roomList);
+      if(this.playSuccessSounds) mf.playSuccessSound();
    }
    
    public void changeRoom()
@@ -956,6 +984,7 @@ public class StaffUI extends CLI
             }
             roomList.get(roomNo).setIsBooked(isBookedWiP);
             mf.setRoomList(roomList); 
+            if(this.playSuccessSounds) mf.playSuccessSound();
             break;
          case 4:  //change requiresCleaning
             header("Change room's cleaning status");
@@ -973,7 +1002,8 @@ public class StaffUI extends CLI
                requiresCleaningWiP = true;
             }
             roomList.get(roomNo).setRequiresCleaning(requiresCleaningWiP);
-            mf.setRoomList(roomList); 
+            mf.setRoomList(roomList);
+            if(this.playSuccessSounds) mf.playSuccessSound(); 
             break;
          case 5:
             returnQuit();
@@ -1073,6 +1103,7 @@ public class StaffUI extends CLI
          } else 
          {
             print2("No matching rooms found for the selected dates and the amount of beds, please try again.");  //How do i make it loop back?
+            if(this.playDenySounds) mf.playDeniedSound();
          }
          print2("Please select the preferred room");
       }
@@ -1081,6 +1112,7 @@ public class StaffUI extends CLI
       roomPrice = displayRooms.get(selectedRoom-2).getPrice();
       Booking guestBooking = new Booking(bookingID,roomID, userID, startDate, endDate, roomPrice, hasInternet);
       mf.createBooking(guestBooking); // in order to save
+      if(this.playSuccessSounds) mf.playSuccessSound();
    }
   
    public void createStaff()
@@ -1143,6 +1175,7 @@ public class StaffUI extends CLI
       //created.setAddress(address);
       mf.addStaff(created);
       mf.createLog("New Staff member Added, ID: " + staffID, Log.Type.INFO);
+      if(this.playSuccessSounds) mf.playSuccessSound();
    }
 
    public void createGuest() 
@@ -1153,7 +1186,7 @@ public class StaffUI extends CLI
       Guest created = new Guest(firstName, lastName, cpr, address, phoneNumber, password, guestID);
       mf.addGuest(created);
       System.out.println();
-      
+      if(this.playSuccessSounds) mf.playSuccessSound();
    }
 
    public void createRoom()
@@ -1172,6 +1205,7 @@ public class StaffUI extends CLI
       ArrayList<Room> roomList = mf.getRoomList();
       roomList.add(r);
       mf.setRoomList(roomList);
+      if(this.playSuccessSounds) mf.playSuccessSound();
       System.out.println();
    }
 
@@ -1216,10 +1250,12 @@ public class StaffUI extends CLI
          if ( !pass1.equals(pass2) ) 
          {
             print("The passwords do not match, please try again.");
+            if(this.playDenySounds) mf.playDeniedSound();
          }
       } while ( !pass1.equals(pass2) );
       print2("Password creation successful");
       password = pass1;
+      if(this.playSuccessSounds) mf.playSuccessSound();
       System.out.println();  
    }
 
@@ -1260,7 +1296,7 @@ public class StaffUI extends CLI
       {
          String shit = input.next();
          print2("Invalid input detected, please only type numbers.");
-         
+         if(this.playDenySounds) mf.playDeniedSound();
       }
       number = input.nextDouble();
       return number;
@@ -1276,7 +1312,7 @@ public class StaffUI extends CLI
       {
          String shit = input.next();
          print2("Invalid input detected, please only type numbers without a comma.");
-         
+         if(this.playDenySounds) mf.playDeniedSound();
       }
       number = input.nextInt();
       while (!(number>=min && number<=max))
@@ -1286,7 +1322,7 @@ public class StaffUI extends CLI
          {
             String shit = input.next();
             print2("Invalid input detected, please only type numbers without a comma.");
-            
+            if(this.playDenySounds) mf.playDeniedSound();
          }
          number = input.nextInt();
       }   
@@ -1302,6 +1338,7 @@ public class StaffUI extends CLI
       {
          String shit = input.next();
          print2("Invalid input detected, please only type numbers without a comma.");
+         if(this.playDenySounds) mf.playDeniedSound();
       }
       number = input.nextInt();
       return number;
@@ -1318,6 +1355,7 @@ public class StaffUI extends CLI
          {
             print2("Invalid phone number, please input a correct phone number");
             print2("Phone numbers should look something like this: 12345678\n");
+            if(this.playDenySounds) mf.playDeniedSound();
             number = console.next();
          }
             
@@ -1325,6 +1363,7 @@ public class StaffUI extends CLI
          {
             print2("Invalid phone number, please input a correct phone number");
             print2("Phone numbers should look something like this: 12345678\n");
+            if(this.playDenySounds) mf.playDeniedSound();
             number = console.next();
          }
       }
@@ -1337,6 +1376,7 @@ public class StaffUI extends CLI
          {
             print2("Phone numbers must contain 8 numbers, and no country code.");
             print2("For example '12345678'. Please try again.");
+            if(this.playDenySounds) mf.playDeniedSound();
             number = console.next();
          
             while (!(number.length() == 8)) //checking that phone number length is corret.
@@ -1345,6 +1385,7 @@ public class StaffUI extends CLI
                {
                   print2("Invalid phone number, please input a correct phone number");
                   print2("Phone numbers should look something like this: 12345678\n");
+                  if(this.playDenySounds) mf.playDeniedSound();
                   number = console.next();
                }
                      
@@ -1352,6 +1393,7 @@ public class StaffUI extends CLI
                {
                   print2("Invalid phone number, please input a correct phone number");
                   print2("Phone numbers should look something like this: 12345678\n");
+                  if(this.playDenySounds) mf.playDeniedSound();
                   number = console.next();
                }
             }
@@ -1373,6 +1415,7 @@ public class StaffUI extends CLI
          {
             print2("CPR number is too long, please input a correct CPR number");
             print2("Cpr should look something like this: 123456-1234\n");
+            if(this.playDenySounds) mf.playDeniedSound();
             cpr = console.next();
          }
             
@@ -1380,6 +1423,7 @@ public class StaffUI extends CLI
          {
             print2("CPR number is too short, please input a correct CPR number");
             print2("Cpr should look something like this: 123456-1234\n");
+            if(this.playDenySounds) mf.playDeniedSound();
             cpr = console.next();
          }
       }
@@ -1387,6 +1431,7 @@ public class StaffUI extends CLI
       {
          print2("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
          print2("For example '123456-1234'. Please try again.");
+         if(this.playDenySounds) mf.playDeniedSound();
          cpr = console.next();
       }
       char intCheck;
@@ -1401,6 +1446,7 @@ public class StaffUI extends CLI
          {
             print2("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
             print2("For example '123456-1234'. Please try again.");
+            if(this.playDenySounds) mf.playDeniedSound();
             cpr = console.next();
          
             while (!(cpr.length() == 11)) //checking that CPR number is corret.
@@ -1409,6 +1455,7 @@ public class StaffUI extends CLI
                {
                   print2("CPR number is too long, please input a correct CPR number.");
                   print2("Cpr should look something like this: 123456-1234\n");
+                  if(this.playDenySounds) mf.playDeniedSound();
                   cpr = console.next();
                }
                      
@@ -1416,6 +1463,7 @@ public class StaffUI extends CLI
                {
                   print2("CPR number is too short, please input a correct CPR number.");
                   print2("Cpr should look something like this: 123456-1234\n");
+                  if(this.playDenySounds) mf.playDeniedSound();
                   cpr = console.next();
                }
             }
@@ -1423,6 +1471,7 @@ public class StaffUI extends CLI
             {
                print2("CPR numbers must contain 6 numbers, a dash and the remaining 4 numebers.");
                print2("For example '123456-1234'. Please try again.");
+               if(this.playDenySounds) mf.playDeniedSound();
                cpr = console.next();
             }
             intCheck = cpr.charAt(i);

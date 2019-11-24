@@ -931,6 +931,38 @@ public class MainFrame // MF or motherFucker for short
       }
    }
    
+   public void playDeniedSound()
+   {  
+      String soundName = "";
+      try
+      {
+         Musik sound = new Musik();
+         
+         soundName = sound.playDenySound();
+      }
+      catch (Exception e)
+      {
+         createLog("Unable to play Deny Sound: " + soundName, Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
+   public void playSuccessSound()
+   {  
+      String soundName = "";
+      try
+      {
+         Musik sound = new Musik();
+         
+         soundName = sound.playSuccessSound();
+      }
+      catch (Exception e)
+      {
+         createLog("Unable to play Success Sound: " + soundName, Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+      }
+   }
+   
    ////////// minor Getters and Setter //////////
    
    public void enableLog(boolean printLog)

@@ -113,22 +113,13 @@ public class LoginUI extends CLI
          }
          
          if( this.guest != null || this.staff != null) loginSuccessful = true;
-         else System.out.println("Incorrect phone number or password combination, please try again");
+         else
+         {
+            System.out.println("Incorrect phone number or password combination, please try again");
+            mf.playDeniedSound();
+         }
       } while (!loginSuccessful);
-      
-      //printText("All good bro, ain't even gonna check", size);
-      
-      // Placeholder user init
-      //String[] arr = new String[3];
-      //arr[0] = "Yeet";
-      //arr[1] = "Yote";
-      //arr[2] = "yoten";
-      //this.guest = new Guest ("Faisal", "Boolyan", "1234561234", arr, "12345678", "passwd", 0);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
-      //this.staff = new Staff ("Man", "Strong", "123456-1234", "ST", arr, "12345678", "passwd", 0, 37, 140.0, 5);
-      //this.guest = null;
-      //this.staff = null;
-      //mf.validateogin(
-      
+      mf.playSuccessSound();      
       this.screenNumber = 99; // Exit loginUI
    }
    
@@ -201,8 +192,8 @@ public class LoginUI extends CLI
       print();
       password = pass1;
       
-      this.guest = new Guest (firstName, lastName, cpr, address, phoneNr, password, IDCounter);   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
-      //System.out.println("\n" + Teo.toString());
+      this.guest = new Guest (firstName, lastName, cpr, address, phoneNr, password, mf.generateGuestID());   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
+      mf.playSuccessSound();
    }
    
    public  String check (String question, int min, int max)

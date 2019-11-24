@@ -70,7 +70,58 @@ public class Musik
       clip = AudioSystem.getClip();
       clip.open(audio);
       
-      play();
+      clip.start();
+      this.status = "playing";
+      return this.filePath;
+   }
+   
+   public String playDenySound()
+      throws UnsupportedAudioFileException, IOException, LineUnavailableException
+   {
+      ArrayList<String> sounds = new ArrayList<String>();
+      File[] files = new File("musik/").listFiles();
+      for(int i = 0; i < files.length; i++)
+      {
+         if(files[i].getName().contains("denied"))
+         {
+            sounds.add(files[i].getName());
+         }
+      }
+      
+      Random soundNum = new Random();
+      this.filePath = "musik/" + sounds.get(soundNum.nextInt(sounds.size()));;
+      audio = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile());
+      
+      clip = AudioSystem.getClip();
+      clip.open(audio);
+      
+      clip.start();
+      this.status = "playing";
+      return this.filePath;
+   }
+   
+   public String playSuccessSound()
+      throws UnsupportedAudioFileException, IOException, LineUnavailableException
+   {
+      ArrayList<String> sounds = new ArrayList<String>();
+      File[] files = new File("musik/").listFiles();
+      for(int i = 0; i < files.length; i++)
+      {
+         if(files[i].getName().contains("success"))
+         {
+            sounds.add(files[i].getName());
+         }
+      }
+      
+      Random soundNum = new Random();
+      this.filePath = "musik/" + sounds.get(soundNum.nextInt(sounds.size()));;
+      audio = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile());
+      
+      clip = AudioSystem.getClip();
+      clip.open(audio);
+      
+      clip.start();
+      this.status = "playing";
       return this.filePath;
    }
    
