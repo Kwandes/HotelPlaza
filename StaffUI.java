@@ -213,7 +213,8 @@ public class StaffUI extends CLI
                   System.out.println(guestListPrint.get(i).guestRepportToString());
                   System.out.println();
                }
-            //returnQuit();
+               returnQuit();
+               this.screenNumber = 4;
                break;                   
             case 2:  //print report Staff
                header("Print staff repport");
@@ -223,7 +224,8 @@ public class StaffUI extends CLI
                   System.out.println(staffListPrint.get(i).staffRepportToString());
                   System.out.println();
                }
-               //returnQuit();
+               returnQuit();
+               this.screenNumber = 4;
                break;
             case 3:  //print report booking
                header("Print booking report");
@@ -233,6 +235,8 @@ public class StaffUI extends CLI
                   System.out.println(bookingList.get(i).toString());
                   System.out.println();
                }
+               returnQuit();
+               this.screenNumber = 4;
                break;
             case 4:  //main menu
                mainMenuLevelThree();
@@ -244,7 +248,7 @@ public class StaffUI extends CLI
                print("invalid input, please try again.");
                System.out.println();
                System.out.println();
-               mainMenuLevelOne();
+               mainMenuLevelThree();
                break;
          }
       }
