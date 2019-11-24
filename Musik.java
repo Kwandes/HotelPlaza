@@ -10,6 +10,9 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Musik
 {
    private String filePath;
@@ -28,6 +31,11 @@ public class Musik
       clip.open(audio);
    }
    
+   public Musik()
+   {
+      this.status = "idle";
+   }
+   
    public void play()
    {
       clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -40,6 +48,30 @@ public class Musik
       clip.stop();
       clip.close();
       this.status = "stopped";
+   }
+   
+   public String playErrorSound()
+      throws UnsupportedAudioFileException, IOException, LineUnavailableException
+   {
+      ArrayList<String> sounds = new ArrayList<String>();
+      File[] files = new File("musik/").listFiles();
+      for(int i = 0; i < files.length; i++)
+      {
+         if(files[i].getName().contains("error"))
+         {
+            sounds.add(files[i].getName());
+         }
+      }
+      
+      Random soundNum = new Random();
+      this.filePath = "musik/" + sounds.get(soundNum.nextInt(sounds.size()));;
+      audio = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile());
+      
+      clip = AudioSystem.getClip();
+      clip.open(audio);
+      
+      play();
+      return this.filePath;
    }
    
    public void setVolume(float volume)
