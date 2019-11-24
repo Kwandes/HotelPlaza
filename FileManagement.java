@@ -330,6 +330,7 @@ public class FileManagement
          array.add ( in.nextInt() );
          array.add ( in.nextInt() );
          array.add ( in.nextInt() );
+         array.add ( in.nextInt() );
       }            
       return array;
    }

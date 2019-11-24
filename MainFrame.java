@@ -80,14 +80,21 @@ public class MainFrame // MF or motherFucker for short
          boolean loadStatus = true;
          
          if(!loadBookingList()) loadStatus = false;
+         createLog("Booking List size: " + this.bookingList.size(), Log.Type.INFO);
          if(!loadArchivedBookingList()) loadStatus = false;
+         createLog("Archived Booking List size: " + this.archivedBookingList.size(), Log.Type.INFO);
          if(!loadRoomList()) loadStatus = false;
+         createLog("Room List size: " + this.roomList.size(), Log.Type.INFO);
          if(!loadStaffList()) loadStatus = false;
+         createLog("Staff List size: " + this.staffList.size(), Log.Type.INFO);
          if(!loadGuestList()) loadStatus = false;
+         createLog("Guest List size: " + this.guestList.size(), Log.Type.INFO);
          if(!loadCounterList()) loadStatus = false;
+         createLog("Counter List size: " + this.counterList.size(), Log.Type.INFO);
          
          if(loadStatus) createLog("ArrayList setup complete", Log.Type.INFO);
          else createLog("ArrayList setup incomplete", Log.Type.WARNING);
+         
          
          createLog("MainFrame init has completed successfully", Log.Type.INFO);
          
@@ -506,7 +513,7 @@ public class MainFrame // MF or motherFucker for short
       try
       {
          this.guestList.add(guest);
-         createLog("Guest " + guest.getID() + "added", Log.Type.INFO);
+         createLog("Guest " + guest.getID() + " added", Log.Type.INFO);
          if (this.saveToFile)
          {
             file.saveData(new Information(null, null, null, this.guestList, null, null));
@@ -614,7 +621,7 @@ public class MainFrame // MF or motherFucker for short
       try
       {
          this.staffList.add(staff);
-         createLog("Staff " + staff.getID() + "added", Log.Type.INFO);
+         createLog("Staff " + staff.getID() + " added", Log.Type.INFO);
          if (this.saveToFile)
          {
             file.saveData(new Information(null, null, null, null, this.staffList, null));
@@ -714,33 +721,77 @@ public class MainFrame // MF or motherFucker for short
    
    public int generateBookingID()
    {
-      int id = this.counterList.get(0) + 1;
-      this.counterList.set(0, this.counterList.get(0) + 1);
-      saveCounterList();
+      int id;
+      try
+      {
+         id = this.counterList.get(0) + 1;
+         createLog("Generated new Booking ID: " + id, Log.Type.INFO);
+         this.counterList.set(0, this.counterList.get(0) + 1);
+         saveCounterList();
+      }
+      catch (Exception e)
+      {
+         createLog("Generating new Booking ID failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         id = 0;
+      }
       return id;
    }
    
    public int generateRoomID()
    {
-      int id = this.counterList.get(1) + 1;
-      this.counterList.set(1, this.counterList.get(1) + 1);
-      saveCounterList();
+      int id;
+      try
+      {
+         id = this.counterList.get(1) + 1;
+         createLog("Generated new Room ID: " + id, Log.Type.INFO);
+         this.counterList.set(1, this.counterList.get(1) + 1);
+         saveCounterList();
+      }
+      catch (Exception e)
+      {
+         createLog("Generating new Room ID failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         id = 0;
+      }
       return id;
    }
    
    public int generateGuestID()
    {
-      int id = this.counterList.get(2) + 1;
-      this.counterList.set(2, this.counterList.get(2) + 1);
-      saveCounterList();
+      int id;
+      try
+      {
+         id = this.counterList.get(2) + 1;
+         createLog("Generated new Guest ID: " + id, Log.Type.INFO);
+         this.counterList.set(2, this.counterList.get(2) + 1);
+         saveCounterList();
+      }
+      catch (Exception e)
+      {
+         createLog("Generating new Guest ID failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         id = 0;
+      }
       return id;
    }
    
    public int generateStaffID()
    {
-      int id = this.counterList.get(3) + 1;
-      this.counterList.set(3, this.counterList.get(3) + 1);
-      saveCounterList();
+      int id;
+      try
+      {
+         id = this.counterList.get(3) + 1;
+         createLog("Generated new Staff ID: " + id, Log.Type.INFO);
+         this.counterList.set(3, this.counterList.get(3) + 1);
+         saveCounterList();
+      }
+      catch (Exception e)
+      {
+         createLog("Generating new Staff ID failed", Log.Type.WARNING);
+         createLog(e, Log.Type.ERROR);
+         id = 0;
+      }
       return id;
    }
    

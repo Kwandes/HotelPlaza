@@ -38,6 +38,11 @@ public class User
    {
       return TYPE[typeNr(type)];
    }
+   
+   public String[] getTYPE () 
+   {
+      return TYPE;
+   }
 
       //Methods WithinClass
    

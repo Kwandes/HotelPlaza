@@ -2784,3 +2784,481 @@
 >>>Fri 2019/11/22 14:50:760: INFO: Updated Counter List saved
 >>>Fri 2019/11/22 14:50:772: INFO: FM>:Saving BookingList
 >>>Fri 2019/11/22 14:50:787: INFO: New Booking created, id: 10
+>>>Sun 2019/11/24 01:01:102: INFO: MainFrame Init started
+>>>Sun 2019/11/24 01:01:119: INFO: Loading config...
+>>>Sun 2019/11/24 01:01:178: INFO: Config loaded
+>>>Sun 2019/11/24 01:01:178: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 01:01:179: INFO: Loading BookingList...
+>>>Sun 2019/11/24 01:01:180: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 01:01:194: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 01:01:196: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 01:01:209: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 01:01:218: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 01:01:222: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 01:01:224: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 01:01:225: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 01:01:974: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 01:01:497: INFO: Moving to next UI
+>>>Sun 2019/11/24 01:01:498: WARNING: No UI openable OR User has exited the application
+>>>Sun 2019/11/24 01:22:999: INFO: MainFrame Init started
+>>>Sun 2019/11/24 01:22:001: INFO: Loading config...
+>>>Sun 2019/11/24 01:22:001: INFO: Config loaded
+>>>Sun 2019/11/24 01:22:002: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 01:22:002: INFO: Loading BookingList...
+>>>Sun 2019/11/24 01:22:003: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 01:22:017: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 01:22:019: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 01:22:031: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 01:22:040: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 01:22:045: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 01:22:047: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 01:22:048: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 01:22:336: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 01:23:504: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 01:23:505: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 01:23:506: INFO: Moving to next UI
+>>>Sun 2019/11/24 01:23:506: INFO: Creating StaffUI
+>>>Sun 2019/11/24 01:23:517: INFO: StaffUi created
+>>>Sun 2019/11/24 01:24:334: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:741)
+	at StaffUI.createStaff(StaffUI.java:1058)
+	at StaffUI.manageStaff(StaffUI.java:429)
+	at StaffUI.switchLevelFive(StaffUI.java:295)
+	at StaffUI.display(StaffUI.java:80)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 01:24:335: WARNING: UI failed to create
+>>>Sun 2019/11/24 01:25:375: INFO: MainFrame Init started
+>>>Sun 2019/11/24 01:25:377: INFO: Loading config...
+>>>Sun 2019/11/24 01:25:377: INFO: Config loaded
+>>>Sun 2019/11/24 01:25:378: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 01:25:378: INFO: Loading BookingList...
+>>>Sun 2019/11/24 01:25:379: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 01:25:393: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 01:25:395: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 01:25:407: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 01:25:417: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 01:25:421: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 01:25:423: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 01:25:424: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 01:25:717: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 01:25:550: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 01:25:551: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 01:25:552: INFO: Moving to next UI
+>>>Sun 2019/11/24 01:25:552: INFO: Creating StaffUI
+>>>Sun 2019/11/24 01:25:554: INFO: StaffUi created
+>>>Sun 2019/11/24 01:26:277: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:741)
+	at StaffUI.createStaff(StaffUI.java:1058)
+	at StaffUI.manageStaff(StaffUI.java:429)
+	at StaffUI.switchLevelFive(StaffUI.java:295)
+	at StaffUI.display(StaffUI.java:80)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 01:26:278: WARNING: UI failed to create
+>>>Sun 2019/11/24 01:29:610: INFO: MainFrame Init started
+>>>Sun 2019/11/24 01:29:612: INFO: Loading config...
+>>>Sun 2019/11/24 01:29:612: INFO: Config loaded
+>>>Sun 2019/11/24 01:29:613: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 01:29:613: INFO: Loading BookingList...
+>>>Sun 2019/11/24 01:29:614: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 01:29:628: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 01:29:630: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 01:29:641: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 01:29:650: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 01:29:654: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 01:29:655: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 01:29:656: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 01:29:925: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 01:29:429: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 01:29:429: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 01:29:430: INFO: Moving to next UI
+>>>Sun 2019/11/24 01:29:430: INFO: Creating StaffUI
+>>>Sun 2019/11/24 01:29:433: INFO: StaffUi created
+>>>Sun 2019/11/24 01:29:521: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:741)
+	at StaffUI.createStaff(StaffUI.java:1058)
+	at StaffUI.manageStaff(StaffUI.java:429)
+	at StaffUI.switchLevelFive(StaffUI.java:295)
+	at StaffUI.display(StaffUI.java:80)
+	at MainFrame.openCLI(MainFrame.java:810)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 01:29:522: WARNING: UI failed to create
+>>>Sun 2019/11/24 01:33:676: INFO: MainFrame Init started
+>>>Sun 2019/11/24 01:33:678: INFO: Loading config...
+>>>Sun 2019/11/24 01:33:678: INFO: Config loaded
+>>>Sun 2019/11/24 01:33:679: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 01:33:679: INFO: Loading BookingList...
+>>>Sun 2019/11/24 01:33:680: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 01:33:694: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 01:33:696: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 01:33:707: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 01:33:718: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 01:33:724: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 01:33:725: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 01:33:726: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 01:33:991: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 01:33:697: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 01:33:698: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 01:33:699: INFO: Moving to next UI
+>>>Sun 2019/11/24 01:33:699: INFO: Creating StaffUI
+>>>Sun 2019/11/24 01:33:702: INFO: StaffUi created
+>>>Sun 2019/11/24 01:33:732: WARNING: Generating new Staff ID failed
+>>>Sun 2019/11/24 01:33:734: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:774)
+	at StaffUI.createStaff(StaffUI.java:1058)
+	at StaffUI.manageStaff(StaffUI.java:429)
+	at StaffUI.switchLevelFive(StaffUI.java:295)
+	at StaffUI.display(StaffUI.java:80)
+	at MainFrame.openCLI(MainFrame.java:850)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 01:33:735: INFO: Staff nulladded
+>>>Sun 2019/11/24 01:33:735: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 01:33:753: INFO: New Staff List saved
+>>>Sun 2019/11/24 02:02:216: INFO: MainFrame Init started
+>>>Sun 2019/11/24 02:02:217: INFO: Loading config...
+>>>Sun 2019/11/24 02:02:218: INFO: Config loaded
+>>>Sun 2019/11/24 02:02:219: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 02:02:219: INFO: Loading BookingList...
+>>>Sun 2019/11/24 02:02:220: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 02:02:233: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 02:02:235: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 02:02:247: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 02:02:256: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 02:02:260: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 02:02:261: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 02:02:262: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 02:02:524: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 02:02:642: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 02:02:643: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 02:02:643: INFO: Moving to next UI
+>>>Sun 2019/11/24 02:02:644: INFO: Creating StaffUI
+>>>Sun 2019/11/24 02:02:646: INFO: StaffUi created
+>>>Sun 2019/11/24 02:02:282: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 02:03:725: INFO: getting user Type
+>>>Sun 2019/11/24 02:03:111: WARNING: Getting user type went awfuly wrong
+>>>Sun 2019/11/24 02:03:112: ERROR: java.lang.ArrayIndexOutOfBoundsException: 5
+	at StaffUI.createStaff(StaffUI.java:1073)
+	at StaffUI.manageStaff(StaffUI.java:431)
+	at StaffUI.switchLevelFive(StaffUI.java:296)
+	at StaffUI.display(StaffUI.java:81)
+	at MainFrame.openCLI(MainFrame.java:850)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 02:03:864: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 02:03:864: WARNING: Generating new Staff ID failed
+>>>Sun 2019/11/24 02:03:865: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:774)
+	at StaffUI.createStaff(StaffUI.java:1095)
+	at StaffUI.manageStaff(StaffUI.java:431)
+	at StaffUI.switchLevelFive(StaffUI.java:296)
+	at StaffUI.display(StaffUI.java:81)
+	at MainFrame.openCLI(MainFrame.java:850)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 02:03:866: INFO: Creating new Staff member, ID: 1360
+>>>Sun 2019/11/24 02:03:866: INFO: Staff 1360added
+>>>Sun 2019/11/24 02:03:867: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 02:03:869: INFO: New Staff List saved
+>>>Sun 2019/11/24 02:04:191: INFO: MainFrame Init started
+>>>Sun 2019/11/24 02:04:193: INFO: Loading config...
+>>>Sun 2019/11/24 02:04:194: INFO: Config loaded
+>>>Sun 2019/11/24 02:04:194: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 02:04:195: INFO: Loading BookingList...
+>>>Sun 2019/11/24 02:04:195: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 02:04:209: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 02:04:212: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 02:04:224: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 02:04:234: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 02:04:240: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 02:04:242: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 02:04:244: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 02:04:518: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 02:04:007: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 02:04:008: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 02:04:009: INFO: Moving to next UI
+>>>Sun 2019/11/24 02:04:009: INFO: Creating StaffUI
+>>>Sun 2019/11/24 02:04:011: INFO: StaffUi created
+>>>Sun 2019/11/24 02:04:301: INFO: MainFrame Init started
+>>>Sun 2019/11/24 02:04:304: INFO: Loading config...
+>>>Sun 2019/11/24 02:04:304: INFO: Config loaded
+>>>Sun 2019/11/24 02:04:304: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 02:04:304: INFO: Loading BookingList...
+>>>Sun 2019/11/24 02:04:305: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 02:04:320: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 02:04:322: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 02:04:334: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 02:04:342: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 02:04:346: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 02:04:348: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 02:04:349: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 02:04:621: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 02:04:137: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 02:04:138: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 02:04:138: INFO: Moving to next UI
+>>>Sun 2019/11/24 02:04:139: INFO: Creating StaffUI
+>>>Sun 2019/11/24 02:04:141: INFO: StaffUi created
+>>>Sun 2019/11/24 02:04:697: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 02:04:571: INFO: getting user Type
+>>>Sun 2019/11/24 02:05:131: INFO: User type selected: Director
+>>>Sun 2019/11/24 02:05:324: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 02:05:325: WARNING: Generating new Staff ID failed
+>>>Sun 2019/11/24 02:05:326: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:774)
+	at StaffUI.createStaff(StaffUI.java:1095)
+	at StaffUI.manageStaff(StaffUI.java:431)
+	at StaffUI.switchLevelFive(StaffUI.java:296)
+	at StaffUI.display(StaffUI.java:81)
+	at MainFrame.openCLI(MainFrame.java:850)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 02:05:327: INFO: Creating new Staff member, ID: 1360
+>>>Sun 2019/11/24 02:05:327: INFO: Staff 1360added
+>>>Sun 2019/11/24 02:05:328: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 02:05:330: INFO: New Staff List saved
+>>>Sun 2019/11/24 02:09:532: INFO: MainFrame Init started
+>>>Sun 2019/11/24 02:09:534: INFO: Loading config...
+>>>Sun 2019/11/24 02:09:535: INFO: Config loaded
+>>>Sun 2019/11/24 02:09:535: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 02:09:535: INFO: Loading BookingList...
+>>>Sun 2019/11/24 02:09:536: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 02:09:551: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 02:09:553: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 02:09:566: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 02:09:575: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 02:09:579: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 02:09:580: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 02:09:581: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 02:09:857: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 02:09:666: WARNING: Failed Login attempt, phone Number: 66666666 , password: 6666
+>>>Sun 2019/11/24 02:09:667: INFO: Staff Member 1360 has logged in
+>>>Sun 2019/11/24 02:09:667: INFO: Moving to next UI
+>>>Sun 2019/11/24 02:09:668: INFO: Creating StaffUI
+>>>Sun 2019/11/24 02:09:670: INFO: StaffUi created
+>>>Sun 2019/11/24 02:10:008: INFO: FM>:Saving CounterList
+>>>Sun 2019/11/24 02:10:010: INFO: Updated Counter List saved
+>>>Sun 2019/11/24 02:10:010: INFO: Guest G01added
+>>>Sun 2019/11/24 02:10:011: INFO: FM>:Saving GuestList
+>>>Sun 2019/11/24 02:10:012: INFO: New Guest List saved
+>>>Sun 2019/11/24 02:16:861: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 02:17:890: INFO: getting user Type
+>>>Sun 2019/11/24 02:17:962: INFO: User type selected: Cleaner
+>>>Sun 2019/11/24 02:17:068: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 02:17:069: WARNING: Generating new Staff ID failed
+>>>Sun 2019/11/24 02:17:070: ERROR: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at MainFrame.generateStaffID(MainFrame.java:774)
+	at StaffUI.createStaff(StaffUI.java:1095)
+	at StaffUI.manageStaff(StaffUI.java:431)
+	at StaffUI.switchLevelFive(StaffUI.java:296)
+	at StaffUI.display(StaffUI.java:81)
+	at MainFrame.openCLI(MainFrame.java:850)
+	at Main.main(Main.java:22)
+
+>>>Sun 2019/11/24 02:17:070: INFO: Creating new Staff member, ID: 1360
+>>>Sun 2019/11/24 02:17:071: INFO: Staff 1360added
+>>>Sun 2019/11/24 02:17:071: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 02:17:074: INFO: New Staff List saved
+>>>Sun 2019/11/24 02:17:074: INFO: New Staff member Added, ID: 1360
+>>>Sun 2019/11/24 03:09:640: INFO: MainFrame Init started
+>>>Sun 2019/11/24 03:09:641: INFO: Loading config...
+>>>Sun 2019/11/24 03:09:642: INFO: Config loaded
+>>>Sun 2019/11/24 03:09:643: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 03:09:643: INFO: Loading BookingList...
+>>>Sun 2019/11/24 03:09:644: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 03:09:657: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 03:09:660: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 03:09:671: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 03:09:680: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 03:09:684: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 03:09:685: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 03:09:686: INFO: Counter 0: 50
+>>>Sun 2019/11/24 03:09:687: INFO: Counter 1: 50
+>>>Sun 2019/11/24 03:09:687: INFO: Counter 2: 50
+>>>Sun 2019/11/24 03:09:688: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 03:09:966: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 03:09:543: INFO: Moving to next UI
+>>>Sun 2019/11/24 03:09:544: WARNING: No UI openable OR User has exited the application
+>>>Sun 2019/11/24 03:11:415: INFO: MainFrame Init started
+>>>Sun 2019/11/24 03:11:417: INFO: Loading config...
+>>>Sun 2019/11/24 03:11:418: INFO: Config loaded
+>>>Sun 2019/11/24 03:11:418: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 03:11:419: INFO: Loading BookingList...
+>>>Sun 2019/11/24 03:11:420: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 03:11:433: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 03:11:435: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 03:11:447: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 03:11:456: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 03:11:460: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 03:11:462: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 03:11:463: INFO: Counter 0: 50
+>>>Sun 2019/11/24 03:11:463: INFO: Counter 1: 50
+>>>Sun 2019/11/24 03:11:464: INFO: Counter 2: 50
+>>>Sun 2019/11/24 03:11:465: INFO: Counter 3: 50
+>>>Sun 2019/11/24 03:11:465: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 03:11:743: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 03:11:407: INFO: Moving to next UI
+>>>Sun 2019/11/24 03:11:407: WARNING: No UI openable OR User has exited the application
+>>>Sun 2019/11/24 03:13:136: INFO: MainFrame Init started
+>>>Sun 2019/11/24 03:13:138: INFO: Loading config...
+>>>Sun 2019/11/24 03:13:139: INFO: Config loaded
+>>>Sun 2019/11/24 03:13:139: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 03:13:140: INFO: Loading BookingList...
+>>>Sun 2019/11/24 03:13:140: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 03:13:154: INFO: Booking List size: 11
+>>>Sun 2019/11/24 03:13:155: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 03:13:157: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 03:13:158: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 03:13:170: INFO: Room List size: 7
+>>>Sun 2019/11/24 03:13:170: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 03:13:179: INFO: Staff List size: 11
+>>>Sun 2019/11/24 03:13:180: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 03:13:185: INFO: Guest List size: 13
+>>>Sun 2019/11/24 03:13:185: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 03:13:187: INFO: Counter List size: 4
+>>>Sun 2019/11/24 03:13:187: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 03:13:188: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 03:13:470: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 03:14:021: WARNING: Failed Login attempt, phone Number: 55555555 , password: 5555
+>>>Sun 2019/11/24 03:14:022: INFO: Staff Member null has logged in
+>>>Sun 2019/11/24 03:14:023: INFO: Moving to next UI
+>>>Sun 2019/11/24 03:14:024: INFO: Creating StaffUI
+>>>Sun 2019/11/24 03:14:026: INFO: StaffUi created
+>>>Sun 2019/11/24 03:14:454: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 03:15:699: INFO: getting user Type
+>>>Sun 2019/11/24 03:15:836: INFO: User type selected: Cleaner
+>>>Sun 2019/11/24 03:15:764: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 03:15:765: INFO: FM>:Saving CounterList
+>>>Sun 2019/11/24 03:15:766: INFO: Updated Counter List saved
+>>>Sun 2019/11/24 03:15:767: INFO: Creating new Staff member, ID: 13651
+>>>Sun 2019/11/24 03:15:767: INFO: Staff 13651added
+>>>Sun 2019/11/24 03:15:768: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 03:15:770: INFO: New Staff List saved
+>>>Sun 2019/11/24 03:15:770: INFO: New Staff member Added, ID: 13651
+>>>Sun 2019/11/24 03:18:412: INFO: MainFrame Init started
+>>>Sun 2019/11/24 03:18:414: INFO: Loading config...
+>>>Sun 2019/11/24 03:18:415: INFO: Config loaded
+>>>Sun 2019/11/24 03:18:416: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 03:18:416: INFO: Loading BookingList...
+>>>Sun 2019/11/24 03:18:417: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 03:18:431: INFO: Booking List size: 11
+>>>Sun 2019/11/24 03:18:431: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 03:18:433: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 03:18:434: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 03:18:447: INFO: Room List size: 7
+>>>Sun 2019/11/24 03:18:448: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 03:18:459: INFO: Staff List size: 12
+>>>Sun 2019/11/24 03:18:460: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 03:18:464: INFO: Guest List size: 13
+>>>Sun 2019/11/24 03:18:465: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 03:18:467: INFO: Counter List size: 4
+>>>Sun 2019/11/24 03:18:467: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 03:18:468: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 03:18:747: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 03:18:196: WARNING: Failed Login attempt, phone Number: 99999999 , password: 9999
+>>>Sun 2019/11/24 03:18:197: INFO: Staff Member 13651 has logged in
+>>>Sun 2019/11/24 03:18:198: INFO: Moving to next UI
+>>>Sun 2019/11/24 03:18:198: INFO: Creating StaffUI
+>>>Sun 2019/11/24 03:18:200: INFO: StaffUi created
+>>>Sun 2019/11/24 03:18:693: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 03:19:785: INFO: getting user Type
+>>>Sun 2019/11/24 03:19:625: INFO: User type selected: Cleaner
+>>>Sun 2019/11/24 03:19:314: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 03:19:314: INFO: FM>:Saving CounterList
+>>>Sun 2019/11/24 03:19:318: INFO: Updated Counter List saved
+>>>Sun 2019/11/24 03:19:319: INFO: Creating new Staff member, ID: 13652
+>>>Sun 2019/11/24 03:19:319: INFO: Staff 13652added
+>>>Sun 2019/11/24 03:19:320: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 03:19:322: INFO: New Staff List saved
+>>>Sun 2019/11/24 03:19:322: INFO: New Staff member Added, ID: 13652
+>>>Sun 2019/11/24 03:22:684: INFO: MainFrame Init started
+>>>Sun 2019/11/24 03:22:685: INFO: Loading config...
+>>>Sun 2019/11/24 03:22:686: INFO: Config loaded
+>>>Sun 2019/11/24 03:22:687: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 03:22:687: INFO: Loading BookingList...
+>>>Sun 2019/11/24 03:22:688: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 03:22:702: INFO: Booking List size: 11
+>>>Sun 2019/11/24 03:22:703: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 03:22:705: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 03:22:705: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 03:22:722: INFO: Room List size: 7
+>>>Sun 2019/11/24 03:22:723: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 03:22:732: INFO: Staff List size: 13
+>>>Sun 2019/11/24 03:22:733: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 03:22:737: INFO: Guest List size: 13
+>>>Sun 2019/11/24 03:22:737: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 03:22:739: INFO: Counter List size: 4
+>>>Sun 2019/11/24 03:22:739: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 03:22:740: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 03:22:005: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 03:22:300: WARNING: Failed Login attempt, phone Number: 00000000 , password: 0000
+>>>Sun 2019/11/24 03:22:301: INFO: Staff Member 13652 has logged in
+>>>Sun 2019/11/24 03:22:302: INFO: Moving to next UI
+>>>Sun 2019/11/24 03:22:302: INFO: Creating StaffUI
+>>>Sun 2019/11/24 03:22:304: INFO: StaffUi created
+>>>Sun 2019/11/24 03:22:069: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 03:23:799: INFO: getting user Type
+>>>Sun 2019/11/24 03:23:360: INFO: User type selected: Cleaner
+>>>Sun 2019/11/24 03:23:920: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 03:23:921: INFO: Generated new Staff ID: 53
+>>>Sun 2019/11/24 03:23:921: INFO: FM>:Saving CounterList
+>>>Sun 2019/11/24 03:23:922: INFO: Updated Counter List saved
+>>>Sun 2019/11/24 03:23:923: INFO: Creating new Staff member, ID: S553
+>>>Sun 2019/11/24 03:23:923: INFO: Staff S553added
+>>>Sun 2019/11/24 03:23:924: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 03:23:926: INFO: New Staff List saved
+>>>Sun 2019/11/24 03:23:927: INFO: New Staff member Added, ID: S553
+>>>Sun 2019/11/24 03:28:993: INFO: MainFrame Init started
+>>>Sun 2019/11/24 03:28:994: INFO: Loading config...
+>>>Sun 2019/11/24 03:28:995: INFO: Config loaded
+>>>Sun 2019/11/24 03:28:995: INFO: Loading Array Lists...
+>>>Sun 2019/11/24 03:28:996: INFO: Loading BookingList...
+>>>Sun 2019/11/24 03:28:997: INFO: FM>:Loading BookingList
+>>>Sun 2019/11/24 03:28:011: INFO: Booking List size: 11
+>>>Sun 2019/11/24 03:28:012: INFO: FM>:Loading Archived Bookings
+>>>Sun 2019/11/24 03:28:014: INFO: Archived Booking List size: 4
+>>>Sun 2019/11/24 03:28:014: INFO: FM>:Loading RoomList
+>>>Sun 2019/11/24 03:28:025: INFO: Room List size: 7
+>>>Sun 2019/11/24 03:28:026: INFO: FM>:Loading StaffList
+>>>Sun 2019/11/24 03:28:035: INFO: Staff List size: 14
+>>>Sun 2019/11/24 03:28:036: INFO: FM>:Loading GuestList
+>>>Sun 2019/11/24 03:28:039: INFO: Guest List size: 13
+>>>Sun 2019/11/24 03:28:040: INFO: FM>:Loading CounterList
+>>>Sun 2019/11/24 03:28:041: INFO: Counter List size: 4
+>>>Sun 2019/11/24 03:28:042: INFO: ArrayList setup complete
+>>>Sun 2019/11/24 03:28:043: INFO: MainFrame init has completed successfully
+>>>Sun 2019/11/24 03:28:308: INFO: Playing musik/depression.wav
+>>>Sun 2019/11/24 03:28:551: WARNING: Failed Login attempt, phone Number: 88888888 , password: 8888
+>>>Sun 2019/11/24 03:28:552: INFO: Staff Member 1360 has logged in
+>>>Sun 2019/11/24 03:28:553: INFO: Moving to next UI
+>>>Sun 2019/11/24 03:28:553: INFO: Creating StaffUI
+>>>Sun 2019/11/24 03:28:556: INFO: StaffUi created
+>>>Sun 2019/11/24 03:28:208: INFO: Creating new Staff member...
+>>>Sun 2019/11/24 03:28:522: INFO: getting user Type
+>>>Sun 2019/11/24 03:28:754: INFO: User type selected: Guest
+>>>Sun 2019/11/24 03:28:971: INFO: Generating new Staff ID via mf...
+>>>Sun 2019/11/24 03:28:972: INFO: Generated new Staff ID: 54
+>>>Sun 2019/11/24 03:28:972: INFO: FM>:Saving CounterList
+>>>Sun 2019/11/24 03:28:973: INFO: Updated Counter List saved
+>>>Sun 2019/11/24 03:28:974: INFO: Creating new Staff member, ID: S054
+>>>Sun 2019/11/24 03:28:974: INFO: Staff S054added
+>>>Sun 2019/11/24 03:28:975: INFO: FM>:Saving StaffList
+>>>Sun 2019/11/24 03:28:977: INFO: New Staff List saved
+>>>Sun 2019/11/24 03:28:978: INFO: New Staff member Added, ID: S054

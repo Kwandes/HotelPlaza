@@ -60,6 +60,7 @@ public class StaffUI extends CLI
       this.mf = mfRef;
    }
    
+   ////////// Display Stuff //////////
    public void display()
    {  this.userAccessLevel = 5; // hardcoded because types are a clusterfuck and it sucks
       switch(this.userAccessLevel)
@@ -329,6 +330,7 @@ public class StaffUI extends CLI
       screenNumber = intCheck();
    }
    
+   ////////// Actual Menus //////////
    
    public void manageGuests()
    {
@@ -1044,8 +1046,45 @@ public class StaffUI extends CLI
   
    public void createStaff()
    {
+      mf.createLog("Creating new Staff member...", Log.Type.INFO);
       this.screenNumber = 2;
       creationTemplate("Staff");
+      boolean correctChoice = false;
+      int choice;
+      String type= "Cleaner"; // Init just in case
+      int selectedAccessLevel = 0;
+      
+      mf.createLog("getting user Type", Log.Type.INFO);
+      try
+      {
+         do
+         {
+            print2("What position will " + firstName + " be working in?");
+            for ( int i = 0; i < user.getTYPE().length ; i++)
+            {
+               System.out.println("> " + (i+1) + " " + user.getTYPE()[i]);
+            }
+            choice = intCheck();
+            if(choice > user.getTYPE().length)
+            {
+               System.out.println("Invalid choice, try again");
+            }
+            else
+            {
+               correctChoice = true;
+               type = user.getTYPE()[choice-1];
+               selectedAccessLevel = choice-1;
+               mf.createLog("User type selected: " + type, Log.Type.INFO);
+            }
+         } while (!correctChoice);
+      }
+      catch (Exception e)
+      {
+         mf.createLog("Getting user type went awfuly wrong", Log.Type.WARNING);
+         mf.createLog(e, Log.Type.ERROR);
+         type = "Cleaner";
+      }
+      
       print2("How many hours will " + firstName + " be working weekly?");
       hours = intCheck();
       
@@ -1055,10 +1094,16 @@ public class StaffUI extends CLI
       print2("How many vacation days will " + firstName + " have yearly?");
       vacation = intCheck();
       
-      int staffID = mf.generateStaffID();
-      Staff created = new Staff( firstName, lastName, cpr, "ST", address, phoneNumber, password, staffID, hours, salary, vacation);
+      mf.createLog("Generating new Staff ID via mf...", Log.Type.INFO);
+      String staffID = "S";
+      staffID += selectedAccessLevel;
+      staffID += Integer.toString(mf.generateStaffID()); // no position is figured out...
+      
+      mf.createLog("Creating new Staff member, ID: " + staffID, Log.Type.INFO);
+      Staff created = new Staff( firstName, lastName, cpr, type, address, phoneNumber, password, staffID, hours, salary, vacation);
       //created.setAddress(address);
       mf.addStaff(created);
+      mf.createLog("New Staff member Added, ID: " + staffID, Log.Type.INFO);
    }
 
    public void createGuest() 

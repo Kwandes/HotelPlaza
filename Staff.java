@@ -10,7 +10,7 @@ public class Staff extends User implements UserManagement
    public Staff () {} 
       
    public Staff (String firstName, String lastName, String cpr, String type, 
-                 String[] address, String phoneNr, String password, int IDCounter, 
+                 String[] address, String phoneNr, String password, String ID, 
                  int hours, double salary, int vacation) 
    {
       this.firstName = firstName;
@@ -24,11 +24,12 @@ public class Staff extends User implements UserManagement
       this.salary = salary;
       this.vacation = vacation; 
       this.accessLevel = calculateAccessLevel();
+      this.ID = ID;
    }
    
    // Explicit Access Level for that sweet security Override and potential backdoor
    public Staff (String firstName, String lastName, String cpr, String type, 
-                 String[] address, String phoneNr, String password, int IDCounter, 
+                 String[] address, String phoneNr, String password, String ID, 
                  int hours, double salary, int vacation, int accessLevel) 
    {
       this.firstName = firstName;
@@ -42,6 +43,7 @@ public class Staff extends User implements UserManagement
       this.salary = salary;
       this.vacation = vacation; 
       this.accessLevel = accessLevel;
+      this.ID = ID;
    }
       //Methods
       
@@ -72,7 +74,7 @@ public class Staff extends User implements UserManagement
    {
       return firstName + " | " + lastName + " | " + cpr + " | " + type + " | " + address[0] + " | " +
              address[1] + " | " + address[2] + " | " + phoneNumber + " | " + password + " | " + ID + " | " + 
-             accessLevel + " | " + hours + " | " + salary + " | " + vacation; 
+             (accessLevel+1) + " | " + hours + " | " + salary + " | " + vacation; 
    } 
    
       //Setters
