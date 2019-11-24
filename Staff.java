@@ -74,7 +74,7 @@ public class Staff extends User implements UserManagement
    {
       return firstName + " | " + lastName + " | " + cpr + " | " + type + " | " + address[0] + " | " +
              address[1] + " | " + address[2] + " | " + phoneNumber + " | " + password + " | " + ID + " | " + 
-             (accessLevel+1) + " | " + hours + " | " + salary + " | " + vacation; 
+             accessLevel + " | " + hours + " | " + salary + " | " + vacation; 
    } 
    
       //Setters

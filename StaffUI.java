@@ -62,22 +62,23 @@ public class StaffUI extends CLI
    
    ////////// Display Stuff //////////
    public void display()
-   {  this.userAccessLevel = 5; // hardcoded because types are a clusterfuck and it sucks
+   {
+      mf.createLog("Logged in user access level: " + this.userAccessLevel, Log.Type.INFO);
       switch(this.userAccessLevel)
       {
-         case 1:
+         case 1:  // Cleaner
             switchLevelOne();
             break;
-         case 2:
+         case 2:  // Recepionist
             switchLevelTwo();
             break;
-         case 3:
+         case 3:  // Accountant
             switchLevelThree();
             break;
-         case 4:
+         case 4:  // Admin
             switchLevelFour();
             break;
-         case 5:
+         case 5:  // CEO
             switchLevelFive();
             break;
          default:
@@ -199,7 +200,7 @@ public class StaffUI extends CLI
                exit();
                break;
             case 10:
-               mainMenuLevelOne();
+               mainMenuLevelThree();
                break;
             default:
                print("invalid input, please try again.");
