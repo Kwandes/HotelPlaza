@@ -468,7 +468,7 @@ public class LoginUI extends CLI
    
    public void exit()
    {
-      System.out.println ( "u gay lmao" );
+      
       this.running = false;
       //System.exit(0);
    }
