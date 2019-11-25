@@ -1,14 +1,5 @@
- Bobert Rob |  Strongest Of Them All | 123456-1234 | type:dir |  Pertersville 12 |  Petoria |  12345 | 01233210 | pass_the_word | null | 5 | 10 | 23000.0 | 6
- Robert Bob |  Strongest Pollo | 123456-1234 | type:rec |  Pertersville 12 |  Petoria |  12345 | 01233210 | pass_the_word | null | 5 | 10 | 23000.0 | 6
- Bobert Rob |  Strong Of Them All | 123456-1234 | type:dir |  Pertersville 12 |  Petoria |  12345 | 01233210 | pass_the_word | null | 5 | 11 | 23000.0 | 6
- Robert Bob |  Strong Pollo | 123456-1234 | type:rec |  Pertersville 12 |  Petoria |  12345 | 01233210 | pass_the_word | null | 5 | 12 | 23000.0 | 6
- Robert Bob ze Cleaner |  Strong Pollo | 123456-1234 | Cleaner |  Pertersville 12 |  Petoria |  12345 | 11111111 | 1111 | S151 | 1 | 13 | 23000.0 | 6
- Robert Bob ze Recepionist| Strong Pollo |  123456-1234 | Receptionist | street |  Pertersville 12 |  Petoria |  12345 | 22222222 | 2222 | S252 | 2 | 14 | 23000.0 | 6
- Robert Bob ze Nerd| Strong Pollo |  123456-1234 | Accountant | street |  Pertersville 12 |  Petoria |  12345 | 33333333 | 3333 | S353 | 3 | 15 | 23000.0 | 6
- Robert Bob von AdminAbooze| Strong Pollo |  123456-1234 | Director | street |  Pertersville 12 |  Petoria |  12345 | 44444444 | 4444 | S454 | 4 | 16 | 23000.0 | 6
- Robert Bob van CandyCeo| Strong Pollo |  123456-1234 | Director | street |  Pertersville 12 |  Petoria |  12345 | 55555555 | 5555 | S545 | 5 | 17 | 23000.0 | 6
- Jeb |  Ediah | 666666-6666 | Director |  Pertersville 12 |  Petoria |  12345 | 66666666 | 6666 | S550 | 5 | 5 | 666.0 | 6
- Cris |  Retard | 999999-9999 | Cleaner |  Pertersville 12 |  Petoria |  12345 | 99999999 | 9999 | S151 | 5 | 1 | 0.0 | 0
- You |  Better | 121212-1212 | Receptionist |  Pertersville 12 |  Petoria |  12345 | 12121212 | 1212 | S255 | 2 | 12 | 12.0 | 12
- Peter |  Anderson | 123456-9876 | Receptionist |  Pertersville 12 |  Petoria |  12345 | 52525252 | 1234 | S256 | 1 | 140 | 100.0 | 0
-Aleks | Raviolli | 101010-0101 | Director | Swirlly Noodle 8 | Rome | 098765 | 01010101 | 0101 | S557 | 5 | 8 | 8.0 | 8
+ Robert Bob ze Cleaner |  Strong Pollo | 111111-1111 | Cleaner |  Pertersville 12 |  Petoria |  12345 | 11111111 | 1111 | S151 | 1 | 13 | 23000.0 | 6
+ Robert Bob ze Recepionist| Strong Pollo |  222222-2222 | Receptionist | street |  Pertersville 12 |  Petoria |  12345 | 22222222 | 2222 | S252 | 2 | 14 | 23000.0 | 6
+ Robert Bob ze Nerd| Strong Pollo |  33333333-3333 | Accountant | street |  Pertersville 12 |  Petoria |  12345 | 33333333 | 3333 | S353 | 3 | 15 | 23000.0 | 6
+ Robert Bob von AdminAbooze| Strong Pollo |  444444-4444 | Administrator | street |  Pertersville 12 |  Petoria |  12345 | 44444444 | 4444 | S454 | 4 | 16 | 23000.0 | 6
+ Robert Bob van CandyCeo| Strong Pollo |  1555555-5555 | Director | street |  Pertersville 12 |  Petoria |  12345 | 55555555 | 5555 | S545 | 5 | 17 | 23000.0 | 6

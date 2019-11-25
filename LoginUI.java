@@ -16,6 +16,9 @@ public class LoginUI extends CLI
    private Staff staff;
    private MainFrame mf;
    
+   private boolean playSuccessSounds = true;
+   private boolean playDenySounds = true;
+   
    public LoginUI(String title, MainFrame mfRef)
    {
       this.title = title;
@@ -116,10 +119,10 @@ public class LoginUI extends CLI
          else
          {
             System.out.println("Incorrect phone number or password combination, please try again");
-            mf.playDeniedSound();
+            if(this.playDenySounds) mf.playDeniedSound();
          }
       } while (!loginSuccessful);
-      mf.playSuccessSound();      
+      if(this.playSuccessSounds) mf.playSuccessSound();      
       this.screenNumber = 99; // Exit loginUI
    }
    
@@ -193,7 +196,7 @@ public class LoginUI extends CLI
       password = pass1;
       
       this.guest = new Guest (firstName, lastName, cpr, address, phoneNr, password, mf.generateGuestID());   // Double check the contructors, right now IDCounter is passed for a guestDays parameter in Guest
-      mf.playSuccessSound();
+      if(this.playSuccessSounds) mf.playSuccessSound();
    }
    
    public  String check (String question, int min, int max)

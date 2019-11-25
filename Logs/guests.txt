@@ -1,12 +1,4 @@
- Bob Hell |  Strong Boi | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 88888888 | word_of_passage | G05 | 0 | 0 | 0.0
- Rob Heaven |  Strong Dog Man | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 01233210 | word_of_passage | G06 | 0 | 0 | 0.0
- Bob Hell |  Strongest Boi | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 01233210 | word_of_passage | G05 | 0 | 0 | 0.0
- Rob Heaven |  Strongest Dog Man | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 01233210 | word_of_passage | G06 | 0 | 0 | 0.0
- Peter |  Anderson | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345666 | 1234 | G02 | 0 | 0 | 0.0
- Penis Buttler |  Fuckerson | 666666-6666 | null | Hell On Earth | Domain Of Satan | 66666 | 12341234 | 1234 | G03 | 0 | 0 | 0.0
- Fuck |  Fuck | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345678 | 1234 | G04 | 0 | 0 | 0.0
- Fuckfuck |  Fuckfuck | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345678 | 1234 | G05 | 0 | 0 | 0.0
- Fuckfuckfuck |  Fuckfuckfuck | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345678 | 1234 | G06 | 0 | 0 | 0.0
- Fuckfuckfuckfuck |  Fuckfuckfuckfuck | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345678 | 1234 | G07 | 0 | 0 | 0.0
- Fuckfuckfuckfuckfuck |  Fuckfuckfuckfuckfuck | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345678 | 1234 | G08 | 0 | 0 | 0.0
- Fuckfuckfuckfuckfuckfuck |  Fuckfuckfuckfuckfuckfuck | 123456-1234 | null |  Fuckfuckfuckfuckfuckfuck 5 |  Fuckfuckfuckfuckfuckfuck |  12345 | 12345678 | 1234 | G09 | 0 | 0 | 0.0
+Dave | The Brave | 011111-0111 | GU | StreetGade 01 | Polis | 0111 | 01111111 | 0111 | G051 | 0 | 0 | 0.0
+Mave | The Maid | 022222-0222 | GU | StreetGade 02 | Polis | 0222 | 02222222 | 0222 | G052 | 0 | 0 | 0.0
+Fave | The Fae | 033333-0333 | GU | StreetGade 03 | Polis | 0333 | 03333333 | 0333 | G053 | 0 | 0 | 0.0
+Rave | The Grave | 044444-0444 | GU | StreetGade 04 | Polis | 0444 | 04444444 | 0444 | G054 | 0 | 0 | 0.0

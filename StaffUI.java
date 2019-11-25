@@ -36,8 +36,8 @@ public class StaffUI extends CLI
    private MainFrame mf;
    private Staff user;
    
-   private boolean playSuccessSounds = true;
-   private boolean playDenySounds = true;
+   private boolean playSuccessSounds = false;
+   private boolean playDenySounds = false;
 
    public StaffUI(Staff user, String title, MainFrame mfRef)
    {
