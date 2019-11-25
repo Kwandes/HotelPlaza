@@ -212,23 +212,30 @@ public class FileManagement
       ArrayList<Guest> array = new ArrayList<Guest>();
       Scanner in = new Scanner ( file );
       String[] address = new String[3];
-      
+            
       while ( in.hasNext () ) 
-      {
+      { 
          guest = new Guest();
-         guest.setFirstName (in.next());
-         guest.setLastName (in.next());
+         guest.setFirstName (loadWords(in));
+         guest.setLastName (loadWords(in));
          guest.setCpr (in.next());
+         in.next();
          guest.setType (in.next());
-         address[0] = in.next();
-         address[1] = in.next();
-         address[2] = in.next();
+         in.next();
+         address[0] = loadWords(in);
+         address[1] = loadWords(in);
+         address[2] = loadWords(in);
          guest.setAddress ( address );
          guest.setPhoneNr ( in.next());
+         in.next();
          guest.setPassword ( in.next());
+         in.next();
          guest.setID ( in.next());
+         in.next();
          guest.setAccessLevel ( in.nextInt());
+         in.next();
          guest.setGuestDays ( in.nextInt());
+         in.next();
          guest.setMoneySpent ( in.nextDouble());
          array.add ( guest );
       }
@@ -248,20 +255,28 @@ public class FileManagement
       while ( in.hasNext () ) 
       {
          staff = new Staff();
-         staff.setFirstName (in.next());
-         staff.setLastName (in.next());
+         staff.setFirstName (loadWords(in));
+         staff.setLastName (loadWords(in));
          staff.setCpr (in.next());
+         in.next();
          staff.setType (in.next());
-         address[0] = in.next();
-         address[1] = in.next();
-         address[2] = in.next();
+         in.next();
+         address[0] = loadWords(in);
+         address[1] = loadWords(in);
+         address[2] = loadWords(in);
          staff.setAddress ( address );
          staff.setPhoneNr ( in.next());
+         in.next();
          staff.setPassword ( in.next());
+         in.next();
          staff.setID ( in.next());
+         in.next();
          staff.setAccessLevel ( in.nextInt());
+         in.next();
          staff.setHours ( in.nextInt());
+         in.next();
          staff.setSalary ( in.nextDouble());
+         in.next();
          staff.setVacation ( in.nextInt());
          array.add ( staff );
       }
@@ -315,10 +330,24 @@ public class FileManagement
          array.add ( in.nextInt() );
          array.add ( in.nextInt() );
          array.add ( in.nextInt() );
+         array.add ( in.nextInt() );
       }            
       return array;
    }
-
+   
+   public String loadWords ( Scanner in )
+   {
+      String text = "";
+      String word = "";
+      
+      word = in.next();
+      while ( !word.equals("|") )
+      {
+         text += " " + word;
+         word = in.next();
+      } 
+      return text;
+   }
      
       // Savers
       

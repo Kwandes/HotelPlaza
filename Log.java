@@ -28,6 +28,16 @@ public class Log
       PrintWriter pw = new PrintWriter(sw);
       e.printStackTrace(pw);
       this.logMessage = logType + ": " +  sw.toString();
+      
+      Musik errorSound = new Musik();
+      try
+      {
+         errorSound.playErrorSound();
+      }
+      catch (Exception soundException)
+      {
+         this.logMessage += "\n - Failed to play an error sound: " + soundException;
+      }
    }
    
    public Log(String message, Type logType)

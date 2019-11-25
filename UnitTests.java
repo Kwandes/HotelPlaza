@@ -45,7 +45,7 @@ public class UnitTests
       if(printDebugInfo) log("Debugging messages ON");
       else log("Debugging messages OFF");
       log("----------");
-
+   
       as = new Assert();
       testCount = 0;
       testsPassedCount = 0;
@@ -387,7 +387,7 @@ public class UnitTests
       arr[0] = "Yeet";
       arr[1] = "Yote";
       arr[2] = "yoten";
-      list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", 0, 0, 0.0, 0));
+      list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", "S50", 0, 0.0, 0));
       // Act
       file.saveData(new Information(null, null, null, null, list, null));
       info = file.loadData(new Information(false, false, false, false, true, false));
@@ -483,7 +483,7 @@ public class UnitTests
       arr[0] = "Yeet";
       arr[1] = "Yote";
       arr[2] = "yoten";
-      list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", 0, 0, 0.0, 0));
+      list.add(new Staff ("Faisal", "Stud", "Boolyan", "1234561234", arr, "12345678", "passwd", "S51", 0, 0.0, 0));
       // Act
       mf.setStaffList(list);
       // Assert
@@ -575,7 +575,7 @@ public class UnitTests
       // Act
       Guest guest = mf.validateLoginGuest(phoneNumber, password);
       //Assert
-       as.assertEquals(guest.getPhoneNumber(), phoneNumber);
+      as.assertEquals(guest.getPhoneNumber(), phoneNumber);
    }
    
    public void validateLoginStaffTest() throws TestException, NullPointerException
@@ -589,7 +589,7 @@ public class UnitTests
       arr[2] = "yoten";
       String phoneNumber = "+69 420";
       String password = "yeet";
-      list.add(new Staff("Faisal", "Strong", "123456-1234", "ST", arr, phoneNumber, password, 0, 37, 140.0, 5));
+      list.add(new Staff("Faisal", "Strong", "123456-1234", "ST", arr, phoneNumber, password, "S52", 37, 140.0, 5));
       mf.setStaffList(list);
       // Act
       Staff staff = mf.validateLoginStaff(phoneNumber, password);

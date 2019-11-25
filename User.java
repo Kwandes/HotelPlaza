@@ -11,7 +11,7 @@ public class User
    protected String password;
    protected String ID;           // Type + 2 last digits from PhoneNr + initals ( first letter of each name) <-- this has to be wrong.
    protected int accessLevel;       // 0 - 6
-   protected final String[] TYPE = { "Guest", "Cleaner", "Receptionist", "Accountant", "Director" };
+   protected final String[] TYPE = { "Guest", "Cleaner", "Receptionist", "Accountant", "Administrator", "Director" };
    
       //Constructor 
    
@@ -37,6 +37,11 @@ public class User
    public String getType (String type) 
    {
       return TYPE[typeNr(type)];
+   }
+   
+   public String[] getTYPE () 
+   {
+      return TYPE;
    }
 
       //Methods WithinClass

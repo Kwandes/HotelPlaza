@@ -3,7 +3,7 @@
 public class Main
 {
    private final static boolean RUN_UNIT_TESTS = false;
-   private final static boolean PRINT_DETAILS = false;
+   private final static boolean PRINT_DETAILS = true;
    
    public static void main(String [] args)
    {
@@ -16,11 +16,11 @@ public class Main
       {
          MainFrame hotel = new MainFrame(true, PRINT_DETAILS, PRINT_DETAILS);
          hotel.init();
-         //if(hotel.getInitStatus())
-         //{
+         if(hotel.getInitStatus())
+         {
             hotel.playMusic();
-            hotel.openCLI();
-         //}
+            hotel.openCLI(); 
+         }
       }
    }
 }

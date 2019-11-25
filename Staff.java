@@ -1,3 +1,4 @@
+import java.util.*;
 public class Staff extends User implements UserManagement
 {
    private int hours;           //pr week
@@ -9,7 +10,7 @@ public class Staff extends User implements UserManagement
    public Staff () {} 
       
    public Staff (String firstName, String lastName, String cpr, String type, 
-                 String[] address, String phoneNr, String password, int IDCounter, 
+                 String[] address, String phoneNr, String password, String ID, 
                  int hours, double salary, int vacation) 
    {
       this.firstName = firstName;
@@ -23,34 +24,38 @@ public class Staff extends User implements UserManagement
       this.salary = salary;
       this.vacation = vacation; 
       this.accessLevel = calculateAccessLevel();
+      this.ID = ID;
    }
    
-//    // Explicit access level, for that sweet security override and backdoor
-//    public Staff (String firstName, String lastName, String cpr, String type, 
-//                  String[] address, String phoneNr, String password, int hours, 
-//                  double salary, int vacation, int accessLevel) 
-//    {
-//       this.firstName = firstName;
-//       this.lastName = lastName;
-//       this.cpr = cpr;
-//       this.type = type;
-//       this.address = address;
-//       this.phoneNumber = phoneNr;
-//       this.password = password;
-//       this.hours = hours;
-//       this.salary = salary;
-//       this.vacation = vacation;
-//       this.accessLevel = accessLevel;
-//    }
-   
+   // Explicit Access Level for that sweet security Override and potential backdoor
+   public Staff (String firstName, String lastName, String cpr, String type, 
+                 String[] address, String phoneNr, String password, String ID, 
+                 int hours, double salary, int vacation, int accessLevel) 
+   {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.cpr = cpr;
+      this.type = type;
+      this.address = address;
+      this.phoneNumber = phoneNr;
+      this.password = password;
+      this.hours = hours;
+      this.salary = salary;
+      this.vacation = vacation; 
+      this.accessLevel = accessLevel;
+      this.ID = ID;
+   }
       //Methods
       
    public String staffRepportToString () 
    {
-      return "\tHours a week          : " + hours + 
-             "\n\tSalary pr hour      : " + salary +
-             "\n\tVacation days pr/y  : " + vacation + 
-             "\n\tMonthly salary      : " + getSalaryMonth();
+      return    "\tFull name           : " + firstName + " " + lastName +
+                "\n\tCpr number          : " + cpr +
+                "\n\tAddress             : " + address[0] + ", " + address[1] + ", " + address[2] +   
+                "\n\tHours a week        : " + hours + 
+                "\n\tSalary pr hour      : " + salary +
+                "\n\tVacation days pr/y  : " + vacation + 
+                "\n\tMonthly salary      : " + getSalaryMonth();
    }
    
    //@Override
@@ -67,9 +72,9 @@ public class Staff extends User implements UserManagement
    
    public String fileFormatString ()
    {
-      return firstName + " " + lastName + " " + cpr + " " + type + " " + address[0] + " " +
-             address[1] + " " + address[2] + " " + phoneNumber + " " + password + " " + ID + " " + 
-             accessLevel + " " + hours + " " + salary + " " + vacation; 
+      return firstName + " | " + lastName + " | " + cpr + " | " + type + " | " + address[0] + " | " +
+             address[1] + " | " + address[2] + " | " + phoneNumber + " | " + password + " | " + ID + " | " + 
+             accessLevel + " | " + hours + " | " + salary + " | " + vacation; 
    } 
    
       //Setters
@@ -77,7 +82,8 @@ public class Staff extends User implements UserManagement
    {
       for(int i = 0; i < TYPE.length; i++)
       {
-         if( TYPE[i].equals(this.type)) return i;
+         if( TYPE[i].equals(this.type)) 
+            return i;
       }
       return 0;
    }
@@ -107,7 +113,17 @@ public class Staff extends User implements UserManagement
       this.ID = ID;
    }
    
+   public void setPhoneNumber (String phoneNumber)
+   {
+      this.phoneNumber = phoneNumber;
+   }
+   
       //Getters
+      
+   public String getPhoneNumber()
+   {
+      return phoneNumber;
+   }
    
    public int getHours () 
    {

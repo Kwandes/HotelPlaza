@@ -8,12 +8,12 @@ public class Guest extends User
    public Guest () {}
      
    public Guest (String firstName, String lastName, String cpr, 
-                 String[] adress, String phoneNr, String password, int IDCounter)
+                 String[] address, String phoneNr, String password, int IDCounter)
    {
       this.firstName = firstName;
       this.lastName = lastName;
       this.cpr = cpr;
-      this.type = type;
+      this.type = "GU";
       this.address = address;
       this.phoneNumber = phoneNr;
       this.password = password;
@@ -27,8 +27,12 @@ public class Guest extends User
    
    public String guestRepportToString ()
    {
-      return "Total days at hotel         : " + guestDays +
-             "\nTotal amount of money spent : " + moneySpent;
+      return "\tFull name                   : " + firstName + ", " + lastName +
+             "\n\tCpr number                  : " + cpr +
+             "\n\tAddress                     : " + address[0] + ", " + address[1] + ", " + address[2] +
+             "\n\tPhone number                : " + phoneNumber +
+             "\n\tTotal days at hotel         : " + guestDays +
+             "\n\tTotal amount of money spent : " + moneySpent;
    }
    
    //@Override
@@ -46,9 +50,9 @@ public class Guest extends User
    //@Override
    public String fileFormatString ()
    {
-      return firstName + " " + lastName + " " + cpr + " " + type + " " + address[0] + " " +
-             address[1] + " " + address[2] + " " + phoneNumber + " " + password + " " + ID + " " + accessLevel
-             + " " + guestDays + " " + moneySpent;
+      return firstName + " | " + lastName + " | " + cpr + " | " + type + " | " + address[0] + " | " +
+             address[1] + " | " + address[2] + " | " + phoneNumber + " | " + password + " | " + ID + " | " + accessLevel
+             + " | " + guestDays + " | " + moneySpent;
    }
    
       //AddToMethods
@@ -78,6 +82,11 @@ public class Guest extends User
    public void setID (String ID)
    {
       this.ID = ID;
+   }
+   
+   public void setPhoneNumber (String phoneNumber)
+   {
+      this.phoneNumber = phoneNumber;
    }
    
       //Getters
